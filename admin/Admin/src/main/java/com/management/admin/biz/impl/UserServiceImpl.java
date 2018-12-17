@@ -8,17 +8,18 @@
 package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IUserService;
+import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.NASignIn;
 import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.exception.InfoException;
-import com.management.admin.exception.MsgException;
+import com.management.admin.repository.AdminUserMapper;
 import com.management.admin.repository.UserMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.*;
 import com.management.admin.utils.http.NeteaseImUtil;
-import com.management.admin.utils.web.CookieUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,15 @@ import java.util.*;
 public class UserServiceImpl implements IUserService {
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserMapper userMapper;
+    private final AdminUserMapper adminUserMapper;
 
     @Autowired
     private RedisTemplate redisTemplate;
 
     @Autowired
-    public UserServiceImpl(UserMapper userMapper) {
+    public UserServiceImpl(UserMapper userMapper, AdminUserMapper adminUserMapper) {
         this.userMapper = userMapper;
+        this.adminUserMapper = adminUserMapper;
     }
 
     /**
@@ -69,6 +72,8 @@ public class UserServiceImpl implements IUserService {
         user.setNickName(PhoneUtil.getEncrypt(phone));
         user.setAddDate(new Date());
         user.setIp(ip);
+        user.setType(0);
+
         // 完善平台用户数据
         boolean result = userMapper.insert(user) > 0;
         if(!result) throw new InfoException("注册失败");
@@ -261,8 +266,8 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
     @Override
-    public User staffLoginByUname(String username) {
-        return userMapper.selectByUsername(username);
+    public AdminUser staffLoginByUname(String username) {
+        return adminUserMapper.selectByUsername(username);
     }
 
     /**
@@ -289,7 +294,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public UserInfo staffLogin(String username, String password) {
         String newPassword = MD5Util.md5(MD5Util.md5(username + password));
-        UserInfo userInfo = userMapper.selectStaff(username, newPassword);
+        UserInfo userInfo = adminUserMapper.selectStaff(username, newPassword);
         if(userInfo != null){
             // 更新数据库信息
             if(userMapper.updateLastLoginTime(userInfo.getUserId()) <= 0) logger.error("UserServiceImpl_login()_登录验证_更新最后一次登录时间失败");
@@ -315,24 +320,32 @@ public class UserServiceImpl implements IUserService {
     }
 
 
-
     /**
      * 分页加载 韦德 2018年8月30日11:29:00
-     *
      * @param page
      * @param limit
      * @param condition
+     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
      * @return
      */
     @Override
-    public List<User> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
+    public List<User> getLimit(Integer page, String limit, String condition, UserRoleEnum userRole, Integer state, String beginTime, String endTime) {
         // 计算分页位置
         page = ConditionUtil.extractPageIndex(page, limit);
-        String where = extractLimitWhere(condition, state, beginTime, endTime);
+        String where = extractLimitWhere(condition, userRole,state, beginTime, endTime);
         List<User> list = userMapper.selectLimit(page, limit, state, beginTime, endTime, where);
+        return list;
+    }
+
+    @Override
+    public List<AdminUser> getAdminLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
+        // 计算分页位置
+        page = ConditionUtil.extractPageIndex(page, limit);
+        String where = extractLimitWhere(condition, UserRoleEnum.SuperAdmin, state, beginTime, endTime);
+        List<AdminUser> list = adminUserMapper.selectLimit(page, limit, state, beginTime, endTime, where);
         return list;
     }
 
@@ -348,7 +361,21 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 加载分页记录数 韦德 2018年8月30日11:29:22
-     *
+     * @param condition
+     * @param userRole
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    @Override
+    public Integer getLimitCount(String condition, UserRoleEnum userRole, Integer state, String beginTime, String endTime) {
+        String where = extractLimitWhere(condition, userRole, state, beginTime, endTime);
+        return userMapper.selectLimitCount(state, beginTime, endTime, where);
+    }
+
+    /**
+     * 分页加载管理员信息列表总数 DF 2018年12月17日14:43:053
      * @param condition
      * @param state
      * @param beginTime
@@ -356,9 +383,9 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
     @Override
-    public Integer getLimitCount(String condition, Integer state, String beginTime, String endTime) {
-        String where = extractLimitWhere(condition, state, beginTime, endTime);
-        return userMapper.selectLimitCount(state, beginTime, endTime, where);
+    public Integer getAdminLimitCount(String condition,Integer state, String beginTime, String endTime) {
+        String where = extractLimitWhere(condition, UserRoleEnum.SuperAdmin, state, beginTime, endTime);
+        return adminUserMapper.selectLimitCount(state, beginTime, endTime, where);
     }
 
     /**
@@ -373,10 +400,31 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
+     * 查询管理员用户表记录总数 DF 2018-12-17 14:43:462
+     *
+     * @return
+     */
+    @Override
+    public Integer getAdminCount() {
+        return adminUserMapper.selectCount(new AdminUser());
+    }
+
+    /**
+     * 获取管理员用户信息--用户id DF 2018年12月17日14:45:30
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public AdminUser getAdminUserInfoById(Integer userId) {
+        return adminUserMapper.selectByPrimaryKey(userId);
+    }
+
+    /**
      * 提取分页条件
      * @return
      */
-    private String extractLimitWhere(String condition, Integer isEnable,  String beginTime, String endTime) {
+    private String extractLimitWhere(String condition, UserRoleEnum userRole, Integer isEnable,  String beginTime, String endTime) {
         // 查询模糊条件
         String where = " 1=1";
         if(condition != null) {
@@ -390,6 +438,14 @@ public class UserServiceImpl implements IUserService {
             where += " OR " + ConditionUtil.like("phone", condition, true, "t1");
             where += " OR " + ConditionUtil.like("ip", condition, true, "t1") + ")";
         }
+
+        if(userRole.equals(UserRoleEnum.SuperAdmin)){
+            where +=" AND (" +ConditionUtil.match("type", "1", true, "t1");
+            where +=" OR " +ConditionUtil.match("type", "2", true, "t1") + ")";
+        }else{
+            where +=" AND " +ConditionUtil.match("type", userRole.ordinal() + "", true, "t1");
+        }
+
         // 取两个日期之间或查询指定日期
         where = extractBetweenTime(beginTime, endTime, where);
         return where.trim();

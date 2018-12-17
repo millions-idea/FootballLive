@@ -14,13 +14,13 @@ import java.util.Collection;
 
 public class SecurityUserDetails extends User {
     private String salt;
-    private com.management.admin.entity.db.User detail;
+    private com.management.admin.entity.db.AdminUser detail;
 
-    public com.management.admin.entity.db.User getDetail() {
+    public com.management.admin.entity.db.AdminUser getDetail() {
         return detail;
     }
 
-    public void setDetail(com.management.admin.entity.db.User detail) {
+    public void setDetail(com.management.admin.entity.db.AdminUser detail) {
         this.detail = detail;
     }
 
@@ -32,7 +32,7 @@ public class SecurityUserDetails extends User {
         this.salt = salt;
     }
 
-    public SecurityUserDetails(com.management.admin.entity.db.User detail, String username, String salt, String password,
+    public SecurityUserDetails(com.management.admin.entity.db.AdminUser detail, String username, String salt, String password,
                                Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.detail = detail;

@@ -26,7 +26,7 @@ public class SessionUtil {
      */
     public static SessionModel getSession(HttpServletRequest request){
         // 取出token信息
-        String token = request.getParameter("token");
+        String token = getToken(request);
         if(token.isEmpty()) throw new MsgException("缺少令牌");
 
         // 按照token安全加密规则进行验证, 如果没有通过则抛出异常

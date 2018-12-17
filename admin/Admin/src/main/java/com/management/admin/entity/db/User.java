@@ -67,4 +67,8 @@ public class User {
      * 注册ip
      */
     private String ip;
+    /**
+     * 用户类型（0用户1管理员）
+     */
+    private Integer type;
 }

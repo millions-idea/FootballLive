@@ -19,6 +19,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper extends MyMapper<User> {
+    
 
     /**
      * 更新用户基本档案信息 DF 2018年11月29日01:58:53
@@ -75,25 +76,7 @@ public interface UserMapper extends MyMapper<User> {
     @Select("SELECT user_id, phone,  user_code, nick_name, signature FROM tb_users WHERE phone IN(${accid}) ")
     List<UserInfo> selectByAccid(@Param("accid") String accid);
 
-    /**
-     * 查询信息--用户名 DF 2018年12月16日16:06:24
-     * @param username
-     * @return
-     */
-    @Select("SELECT * FROM tb_users WHERE phone=#{username}")
-    User selectByUsername(@Param("username") String username);
 
-    /**
-     * 查询员工信息 DF 2018年12月16日17:23:54
-     * @param username
-     * @param newPassword
-     * @return
-     */
-    @Select("SELECT t1.*,t3.permission_group_code AS role FROM tb_users t1 "
-                + "LEFT JOIN tb_permission_relations t2 ON t1.user_id = t2.user_id "
-                + "LEFT JOIN tb_permission_groups t3 ON t2.permission_group_id = t3.group_id "
-                + "WHERE t1.phone=#{username} AND t1.password=#{password} ")
-    UserInfo selectStaff(@Param("username") String username,@Param("password") String newPassword);
 
     /**
      * 更新最后一次更新时间 DF 2018年12月16日17:36:45

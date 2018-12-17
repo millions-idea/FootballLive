@@ -1,4 +1,4 @@
-/*!财务模块-会计账簿  2018年8月27日01:05:05*/
+/*!用户管理-用户列表  2018年8月27日01:05:05*/
 var route = "/management/member";
 var service;
 var tableIndex;
@@ -9,6 +9,24 @@ var tableIndex;
     initDataTable(route + "/getMemberLimit", function (form, table, layer, vipTable, tableIns) {
 
     }, function (table, res, curr, count) {
+        //预览图片
+        $(".face").click(function () {
+            var photo = {
+                title: $(this).attr("data-nick"),
+                id: $(this).attr("data-id"),
+                start: 0,
+                data: [{
+                    alt: $(this).attr("data-nick"),
+                    pid: $(this).attr("data-id"),
+                    src: $(this).attr("src"),
+                    thumb: $(this).attr("src")
+                }]
+            };
+            layer.photos({
+                photos: photo
+                ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+            });
+        })
         // 监听工具条
         table.on('tool(my-data-table)', function(obj){
             var data = obj.data; //获得当前行数据
@@ -221,7 +239,8 @@ function getTableColumns() {
         {type: "numbers", fixed: 'left'}
         , {field: 'userId', title: 'ID', width: 80, sort: true}
         , {field: 'phone', title: '头像', width: 150, templet: function(d){
-                return '<img class="face" src="' + d.photo + '"/>';
+                var part = 'data-id="' + d.userId + '" data-nick="' + d.nickName + '"';
+                return '<img ' + part + '  width="27px" class="face" src="' + d.photo + '"/>';
             }}
         , {field: 'nickName', title: '昵称', width: 150}
         , {field: 'phone', title: '手机号', width: 150}

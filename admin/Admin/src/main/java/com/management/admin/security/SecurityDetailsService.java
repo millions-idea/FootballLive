@@ -11,6 +11,7 @@ package com.management.admin.security;
 import com.google.common.base.Joiner;
 import com.management.admin.biz.IPermissionRelationService;
 import com.management.admin.biz.IUserService;
+import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.PermissionRelationDetail;
@@ -50,7 +51,7 @@ public class SecurityDetailsService implements UserDetailsService {
          */
 
         // 通过用户名查询此用户是否为合法用户
-        User detail = userService.staffLoginByUname(username);
+        AdminUser detail = userService.staffLoginByUname(username);
 
         // 查询权限
         List<PermissionRelationDetail> permissionRelationList = permissionRelationService.getListByUserId(detail.getUserId());
