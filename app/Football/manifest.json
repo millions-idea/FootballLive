@@ -1,0 +1,594 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone",
+		"iPad"
+	],
+	"id": "H59CE6336",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "Football",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "1.0",/*应用版本名称*/
+		"code": ""
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": ""
+	},
+	"permissions": {
+		"Messaging": {
+			"description": "短彩邮件插件"
+		},
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		"Contacts": {
+			"description": "访问系统联系人信息"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"Maps": {
+			"description": "管理地图插件"
+		},
+		"Speech": {
+			"description": "管理语音识别插件"
+		},
+		"LivePusher": {},
+		"VideoPlayer": {}
+	},
+	"plus": {
+		"splashscreen": {
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": true
+		},
+		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
+		"runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"hardwareAccelerated": true,//表示开启Webview的硬件加速，false表示关闭Webview的硬件加速
+				"permissions": [
+					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+					"<uses-feature android:name=\"android.hardware.camera\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+					"<uses-permission android:name=\"android.permission.CAMERA\"/>"
+				]
+			},
+			"orientation": [
+				"portrait-primary"
+			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "", /*iPhone3/3GS程序图标，分辨率：57x57*/
+						"retina": "", /*iPhone4程序图标，分辨率：114x114*/
+						"retina7": "", /*iPhone4S/5/6程序图标，分辨率：120x120*/
+						"retina8": "", /*iPhone6 Plus程序图标，分辨率：180x180*/
+						"spotlight-normal": "", /*iPhone3/3GS Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "", /*iPhone4 Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "", /*iPhone4S/5/6 Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "", /*iPhone4设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "", /*iPhone4S/5/6设置页面程序图标，分辨率：58x58*/
+						"settings-retina8": ""
+					},
+					"ipad": {
+						"normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": ""
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
+						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": "",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
+						"retina47": "",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
+						"retina55": "",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
+						"retina55l": ""
+					},
+					"ipad": {
+						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
+						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": ""
+				}
+			}
+		},
+		"allowsInlineMediaPlayback": true
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"my.html",
+					"home.html"
+				],
+				"refer": [
+					null,
+					"informations.html",
+					"lives.html"
+				],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [],
+				"refer": [
+					"findPassword.html",
+					"index.html",
+					"regPact.html",
+					"reg.html",
+					"home.html",
+					"lives.html"
+				],
+				"priority": 0
+			},
+			"my.html": {
+				"resources": [],
+				"refer": [
+					"login.html",
+					"feedback.html",
+					"system-settings.html",
+					"systemSetting.html"
+				],
+				"priority": 0
+			},
+			"reg.html": {
+				"resources": [],
+				"refer": [
+					"regPact.html"
+				],
+				"priority": 0
+			},
+			"lives.html": {
+				"resources": [],
+				"refer": [
+					"liveDetail.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/emoji/emoji/emoji_44.png",
+				"images/emoji/xxy/xxy002.png",
+				"images/emoji/ajmd/ajmd042.png",
+				"images/emoji/emoji/emoji_52.png",
+				"images/emoji/emoji/emoji_124.png",
+				"images/emoji/lt/lt016.png",
+				"images/emoji/emoji/emoji_23.png",
+				"images/emoji/emoji/emoji_30.png",
+				"js/reg.js",
+				"images/emoji/emoji/emoji_143.png",
+				"images/emoji/emoji/emoji_02.png",
+				"images/emoji/emoji/emoji_40.png",
+				"images/emoji/xxy/xxy037.png",
+				"js/mui.previewimage.js",
+				"images/im/default-group.png",
+				"css/chat.css",
+				"images/emoji/emoji/emoji_55.png",
+				"images/emoji/lt/lt012.png",
+				"images/emoji/lt/lt019.png",
+				"images/emoji/xxy/xxy013.png",
+				"images/emoji/emoji/emoji_20.png",
+				"fonts/mui.ttf",
+				"fonts/icon-font/iconfont.woff",
+				"images/emoji/lt/lt014.png",
+				"images/emoji/ajmd/ajmd041.png",
+				"images/emoji/emoji/emoji_148.png",
+				"images/emoji/emoji/emoji_101.png",
+				"fonts/icon-font/iconfont.eot",
+				"images/emoji/emoji/emoji_34.png",
+				"images/emoji/emoji/emoji_22.png",
+				"images/emoji/emoji/emoji_80.png",
+				"images/emoji/emoji/emoji_31.png",
+				"fonts/icon-font/iconfont.svg",
+				"images/emoji/emoji/emoji_01.png",
+				"js/template-web.js",
+				"images/im/team_member_delete.png",
+				"images/emoji/emoji/emoji_90.png",
+				"images/emoji/ajmd/ajmd020.png",
+				"images/emoji/emoji/emoji_08.png",
+				"images/emoji/emoji/emoji_139.png",
+				"images/im/chat-editor-2.png",
+				"images/emoji/ajmd/ajmd021.png",
+				"images/emoji/emoji/emoji_91.png",
+				"images/emoji/xxy/xxy009.png",
+				"js/setData.js",
+				"images/emoji/emoji/emoji_92.png",
+				"images/im/chat-editor-1.png",
+				"images/emoji/emoji/emoji_74.png",
+				"images/emoji/ajmd/ajmd008.png",
+				"images/emoji/ajmd/ajmd014.png",
+				"images/im/icons.png",
+				"images/emoji/emoji/emoji_144.png",
+				"images/emoji/emoji/emoji_99.png",
+				"images/members-add.png",
+				"images/emoji/emoji/emoji_132.png",
+				"images/test/runner.jpg",
+				"images/emoji/lt/lt011.png",
+				"images/emoji/ajmd/ajmd006.png",
+				"images/im/team_invite_dot_avatar.png",
+				"images/head-default-women.png",
+				"js/nickname.js",
+				"images/emoji/emoji/emoji_13.png",
+				"images/emoji/ajmd/ajmd038.png",
+				"images/emoji/ajmd/ajmd001.png",
+				"images/emoji/emoji/emoji_145.png",
+				"images/emoji/emoji/emoji_100.png",
+				"images/emoji/emoji/emoji_29.png",
+				"js/chatEmoji.js",
+				"images/emoji/ajmd/ajmd022.png",
+				"fonts/icon-font/iconfont.ttf",
+				"css/login.css",
+				"images/emoji/xxy/xxy036.png",
+				"images/emoji/xxy/xxy023.png",
+				"images/emoji/emoji/emoji_134.png",
+				"images/emoji/ajmd/ajmd036.png",
+				"css/mui.indexedlist.css",
+				"images/emoji/lt/lt017.png",
+				"images/im/my-phone.png",
+				"images/emoji/emoji/emoji_129.png",
+				"images/emoji/emoji/emoji_98.png",
+				"images/emoji/xxy/xxy018.png",
+				"images/emoji/ajmd/ajmd010.png",
+				"images/emoji/emoji/emoji_04.png",
+				"images/emoji/emoji/emoji_161.png",
+				"images/emoji/lt/lt013.png",
+				"images/emoji/emoji/emoji_51.png",
+				"images/emoji/emoji/emoji_45.png",
+				"images/emoji/emoji/emoji_71.png",
+				"js/findPassword.js",
+				"images/emoji/emoji/emoji_63.png",
+				"images/bz.png",
+				"images/emoji/emoji/emoji_10.png",
+				"css/index.fonts.css",
+				"images/emoji/emoji/emoji_160.png",
+				"images/emoji/emoji/emoji_141.png",
+				"images/emoji/ajmd/ajmd002.png",
+				"images/emoji/emoji/emoji_110.png",
+				"images/emoji/emoji/emoji_25.png",
+				"images/emoji/emoji/emoji_121.png",
+				"images/emoji/emoji/emoji_142.png",
+				"images/qunzu.png",
+				"images/emoji/emoji/emoji_105.png",
+				"images/emoji/emoji/emoji_86.png",
+				"js/mui.zoom.js",
+				"images/emoji/emoji/emoji_78.png",
+				"js/my.js",
+				"css/chatList.css",
+				"images/emoji/ajmd/ajmd007.png",
+				"images/emoji/emoji/emoji_64.png",
+				"images/emoji/xxy/xxy004.png",
+				"css/mescroll.css",
+				"images/emoji/emoji/emoji_19.png",
+				"js/regSettings.js",
+				"images/emoji/emoji/emoji_35.png",
+				"images/emoji/emoji/emoji_05.png",
+				"css/my.css",
+				"images/members.png",
+				"images/emoji/ajmd/ajmd028.png",
+				"images/emoji/xxy/xxy038.png",
+				"images/emoji/ajmd/ajmd023.png",
+				"images/emoji/ajmd/ajmd040.png",
+				"images/emoji/emoji/emoji_11.png",
+				"images/emoji/emoji/emoji_17.png",
+				"images/emoji/emoji/emoji_102.png",
+				"fonts/icon-font/iconfont.css",
+				"images/im/team_member_add.png",
+				"images/emoji/emoji/emoji_128.png",
+				"images/emoji/emoji/emoji_125.png",
+				"images/loading.png",
+				"images/emoji/ajmd/ajmd017.png",
+				"images/emoji/ajmd/ajmd026.png",
+				"images/emoji/emoji/emoji_152.png",
+				"images/emoji/emoji/emoji_59.png",
+				"images/emoji/emoji/emoji_42.png",
+				"js/emoji.js",
+				"images/emoji/xxy/xxy029.png",
+				"images/im/logo.png",
+				"images/emoji/emoji/emoji_88.png",
+				"images/emoji/emoji/emoji_122.png",
+				"images/im/play-2.png",
+				"images/emoji/ajmd/ajmd048.png",
+				"images/emoji/emoji/emoji_79.png",
+				"images/emoji/xxy/xxy019.png",
+				"images/watermark.png",
+				"images/emoji/emoji/emoji_123.png",
+				"images/emoji/emoji/emoji_62.png",
+				"images/emoji/xxy/xxy039.png",
+				"images/emoji/emoji/emoji_58.png",
+				"css/home.index.css",
+				"images/emoji/emoji/emoji_33.png",
+				"js/login.js",
+				"images/emoji/emoji/emoji_75.png",
+				"images/emoji/emoji/emoji_140.png",
+				"images/emoji/xxy/xxy015.png",
+				"js/networkImage.js",
+				"css/icon.football.css",
+				"images/emoji/emoji/emoji_131.png",
+				"images/emoji/ajmd/ajmd015.png",
+				"images/emoji/emoji/emoji_54.png",
+				"images/emoji/emoji/emoji_106.png",
+				"images/emoji/emoji/emoji_126.png",
+				"js/chat.js",
+				"images/emoji/emoji/emoji_81.png",
+				"fonts/icon-font/iconfont.js",
+				"images/emoji/ajmd/ajmd032.png",
+				"images/emoji/lt/lt015.png",
+				"images/emoji/ajmd/ajmd025.png",
+				"images/emoji/emoji/emoji_104.png",
+				"css/friendPreview.css",
+				"images/emoji/emoji/emoji_146.png",
+				"images/emoji/emoji/emoji_127.png",
+				"images/ucc-blacklist.png",
+				"images/luneng.png",
+				"images/emoji/emoji/emoji_27.png",
+				"images/emoji/xxy/xxy017.png",
+				"images/emoji/emoji/emoji_48.png",
+				"images/heimingdan.png",
+				"images/emoji/ajmd/ajmd003.png",
+				"images/emoji/xxy/xxy012.png",
+				"images/emoji/emoji/emoji_67.png",
+				"images/emoji/emoji/emoji_21.png",
+				"images/emoji/emoji/emoji_37.png",
+				"images/emoji/lt/lt001.png",
+				"images/emoji/emoji/emoji_82.png",
+				"css/groupPreview.css",
+				"css/reg.css",
+				"js/mui.js",
+				"images/emoji/emoji/emoji_50.png",
+				"images/emoji/emoji/emoji_24.png",
+				"images/emoji/emoji/emoji_108.png",
+				"images/emoji/lt/lt009.png",
+				"js/ask.js",
+				"images/headline.png",
+				"css/chatHistory.css",
+				"images/emoji/emoji/emoji_103.png",
+				"images/emoji/ajmd/ajmd024.png",
+				"images/emoji/emoji/emoji_03.png",
+				"js/NIM_Web_NIM_v5.8.0.js",
+				"images/emoji/emoji/emoji_76.png",
+				"images/emoji/xxy/xxy010.png",
+				"images/emoji/emoji/emoji_38.png",
+				"images/icon_verify_remind.png",
+				"images/emoji/emoji/emoji_107.png",
+				"images/emoji/ajmd/ajmd045.png",
+				"images/emoji/ajmd/ajmd005.png",
+				"images/emoji/emoji/emoji_85.png",
+				"images/emoji/ajmd/ajmd039.png",
+				"images/emoji/emoji/emoji_150.png",
+				"css/ui.css",
+				"images/emoji/emoji/emoji_119.png",
+				"images/emoji/emoji/emoji_130.png",
+				"js/home.js",
+				"js/index.js",
+				"images/emoji/emoji/emoji_84.png",
+				"images/emoji/emoji/emoji_68.png",
+				"images/emoji/xxy/xxy034.png",
+				"images/emoji/emoji/emoji_94.png",
+				"css/blacklist.css",
+				"images/vs.png",
+				"images/emoji/emoji/emoji_111.png",
+				"images/emoji/emoji/emoji_109.png",
+				"images/emoji/emoji/emoji_06.png",
+				"images/emoji/emoji/emoji_72.png",
+				"images/emoji/emoji/emoji_39.png",
+				"images/emoji/xxy/xxy033.png",
+				"images/emoji/lt/lt005.png",
+				"images/emoji/emoji/emoji_15.png",
+				"images/emoji/emoji/emoji_83.png",
+				"images/emoji/xxy/xxy006.png",
+				"images/emoji/emoji/emoji_0.png",
+				"js/mui.min.js",
+				"css/icon.fonts.css",
+				"images/im/default-icon.png",
+				"images/emoji/xxy/xxy031.png",
+				"images/emoji/emoji/emoji_69.png",
+				"images/emoji/emoji/emoji_07.png",
+				"images/emoji/ajmd/ajmd016.png",
+				"images/emoji/xxy/xxy020.png",
+				"images/emoji/ajmd/ajmd019.png",
+				"images/emoji/ajmd/ajmd011.png",
+				"images/chatlist-empty.jpg",
+				"images/emoji/xxy/xxy030.png",
+				"images/head-default.png",
+				"images/emoji/emoji/emoji_53.png",
+				"images/emoji/xxy/xxy026.png",
+				"images/emoji/emoji/emoji_70.png",
+				"images/emoji/lt/lt004.png",
+				"images/emoji/emoji/emoji_09.png",
+				"images/emoji/lt/lt002.png",
+				"images/emoji/emoji/emoji_87.png",
+				"images/emoji/emoji/emoji_95.png",
+				"images/emoji/emoji/emoji_151.png",
+				"images/emoji/ajmd/ajmd009.png",
+				"css/mui.min.css",
+				"images/emoji/emoji/emoji_73.png",
+				"images/emoji/ajmd/ajmd033.png",
+				"images/emoji/emoji/emoji_57.png",
+				"images/check-box.png",
+				"images/emoji/emoji/emoji_46.png",
+				"images/emoji/emoji/emoji_56.png",
+				"images/emoji/xxy/xxy005.png",
+				"images/emoji/emoji/emoji_138.png",
+				"css/addressBook.css",
+				"images/emoji/ajmd/ajmd013.png",
+				"images/emoji/ajmd/ajmd029.png",
+				"images/emoji/emoji/emoji_61.png",
+				"js/jquery-2.1.0.js",
+				"images/emoji/emoji/emoji_93.png",
+				"images/emoji/emoji/emoji_114.png",
+				"images/emoji/emoji/emoji_16.png",
+				"images/emoji/emoji/emoji_117.png",
+				"images/emoji/lt/lt010.png",
+				"images/emoji/xxy/xxy027.png",
+				"images/emoji/xxy/xxy011.png",
+				"images/emoji/xxy/xxy025.png",
+				"css/addFriend.css",
+				"images/emoji/ajmd/ajmd037.png",
+				"images/yanzhengtixing.png",
+				"images/emoji/emoji/emoji_133.png",
+				"images/im/notice-icon.png",
+				"images/emoji/xxy/xxy032.png",
+				"images/emoji/ajmd/ajmd027.png",
+				"images/emoji/emoji/emoji_200.png",
+				"images/emoji/emoji/emoji_60.png",
+				"images/emoji/emoji/emoji_97.png",
+				"js/main.js",
+				"images/im/chat-editor-3.png",
+				"images/emoji/ajmd/ajmd044.png",
+				"css/main.css",
+				"images/emoji/xxy/xxy001.png",
+				"images/emoji/emoji/emoji_77.png",
+				"images/head-default1.png",
+				"images/emoji/emoji/emoji_118.png",
+				"images/im/default-advanced.png",
+				"css/mui.css",
+				"css/regSettings.css",
+				"css/home.css",
+				"images/emoji/xxy/xxy016.png",
+				"images/qrcode.png",
+				"images/emoji/emoji/emoji_164.png",
+				"images/emoji/ajmd/ajmd018.png",
+				"images/emoji/xxy/xxy003.png",
+				"images/emoji/lt/lt006.png",
+				"images/emoji/emoji/emoji_26.png",
+				"images/emoji/emoji/emoji_28.png",
+				"js/addressBook.js",
+				"images/emoji/emoji/emoji_18.png",
+				"images/emoji/lt/lt008.png",
+				"images/share.png",
+				"images/emoji/xxy/xxy035.png",
+				"images/head-team.png",
+				"images/emoji/xxy/xxy022.png",
+				"images/emoji/ajmd/ajmd043.png",
+				"images/ic_black_list.png",
+				"images/im/play-1.png",
+				"images/download.png",
+				"js/addFriend.js",
+				"images/emoji/emoji/emoji_113.png",
+				"images/emoji/ajmd/ajmd012.png",
+				"images/emoji/emoji/emoji_14.png",
+				"images/im/play-3.png",
+				"images/emoji/ajmd/ajmd035.png",
+				"images/emoji/emoji/emoji_del.png",
+				"images/emoji/emoji/emoji_137.png",
+				"images/emoji/emoji/emoji_112.png",
+				"images/emoji/xxy/xxy014.png",
+				"images/emoji/lt/lt020.png",
+				"images/emoji/xxy/xxy028.png",
+				"css/index.css",
+				"images/emoji/emoji/emoji_65.png",
+				"images/emoji/emoji/emoji_43.png",
+				"images/emoji/xxy/xxy007.png",
+				"images/emoji/emoji/emoji_89.png",
+				"images/emoji/emoji/emoji_12.png",
+				"images/emoji/emoji/emoji_66.png",
+				"images/emoji/ajmd/ajmd031.png",
+				"images/emoji/emoji/emoji_32.png",
+				"images/emoji/emoji/emoji_149.png",
+				"images/emoji/ajmd/ajmd046.png",
+				"images/emoji/emoji/emoji_47.png",
+				"images/check-box_outline.png",
+				"css/findPassword.css",
+				"images/emoji/lt/lt003.png",
+				"images/emoji/emoji/emoji_162.png",
+				"images/emoji/ajmd/ajmd047.png",
+				"images/emoji/emoji/emoji_120.png",
+				"images/guoan.png",
+				"images/emoji/emoji/emoji_147.png",
+				"images/clean.png",
+				"images/emoji/xxy/xxy008.png",
+				"images/emoji/ajmd/ajmd034.png",
+				"images/head-default-men.png",
+				"images/emoji/emoji/emoji_116.png",
+				"js/header.js",
+				"images/emoji/emoji/emoji_165.png",
+				"images/emoji/emoji/emoji_166.png",
+				"images/emoji/xxy/xxy021.png",
+				"images/emoji/lt/lt007.png",
+				"images/emoji/ajmd/ajmd030.png",
+				"images/emoji/emoji/emoji_163.png",
+				"images/emoji/ajmd/ajmd004.png",
+				"images/emoji/xxy/xxy024.png",
+				"images/emoji/emoji/emoji_115.png",
+				"js/jquery-ajax.js",
+				"images/emoji/emoji/emoji_135.png",
+				"images/emoji/lt/lt018.png",
+				"images/emoji/emoji/emoji_36.png",
+				"images/emoji/emoji/emoji_41.png",
+				"images/emoji/emoji/emoji_49.png",
+				"images/emoji/emoji/emoji_96.png",
+				"images/emoji/xxy/xxy040.png",
+				"images/emoji/emoji/emoji_136.png",
+				"css/reset.css",
+				"css/chatEmoji.css"
+			]
+		}
+	}
+}

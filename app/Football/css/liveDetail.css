@@ -1,0 +1,382 @@
+.nav-default-backColor{
+	background-color: #f1f1f1;
+}
+
+.nav-default-backColor a, .nav-default-backColor h1{
+	color: #000 !important;
+}
+
+
+.nav-default-backColor h1{
+    width: 60% !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+
+
+.top-icon{
+    font-size: 20px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+    
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+}
+
+.video{
+	width: 100%;
+	height: 35%;
+    overflow: hidden;
+    /*border-radius: 0 0 80% 80%;*/
+}
+
+.fixed{
+	/* position: relative; */
+	/* top: 29%; */
+}
+
+.video .shade{
+	width: 100%;
+	height: 100%;
+}
+
+.video .player{
+	width: 100%;
+	height: 100%;
+	background-color: #E9E9E9;
+	background-image: url(../images/liveBackground.png);
+	background-size: 100%; 
+}
+
+.dark-image{
+    filter: brightness(.5)
+}
+
+.scaled-image {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
+}
+
+.blurry-image {
+    /*-webkit-filter: blur(10px);*/
+    filter: blur(30px);
+}
+
+.advertising{
+	height: 40px;
+	background-color: #E9E9E9;
+}
+
+
+.shade .leftv, .shade .info, .shade .rightv{
+	float: left;
+	clear:right;
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.shade .leftv{
+	width: 30%;
+}
+
+.shade .leftv, .shade .rightv{
+	padding-top: 15%;
+}
+
+
+.shade .leftv img, .shade .rightv img{
+	width: 60%;
+}
+
+.shade .info{
+	width: 40%;
+	padding-top: 6%;
+} 
+
+.shade .info span{
+	display: block;
+}
+
+.shade .info .status{
+	font-size: 18px;
+	color: #fff;
+}
+
+.shade .info .grade{
+	font-size: 55px;
+	font-family: "webfont";
+	color: #fff;
+}
+
+.shade .info .btnLive{
+	border: 0px solid #fff;
+	width: 70px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #6B1EC2;
+	color: #fff;
+}
+
+.shade .rightv{
+	width: 30%;
+}
+
+.advertising img{
+	width: 100%;
+}
+
+
+.live-tabs{
+	width: 100%;
+	list-style: none;
+	cursor: pointer;
+}
+
+.live-tabs li{
+	float: left;
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
+	height: 50px;
+	line-height: 50px;
+}
+
+.live-tabs .active{
+	border-bottom: 3px solid #8330E0;
+}
+
+
+/*iphone x*/
+@media screen and (max-height: 812px) {
+	.shade .info{
+		width: 40%;
+		padding-top: 20%;
+	}
+	.shade .leftv, .shade .rightv {
+	    padding-top: 22%;
+	}
+} 
+
+
+@media screen and (max-height: 763px)  {
+	.shade .info{
+		width: 40%;
+		padding-top: 12%;
+	}
+	
+}
+
+/*iphone 6/7/8 plus*/
+@media screen and (max-height: 736px) {
+	.shade .info{
+		width: 40%;
+		padding-top: 10%;
+	}
+	
+}
+
+/*iphone 5/SE*/
+@media screen and (max-height: 568px) {
+	.shade .info{
+		width: 40%;
+		padding-top: 8%;
+	}
+	
+} 
+ 
+@media screen and (max-height: 480px) {
+	.shade .info{
+		width: 40%;
+		padding-top: 3%;
+	}
+	
+}
+
+
+.message-list{
+	overflow: initial;
+}
+
+.edit {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 77%;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+
+.editor .group {
+    width: 55px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+}
+
+.send {
+    background-color: #b2b2b2;
+    color: #fff;
+    border: 0px solid #fff;
+    width: 55px;
+    height: 35px;
+    position: relative;
+    top: 7px;
+    left: 0px;
+    font-size: 15px;
+}
+
+
+
+.live .top{
+	height: 22px;
+	line-height: 22px;
+	padding-left: 5px;
+}
+
+.live .live-content .info{
+	bottom: -25px;
+}
+
+.live li{
+	background-position-y: 50px;
+}
+
+
+.live .info{
+	color: #646464;
+}
+
+
+.live-content .left-hot .icon{
+	position: relative;
+	left: 2px;
+	top: -16px;
+	font-size: 25px;
+	color: #F5CF41;
+	float: left;
+}
+
+.live-content .left-hot img, .live-content .left-hot span{
+	position: relative;
+	left: 0px;
+	text-align: center;
+}
+
+
+
+.live-content .right-hot .icon{
+	position: relative;
+	right: -1px;
+	top: -24px;
+	font-size: 35px;
+	color: #FE4541;
+	float: right;
+}
+
+.live-content .right-hot img, .live-content .right-hot span{
+	position: relative;
+	right: -15px;
+}
+
+
+/*lives*/
+
+.live .live-content .lefte{
+	
+	float:left;
+	clear:right;
+	
+}
+
+.live .live-content .lefte img, .live .live-content .righte img{
+	width: 50px;
+	height: 50px;
+	display: block;
+	text-align: center;
+	margin:0 auto;
+	
+}
+
+.live .live-content .righte{
+	
+	float:left;
+	clear:right;
+	
+}
+
+.live .live-content .lefte, .live .live-content .righte{
+	
+background-color: #fff;
+	
+text-align: center;
+	
+padding-top: 15px;
+	
+width:30%;
+	
+font-size: 15px;
+}
+
+.live .live-content .lefte span, .live .live-content .righte span{
+	line-height: 35px;
+	color: #616161;
+}
+
+
+.live .live-content .infoe{
+	float:left;
+	clear:right;
+	display: inline-block;
+	text-align: center;
+	width:40%;
+	line-height: 100px;
+	position: relative;
+	top: 20px;
+	font-size: 18px;
+}
+
+
+
+
+.live-content .left-hot .icon{
+	position: relative;
+	left: -1px;
+	top: -22px;
+	font-size: 35px;
+	color: #FE4541;
+	float: left;
+}
+
+.live-content .left-hot img, .live-content .left-hot span{
+	position: relative;
+	left: -15px;
+}
+
+
+
+.live-content .right-hot .icon{
+	position: relative;
+	right: -1px;
+	top: -24px;
+	font-size: 35px;
+	color: #FE4541;
+	float: right;
+}
+
+.live-content .right-hot img, .live-content .right-hot span{
+	position: relative;
+	right: -15px;
+}

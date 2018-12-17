@@ -1,0 +1,122 @@
+.mui-content{
+	height: 100%;
+	background-color: #f9f9f9;
+}
+
+.head{
+	background-color: #622bab;
+	min-height: 150px;
+	background-image: url(../images/watermark.png);
+}
+
+.title{
+	color: #fff;
+	font-size: 30px;
+	width: 100%;
+	display: block;
+	text-align: left;
+	padding-left: 20px;
+	line-height: 120px;
+}
+
+
+.content{
+	position: relative;
+	margin: 0 auto;
+	background-color: #fff;
+	top:-40px;
+	width: 90%;
+	height: 370px;
+	border-radius: 15px;
+}
+
+.form{
+	padding: 25px;
+}
+
+.form .item-line label{
+	font-size: 13px;
+	color: #848484;
+}
+
+.form .item-line input{
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+.form .error input{
+	border: 1px solid #DE0A0A;
+	background-color: #FFF3F3;
+}
+
+.form .normal input{
+	border: 1px solid #4BDA13;
+	background-color: #F6FFF3;
+}
+
+
+.btn-blue{
+	background-color: #844fca;
+	color: #fff;
+	border: 0px solid #fff;
+}
+
+.btn-gray{
+	background-color: #929292;
+	color: #fff;
+	border: 0px solid #fff;
+}
+
+.btn-regist{
+	width: 100%;
+	height: 42px;
+	font-size: 18px;
+	border-radius: 5px;
+}
+.btn-regist:active,.btn-regist:hover{
+	opacity: 50%;
+}
+
+.form .sms-code label{
+	display: block;
+}
+
+.form .sms-code input{
+	width: 60%;
+	display: inline-block;
+}
+
+
+.form .sms-code button{
+	display: inline-block;
+	float: right;
+	line-height: 40px;
+	width: 100px;
+	border-radius: 5px;
+}
+
+
+
+@media only screen and (max-width: 360px) {
+	.form .sms-code button{
+		width: 85px;
+	}
+}
+
+
+.advice{
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    background-image: url('../images/check-box_outline.png');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+ 
+
+.agree-deal{
+	height: 50px;
+}
