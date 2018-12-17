@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * 情报信息
@@ -32,4 +33,6 @@ public class Information {
      * 情报内容
      */
     private String content;
+
+    private Date addDate;
 }

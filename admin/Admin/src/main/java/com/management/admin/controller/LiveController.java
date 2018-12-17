@@ -59,10 +59,10 @@ public class LiveController {
     @GetMapping("/edit")
     public String edit(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
+        System.out.println(live.getSourceUrl()+"==============================================================");
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));
-        model.addAttribute("live", live);
         model.addAttribute("live", live);
         return "live/edit";
     }
@@ -80,6 +80,7 @@ public class LiveController {
     @GetMapping("/getLiveDetailByLiveId")
     public String getLiveDetailByLiveId(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
+        System.out.println(live.getSourceUrl()+"==============================================================");
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));

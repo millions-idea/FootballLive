@@ -14,9 +14,9 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
      * @param gameId
      * @return
      */
-    @Select("select * from tb_schedules where game_id=#{gameId}")
+    @Select("select * from tb_schedules where game_id=#{gameId} and is_delete=0")
     Schedule queryScheduleByGameId(Integer gameId);
 
-    @Update("update tb_schedule set status=#{status} where schedule_id=#{scheduleId}")
+    @Update("update tb_schedules set status=#{status} where schedule_id=#{scheduleId} and is_delete=0")
     Integer modifyStatusById(@Param("scheduleId") Integer scheduleId,@Param("status") Integer status);
 }
