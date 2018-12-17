@@ -71,6 +71,15 @@
           "icon": "&#xe63c;",
           "href": "/management/admin/index"
         },{
+          "text": "修改密码",
+          "icon": "&#xe63c;",
+          "href": "/management/admin/updatePassword"
+        },{
+          "text": "新增管理员",
+          "icon": "&#xe63c;",
+          "href": "/management/admin/insertAdmin"
+        }
+      ,{
           "text": "分区管理",
           "icon": "&#xe63c;",
           "href": "/management/area/index"
@@ -78,6 +87,16 @@
           "text": "基础设置",
           "icon": "&#xe63c;",
           "href": "/management/config/index"
+        }
+      ]
+    },{
+      "text": "赛事管理",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "赛事管理",
+          "icon": "&#xe63c;",
+          "href": "/EventManagement/manage"
         }
       ]
     }

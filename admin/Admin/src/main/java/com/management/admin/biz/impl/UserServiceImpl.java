@@ -9,22 +9,31 @@ package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.AdminUser;
+import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.NASignIn;
 import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.Constant;
+import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.InfoException;
 import com.management.admin.repository.AdminUserMapper;
 import com.management.admin.repository.UserMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.*;
 import com.management.admin.utils.http.NeteaseImUtil;
+import com.management.admin.utils.web.SessionUtil;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import sun.security.util.Password;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.*;
@@ -33,6 +42,7 @@ import java.util.*;
  * 用户业务接口实现类 DF 2018年11月29日00:49:10
  */
 @Service
+@Transactional
 public class UserServiceImpl implements IUserService {
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserMapper userMapper;
@@ -199,6 +209,107 @@ public class UserServiceImpl implements IUserService {
         return result;
     }
 
+    /**
+     * 重置管理员密码 DF 2018年12月17日16:09:17
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
+    @Override
+    public Boolean resetAdminPassword(HttpServletRequest request, String phone, String password,String newpwd) {
+        //获取session中的数据
+        SessionModel session = SessionUtil.getSession(request);
+        String Sessionphone=session.getPhone();
+        if(!Sessionphone.equals(phone)) throw new InfoException("账号错误");
+        // 加盐加密用户数据
+        String encryptPassword = MD5Util.md5(MD5Util.md5(phone + password));
+        String newPassword = MD5Util.md5(MD5Util.md5(phone + newpwd));
+        //更新数据库
+        Boolean result=null;
+        try {
+            result=adminUserMapper.updateAdminpassword(phone,encryptPassword,newPassword)>0;
+        }catch (Exception e){
+            throw new RuntimeException() ;
+        }
+        return result;
+    }
+
+    /**
+     * 删除管理员  Timor 2018年12月17日23:29:22
+     * @param  userId
+     * @return
+     */
+    @Override
+    public boolean deleteAdmin(Integer userId) {
+        try{
+            int result=adminUserMapper.deleteAdmin(userId);
+            if (result>0){
+                return true;
+            }
+        }catch (Exception e){
+            throw new RuntimeException();
+        }
+        return false;
+    }
+
+    /**
+     * 超级管理员修改信息 DF 2018年12月17日16:09:17
+     *
+     * @param phone
+     * @param password
+     * @return
+     */
+    @Override
+    public Boolean resetSupAdmin(String phone, String password,Integer status) {
+        String encryptPassword = MD5Util.md5(MD5Util.md5(phone + password));
+        //更新数据库
+        Boolean result=null;
+        try {
+            //password=#{newpwd},status=#{status}
+            StringBuffer buffer = new StringBuffer();
+            if(password != null && !password.isEmpty()) buffer.append("password=#{password}");
+            buffer.append("status=#{status}");
+
+            result = adminUserMapper.updateSupAdmin(phone, buffer.toString(), encryptPassword, status) > 0;
+        }catch (Exception e){
+            throw new RuntimeException() ;
+        }
+        return result;
+    }
+
+    /**
+     * 添加管理员 Timor 2018年12月17日20:09:17
+     * @param adminUsers
+     * @return
+     */
+    @Override
+    public  Boolean insertAdminUsers(RelationAdminUsers adminUsers){
+            //添加初始化条件
+            adminUsers.setAddDate(new Date());
+              try {
+                  int adminResult= adminUserMapper.insertAdmin(adminUsers);
+                  int realtionResult=adminUserMapper.insertAdminRelation(adminUsers);
+                  if(adminResult>0){
+                      if(realtionResult>0){
+                          return true;
+                      }
+                  }
+              }catch (Exception e){
+                  System.err.println(e.toString());
+                  new RuntimeException();
+              }
+           return false;
+    }
+    /**
+     *添加管理员时，验证手机号是否已经存在  提莫 2018-12-17 10:22:30
+     * @param  phone
+     * @return  返回账号
+     */
+    @Override
+    public String checkPhone(String phone) {
+        return adminUserMapper.checkPhone(phone);
+    }
 
     /**
      * 更新个人名片 DF 2018年12月11日04:26:20
@@ -386,6 +497,19 @@ public class UserServiceImpl implements IUserService {
     public Integer getAdminLimitCount(String condition,Integer state, String beginTime, String endTime) {
         String where = extractLimitWhere(condition, UserRoleEnum.SuperAdmin, state, beginTime, endTime);
         return adminUserMapper.selectLimitCount(state, beginTime, endTime, where);
+    }
+
+    /**
+     * 查询登录管理员的类型 DF 2018年12月18日 17:58:26
+     * @param UserId
+     */
+    @Override
+    public Integer selectType(Integer UserId) {
+        Integer type=adminUserMapper.selectType(UserId);
+        if(type!=null){
+            return type;
+        }
+        return null;
     }
 
     /**
