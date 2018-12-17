@@ -328,10 +328,10 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
     @Override
-    public List<User> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
+    public List<User> getLimit(Integer page, String limit, String condition,Integer type, Integer state, String beginTime, String endTime) {
         // 计算分页位置
         page = ConditionUtil.extractPageIndex(page, limit);
-        String where = extractLimitWhere(condition, state, beginTime, endTime);
+        String where = extractLimitWhere(condition, type,state, beginTime, endTime);
         List<User> list = userMapper.selectLimit(page, limit, state, beginTime, endTime, where);
         return list;
     }
@@ -356,8 +356,8 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
     @Override
-    public Integer getLimitCount(String condition, Integer state, String beginTime, String endTime) {
-        String where = extractLimitWhere(condition, state, beginTime, endTime);
+    public Integer getLimitCount(String condition,Integer type, Integer state, String beginTime, String endTime) {
+        String where = extractLimitWhere(condition,type, state, beginTime, endTime);
         return userMapper.selectLimitCount(state, beginTime, endTime, where);
     }
 
@@ -376,7 +376,7 @@ public class UserServiceImpl implements IUserService {
      * 提取分页条件
      * @return
      */
-    private String extractLimitWhere(String condition, Integer isEnable,  String beginTime, String endTime) {
+    private String extractLimitWhere(String condition, Integer isEnable,Integer type, String beginTime, String endTime) {
         // 查询模糊条件
         String where = " 1=1";
         if(condition != null) {
@@ -389,6 +389,7 @@ public class UserServiceImpl implements IUserService {
             where += " OR " + ConditionUtil.like("nick_name", condition, true, "t1");
             where += " OR " + ConditionUtil.like("phone", condition, true, "t1");
             where += " OR " + ConditionUtil.like("ip", condition, true, "t1") + ")";
+            where +=" and " +ConditionUtil.match("type",type.toString(), true, "t1") + ")";
         }
         // 取两个日期之间或查询指定日期
         where = extractBetweenTime(beginTime, endTime, where);

@@ -19,6 +19,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper extends MyMapper<User> {
+    
 
     /**
      * 更新用户基本档案信息 DF 2018年11月29日01:58:53

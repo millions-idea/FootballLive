@@ -109,7 +109,7 @@ public interface IUserService {
      * @param endTime
      * @return
      */
-    List<User> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
+    List<User> getLimit(Integer page, String limit, String condition,Integer type, Integer state, String beginTime, String endTime);
 
 
     /**
@@ -127,7 +127,7 @@ public interface IUserService {
      * @param endTime
      * @return
      */
-    Integer getLimitCount(String condition, Integer state, String beginTime, String endTime);
+    Integer getLimitCount(String condition,Integer type, Integer state, String beginTime, String endTime);
 
     /**
      * 获取用户信息--用户id DF 2018年12月16日19:11:09
