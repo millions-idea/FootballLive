@@ -1,0 +1,70 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+      enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <input type="hidden" id="userId" th:value="${user.getUserId()}">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号码</label>
+        <div class="layui-input-block">
+            <input type="text" id="phone" autocomplete="off"
+                    disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.getPhone()}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户昵称</label>
+        <div class="layui-input-block">
+            <input type="text" id="nickName" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.getNickName()}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+
+    $(function () {
+        var $updateGradeButtons = $("button[name='updateGrade']"),
+            $closeAccountsButton = $("#closeAccounts");
+        $updateGradeButtons.click(function () {
+            var grade = $(this).prev().val(),
+                item = JSON.parse($(this).prev().attr("data-item"));
+            $.post("./editGrade", {
+                "userId": item.userId,
+                "grade": parseFloat(grade),
+                "roomCode": item.roomCode
+            }, function (data) {
+                if(data == null || data.code == null || data.code != 200) {
+                    layer.msg("保存失败");
+                    return;
+                }
+                layer.msg("保存成功");
+            });
+        })
+
+        $closeAccountsButton.click(function () {
+            $.post("./executeCloseAccounts", {
+                "roomCode": $("#roomCode").val()
+            }, function (data) {
+                if(data == null || data.code == null || data.code != 200) {
+                    if(data.code == 300){
+                        layer.msg(data.msg);
+                        return;
+                    }else{
+                        layer.msg("编辑失败");
+                        return;
+                    }
+                }
+                layer.msg("编辑成功");
+                tableIndex.reload();
+                layer.closeAll();
+            });
+        })
+    })
+</script>
