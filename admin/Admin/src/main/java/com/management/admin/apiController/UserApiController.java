@@ -79,8 +79,8 @@ public class UserApiController {
      * @param smsCode 限制6位字母+数字 必填
      * @return
      */
-    @PostMapping("signIn")
-    public JsonResult signIn(HttpServletRequest req, HttpServletResponse resp, String phone, String password, String smsCode){
+    @PostMapping("signUp")
+    public JsonResult signUp(HttpServletRequest req, HttpServletResponse resp, String phone, String password, String smsCode){
         // 1.参数验证
         if(phone.isEmpty() || phone.length() < 11 || phone.length() > 11) return new JsonResult().failingAsString("手机号码格式有误");
         if(password.isEmpty() || password.length() < 6 || phone.length() > 32) return new JsonResult().failingAsString("密码格式有误");
@@ -120,8 +120,8 @@ public class UserApiController {
      * @param password 限制6-32位字母+数字 必填
      * @return
      */
-    @PostMapping("signUp")
-    public JsonResult signUp(HttpServletRequest req, HttpServletResponse resp, String phone, String password){
+    @PostMapping("signIn")
+    public JsonResult signIn(HttpServletRequest req, HttpServletResponse resp, String phone, String password){
         User user = userService.login(phone, password);
         if(user == null) return new JsonResult().failingAsString("账号或密码错误");
         UserInfo userInfo = new UserInfo();
