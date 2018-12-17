@@ -8,22 +8,36 @@
 package com.management.admin.apiController;
 
 import com.management.admin.biz.IDictionaryService;
+import com.management.admin.biz.ILiveService;
+import com.management.admin.biz.ITeamService;
 import com.management.admin.entity.db.Dictionary;
+import com.management.admin.entity.db.Team;
+import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.resp.HotGame;
 import com.management.admin.entity.template.JsonArrayResult;
-import com.management.admin.entity.template.JsonResult;
+import com.management.admin.exception.InfoException;
+import com.management.admin.utils.DateUtil;
+import com.management.admin.utils.PropertyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/home")
 public class HomeApiController {
     @Autowired
     private IDictionaryService dictionaryService;
+
+    @Autowired
+    private ILiveService liveService;
+
+    @Autowired
+    private ITeamService teamService;
 
     /**
      * 查询首页板块聚合信息 DF 2018年12月13日17:02:55
@@ -37,6 +51,46 @@ public class HomeApiController {
         List<Dictionary> maps = dictionaryService.getHomeGroupInfo();
         if(maps != null && maps.size() > 0) return new JsonArrayResult<Dictionary>(maps);
         return JsonArrayResult.failing();
+    }
+
+    /**
+     * 获取热门赛事列表 DF 2018年12月17日23:22:11
+     * @return
+     */
+    @GetMapping("getHotGameList")
+    public JsonArrayResult<HotGame> getHotGameList(){
+        // 获取热门赛事信息
+        List<LiveHotDetail> liveHotDetailList = liveService.getHotLives();
+        if(liveHotDetailList == null || liveHotDetailList.size() == 0) throw new InfoException("获取热门赛事失败");
+
+        // 获取团队详细信息
+        String teamIdList = String.join(",", liveHotDetailList.stream().map(item -> item.getTeamId()).collect(Collectors.toList()));
+        if(teamIdList == null || teamIdList.isEmpty()) throw new InfoException("获取团队关系失败");
+        List<Team> teams = teamService.getTeams(teamIdList);
+
+        // 封装返回信息
+        List<HotGame> hotGames = new ArrayList<>();
+        liveHotDetailList.stream().forEach(item -> {
+            HotGame hotGame = new HotGame();
+            hotGame.setLiveId(item.getLiveId());
+            hotGame.setLiveTitle(item.getLiveTitle());
+            hotGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
+
+            hotGame.setGameId(item.getGameId());
+            hotGame.setGameName(item.getGameName());
+
+            Team team = new Team();
+            PropertyUtil.clone(teams.get(0), team);
+
+            Team targetTeam = new Team();
+            PropertyUtil.clone(teams.get(1), targetTeam);
+
+            hotGame.setTeam(team);
+            hotGame.setTargetTeam(targetTeam);
+
+            hotGames.add(hotGame);
+        });
+        return new JsonArrayResult<HotGame>(hotGames);
     }
 
 }

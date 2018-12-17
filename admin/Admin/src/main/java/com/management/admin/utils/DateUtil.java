@@ -301,6 +301,15 @@ public final class DateUtil implements Serializable {
 	}
 
 	/**
+	 * 返回给定时间字符串
+	 * @param date
+	 * @return
+	 */
+	public static String getFormatDateTime(Date date) {
+		return getFormatDateTime(date, "yyyy-MM-dd HH:mm:ss");
+	}
+
+	/**
 	 * 根据制定的格式，返回日期字符串。例如2007-05-05
 	 * 
 	 * @param format
