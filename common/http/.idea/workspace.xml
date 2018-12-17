@@ -2,141 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="183d7e51-af01-49ca-979f-f135bf1000af" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/.idea/libraries/Maven__com_squareup_okio_okio_1_15_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/.idea/libraries/Maven__com_utility_http_1_0_SNAPSHOT.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../admin/Admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/Admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/http/NeteaseImUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/http/NeteaseImUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/layout/left-menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/layout/left-menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/member/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/member/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/ManagementApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/annotaion/AspectLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/annotaion/FinanceToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/annotaion/Sign.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/apiController/CommonApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/apiController/HomeApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/apiController/UserApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IBaseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IDictionaryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IExceptionService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IFriendService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IPermissionMapService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IPermissionRelationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/ISmsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/IUserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/BaseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/DictionaryServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/ExceptionServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/FriendServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/PermissionMapServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/PermissionRelationServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/SmsServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/biz/impl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/DictionaryConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/HttpMessageConvertersConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/RedisTemplateConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/ThymeleafContextConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/WebAppInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/WebLogAspectConfiguration$JsonView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/WebLogAspectConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/config/WebMvcCrossConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/controller/BaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/controller/BootstrapController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/controller/ErrorPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/controller/FileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/controller/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/controller/MemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/Dictionary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/Exceptions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/Friend.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/PermissionGroup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/PermissionMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/PermissionRelation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/db/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/dbExt/FriendDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/dbExt/PermissionRelationDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/enums/MsgActionEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/enums/MsgSignFlagEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/enums/OperatorFriendRequestTypeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/enums/SearchFriendsStatusEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/param/PayParam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/resp/NAFriends$Friend.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/resp/NAFriends.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/resp/NASignIn$Info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/resp/NASignIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/resp/UserInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/template/Constant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/template/DataDictionary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/template/JsonArrayResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/template/JsonResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/entity/template/SessionModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/exception/FinanceException$Errors.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/exception/FinanceException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/exception/InfoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/exception/MsgException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/handler/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/interceptor/FinanceAuthenticationInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/interceptor/WebAuthenticationInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/DictionaryMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/ExceptionMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/FriendMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/MyMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/PermissionMapMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/PermissionRelationMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/extendsMapper/CountMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/extendsMapper/ExtendsSelectProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/utils/ConditionUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/repository/utils/SqlBufferUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/LoginAuthenticationProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/SecurityConfiguration$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/SecurityConfiguration$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/SecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/SecurityDetailsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/SecurityPasswordEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/security/SecurityUserDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/Base64Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/DateConvertUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/DateUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/DecimalUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/FileUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/IdWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/ImageUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/JsonUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/MD5Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/OrderUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/PhoneUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/PriceUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/PropertyUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/QRCodeUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/RSAUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/RandomUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/RequestUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/ResponseUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/ServletUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/SmsUtil$Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/SmsUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/SpringApplicationContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/StringUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/TokenUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/http/AliSmsUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/http/CosUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/http/NeteaseImUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/web/CookieUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/com/management/admin/utils/web/SessionUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/templates/layout/left-menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/target/classes/templates/layout/left-menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../admin/Admin/target/classes/templates/member/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/target/classes/templates/member/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utility/http/HttpUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utility/http/HttpUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utility/http/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utility/http/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/http-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/http-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -157,6 +23,15 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-705951485">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -164,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -262,7 +137,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,19 +163,11 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="http" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,16 +263,17 @@
       <workItem from="1543423128779" duration="941000" />
       <workItem from="1545013613786" duration="58000" />
       <workItem from="1545014034144" duration="92000" />
+      <workItem from="1545034576438" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5476000" />
+    <option name="totallyTimeSpent" value="5492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26346666" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26652452" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -414,7 +282,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32925472" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,7 +299,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" weight="0.3296" />
+      <window_info anchor="right" id="Maven Projects" order="6" visible="true" weight="0.32942432" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Mybatis datasource" order="8" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -445,6 +313,13 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utility/http/NeteaseHttpUtil.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utility/http/HttpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -466,13 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
         </state>
       </provider>
     </entry>

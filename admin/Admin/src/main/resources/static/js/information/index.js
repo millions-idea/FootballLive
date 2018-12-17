@@ -1,12 +1,12 @@
 /*!财务模块-会计账簿  2018年8月27日01:05:05*/
-var route = "/management/live";
+var route = "/management/information";
 var service;
 var tableIndex;
 (function () {
     service = initService(route);
 
     // 加载数据表
-    initDataTable(route + "/getLiveLimit", function (form, table, layer, vipTable, tableIns) {
+    initDataTable(route + "/getInformationLimit", function (form, table, layer, vipTable, tableIns) {
 
     }, function (table, res, curr, count) {
         //预览图片
@@ -58,7 +58,7 @@ var tableIndex;
                     });
                 });
             }else if(layEvent === 'delete'){ //删除
-                layer.confirm('您确定要删除此直播信息吗？', {
+                layer.confirm('您确定要删除此情报信息吗？', {
                     btn: ['删除','取消'] //按钮
                 }, function(){
                     data.isEnable = 0;
@@ -186,24 +186,16 @@ function initDataTable(url, callback, loadDone) {
 function getTableColumns() {
     return [[
         {type: "numbers", fixed: 'left'}
-        , {field: 'liveId', title: 'ID', width: 80, sort: true}
-        , {field: 'liveTitle', title: '标题', width: 150}
-        , {field: 'addDate', title: '添加时间', width: 150, sort: true, templet: function (d) {
-                return d.addDate == null ? '' : utils.date.timestampConvert(d.addDate);
-            }}
+        , {field: 'isrId', title: 'ID', width: 80, sort: true}
         , {field: 'gameName', title: '赛事名称', width: 150}
-        , {field: 'gameIcon', title: '赛事logo', width: 180, templet: function(d){
-                var part = 'data-id="' + d.gameId + '" data-nick="' + d.gameName + '"';
-                return '<img ' + part + '  width="27px" class="gameIcon" src="' + d.gameIcon + '"/>';
-            }}
-        , {field: 'gameDuration', title: '比赛时长', width: 150}
+        , {field: 'liveTitle', title: '直播标题', width: 150}
         , {field: 'liveDate', title: '开始时间', width: 150, sort: true, templet: function (d) {
                 return d.liveDate == null ? '' : utils.date.timestampConvert(d.liveDate);
             }}
         , {field: 'scheduleStatus', title: '赛事状态', width: 150 , sort: true, templet: function (d) {
                 return d.scheduleStatus == null ? '' : utils.scheduleStatus.scheduleStatusInfo(d.scheduleStatus);
             }}
-        , {field: 'teamName', title: '球队名称', width: 180}
+        , {field: 'content', title: '情报', width: 180}
         , {fixed: 'right',title: '操作', width: 160, align: 'center', templet: function(d){
                 var html = "";
                 html+='<a name="item-view" class="layui-btn layui-btn layui-btn-xs" lay-event="details">详情</a>';

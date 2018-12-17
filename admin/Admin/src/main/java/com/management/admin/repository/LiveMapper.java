@@ -16,9 +16,9 @@ import java.util.List;
 public interface LiveMapper extends MyMapper<Live>{
 
     @Select("SELECT t1.*,t2.game_date, t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.* " +
-            "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
-            "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
-            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id where t1.status=0 and ${condition} GROUP BY t1.live_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+            "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id and t2.is_delete=0 " +
+            "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id and t3.is_delete=0 " +
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id and t4.is_delete=0 where t1.status=0 and ${condition} GROUP BY t1.live_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
@@ -76,7 +76,7 @@ public interface LiveMapper extends MyMapper<Live>{
     @Update("update tb_lives set status=1 where live_id=#{liveId}")
     Integer deleteLive(Integer liveId);
 
-    @Select("SELECT t1.*,t2.game_date, t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content\n" +
+    @Select("SELECT t1.*,t2.game_date,t2.schedule_id ,t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content " +
             "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id " +

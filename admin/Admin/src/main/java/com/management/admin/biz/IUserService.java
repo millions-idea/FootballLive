@@ -8,9 +8,14 @@
 package com.management.admin.biz;
 
 import com.management.admin.entity.db.AdminUser;
+import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.UserInfo;
+import org.apache.ibatis.annotations.Param;
+
+import javax.servlet.http.HttpServletRequest;
 
 import java.util.List;
 
@@ -54,6 +59,13 @@ public interface IUserService {
     UserInfo staffLogin(String username, String password);
 
     /**
+     * 删除管理员  Timor 2018年12月17日23:29:22
+     * @param  userId
+     * @return
+     */
+     boolean  deleteAdmin( Integer userId);
+
+    /**
      * 重置密码 DF 2018年12月7日02:09:17
      * @param phone
      * @param password
@@ -61,6 +73,36 @@ public interface IUserService {
      * @return
      */
     Boolean resetPassword(String phone, String password, String smsCode);
+
+    /**
+     * 重置管理员密码 Timor 2018年12月17日16:09:17
+     * @param phone
+     * @param password
+     * @return
+     */
+    Boolean resetAdminPassword(HttpServletRequest request,String phone, String password,String newpwd);
+
+    /**
+     * 超级管理员修改信息 Timor 2018年12月17日16:09:17
+     * @param phone
+     * @param password
+     * @return
+     */
+    Boolean resetSupAdmin(String phone,String password,Integer status);
+
+    /**
+     * 添加管理员 Timor 2018年12月17日20:09:17
+     * @param adminUsers
+     * @return
+     */
+    Boolean insertAdminUsers(RelationAdminUsers adminUsers);
+
+    /**
+     *添加管理员时，验证手机号是否已经存在  提莫 2018-12-17 10:22:30
+     * @param  phone
+     * @return  返回账号
+     */
+    String checkPhone(String phone);
 
     /**
      * 更新个人名片 DF 2018年12月11日04:26:20
@@ -98,6 +140,13 @@ public interface IUserService {
      * @param token
      */
     void logout(String token);
+
+
+    /**
+     * 查询登录管理员的类型 DF 2018年12月18日 17:58:26
+     * @param UserId
+     */
+    Integer selectType(Integer UserId);
 
 
     /**
