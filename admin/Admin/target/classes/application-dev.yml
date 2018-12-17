@@ -37,7 +37,7 @@ mybatis:
 
 #服务容器配置
 server:
-  port: 59845
+  port: 59846
   tomcat:
     uri-encoding: UTF-8
   address: 0.0.0.0
