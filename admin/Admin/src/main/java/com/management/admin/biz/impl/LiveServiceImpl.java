@@ -141,9 +141,11 @@ public class LiveServiceImpl implements ILiveService {
 
         //Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getS)
         if (result > 0) {
-        Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getScheduleId(),liveDetail.getScheduleStatus());
-        if (result > 0&&reslut2>0) {
-            return 1;
+            Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getScheduleId(), liveDetail.getScheduleStatus());
+            if (result > 0 && reslut2 > 0) {
+                return 1;
+            }
+            return 0;
         }
         return 0;
     }
