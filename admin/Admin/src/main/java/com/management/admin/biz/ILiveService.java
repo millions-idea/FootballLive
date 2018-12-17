@@ -3,6 +3,7 @@ package com.management.admin.biz;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.LiveHotDetail;
 
 import java.util.List;
 
@@ -62,4 +63,10 @@ public interface ILiveService {
      * @return
      */
     Integer modifyLive(LiveDetail liveDetail);
+
+    /**
+     * 获取热门直播信息 DF 2018年12月17日23:42:36
+     * @return
+     */
+    List<LiveHotDetail> getHotLives();
 }

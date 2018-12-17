@@ -3,6 +3,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.LiveHotDetail;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
 
@@ -90,4 +91,15 @@ public interface LiveMapper extends MyMapper<Live>{
             ",status=#{status},source_url=#{sourceUrl}" +
             ",ad_id=#{adId} where live_id=#{liveId}")
     Integer modifyLiveById(Live live);
+
+    /**
+     * 查询热门直播信息 DF 2018年12月17日23:43:07
+     * @return
+     */
+    @Select("SELECT t1.*, t2.team_id, t3.game_name FROM tb_lives t1 " +
+            "LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
+            "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
+            "ORDER BY t1.live_date ASC LIMIT 2")
+    List<LiveHotDetail> selectHotLives();
 }

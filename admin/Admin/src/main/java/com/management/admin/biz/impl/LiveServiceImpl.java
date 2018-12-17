@@ -4,6 +4,7 @@ import com.management.admin.biz.ILiveService;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.repository.LiveMapper;
 import com.management.admin.repository.ScheduleMapper;
 import com.management.admin.repository.utils.ConditionUtil;
@@ -137,11 +138,24 @@ public class LiveServiceImpl implements ILiveService {
         // 设置赛事
         live.setScheduleId(scheduleMapper.queryScheduleByGameId(liveDetail.getGameId()).getScheduleId());
         Integer result = liveMapper.modifyLiveById(live);
+
+        //Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getS)
+        if (result > 0) {
         Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getScheduleId(),liveDetail.getScheduleStatus());
         if (result > 0&&reslut2>0) {
             return 1;
         }
         return 0;
+    }
+
+    /**
+     * 获取热门直播信息 DF 2018年12月17日23:42:36
+     *
+     * @return
+     */
+    @Override
+    public List<LiveHotDetail> getHotLives() {
+        return liveMapper.selectHotLives();
     }
 
     /**
