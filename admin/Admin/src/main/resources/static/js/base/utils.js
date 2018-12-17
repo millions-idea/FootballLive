@@ -21,5 +21,20 @@ window.utils = {
             s = date.getSeconds();
             return Y+M+D+h+m+s;
         }
+    },
+    scheduleStatus: {
+        scheduleStatusInfo: function (ts) {
+            switch (ts) {
+                case 0:
+                    return '未开始';
+                    break;
+                case 1:
+                    return '正在直播';
+                    break;
+                case 2:
+                    return '已结束';
+                    break;
+            }
+        }
     }
 }

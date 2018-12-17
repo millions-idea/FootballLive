@@ -8,3 +8,7 @@
 /README.md
 /common/http/target
 /admin/Admin/target
+/admin/Admin/src/main/resources/application.yml
+/admin/Admin/src/main/resources/application-dev.yml
+/admin/Admin/src/main/resources/application-pub.yml
+/admin/Admin/src/main/resources/application-test.yml

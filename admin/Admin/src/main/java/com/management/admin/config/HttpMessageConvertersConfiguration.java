@@ -30,7 +30,6 @@ public class HttpMessageConvertersConfiguration {
         // 2、添加fastJson 的配置信息，比如：是否要格式化返回的json数据
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-
         // 2-1、处理中文乱码问题
         List<MediaType> fastMediaTypes = new ArrayList<>();
         fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);

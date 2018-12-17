@@ -1,0 +1,136 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">直播标题</label>
+        <div class="layui-input-block">
+            <input type="text" id="live-title" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.liveTitle}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">添加时间</label>
+        <div class="layui-input-block">
+            <input type="text" id="add-date" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.addDateStr}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">赛事名称</label>
+        <div class="layui-input-block">
+            <input type="text" id="game-name" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.gameName}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">赛事状态</label>
+        <div class="layui-input-block">
+            <input type="text" id="scheduleStatus" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.scheduleStatus}">
+
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">比赛时长</label>
+        <div class="layui-input-block">
+            <input type="text" id="game-duration" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.gameDuration}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">直播链接</label>
+        <div class="layui-input-block">
+            <input type="text" id="source-url" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.sourceUrl}">
+        </div>
+    </div>
+    <!-- 分享次数开始 -->
+    <div class="layui-form-item">
+        <label class="layui-form-label">分享次数</label>
+        <div class="layui-input-block">
+            <input type="text" id="share_count" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.shareCount}">
+        </div>
+    </div>
+    <!-- 分享次数结束 -->
+    <!-- 收藏次数开始 -->
+    <div class="layui-form-item">
+        <label class="layui-form-label">收藏次数</label>
+        <div class="layui-input-block">
+            <input type="text" id="collect_count" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.collectCount}">
+        </div>
+    </div>
+    <!-- 收藏次数结束 -->
+    <!-- 广告内容开始 -->
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告内容</label>
+        <div class="layui-input-block">
+            <input type="text" id="target-url" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.targetUrl}">
+        </div>
+    </div>
+    <!--广告内容结束-->
+    <!-- 情报内容开始 -->
+    <div class="layui-form-item">
+        <label class="layui-form-label">情报内容</label>
+        <div class="layui-input-block">
+            <input type="text" id="content" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${live.content}">
+        </div>
+    </div>
+    <!-- 情报内容结束 -->
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+
+    $(function () {
+        $("#save").click(function () {
+            layer.closeAll();
+        })
+       /* var $updateGradeButtons = $("button[name='updateGrade']"),
+            $closeAccountsButton = $("#closeAccounts");
+        $updateGradeButtons.click(function () {
+            var grade = $(this).prev().val(),
+                item = JSON.parse($(this).prev().attr("data-item"));
+            $.post("./editGrade", {
+                "userId": item.userId,
+                "grade": parseFloat(grade),
+                "roomCode": item.roomCode
+            }, function (data) {
+                if(data == null || data.code == null || data.code != 200) {
+                    layer.msg("保存失败");
+                    return;
+                }
+                layer.msg("保存成功");
+            });
+        })
+
+        $closeAccountsButton.click(function () {
+            $.post("./executeCloseAccounts", {
+                "roomCode": $("#roomCode").val()
+            }, function (data) {
+                if(data == null || data.code == null || data.code != 200) {
+                    if(data.code == 300){
+                        layer.msg(data.msg);
+                        return;
+                    }else{
+                        layer.msg("编辑失败");
+                        return;
+                    }
+                }
+                layer.msg("编辑成功");
+                tableIndex.reload();
+                layer.closeAll();
+            });
+        })*/
+    })
+</script>
