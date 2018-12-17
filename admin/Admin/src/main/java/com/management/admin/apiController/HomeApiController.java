@@ -38,4 +38,5 @@ public class HomeApiController {
         if(maps != null && maps.size() > 0) return new JsonArrayResult<Dictionary>(maps);
         return JsonArrayResult.failing();
     }
+
 }
