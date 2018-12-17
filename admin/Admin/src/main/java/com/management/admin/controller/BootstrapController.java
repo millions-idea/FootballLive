@@ -7,15 +7,11 @@
  */
 package com.management.admin.controller;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.collect.ImmutableMap;
 import com.management.admin.biz.IUserService;
-import com.management.admin.entity.db.User;
 import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.JsonResult;
-import com.management.admin.entity.template.SessionModel;
 import com.management.admin.utils.MD5Util;
-import com.management.admin.utils.PropertyUtil;
 import com.management.admin.utils.TokenUtil;
 import com.management.admin.utils.web.CookieUtil;
 import com.management.admin.utils.web.SessionUtil;
