@@ -41,7 +41,7 @@ public class BootstrapController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @GetMapping("/signup")
+    @GetMapping("/signin")
     public String signup(){
         return "bootstrap/index";
     }

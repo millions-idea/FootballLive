@@ -32,7 +32,7 @@ layui.use(['form', 'layer'], function () {
                 layer.alert("您无权访问系统，请联系相关部门索取工号！");
                 return;
             }
-            if(data.msg.role == "ADMIN") localStorage.setItem("dynamicNavigationUrl","/json/nav_main.json");
+            if(data.role == "ADMIN") localStorage.setItem("dynamicNavigationUrl","/json/nav_main.json");
             //if(data.role == "STAFF") localStorage.setItem("dynamicNavigationUrl","/json/nav_main_service.json");
             location.href = "/management/index";
         });

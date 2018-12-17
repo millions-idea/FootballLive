@@ -132,7 +132,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .formLogin()
                 .usernameParameter("username").passwordParameter("password").permitAll()
-                .loginPage("/management/bootstrap/signup")  // 登录入口
+                .loginPage("/management/bootstrap/signin")  // 登录入口
                 .loginProcessingUrl("/management/bootstrap/login")    // 登录验证接口
                 .permitAll()
                 .successForwardUrl("/management/index")
