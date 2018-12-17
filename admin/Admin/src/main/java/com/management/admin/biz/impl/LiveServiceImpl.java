@@ -137,9 +137,8 @@ public class LiveServiceImpl implements ILiveService {
         // 设置赛事
         live.setScheduleId(scheduleMapper.queryScheduleByGameId(liveDetail.getGameId()).getScheduleId());
         Integer result = liveMapper.modifyLiveById(live);
-
-        Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getS)
-        if (result > 0) {
+        Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getScheduleId(),liveDetail.getScheduleStatus());
+        if (result > 0&&reslut2>0) {
             return 1;
         }
         return 0;

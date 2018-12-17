@@ -1,6 +1,7 @@
 package com.management.admin.repository;
 
 import com.management.admin.entity.db.Advertising;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,4 +16,6 @@ public interface AdvertisingMapper extends MyMapper<Advertising> {
      */
     @Select("select * from tb_advertisings")
     List<Advertising> queryAllAdvertising();
+
+
 }

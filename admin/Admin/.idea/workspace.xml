@@ -6,8 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="3ac84a34-80c7-4a23-b970-3bcc992d9a28" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../common/http/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../common/http/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -104,36 +113,36 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="4" />
-          <entry key="html" value="17" />
-          <entry key="java" value="69" />
-          <entry key="js" value="9" />
+          <entry key="html" value="22" />
+          <entry key="java" value="90" />
+          <entry key="js" value="14" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="4" />
-          <entry key="HTML" value="17" />
-          <entry key="JAVA" value="69" />
-          <entry key="JavaScript" value="9" />
+          <entry key="HTML" value="22" />
+          <entry key="JAVA" value="90" />
+          <entry key="JavaScript" value="14" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="8" />
-          <entry key="html" value="1340" />
-          <entry key="java" value="2325" />
-          <entry key="js" value="156" />
+          <entry key="dummy" value="14" />
+          <entry key="html" value="1406" />
+          <entry key="java" value="3027" />
+          <entry key="js" value="164" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1340" />
-          <entry key="JAVA" value="2325" />
-          <entry key="JavaScript" value="156" />
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="HTML" value="1406" />
+          <entry key="JAVA" value="3027" />
+          <entry key="JavaScript" value="164" />
+          <entry key="PLAIN_TEXT" value="14" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -142,28 +151,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/edit.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/information/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
-              <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+            <state relative-caret-position="2130">
+              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="89" column="54" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="225">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,11 +174,56 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/InformationDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="30" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+            <state relative-caret-position="475">
+              <caret line="45" column="49" lean-forward="true" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -183,8 +231,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="63" column="31" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="31" />
+            <state relative-caret-position="1354">
+              <caret line="83" column="26" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,25 +241,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="97" selection-start-line="97" selection-end-line="97" />
-              <folding>
-                <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" />
-                <element signature="method#getLiveLimit#0;class#LiveController#0" />
-                <element signature="method#delete#0;class#LiveController#0" />
-                <element signature="method#addLiveInfo#0;class#LiveController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="101" column="37" lean-forward="true" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+            <state relative-caret-position="600">
+              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -222,10 +255,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
-        <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -282,12 +315,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/security/SecurityPasswordEncoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/security/LoginAuthenticationProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/member/edit.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/member/index.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/member/admin.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/member/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/NeteaseImUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java" />
@@ -312,27 +339,33 @@
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/GameService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/AdvertisingServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/GameServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/GameController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/AdvertisingController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/index.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/GameMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/live/add.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/live/details.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/live/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/live/details.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/InformationService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/information/index.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/information/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/Information.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/InformationDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" />
       </list>
     </option>
   </component>
@@ -376,10 +409,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="547" />
-    <option name="y" value="198" />
-    <option name="width" value="1214" />
-    <option name="height" value="785" />
+    <option name="x" value="501" />
+    <option name="y" value="505" />
+    <option name="width" value="1054" />
+    <option name="height" value="571" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -576,6 +609,16 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="information" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="live" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -604,6 +647,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="information" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
@@ -643,7 +695,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/repository/BusinessIM/admin/Admin/src/main/java/com/management/admin/biz/IUserService.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545059386346" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545067608216" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -873,12 +925,12 @@
       <workItem from="1545014290572" duration="3399000" />
       <workItem from="1545018525460" duration="30000" />
       <workItem from="1545032947004" duration="960000" />
-      <workItem from="1545034595111" duration="23196000" />
+      <workItem from="1545034595111" duration="30634000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="907516000" />
+    <option name="totallyTimeSpent" value="914954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -894,8 +946,8 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49973333" weight="0.32369298" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49253732" visible="true" weight="0.09232481" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49973333" weight="0.1512792" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49253732" visible="true" weight="0.3359288" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1016,42 +1068,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/updatepassword.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/modify.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/bootstrap/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/area/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/bootstrap/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layout/left-menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="102" selection-start-line="13" selection-start-column="102" selection-end-line="13" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -1100,16 +1116,6 @@
             <element signature="e#434#435#0" expanded="true" />
             <element signature="e#344#345#0" expanded="true" />
             <element signature="e#371#372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1167,13 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/AdvertisingController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1198,35 +1197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1307,20 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="28" column="10" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="28" selection-end-column="10" />
-          <folding>
-            <element signature="n#!!doc;n#initService#0" />
-            <element signature="n#!!doc;n#initDataTable#0" />
-            <element signature="n#!!doc;n#getTableColumns#0" />
-            <element signature="n#!!doc;n#loadTable#0" />
-            <element signature="n#!!block;n#resetPager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/utils/DateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1332,26 +1288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/live/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="189" column="39" selection-start-line="189" selection-start-column="37" selection-end-line="189" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1359,32 +1295,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/details.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="108" selection-start-line="15" selection-start-column="98" selection-end-line="15" selection-end-column="108" />
+          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc;n#initService#0" />
+            <element signature="n#!!doc;n#initDataTable#0" />
+            <element signature="n#!!doc;n#getTableColumns#0" />
+            <element signature="n#!!doc;n#loadTable#0" />
+            <element signature="n#!!block;n#resetPager#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="63" column="31" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="31" />
+        <state relative-caret-position="375">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="138" column="39" selection-start-line="138" selection-start-column="39" selection-end-line="138" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="79" column="83" selection-start-line="79" selection-start-column="76" selection-end-line="79" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/InformationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="102" column="1" selection-start-line="102" selection-start-column="1" selection-end-line="167" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="321" lean-forward="true" selection-start-line="321" selection-end-line="468" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="88" selection-start-line="88" selection-end-line="119" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="124">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="33" />
           <folding>
-            <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" />
-            <element signature="method#getLiveLimit#0;class#LiveController#0" />
+            <element signature="e#1031#1032#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
             <element signature="method#delete#0;class#LiveController#0" />
             <element signature="method#addLiveInfo#0;class#LiveController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="74" column="31" selection-end-line="97" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1396,24 +1408,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/edit.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/live/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+        <state relative-caret-position="241">
+          <caret line="44" column="18" lean-forward="true" selection-end-line="250" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="89" column="54" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
+        <state relative-caret-position="330">
+          <caret line="71" column="60" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/information/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="2130">
+          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1354">
+          <caret line="83" column="26" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/InformationDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1422,8 +1467,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+        <state relative-caret-position="475">
+          <caret line="45" column="49" lean-forward="true" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

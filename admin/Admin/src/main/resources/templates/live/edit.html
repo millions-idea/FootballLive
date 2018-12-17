@@ -44,6 +44,7 @@
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">赛事名称</label>
+        <input hidden th:value="${live.scheduleId}" id="scheduleId">
         <div class="layui-input-block">
             <select name="city" lay-verify="" id="required">
                 <option th:value="${live.gameId}" th:text="${live.gameName}" selected></option>
@@ -111,6 +112,7 @@
                     layer.msg("请选择比赛状态");
                     return false;
                 }
+                liveDetail.scheduleId=$("#scheduleId").val();
                 liveDetail.liveId=$("#liveId").val();
                 liveDetail.liveTitle = $("#live-title").val();
                 liveDetail.gameId = $("#required").val();
@@ -130,11 +132,11 @@
                                 layer.msg(data.msg);
                                 return;
                             }else{
-                                layer.msg("添加失败");
+                                layer.msg("修改成功");
                                 return;
                             }
                         }
-                        layer.msg("添加成功");
+                        layer.msg("修改失败");
                         tableIndex.reload();
                         layer.closeAll();
                     }

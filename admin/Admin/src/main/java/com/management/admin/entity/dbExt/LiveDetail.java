@@ -79,5 +79,7 @@ public class LiveDetail {
 
     private String targetUrl;
 
+    private Integer scheduleId;
+
     private String content;
 }
