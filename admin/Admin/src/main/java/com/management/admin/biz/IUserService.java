@@ -7,7 +7,9 @@
  */
 package com.management.admin.biz;
 
+import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.UserInfo;
 
 import java.util.List;
@@ -89,7 +91,7 @@ public interface IUserService {
      * @param username
      * @return
      */
-    User staffLoginByUname(String username);
+    AdminUser staffLoginByUname(String username);
 
     /**
      * 注销登录 DF 2018年12月16日17:58:26
@@ -98,9 +100,21 @@ public interface IUserService {
     void logout(String token);
 
 
-
     /**
      * 分页加载 韦德 2018年8月30日11:29:00
+     * @param page
+     * @param limit
+     * @param condition
+     * @param userRole
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    List<User> getLimit(Integer page, String limit, String condition, UserRoleEnum userRole, Integer state, String beginTime, String endTime);
+
+    /**
+     * 分页加载管理员信息列表 DF 2018-12-17 14:39:562
      * @param page
      * @param limit
      * @param condition
@@ -109,7 +123,7 @@ public interface IUserService {
      * @param endTime
      * @return
      */
-    List<User> getLimit(Integer page, String limit, String condition,Integer type, Integer state, String beginTime, String endTime);
+    List<AdminUser> getAdminLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
 
 
     /**
@@ -122,12 +136,23 @@ public interface IUserService {
     /**
      * 加载分页记录数 韦德 2018年8月30日11:29:22
      * @param condition
+     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
      * @return
      */
-    Integer getLimitCount(String condition,Integer type, Integer state, String beginTime, String endTime);
+    Integer getLimitCount(String condition,UserRoleEnum userRole, Integer state, String beginTime, String endTime);
+
+    /**
+     * 加载管理员信息列表分页记录数 DF 2018年12月17日14:40:233
+     * @param condition
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    Integer getAdminLimitCount(String condition, Integer state, String beginTime, String endTime);
 
     /**
      * 获取用户信息--用户id DF 2018年12月16日19:11:09
@@ -135,4 +160,18 @@ public interface IUserService {
      * @return
      */
     User getUserInfoById(Integer userId);
+
+    /**
+     * 查询管理员用户表记录总数 DF 2018-12-17 14:43:462
+     * @return
+     */
+    Integer getAdminCount();
+
+
+    /**
+     * 获取管理员用户信息--用户id DF 2018年12月17日14:45:30
+     * @param userId
+     * @return
+     */
+    AdminUser getAdminUserInfoById(Integer userId);
 }

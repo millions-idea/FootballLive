@@ -9,12 +9,19 @@ package com.management.admin.security;
 
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
 import com.management.admin.biz.IPermissionMapService;
+import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionMap;
+import com.management.admin.entity.db.User;
 import com.management.admin.exception.InfoException;
+import com.management.admin.utils.StringUtil;
+import com.management.admin.utils.TokenUtil;
+import com.management.admin.utils.web.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.authentication.dao.ReflectionSaltSource;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -105,7 +112,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         Stream<PermissionMap> permissionStream = permissionMaps.stream();
 
         //获取accessUrl数组
-        String[] accessUrlArray = permissionMaps.stream().map(item -> item.getAccessUrl()).collect(Collectors.toList()).toArray(new String[0]);
+        List<String> accessUrlList = StringUtil.removeDuplicate(permissionMaps.stream().map(item -> item.getAccessUrl()).collect(Collectors.toList()));
+        List<String> nAccessUrlList = new ArrayList<>();
+        accessUrlList.stream().forEach(item -> {
+            if(item != null && !item.isEmpty() && item.length() > 1) nAccessUrlList.add(item);
+        });
+
+        String[] accessUrlArray = nAccessUrlList.toArray(new String[0]);
 
         //获取groupCode数组
         String[] groupCodeArray = permissionMaps.stream().map(item -> item.getPermissionGroupCode().replace("ROLE_","")).collect(Collectors.toList()).toArray(new String[0]);
@@ -139,6 +152,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .successHandler(new AuthenticationSuccessHandler() {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+
+                        AdminUser user = ((SecurityUserDetails) ((UsernamePasswordAuthenticationToken) authentication).getPrincipal()).getDetail();
+
+                        // 生成平台令牌
+                        Map<String, String> fields
+                                = ImmutableMap.of("phone", user.getPhone(), "userId", user.getUserId() + "");
+                        String token = TokenUtil.create(fields);
+
+                        // 本地缓存
+                        CookieUtil.setCookie(httpServletRequest, httpServletResponse, "token", token);
+
                         httpServletResponse.setContentType("application/json;charset=utf-8");
                         PrintWriter out = httpServletResponse.getWriter();
                         String msg = "SUCCESS";
@@ -154,6 +178,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .failureHandler(new AuthenticationFailureHandler() {
                     @Override
                     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+                        CookieUtil.deleteCookie(httpServletRequest, httpServletResponse, "token");
                         httpServletResponse.setContentType("application/json;charset=utf-8");
                         PrintWriter out = httpServletResponse.getWriter();
                         out.write("{\"error\":1,\"msg\":\"ERROR\"}");

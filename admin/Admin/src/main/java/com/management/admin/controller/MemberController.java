@@ -9,6 +9,7 @@ package com.management.admin.controller;
 
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class MemberController {
     @ResponseBody
     public JsonArrayResult<User> getMemberLimit(Integer page, String limit, String condition,Integer type, Integer state, String beginTime, String endTime){
         Integer count = 0;
-        List<User> list = userService.getLimit(page, limit, condition,0, state, beginTime, endTime);
+        List<User> list = userService.getLimit(page, limit, condition, UserRoleEnum.Member, state, beginTime, endTime);
         JsonArrayResult jsonArrayResult = new JsonArrayResult(0, list);
         if (StringUtil.isBlank(condition)
                 && StringUtil.isBlank(beginTime)
@@ -47,7 +48,7 @@ public class MemberController {
                 && (state == null || state == 0)){
             count = userService.getCount();
         }else{
-            count = userService.getLimitCount(condition,0, state, beginTime, endTime);
+            count = userService.getLimitCount(condition,UserRoleEnum.Member, state, beginTime, endTime);
         }
         jsonArrayResult.setCount(count);
         return jsonArrayResult;
