@@ -10,10 +10,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.resp.UserInfo;
 import jdk.nashorn.internal.objects.annotations.Setter;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -38,6 +35,7 @@ public interface UserMapper extends MyMapper<User> {
      */
     @Update("UPDATE tb_users SET password=#{password},edit_date=NOW() WHERE phone=#{phone}")
     int resetPassword(@Param("phone") String phone, @Param("password") String encryptPassword);
+
 
     /**
      * 改绑有讯号 DF 2018年12月11日04:06:30
