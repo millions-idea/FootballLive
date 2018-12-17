@@ -1,0 +1,128 @@
+.btn-group{
+	width: 45%;
+	height: 42px;
+	font-size: 18px;
+	border-radius: 5px;
+	margin-left: 5px;
+}
+
+
+.item-group{
+	text-align: center;
+}
+
+ .content{
+	height: 460px;
+}
+
+.side-list{
+	list-style: none;
+	overflow: hidden;
+	display: flex;
+	overflow-x: scroll;
+	 -webkit-overflow-scrolling:touch;
+	width: 195px;
+    float: right;
+}
+
+@media only screen and (max-width: 1024px) {
+	.side-list{
+		width: 775px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.side-list{
+		width: 545px;
+	}
+}
+
+
+@media only screen and (max-width: 720px) {
+	.side-list{
+		width: 505px;
+	}
+}
+
+
+@media only screen and (max-width: 512px) {
+	.side-list{
+		width: 313px;
+	}
+}
+
+
+@media only screen and (max-width: 425px) {
+	.side-list{
+		width: 240px;
+	}
+}
+
+
+@media only screen and (max-width: 414px) {
+	.side-list{
+		width: 225px;
+	}
+}
+
+
+@media only screen and (max-width: 384px) {
+	.side-list{
+		width: 198px;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.side-list{
+		width: 190px;
+	}
+}
+
+
+@media only screen and (max-width: 361px) {
+	.side-list{
+		width: 177px;
+	}
+}
+
+
+@media only screen and (max-width: 360px) {
+	.side-list{
+		width: 177px;
+	}
+}
+
+
+@media only screen and (max-width: 341px) {
+	.side-list{
+		width: 141px;
+	}
+}
+
+
+@media only screen and (max-width: 320px) {
+	.side-list{
+		width: 141px;
+	}
+}
+
+@media only screen and (max-width: 240px) {
+	.side-list{
+		width: 69px;
+	}
+}
+.side-list li{
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+
+
+
+.head{
+	min-height: 90px;
+}
+
+.title{
+    line-height: 30px;
+}

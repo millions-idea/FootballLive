@@ -8,9 +8,11 @@
 package com.management.admin.apiController;
 
 import com.management.admin.biz.IDictionaryService;
+import com.management.admin.biz.ILiveCategoryService;
 import com.management.admin.biz.ILiveService;
 import com.management.admin.biz.ITeamService;
 import com.management.admin.entity.db.Dictionary;
+import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.entity.resp.HotGame;
@@ -38,6 +40,9 @@ public class HomeApiController {
 
     @Autowired
     private ITeamService teamService;
+
+    @Autowired
+    private ILiveCategoryService liveCategoryService;
 
     /**
      * 查询首页板块聚合信息 DF 2018年12月13日17:02:55
@@ -93,4 +98,13 @@ public class HomeApiController {
         return new JsonArrayResult<HotGame>(hotGames);
     }
 
+    /**
+     * 获取直播分类信息列表 DF 2018年12月18日01:45:44
+     * @return
+     */
+    @GetMapping("getLiveCategoryList")
+    public JsonArrayResult<LiveCategory> getLiveCategoryList(){
+        List<LiveCategory> liveCategoryList = liveCategoryService.getLiveCategorys();
+        return new JsonArrayResult<LiveCategory>(liveCategoryList);
+    }
 }

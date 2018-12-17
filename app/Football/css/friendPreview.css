@@ -1,0 +1,63 @@
+.content{
+	width: 100%;
+	min-height: 80px;
+}
+
+
+.user-head{
+	height: 160px;
+	background-color: #4598FF;
+	background-image: url(../images/watermark.png);
+	text-align: center;
+}
+
+
+.user-face{
+	display: inline-block; 
+	height: 70px; 
+	width: 70px; 
+	border-radius: 100px;
+}
+
+.user-code{
+	display: block;
+	font-size: 20px;
+	color: #fff;
+}
+
+
+.item-line{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+
+.item-line label{
+	font-size: 15px;
+	color: #9D9D9D;
+}
+
+.item-line span{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	background-color: #DFDFDF;
+	border-radius: 15px;
+	padding-left: 15px;
+	color: #7B7B7B;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.mui-content{
+	background-color: #EEEEEE !important;
+}
+
+
+.item-line .btn{
+	height: 40px;
+	font-size: 15px;
+}
+

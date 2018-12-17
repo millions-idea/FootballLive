@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title> 
+	    <link href="css/mui.min.css" rel="stylesheet"/>  
+	    <link href="css/index.fonts.css" rel="stylesheet"/>
+	    <link href="css/main.css" rel="stylesheet"/>
+	    <link href="css/reset.css" rel="stylesheet"/>
+	    <link href="css/reg.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="mui-content">
+		    <div class="head">
+		    	<span class="title">注册</span>
+		    </div>
+		    
+		    <div class="content form">
+		    	<div class="item-line">
+		    		<label>手机号</label>
+		    		<input value="17854141391" type="number" maxlength="11" name="phone" placeholder="请输入您的手机号"  oninput="if(value.length>11)value=value.slice(0,11)"/>
+		    	</div>
+		    	<div class="item-line">
+		    		<label>设置密码</label>
+		    		<input value="123456" type="password" maxlength="18" name="password" placeholder="请设置您的登录密码"/>
+		    	</div>
+		    	<div class="item-line sms-code">
+		    		<label>短信验证码</label>
+		    		<input value="123456" type="number"  maxlength="6" name="smsCode" placeholder="请输入短信验证码"  oninput="if(value.length>6)value=value.slice(0,6)"/>
+		    		<button class="btn-blue" id="sendSmsCode">发送验证码</button>
+		    	</div>
+		    	<div class="item-line agree-deal">
+		    		<input type="hidden" id="regPactState" value="0"/>
+                	<span id="agreeRegPact" style="background-image: url(images/check-box_outline.png);" class="advice"></span>
+                	<span id="agreeRegPact1" style="background-image: url(images/check-box.png); display: none;" class="advice"></span>
+                	<span id="regPact">同意《卫星体育注册协议》</span>
+		    	</div>
+		    	<div class="item-line">
+		    		<button class="btn-regist btn-gray" id="nextStep" disabled="disabled">下一步</button>
+		    	</div>
+		    </div>
+		</div>
+	    <script src="js/mui.min.js"></script>
+	    <script src="js/jquery-2.1.0.js"></script>
+	    <script src="js/jquery-ajax.js"></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/header.js" ></script>
+		<script type="text/javascript" src="js/reg.js" ></script>
+	</body>
+</html>

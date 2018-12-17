@@ -1,0 +1,100 @@
+body{
+	background-color: #FFFFFF;
+}
+
+.mui-content{
+	height: 100%;
+	overflow: auto;
+	background-color: #FFFFFF;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.padding-top-10{
+	display: block;
+	min-height: 10px;	
+}
+.padding-top-50{
+	display: block;
+	min-height: 50px;	
+}
+.padding-top-100{
+	display: block;
+	min-height: 100px;	
+}
+
+.nav-default-backColor{
+	background-color: #fbfbfb;
+}
+
+.nav-title{
+	color: #000;
+	font-size: 15px;
+}
+
+
+.split-line{
+	display: inline-block;
+	height: 70px;
+	width: 1px;
+	background-color: #F0F0F0;
+}
+
+
+.split-5{
+	display: inline-block;
+	width: 5px;
+}
+
+
+
+
+a{
+	text-decoration: none !important;
+}
+
+
+.btn-flow{
+	width: 100%;
+}
+
+
+.btn-color-error{
+	background-color: #EF4F4F !important;
+	border: 1px solid #EF4F4F !important;
+	color: #fff !important;
+}
+.btn-color-error:active{
+	background-color: #F27272 !important;
+}
+
+
+.btn-color-normal{
+	background-color: #03A9F4 !important;
+	border: 1px solid #03A9F4 !important;
+	color: #fff !important;
+}
+.btn-color-normal:active{
+	background-color: #03A9F4 !important;
+}
+
+
+.mui-bar-nav {
+    top: 0;
+    -webkit-box-shadow: 0 0px 0px #ccc;
+    box-shadow: 0 0px 0px #ccc;
+}
+
+
+.mui-slider {
+    height: 180px !important;
+    }
+    
+
+
+.mui-bar-tab .mui-tab-item.mui-active {
+color: #8330E0 !important;
+}
