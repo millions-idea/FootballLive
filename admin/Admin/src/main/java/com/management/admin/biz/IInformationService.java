@@ -45,4 +45,25 @@ public interface IInformationService {
      * @return
      */
     Integer getLimitCount(String condition, Integer state, String beginTime, String endTime);
+
+    /**
+     * 添加情报
+     * @param information
+     * @return
+     */
+    Integer InsertInformation(Information information);
+
+    /**
+     * 修改情报内容
+     * @param information
+     * @return
+     */
+    Integer modifyInfromation(Information information);
+
+    /**
+     * 删除情报内容
+     * @param informationId
+     * @return
+     */
+    Integer deleteInformation(Integer informationId);
 }

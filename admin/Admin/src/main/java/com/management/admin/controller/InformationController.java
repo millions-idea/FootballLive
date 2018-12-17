@@ -6,6 +6,7 @@ import com.management.admin.entity.db.Live;
 import com.management.admin.entity.dbExt.InformationDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.template.JsonArrayResult;
+import com.management.admin.entity.template.JsonResult;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,12 @@ public class InformationController {
 
     @Autowired
     private IInformationService informationService;
+
+    @GetMapping("/index")
+    public String index(){
+        System.err.println("============================================================");
+        return "information/index";
+    }
 
     /**
      * 会员列表 韦德 2018年8月29日11:42:31
@@ -44,5 +51,30 @@ public class InformationController {
         }
         jsonArrayResult.setCount(count);
         return jsonArrayResult;
+    }
+    @GetMapping("/setInformationContent")
+    @ResponseBody
+    public JsonResult setInformationContent(Information information){
+        Integer result = informationService.modifyInfromation(information);
+        if(result>0){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
+    }
+    @GetMapping("/deleteInformation")
+    @ResponseBody
+    public JsonResult deleteInformation(Integer informationId){
+        Integer result = informationService.deleteInformation(informationId);
+        if(result>0){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
+    }
+    public JsonResult insertInformation(Information information){
+        Integer result = informationService.insertInformation(information);
+        if(result>0){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
     }
 }

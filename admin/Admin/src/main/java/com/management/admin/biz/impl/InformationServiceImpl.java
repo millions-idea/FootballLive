@@ -81,6 +81,39 @@ public class InformationServiceImpl implements IInformationService {
     }
 
     /**
+     * 添加情报
+     *
+     * @param information
+     * @return
+     */
+    @Override
+    public Integer InsertInformation(Information information) {
+        return informationMapper.insertInformation(information);
+    }
+
+    /**
+     * 修改情报内容
+     *
+     * @param information
+     * @return
+     */
+    @Override
+    public Integer modifyInfromation(Information information) {
+        return informationMapper.modifyInformationById(information);
+    }
+
+    /**
+     * 删除情报内容
+     *
+     * @param informationId
+     * @return
+     */
+    @Override
+    public Integer deleteInformation(Integer informationId) {
+        return informationMapper.deleteInformationById(informationId);
+    }
+
+    /**
      * 提取分页条件
      * @return
      */

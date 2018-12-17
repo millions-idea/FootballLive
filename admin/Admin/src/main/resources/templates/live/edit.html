@@ -117,7 +117,7 @@
                 liveDetail.liveTitle = $("#live-title").val();
                 liveDetail.gameId = $("#required").val();
                 liveDetail.gameDuration = $("#game-duration").val();
-                liveDetail.sourceUrl = $("#source-url").text();
+                liveDetail.sourceUrl = $("#source-url").val();
                 liveDetail.adId = $("#target-url").val();
                 var jsonStr = JSON.stringify(liveDetail);
                 $.ajax({
@@ -136,7 +136,6 @@
                                 return;
                             }
                         }
-                        layer.msg("修改失败");
                         tableIndex.reload();
                         layer.closeAll();
                     }
