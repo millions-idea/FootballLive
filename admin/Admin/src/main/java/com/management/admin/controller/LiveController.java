@@ -112,4 +112,10 @@ public class LiveController {
         }
         return JsonResult.failing();
     }
+
+    @GetMapping("/getAll")
+    @ResponseBody
+    public JsonArrayResult<Live> getAll(){
+        return new JsonArrayResult<Live>(liveService.queryAll());
+    }
 }

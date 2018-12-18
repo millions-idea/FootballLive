@@ -16,9 +16,11 @@ import java.util.List;
 public interface LiveMapper extends MyMapper<Live>{
 
     @Select("SELECT t1.*,t2.game_date, t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.* " +
-            "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id and t2.is_delete=0 " +
-            "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id and t3.is_delete=0 " +
-            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id and t4.is_delete=0 where t1.status=0 and ${condition} GROUP BY t1.live_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+            "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id  " +
+            "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id  where" +
+            "  t1.status=0 and t3.is_delete=0 and t4.is_delete=0" +
+            " and t2.is_delete=0 and ${condition} GROUP BY t1.live_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
@@ -37,8 +39,8 @@ public interface LiveMapper extends MyMapper<Live>{
 
     @Select("SELECT COUNT(t1.live_id) FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
-            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id where t1.status=0 and "+
-            " ${condition}")
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id where t1.status=0 and t3.is_delete=0 and t4.is_delete=0 " +
+            "             and t2.is_delete=0 and ${condition}")
     /**
      * 分页查询记录数 韦德 2018年8月30日11:33:30
      * @param state
@@ -51,6 +53,13 @@ public interface LiveMapper extends MyMapper<Live>{
             , @Param("beginTime") String beginTime
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
+
+    /**
+     * 查询总记录数
+     * @return
+     */
+    @Select("select count(*) from tb_lives where status=0")
+    Integer selectLiveCount();
 
     /**
      * 根据编号修改直播间标题
@@ -70,19 +79,26 @@ public interface LiveMapper extends MyMapper<Live>{
     @Update("update tb_lives set schedule_id=#{scheduleId} where live_id=#{liveId}")
     Integer modifyLiveScheduleId(@Param("liveId") Integer liveId,@Param("scheduleId") Integer scheduleId);
 
-    @Select("select count(*) from tb_lives")
-    Integer selectLiveCount();
-
+    /**
+     * 删除直播间 狗蛋 2018年12月19日02:44:36
+     * @param liveId
+     * @return
+     */
     @Update("update tb_lives set status=1 where live_id=#{liveId}")
     Integer deleteLive(Integer liveId);
 
+    /**
+     * 根据编号查询相应的直播间
+     * @param liveId
+     * @return
+     */
     @Select("SELECT t1.*,t2.game_date,t2.schedule_id ,t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content " +
             "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id " +
             "LEFT JOIN tb_advertisings t5 ON t5.ad_id = t1.ad_id " +
             "LEFT JOIN tb_informations t6 ON t6.live_id = t1.live_id AND t6.game_id = t3.game_id" +
-            " where t1.live_id=#{liveId}")
+            " where t1.live_id=#{liveId} and t1.status=0")
     LiveDetail queryLiveDetailByLiveId(Integer liveId);
 
 
@@ -102,4 +118,10 @@ public interface LiveMapper extends MyMapper<Live>{
             "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectHotLives();
+
+    @Select("select * from tb_lives where status=0")
+    List<Live> queryAll();
+
+    @Update("update tb_lives set ad_id=#{adId} where live_id=#{liveId} and status=0")
+    Integer modifyAdvertising(@Param("adId") Integer adId,@Param("liveId") Integer liveId);
 }

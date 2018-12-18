@@ -36,7 +36,6 @@ var tableIndex;
                 service.details({
                     liveId: data.liveId
                 }, function(html){
-                    debugger;
                     layer.open({
                         type: 1,
                         skin: 'layui-layer-rim', //加上边框

@@ -8,6 +8,7 @@ import com.management.admin.entity.enums.UserRoleEnum;
 
 import java.util.List;
 
+
 public interface IInformationService {
     /**
      * 添加情报
@@ -66,4 +67,6 @@ public interface IInformationService {
      * @return
      */
     Integer deleteInformation(Integer informationId);
+
+    InformationDetail queryInformationById(Integer isrId);
 }

@@ -69,4 +69,6 @@ public interface ILiveService {
      * @return
      */
     List<LiveHotDetail> getHotLives();
+
+    List<Live> queryAll();
 }

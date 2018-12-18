@@ -1,0 +1,89 @@
+
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属直播间</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="" id="live">
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">源链接</label>
+        <div class="layui-input-block">
+            <input type="text" id="sourceUrl" autocomplete="off"
+                   lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">跳转链接</label>
+        <div class="layui-input-block">
+            <input type="text" id="targetUrl" autocomplete="off"
+                   lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="type" value="0" title="图片广告">
+            <input type="radio" name="type" value="1" title="视频广告" checked>
+        </div>
+    </div>
+    <!--广告内容结束-->
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        $.getJSON("/management/live/getAll",function (data) {
+            var html='';
+            data.data.forEach(function (item,index) {
+                html+='<option value="'+item.liveId+'">'+item.liveTitle+'</option>'
+            })
+            $("#live").html(html);
+            form.render();
+        });
+        form.render();
+
+        var advertisingDetail={};
+        $("#save").click(function () {
+            advertisingDetail.liveId = $("#live").val();
+            var typeResult = $('input[name="type"]:checked').val();
+            if(typeResult==0){
+
+                advertisingDetail.type=true;
+            }else {
+                advertisingDetail.type=false;
+
+            }
+            advertisingDetail.targetUrl = $("#targetUrl").val();
+            advertisingDetail.sourceUrl = $("#sourceUrl").val();
+            $.ajax({
+                url:"/management/advertising/addAdvertisingInfo",    //请求的url地址
+                dataType:"json",   //返回格式为json
+                data: advertisingDetail,    //参数值
+                type:"post",   //请求方式
+                success:function(data){
+                    //请求成功时处理
+                    if(data == null || data.code == null || data.code != 200) {
+                        if(data.code == 300){
+                            layer.msg(data.msg);
+                            return;
+                        }else{
+                            layer.msg("添加失败");
+                            return;
+                        }
+                    }
+                    layer.msg("添加成功");
+                    tableIndex.reload();
+                    layer.closeAll();
+                }
+            });
+        })
+    });
+</script>

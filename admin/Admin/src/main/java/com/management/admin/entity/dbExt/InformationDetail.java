@@ -35,5 +35,11 @@ public class InformationDetail {
 
     private String gameName;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date addDate;
+
+    private String addDateStr;
+
+    private String scheduleStatusStr;
 }

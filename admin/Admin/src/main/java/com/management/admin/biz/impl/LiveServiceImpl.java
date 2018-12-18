@@ -11,6 +11,7 @@ import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.PropertyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -101,6 +102,7 @@ public class LiveServiceImpl implements ILiveService {
      * @return
      */
     @Override
+    @Transactional
     public Integer insertLive(LiveDetail liveDetail) {
         Live live = new Live();
         live.setAddDate(new Date());
@@ -127,6 +129,7 @@ public class LiveServiceImpl implements ILiveService {
      * @return
      */
     @Override
+    @Transactional
     public Integer modifyLive(LiveDetail liveDetail) {
         Live live = new Live();
         live.setLiveId(liveDetail.getLiveId());
@@ -198,4 +201,8 @@ public class LiveServiceImpl implements ILiveService {
         return where;
     }
 
+    @Override
+    public List<Live> queryAll() {
+        return liveMapper.queryAll();
+    }
 }
