@@ -41,5 +41,10 @@
     "refer": [
       "liveDetail.html"
     ]
+  },
+  "liveDetail.html": {
+    "refer": [
+      "share.html"
+    ]
   }
 }
