@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/icon.fonts.css" rel="stylesheet" />
+		<link href="css/icon.football.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/ui.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/home.index.css" />
+		<link rel="stylesheet" href="css/home.css" />
+		<script src="js/template-web.js"></script>
+	</head>
+	
+	<body>
+		<div class="mui-content" id="refreshContainer">
+		    <!--runner ad begin-->
+		    <div class="runnerAd">
+		    	<!--runner image begin-->
+					<div class="runnerImage">
+				    	<div class="mui-slider">
+						  <div class="mui-slider-group" id="runnerImage">
+						  </div>
+						  <div class="mui-slider-indicator">
+			                <div class="mui-indicator mui-active"></div>
+			                <div class="mui-indicator"></div>
+			                <div class="mui-indicator"></div>
+		            	  </div>
+						</div>
+					</div>
+					<!--template code begin-->
+					<script id="runnerImageTemplate" type="text/html">
+						{{each list as item index}}
+						    <div class="mui-slider-item">
+						    	<a href="javascript:void(0);">
+						    		<img src="{{item.value}}" alt="{{index}}" />
+						    	</a>
+						    </div>
+						{{/each}}
+					</script>
+					<!--template code end-->
+				<!--runner image end-->
+				
+		    </div>
+		    
+	    	<!--text ad begin-->
+	    	<div class="textAd">
+	    		<span class="iconfont  icon-gonggao mui-pull-left icon"></span>
+	    		<span class="text" id="topTextAd">正在加载……</span> 
+	    	</div>
+	    	<!--text ad end-->
+	    	
+			<div class="form-placeholder-20"></div>
+	    	
+		    <!--runner ad end-->
+ 
+			<!--container begin-->
+			<div class="container">  
+				<!-- headline begin -->
+				<div class="headline">
+					<div class="left">
+						<div class="title title-color-red">...</div>
+						<div class="content">
+							<div class="team team-left">
+								<img class="teamIcon" src="" alt="" />
+								<span class="teamName">....</span>
+							</div>
+							<div class="team team-right">
+								<img class="targetTeamIcon" src="" alt="" />
+								<span class="targetTeamName">...</span>
+							</div>
+						</div>
+					</div>
+					<div class="right">
+						<div class="title title-color-green title"></div>
+						<div class="content">
+							<div class="team team-left">
+								<img class="teamIcon" src="" alt="" />
+								<span class="teamName">...</span>
+							</div>
+							<div class="team team-right">
+								<img class="targetTeamIcon" src="" alt="" />
+								<span class="targetTeamName">...</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- headline end -->
+				
+				<div class="form-placeholder-20"></div>
+				
+				<!-- category begin -->
+				<div class="category">
+					<div class="left">
+						<div tabindex="0" class="item first"></div>
+						<div tabindex="1" class="item"></div>
+						<div tabindex="2" class="item"></div>
+					</div>
+					<div class="right">
+						<div tabindex="3" class="item"></div>
+						<div tabindex="4" class="item"></div>
+						<div tabindex="5" class="item"></div>
+						<div tabindex="6" class="item"></div>
+					</div>
+					<div class="form-placeholder-10"></div>
+				</div>
+				<!-- category end --> 
+			
+				
+			</div>
+			<!--container end-->
+		    
+		    <!--bottom navigation begin-->
+			<div class="bottom-navigation-style"></div>
+		    <!--bottom navigation end-->
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="js/home.js" ></script>
+	</body>
+
+</html>

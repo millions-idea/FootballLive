@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title> 
+	    <link href="css/mui.min.css" rel="stylesheet"/>  
+	    <link href="css/index.fonts.css" rel="stylesheet"/>
+	    <link href="css/main.css" rel="stylesheet"/>
+	    <link href="css/reset.css" rel="stylesheet"/>
+	    <link href="css/reg.css" rel="stylesheet"/>
+	    <link href="css/login.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="mui-content">
+		    <div class="head">
+		    	<span class="title">卫星体育</span>
+		    </div>
+		    
+		    <div class="content form">
+		    	<div class="item-line">
+		    		<label>手机号</label>
+		    		<input value="17854141391" type="number" maxlength="11" name="phone" placeholder="请输入您的手机号"  oninput="if(value.length>11)value=value.slice(0,11)"/>
+		    	</div>
+		    	<div class="item-line">
+		    		<label>密码</label>
+		    		<input value="123456" type="password" maxlength="18" name="password" placeholder="请设置您的登录密码"/>
+		    	</div>
+		    	<div class="item-line to-reg-link">
+		    		<a id="findPassword" class="left" href="javascript:void(0)">忘记密码</a>
+		    		<a id="reg" class="right" href="javascript:void(0)">手机号注册</a> 
+		    	</div>
+	    		<div class="padding-top-10"></div>
+	    		<div class="padding-top-10"></div>
+	    		<div class="padding-top-10"></div>
+		    	<div class="item-line">
+		    		<button class="btn-regist btn-blue" id="login">登录</button>
+		    	</div>
+		    </div>
+		    
+		    
+		    <div class="footer">
+		    	<span>尽享极速赛事直播</span>
+		    	<span id="version">v0.0.0</span>
+		    </div>
+		</div>
+	    <script src="js/mui.min.js"></script>
+	    <script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+		<!--<script type="text/javascript" src="js/header.js" ></script>-->
+		<script type="text/javascript" src="js/login.js" ></script>
+	</body>
+</html>

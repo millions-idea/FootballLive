@@ -22,4 +22,10 @@ public class Game {
     private String gameName;
 
     private String gameIcon;
+
+    private Integer categoryId;
+
+    private Integer isDelete;
+
+
 }

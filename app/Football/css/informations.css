@@ -1,0 +1,49 @@
+.live .top{
+	height: 22px;
+	line-height: 22px;
+	padding-left: 5px;
+}
+
+.live .content .info{
+	bottom: -25px;
+}
+
+.live li{
+	background-position-y: 50px;
+}
+
+
+.live .info{
+	color: #646464;
+}
+
+
+.content .left-hot .icon{
+	position: relative;
+	left: -1px;
+	top: -22px;
+	font-size: 35px;
+	color: #FE4541;
+	float: left;
+}
+
+.content .left-hot img, .content .left-hot span{
+	position: relative;
+	left: -15px;
+}
+
+
+
+.content .right-hot .icon{
+	position: relative;
+	right: -1px;
+	top: -24px;
+	font-size: 35px;
+	color: #FE4541;
+	float: right;
+}
+
+.content .right-hot img, .content .right-hot span{
+	position: relative;
+	right: -15px;
+}

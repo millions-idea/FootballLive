@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title> 
+	    <link href="css/mui.min.css" rel="stylesheet"/>  
+	    <link href="css/index.fonts.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/ui.css" />
+	    <link href="css/main.css" rel="stylesheet"/>
+	    <link href="css/reset.css" rel="stylesheet"/>
+	    <link href="css/my.css" rel="stylesheet"/> 
+	</head>
+	<body>
+		<div class="mui-content" id="app">  
+		    <ul class="mui-table-view" style="padding: 0;margin: 0;"> 
+		         <!--sheet photo-->
+		        <li class="mui-table-view-cell mui-media">
+		            <a id="link_myface" href="javascript:;">
+		                <img id="face" class="mui-media-object mui-pull-right" src="images/head-default.png">
+		                <div class="mui-media-body" style="line-height: 42px;font-size: 16px;">
+		                    	头像
+		                </div>
+		            </a>
+		        </li>
+		        <!--sheet photo end-->
+		        <li class="mui-table-view-cell mui-media history">
+		            <a  href="javascript:;">
+		                <div class="mui-media-body">
+		                	<span>
+		                    	昵称
+		                    </span>
+		                    &nbsp;&nbsp;&nbsp;&nbsp;
+		                </div>
+		            </a>
+		        </li>
+		    </ul>
+		    
+		    <br />
+		    
+		    <ul class="mui-table-view">
+		    	<li id="logout" class="mui-table-view-cell btn-color-stress" 
+		    		style="text-align: center;">
+		            退出登录
+		        </li>
+		    </ul>
+		    
+		    <canvas id="cimg" style="display: none;"></canvas>
+		    
+		    
+		    <!--bottom navigation begin-->
+			<div class="bottom-navigation-style"></div>
+		    <!--bottom navigation end-->
+		</div>
+	    <script src="js/mui.min.js"></script>
+	    <script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+	    <script src="js/my.js"></script>
+	</body>
+</html>

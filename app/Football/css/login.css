@@ -1,0 +1,40 @@
+.content{
+	position: relative;
+	margin: 0 auto;
+	background-color: #fff;
+	top:-40px;
+	width: 90%;
+	height: 270px;
+	border-radius: 15px;
+}
+
+
+.to-reg-link{
+	display: block; 
+	line-height: 20px;
+	font-size: 12px;
+}
+
+.to-reg-link .left{
+	float: left;
+	color: #848484;
+}
+
+
+.to-reg-link .right{
+	float: right;
+}
+
+
+.footer{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footer span{
+	display: block;
+	line-height: 20px;
+	color: #D7D7D7;
+}
+
+

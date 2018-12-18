@@ -10,63 +10,25 @@
           "href": "/management/index"
         }
       ]
-    },
-  {
-    "text": "财务模块",
-    "icon": "&#xe65e;",
-    "subset": [
-      {
-        "text": "人工充值",
-        "icon": "&#xe63c;",
-        "href": "/management/finance/recharge"
-      }, {
-        "text": "交易清单",
-        "icon": "&#xe63c;",
-        "href": "/management/finance/pay"
-      }, {
-        "text": "会计账簿",
-        "icon": "&#xe63c;",
-        "href": "/management/finance/accounts"
-      }
-    ]
-  },{
-      "text": "市场运营",
-      "icon": "&#xe632;",
-      "subset": [
-        {
-          "text": "佣金结算",
-          "icon": "&#xe63c;",
-          "href": "/management/room/close-accounts"
-        },{
-          "text": "提现审批",
-          "icon": "&#xe63c;",
-          "href": "/management/withdraw/index"
-        },{
-          "text": "充值审批",
-          "icon": "&#xe63c;",
-          "href": "/management/recharge/index"
-        },{
-          "text": "充值房卡",
-          "icon": "&#xe63c;",
-          "href": "/management/room/room-card"
-        },{
-          "text": "房间管理",
-          "icon": "&#xe63c;",
-          "href": "/management/room/index"
-        }]
-    },{
-      "text": "网站配置",
+    }, {
+      "text": "用户管理",
       "icon": "&#xe620;",
       "subset": [
         {
-          "text": "支付管理",
-          "icon": "&#xe678;",
-          "href": "/management/config/pay"
-        },{
-          "text": "会员管理",
+          "text": "用户列表",
           "icon": "&#xe63c;",
           "href": "/management/member/index"
         },{
+          "text": "黑名单管理",
+          "icon": "&#xe63c;",
+          "href": "/management/blacklist"
+        }
+      ]
+    },{
+      "text": "管理员管理",
+      "icon": "&#xe620;",
+      "subset": [
+        {
           "text": "管理员管理",
           "icon": "&#xe63c;",
           "href": "/management/admin/index"
@@ -79,15 +41,6 @@
           "icon": "&#xe63c;",
           "href": "/management/admin/insertAdmin"
         }
-      ,{
-          "text": "分区管理",
-          "icon": "&#xe63c;",
-          "href": "/management/area/index"
-        },{
-          "text": "基础设置",
-          "icon": "&#xe63c;",
-          "href": "/management/config/index"
-        }
       ]
     },{
       "text": "赛事管理",
@@ -96,7 +49,75 @@
         {
           "text": "赛事管理",
           "icon": "&#xe63c;",
-          "href": "/EventManagement/manage"
+          "href": "/competition/index"
+        },{
+          "text": "球队管理",
+          "icon": "&#xe63c;",
+          "href": "/management/team"
+        },{
+          "text": "赛程管理",
+          "icon": "&#xe63c;",
+          "href": "/management/schedule"
+        }
+      ]
+    },{
+      "text": "直播管理",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "直播间列表",
+          "icon": "&#xe63c;",
+          "href": "/management/live/index"
+        },{
+          "text": "聊天室管理",
+          "icon": "&#xe63c;",
+          "href": "/management/live/chatroom"
+        },{
+          "text": "情报管理",
+          "icon": "&#xe63c;",
+          "href": "/management/live/information"
+        },{
+          "text": "广告管理",
+          "icon": "&#xe63c;",
+          "href": "/management/live/advertising"
+        }
+      ]
+    }, {
+      "text": "系统配置",
+      "icon": "&#xe65e;",
+      "subset": [
+        {
+          "text": "banner图管理",
+          "icon": "&#xe63c;",
+          "href": "/management/system/banner"
+        }, {
+          "text": "启动图管理",
+          "icon": "&#xe63c;",
+          "href": "/management/system/startupDiagram"
+        }, {
+          "text": "公告管理",
+          "icon": "&#xe63c;",
+          "href": "/management/system/notice"
+        }, {
+          "text": "直播分类管理",
+          "icon": "&#xe63c;",
+          "href": "/management/system/liveCategory"
+        }, {
+          "text": "联系我们",
+          "icon": "&#xe63c;",
+          "href": "/management/system/contactUs"
+        }, {
+          "text": "用户反馈",
+          "icon": "&#xe63c;",
+          "href": "/management/system/feedback"
+        }, {
+          "text": "推送消息",
+          "icon": "&#xe63c;",
+          "href": "/management/system/PushMessage"
+        }, {
+          "text": "系统日志",
+          "icon": "&#xe63c;",
+          "href": "/management/system/log"
         }
       ]
     }

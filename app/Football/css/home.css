@@ -1,0 +1,203 @@
+.marquee {
+    /* width: 450px; */
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 50s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes marquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}
+
+/* Make it pretty */
+.text-ad {
+    position: relative;
+    font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+ 
+.runnerImage {
+    margin: 0 auto;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 180px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.headline{
+    height: 110px;
+    width: 95%;
+    margin: 0 auto;
+    
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.headline .left{
+    float: left;
+    background-color: #fff;
+    width: 49%;
+    height: 110px;
+    overflow: hidden;
+}
+
+.headline .right{
+	float: right;
+	background-color: #fff;
+	width: 49%;
+    height: 110px;
+    overflow: hidden;
+}
+
+.headline .title{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.title-color-red{
+	font-size: 12px;
+	padding-left: 5px;
+	color: #404040;
+	background-color: #f3f3f3;
+}
+
+.title-color-green{
+	font-size: 12px;
+	padding-left: 5px;
+	color: #404040;
+	background-color: #f3f3f3;
+}
+
+
+.headline .team img{
+	width: 42px;
+	height: 42px;
+	display: block;
+	margin: 0 auto;
+}
+
+.headline .team span{
+	font-size: 12px;
+}
+
+.headline .team{
+	text-align: center;
+	width: 33%;
+	display: inline-block;
+}
+
+
+.headline .center-icon{
+	width: 33%;
+	line-height: 63.5px;
+	display: inline-block;
+}
+
+.headline .center-icon img{
+	width: 32px;
+
+}
+
+
+.team-left{
+	float: left;
+	padding-left: 8px;
+}
+
+
+
+.team-right{
+	float: right;
+	padding-right: 8px;
+}
+
+.headline .left{
+	background-color: #000;
+	background-image: url(../images/vs.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 42px;
+	background-color: #fff;
+	border-radius: 5px;
+	background-position-y: 52px;
+	border: 1px solid #f2f2f2;
+}
+ 
+ 
+ 
+.headline .right{
+	background-color: #000;
+	background-image: url(../images/vs.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 42px;
+	background-color: #fff;
+	border-radius: 5px;
+	background-position-y: 52px;
+	border: 1px solid #f2f2f2;
+}
+
+.content{
+	position: relative;
+	top: 15px;
+}
+
+
+.content span{
+	color: #3D3D3D;
+}
+ 
+
+.category{
+    width: 95%;
+    margin: 0 auto;
+    height: 400px;
+}
+
+.category .left{
+	float: left;
+    width: 49%;
+}
+
+.category .left .item{
+	float: left;
+	height: 90px;
+	width: 100%;
+	background-color: #BABABA;
+	margin-bottom: 10px;
+}
+
+.category .right{
+	background-color: #F4F4F4;  
+}
+
+.category .right .item{
+	float: right;
+	height: 90px;
+	width: 49%;
+	background-color: #BABABA;
+	margin-bottom: 10px;
+}
+
+
+.category .first{
+	height: 190px !important;
+} 
+
+
+.category .item{
+	border-radius: 15px;
+	background-repeat: no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%
+}
