@@ -4,6 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java" line="159" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="3ac84a34-80c7-4a23-b970-3bcc992d9a28" name="Default" comment="" />
     <list default="true" id="3ac84a34-80c7-4a23-b970-3bcc992d9a28" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/application-pub.yml" afterDir="false" />
@@ -110,7 +111,7 @@
     <session id="-967457687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.27" value="1" />
@@ -162,8 +163,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="65" column="101" selection-start-line="65" selection-start-column="101" selection-end-line="65" selection-end-column="101" />
+            <state relative-caret-position="496">
+              <caret line="60" column="52" lean-forward="true" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -678,7 +679,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/repository/BusinessIM/admin/Admin/src/main/java/com/management/admin/biz/IUserService.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545080385930" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545081821815" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -914,18 +915,18 @@
       <workItem from="1545032947004" duration="960000" />
       <workItem from="1545034595111" duration="23196000" />
       <workItem from="1545068298027" duration="886000" />
-      <workItem from="1545069419751" duration="10421000" />
+      <workItem from="1545069419751" duration="11725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="924313000" />
+    <option name="totallyTimeSpent" value="925617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2782516" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2782516" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -936,7 +937,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48614073" visible="true" weight="0.2224694" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48614073" weight="0.2224694" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1411,8 +1412,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdvertisingMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="65" column="101" selection-start-line="65" selection-start-column="101" selection-end-line="65" selection-end-column="101" />
+        <state relative-caret-position="496">
+          <caret line="60" column="52" lean-forward="true" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
         </state>
       </provider>
     </entry>
