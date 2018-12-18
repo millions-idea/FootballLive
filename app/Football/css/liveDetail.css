@@ -1,5 +1,6 @@
 .nav-default-backColor{
 	background-color: #f1f1f1;
+	text-align: center;
 }
 
 .nav-default-backColor a, .nav-default-backColor h1{
@@ -19,15 +20,12 @@
     font-size: 20px;
     position: relative;
     z-index: 20;
-    padding-top: 10px;
+    padding-top: 12px;
     padding-bottom: 10px;
-    
     margin-right: -10px;
     margin-left: -10px;
     padding-right: 10px;
     padding-left: 10px;
-    
-    
     font-weight: 400;
     font-style: normal;
     line-height: 1;
@@ -36,9 +34,12 @@
 
 .video{
 	width: 100%;
-	height: 35%;
-    overflow: hidden;
-    /*border-radius: 0 0 80% 80%;*/
+	height: 180px;
+	overflow: hidden;
+	/*border-radius: 0 0 80% 80%;*/
+	background-color: #E9E9E9;
+	background-image: url(../images/liveBackground.png);
+	background-size: 100%;
 }
 
 .fixed{
@@ -74,8 +75,9 @@
 }
 
 .advertising{
-	height: 40px;
+	height: 60px;
 	background-color: #E9E9E9;
+	overflow: hidden;
 }
 
 
@@ -127,6 +129,7 @@
 	line-height: 25px;
 	background-color: #6B1EC2;
 	color: #fff;
+	display: none;
 }
 
 .shade .rightv{
@@ -150,64 +153,20 @@
 	width: 50%;
 	text-align: center;
 	border-bottom: 1px solid #e5e5e5;
-	height: 50px;
-	line-height: 50px;
+	height: 40px;
+	line-height: 40px;
+	color: #89779c;
+	font-size: 14px;
 }
 
 .live-tabs .active{
-	border-bottom: 3px solid #8330E0;
-}
-
-
-/*iphone x*/
-@media screen and (max-height: 812px) {
-	.shade .info{
-		width: 40%;
-		padding-top: 20%;
-	}
-	.shade .leftv, .shade .rightv {
-	    padding-top: 22%;
-	}
-} 
-
-
-@media screen and (max-height: 763px)  {
-	.shade .info{
-		width: 40%;
-		padding-top: 12%;
-	}
-	
-}
-
-/*iphone 6/7/8 plus*/
-@media screen and (max-height: 736px) {
-	.shade .info{
-		width: 40%;
-		padding-top: 10%;
-	}
-	
-}
-
-/*iphone 5/SE*/
-@media screen and (max-height: 568px) {
-	.shade .info{
-		width: 40%;
-		padding-top: 8%;
-	}
-	
-} 
- 
-@media screen and (max-height: 480px) {
-	.shade .info{
-		width: 40%;
-		padding-top: 3%;
-	}
-	
+	border-bottom: 3px solid #9075d4;
 }
 
 
 .message-list{
-	overflow: initial;
+	/* overflow: initial; */
+	background-color: #f9f9f9;
 }
 
 .edit {
@@ -227,10 +186,10 @@
 }
 
 .send {
-    background-color: #b2b2b2;
-    color: #fff;
+    background-color: #f3f3f3;
+    color: #0a0a0a;
     border: 0px solid #fff;
-    width: 55px;
+    width: 62px;
     height: 35px;
     position: relative;
     top: 7px;
@@ -251,8 +210,11 @@
 }
 
 .live li{
-	background-position-y: 50px;
+	background-position-y: 30px;
+	background-color: #fbfbfb;
 }
+
+li {}
 
 
 .live .info{
@@ -299,6 +261,7 @@
 	float:left;
 	clear:right;
 	
+border-bottom-right-radius: 35px;
 }
 
 .live .live-content .lefte img, .live .live-content .righte img{
@@ -315,7 +278,11 @@
 	float:left;
 	clear:right;
 	
+border-bottom-left-radius: 35px;
 }
+
+
+
 
 .live .live-content .lefte, .live .live-content .righte{
 	
@@ -323,16 +290,17 @@ background-color: #fff;
 	
 text-align: center;
 	
-padding-top: 15px;
+padding-top: 22px;
 	
 width:30%;
 	
 font-size: 15px;
+	
 }
 
 .live .live-content .lefte span, .live .live-content .righte span{
 	line-height: 35px;
-	color: #616161;
+	color: #9D9D9D;
 }
 
 
@@ -344,7 +312,7 @@ font-size: 15px;
 	width:40%;
 	line-height: 100px;
 	position: relative;
-	top: 20px;
+	top: 30px;
 	font-size: 18px;
 }
 
@@ -354,7 +322,7 @@ font-size: 15px;
 .live-content .left-hot .icon{
 	position: relative;
 	left: -1px;
-	top: -22px;
+	top: -30px;
 	font-size: 35px;
 	color: #FE4541;
 	float: left;
@@ -376,7 +344,44 @@ font-size: 15px;
 	float: right;
 }
 
+.live-content .infoe span{
+	color:#9D9D9D;
+}
+
 .live-content .right-hot img, .live-content .right-hot span{
 	position: relative;
 	right: -15px;
+}
+
+.mui-bar .mui-title{
+    left: 0px;
+    width: 100% !important;
+}
+ 
+
+.top-fixed{
+	position: fixed; z-index: 100; background-color: #fff; width: 100%;
+}
+
+.information-title{
+	background-color: #F4F3F8;
+	min-height: 35px;
+	padding: 0;
+	padding-left: 5px;
+	line-height: 35px;
+	font-size: 15px;
+}
+ 
+
+.live li {
+    background-image: url(../images/vs_yellow.png);
+}
+
+
+.live .content .left, .live .content .right {
+    background-color: #fff;
+    text-align: center;
+    padding-top: 15px;
+    width: 30%;
+    font-size: 15px;
 }
