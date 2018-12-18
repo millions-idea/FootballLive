@@ -23,4 +23,5 @@ public interface TeamMapper extends MyMapper<Team> {
      */
     @Select("SELECT * FROM tb_teams WHERE team_id IN(${teamId}) AND is_delete = 0")
     List<Team> selectTeams(@Param("teamId") String teamIdList);
+
 }

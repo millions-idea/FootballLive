@@ -165,9 +165,9 @@ mui.plusReady(function(){
 		app.utils.openNewWindow("systemSetting.html","systemSretting");
 	});
 	
-	//系统反馈
-	$(".feedback").click(function(){
-		app.utils.openNewWindow("feedback.html","feedback");
+	//推送消息
+	$(".pushMessage").click(function(){
+		app.utils.openNewWindow("systemMessage.html","systemMessage");
 	});
 	// 清除缓存
 	$("#cleanCache").click(function(){

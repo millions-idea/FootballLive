@@ -4,7 +4,7 @@
 }
 
 .head{
-	background-color: #622bab;
+	background-color: #4f28ea;
 	min-height: 150px;
 	background-image: url(../images/watermark.png);
 }
@@ -56,7 +56,7 @@
 
 
 .btn-blue{
-	background-color: #844fca;
+	background-color: #4f28ea;
 	color: #fff;
 	border: 0px solid #fff;
 }

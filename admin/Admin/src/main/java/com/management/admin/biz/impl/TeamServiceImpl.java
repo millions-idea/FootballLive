@@ -34,4 +34,5 @@ public class TeamServiceImpl implements ITeamService {
     public List<Team> getTeams(String teamIdList) {
         return teamMapper.selectTeams(teamIdList);
     }
+
 }

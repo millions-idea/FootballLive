@@ -67,6 +67,16 @@ public interface IInformationService {
      * @return
      */
     Integer deleteInformation(Integer informationId);
+    /**
+     * 获取直播间情报信息 DF 2018年12月18日20:49:22
+     * @param liveId
+     * @return
+     */
+    Information getLiveInformation(Integer liveId);
+
 
     InformationDetail queryInformationById(Integer isrId);
+
+
+
 }

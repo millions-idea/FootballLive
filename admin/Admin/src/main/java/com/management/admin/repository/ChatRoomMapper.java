@@ -17,7 +17,7 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
             "from tb_chat_rooms t1 left join tb_lives t2 on t1.live_id=t2.live_id"+
             " where ${condition} GROUP BY t1.room_id DESC LIMIT #{page},${limit}")
     /**
-     * åˆ†é¡µæŸ¥è¯¢ éŸ¦å¾· 2018å¹´8æœˆ30æ—¥11:33:22
+     * ·ÖÒ³²éÑ¯ Î¤µÂ 2018Äê8ÔÂ30ÈÕ11:33:22
      * @param page
      * @param limit
      * @param state
@@ -34,7 +34,7 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
 
     @Select("SELECT COUNT(t1.live_id) from tb_chat_rooms t1 left join tb_lives t2 on t1.live_id=t2.live_id where ${condition}")
     /**
-     * åˆ†é¡µæŸ¥è¯¢è®°å½•æ•° éŸ¦å¾· 2018å¹´8æœˆ30æ—¥11:33:30
+     * ·ÖÒ³²éÑ¯¼ÇÂ¼Êı Î¤µÂ 2018Äê8ÔÂ30ÈÕ11:33:30
      * @param state
      * @param beginTime
      * @param endTime
@@ -47,14 +47,14 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
             , @Param("condition") String condition);
 
     /**
-     * æŸ¥è¯¢æ€»è®°å½•æ•°
+     * ²éÑ¯×Ü¼ÇÂ¼Êı
      * @return
      */
     @Select("select count(*) from tb_chat_rooms")
     Integer selectRoomCount();
 
     /**
-     * æ ¹æ®èŠå¤©å®¤ç¼–å·æŸ¥è¯¢ç›¸åº”çš„èŠå¤©å®¤è¯¦æƒ… ç‹—è›‹ 2018å¹´12æœˆ19æ—¥02:53:14
+     * ¸ù¾İÁÄÌìÊÒ±àºÅ²éÑ¯ÏàÓ¦µÄÁÄÌìÊÒÏêÇé ¹·µ° 2018Äê12ÔÂ19ÈÕ02:53:14
      * @param roomId
      * @return
      */

@@ -19,4 +19,10 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
      * @return
      */
     List<Dictionary> getHomeGroupInfo();
+
+    /**
+     * 获取webApp全站广告数据 DF 2018年12月18日15:25:17
+     * @return
+     */
+    List<Dictionary> getWebAppAdvertising();
 }

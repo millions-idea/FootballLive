@@ -18,4 +18,5 @@ public interface ITeamService {
      * @return
      */
     List<Team> getTeams(String teamIdList);
+
 }

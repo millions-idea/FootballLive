@@ -13,13 +13,13 @@ import java.util.List;
 @Mapper
 public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelation> {
 
-    // 查询指定聊天室用户列表
+    // ��ѯָ���������û��б�
     @Select("select t2.room_id,t2.frequency,t3.user_id,t3.photo,t3.nick_name,t3.signature " +
             " from tb_chat_room_user_relations t1 left join tb_chat_rooms t2 on t1.room_id=t2.room_id " +
             "left join tb_users t3 on t1.user_id=t3.user_id where t2.room_id=#{roomId} and t1.is_black_list =0 and " +
             " ${condition} GROUP BY t3.user_id ORDER BY t3.add_date DESC LIMIT #{page},${limit}")
     /**
-     * 分页查询 韦德 2018年8月30日11:33:22
+     * ��ҳ��ѯ Τ�� 2018��8��30��11:33:22
      * @param page
      * @param limit
      * @param state
@@ -38,7 +38,7 @@ public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelatio
     @Select("SELECT COUNT(t1.live_id) from tb_chat_room_user_relations t1 left join tb_chat_rooms t2 on t1.room_id=t2.room_id" +
             " left join tb_users t3 on t1.user_id=t3.user_id where t2.room_id=#{roomId} and t1.is_black_list=0 and ${condition}")
     /**
-     * 分页查询记录数 韦德 2018年8月30日11:33:30
+     * ��ҳ��ѯ��¼�� Τ�� 2018��8��30��11:33:30
      * @param state
      * @param beginTime
      * @param endTime
@@ -52,7 +52,7 @@ public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelatio
             , @Param("roomId") Integer roomId);
 
     /**
-     * 查询总记录数
+     * ��ѯ�ܼ�¼��
      *
      * @return
      */
@@ -61,7 +61,7 @@ public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelatio
     Integer selectChatRoomUserCount(Integer roomId);
 
     /**
-     * 拉黑用户
+     * �����û�
      * @param userId
      * @return
      */

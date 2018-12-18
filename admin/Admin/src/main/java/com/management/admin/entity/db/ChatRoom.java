@@ -1,36 +1,42 @@
+/***
+ * @pName Admin
+ * @name ChatRoom
+ * @user HongWei
+ * @date 2018/12/18
+ * @desc
+ */
 package com.management.admin.entity.db;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.code.IdentityDialect;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 聊天信息实体类
- */
-
-@Table(name =  "tb_chat_room")
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "tb_chat_rooms")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ChatRoom {
-
-    /**
-     * 聊天室主键，编号
-     */
+    @Id
+    @KeySql(dialect = IdentityDialect.MYSQL)
     private Integer roomId;
 
     /**
-     * 直播间编号
+     * 直播间id
      */
     private Integer liveId;
+
     /**
-     * 聊天室id
+     * 聊天室 id
      */
-    private Integer chatRoomId;
+    private String chatRoomId;
+
     /**
      * 发言频率
      */

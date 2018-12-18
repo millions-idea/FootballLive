@@ -2,6 +2,7 @@
 mui.init();
 
 var data = {};
+var nim = {};
 
 mui.plusReady(function(){
 	app.logger("framework", "plusReady");
@@ -17,129 +18,130 @@ mui.plusReady(function(){
 	// 对网络连接进行事件监听
 	hookNetwork();
 	
-	
 	// 获取当前的webview对象
 	var webView = plus.webview.currentWebview()
-	
-	// 向当前的主页webview追加子页的webview对象
-	for (var i = 0 ; i < app.pages.length ; i ++) {
-		var page = plus.webview.create(app.pages[i].url, app.pages[i].id, app.pages[i].style);
-		// 隐藏webview窗口
-		page.hide();
-		// 注册webview窗口的show事件
-        plus.webview.getWebviewById(app.pages[i].id).addEventListener('show',showCallback.bind(page, app.pages[i].id)); 
-		
-		// 追加每一个子页面到当前主页面
-		webView.append(page);
-	}
-	// 默认显示第一个webview
-	plus.webview.show(app.pages[0].id);
-	
-	
-	// 批量绑定tap事件，展示不同的页面
-	mui(".mui-bar-tab").on("tap", "a", function() {
-		var tabindex = this.getAttribute("tabindex");
-		
-		// 显示点击的tab选项所对应的页面
-		plus.webview.show(app.pages[tabindex].id, "fade-in", 200);
-		
-		// 隐藏其他的不需要的页面
+
+		// 向当前的主页webview追加子页的webview对象
 		for (var i = 0 ; i < app.pages.length ; i ++) {
-			if (i != tabindex) {
-				plus.webview.hide(app.pages[i].id, "fade-out", 200);
-			}
+			var page = plus.webview.create(app.pages[i].url, app.pages[i].id, app.pages[i].style);
+			// 隐藏webview窗口
+			page.hide();
+			// 注册webview窗口的show事件
+	        plus.webview.getWebviewById(app.pages[i].id).addEventListener('show',showCallback.bind(page, app.pages[i].id)); 
+			
+			// 追加每一个子页面到当前主页面
+			webView.append(page);
 		}
+		// 默认显示第一个webview
+		plus.webview.show(app.pages[0].id);
 		
-		// 播放动画点击效果
-		// code...
-	})
+		
+		// 批量绑定tap事件，展示不同的页面
+		mui(".mui-bar-tab").on("tap", "a", function() {
+			var tabindex = this.getAttribute("tabindex");
+			
+			// 显示点击的tab选项所对应的页面
+			plus.webview.show(app.pages[tabindex].id, "fade-in", 200);
+			
+			// 隐藏其他的不需要的页面
+			for (var i = 0 ; i < app.pages.length ; i ++) {
+				if (i != tabindex) {
+					plus.webview.hide(app.pages[i].id, "fade-out", 200);
+				}
+			}
+			
+			// 播放动画点击效果
+			// code...
+		})
 	 
+
+
+	newInstance();
+	
 	
 	// 延时加载
 	// setTimeout("initData()", "1000");
-	newInstance();
 	
 });
 
 function newInstance(){
 	var items = document.getElementsByClassName("mui-tab-item");
-	for (var i = 0; i < items.length; i++) {
-		items[i].classList.remove("mui-active");
-	}
-	items[0].classList.add("mui-active");
-	
-	// 获取缓存信息 
-	var cacheString = plus.storage.getItem("userInfo"); 
-	if(cacheString == null) {
-		app.logger("index","请先登录");
-		app.utils.msgBox.msg("请先登录");
-		app.utils.openWindow("login.html", "login");
-		return;
-	}
-	var cache = JSON.parse(cacheString);
-	// 实例化网易云信服务
-	window.nim = NIM.getInstance({
-	    appKey: "76688b21d1656063933c1199a3e425a1",
-	    account: cache.cloudAccid,
-	    token: cache.cloudToken,
-	    customTag: 'TV',
-	    db: true,
-	    onconnect: onConnect,
-	    onerror: onError,
-	    onwillreconnect: onWillReconnect,
-	    ondisconnect: onDisconnect,
-	    // 多端登录
-	    onloginportschange: onLoginPortsChange,
-	    // 用户关系
-	    onblacklist: onBlacklist,
-	    onsyncmarkinblacklist: onMarkInBlacklist,
-	    onmutelist: onMutelist,
-	    onsyncmarkinmutelist: onMarkInMutelist,
-	    // 好友关系
-	    onfriends: onFriends,
-	    onsyncfriendaction: onSyncFriendAction,
-	    // 用户名片
-	    onmyinfo: onMyInfo,
-	    onupdatemyinfo: onUpdateMyInfo,
-	    onusers: onUsers,
-	    onupdateuser: onUpdateUser,
-	    // 机器人列表的回调
-	    onrobots: onRobots,
-	    // 群组
-	    onteams: onTeams,
-	    onsynccreateteam: onCreateTeam,
-	    onUpdateTeam: onUpdateTeam,
-	    onteammembers: onTeamMembers,
-	    // onsyncteammembersdone: onSyncTeamMembersDone,
-	    onupdateteammember: onUpdateTeamMember,
-	    // 群消息业务已读通知
-	    onTeamMsgReceipt: onTeamMsgReceipt,
-	    // 会话
-	    onsessions: onSessions,
-	    onupdatesession: onUpdateSession,
-	    syncSessionUnread: true,
-	    autoMarkRead: true,
-	    // 消息
-	    onroamingmsgs: onRoamingMsgs,
-	    onofflinemsgs: onOfflineMsgs,
-	    onmsg: onMsg,
-	    // 系统通知
-	    onofflinesysmsgs: onOfflineSysMsgs,
-	    onsysmsg: onSysMsg,
-	    onupdatesysmsg: onUpdateSysMsg,
-	    onsysmsgunread: onSysMsgUnread,
-	    onupdatesysmsgunread: onUpdateSysMsgUnread,
-	    onofflinecustomsysmsgs: onOfflineCustomSysMsgs,
-	    oncustomsysmsg: onCustomSysMsg,
-	    // 收到广播消息
-	    onbroadcastmsg: onBroadcastMsg,
-	    onbroadcastmsgs: onBroadcastMsgs,
-	    // 同步完成
-	    onsyncdone: onSyncDone
-	});
-	
-	console.log("全局对象初始值" + window.nim)
-	
+		for (var i = 0; i < items.length; i++) {
+			items[i].classList.remove("mui-active");
+		}
+		items[0].classList.add("mui-active");
+		
+		// 获取缓存信息 
+		var cacheString = plus.storage.getItem("userInfo"); 
+		if(cacheString == null) {
+			app.logger("index","请先登录");
+			app.utils.msgBox.msg("请先登录");
+			app.utils.openWindow("login.html", "login");
+			return;
+		}
+		var cache = JSON.parse(cacheString);
+		// 实例化网易云信服务
+		nim = NIM.getInstance({
+		    appKey: "76688b21d1656063933c1199a3e425a1",
+		    account: cache.cloudAccid,
+		    token: cache.cloudToken,
+		    customTag: 'TV',
+		    db: true,
+		    onconnect: onConnect,
+		    onerror: onError,
+		    onwillreconnect: onWillReconnect,
+		    ondisconnect: onDisconnect,
+		    // 多端登录
+		    onloginportschange: onLoginPortsChange,
+		    // 用户关系
+		    onblacklist: onBlacklist,
+		    onsyncmarkinblacklist: onMarkInBlacklist,
+		    onmutelist: onMutelist,
+		    onsyncmarkinmutelist: onMarkInMutelist,
+		    // 好友关系
+		    onfriends: onFriends,
+		    onsyncfriendaction: onSyncFriendAction,
+		    // 用户名片
+		    onmyinfo: onMyInfo,
+		    onupdatemyinfo: onUpdateMyInfo,
+		    onusers: onUsers,
+		    onupdateuser: onUpdateUser,
+		    // 机器人列表的回调
+		    onrobots: onRobots,
+		    // 群组
+		    onteams: onTeams,
+		    onsynccreateteam: onCreateTeam,
+		    onUpdateTeam: onUpdateTeam,
+		    onteammembers: onTeamMembers,
+		    // onsyncteammembersdone: onSyncTeamMembersDone,
+		    onupdateteammember: onUpdateTeamMember,
+		    // 群消息业务已读通知
+		    onTeamMsgReceipt: onTeamMsgReceipt,
+		    // 会话
+		    onsessions: onSessions,
+		    onupdatesession: onUpdateSession,
+		    syncSessionUnread: true,
+		    autoMarkRead: true,
+		    // 消息
+		    onroamingmsgs: onRoamingMsgs,
+		    onofflinemsgs: onOfflineMsgs,
+		    onmsg: onMsg,
+		    // 系统通知
+		    onofflinesysmsgs: onOfflineSysMsgs,
+		    onsysmsg: onSysMsg,
+		    onupdatesysmsg: onUpdateSysMsg,
+		    onsysmsgunread: onSysMsgUnread,
+		    onupdatesysmsgunread: onUpdateSysMsgUnread,
+		    onofflinecustomsysmsgs: onOfflineCustomSysMsgs,
+		    oncustomsysmsg: onCustomSysMsg,
+		    // 收到广播消息
+		    onbroadcastmsg: onBroadcastMsg,
+		    onbroadcastmsgs: onBroadcastMsgs,
+		    // 同步完成
+		    onsyncdone: onSyncDone
+		});
+
+
 }
 
 // 监听网络状态更改
@@ -190,9 +192,6 @@ function setActiveBarIcon(index){
 		}
 		items[index].classList.add("mui-active");
 }
-
-
-
 
 
 
@@ -487,7 +486,7 @@ function onUpdateSession(session) {
 }
 function updateSessionsUI() {
     // 刷新session界面 
-    console.log("刷新会话列表界面" + data.sessions);
+    console.log("刷新session界面" + data.sessions);
     var webview = plus.webview.getWebviewById("chatList");
     if(webview != null && data.sessions != null) {
     	webview.evalJS("updateSessionsUI('" + JSON.stringify(data.sessions) + "')");
@@ -506,6 +505,7 @@ function onOfflineMsgs(obj) {
 function onMsg(msg) {
     console.log('收到消息', msg.scene, msg.type, msg);
     pushMsg(msg);
+    pushMsgForSend(msg);
 }
 function onBroadcastMsg(msg) {
     console.log('收到广播消息', msg);
@@ -519,17 +519,54 @@ function pushMsg(msgs) {
     data.msgs = data.msgs || {};
     data.msgs[sessionId] = nim.mergeMsgs(data.msgs[sessionId], msgs);
     
+    var user = JSON.parse(plus.storage.getItem("userInfo"));
     
-    // 刷新消息列表页面
-    var webview = plus.webview.getWebviewById("chatList");
-    if(webview != null) webview.evalJS("updateSessionsUI('" + JSON.stringify(data.sessions) + "')");
+	for (var i = 0; i < data.sessions.length; i++) {
+		var id = data.sessions[i].id.replaceX("p2p-","");
+		if(id.indexOf(user.phone) != -1){
+			nim.sendMsgReceipt({
+			    msg: data.sessions[i].lastMsg,
+			    done: function(error, obj){
+			    	console.log('发送消息已读回执' + (!error?'成功':'失败'), error, obj);
+			    }
+			}); 
+		}
+	}
+}
+
+
+function pushMsgForSend(msgs) {
+    if (!Array.isArray(msgs)) { msgs = [msgs]; }
+    var sessionId = msgs[0].sessionId;
+    data.msgs = data.msgs || {};
+    data.msgs[sessionId] = nim.mergeMsgs(data.msgs[sessionId], msgs);
     
-    if(msgs.flow == "in"){
-	    // 刷新个人会话页面
-	    webview = plus.webview.getWebviewById("chat-" + sessionId.replaceX("p2p-",""));
-	    if(webview != null) webview.evalJS("updateHistoryMsgsUI('"  + sessionId.replaceX("p2p-","") +  "')");
+    var user = JSON.parse(plus.storage.getItem("userInfo"));
+    
+	for (var i = 0; i < data.sessions.length; i++) {
+		var id = data.sessions[i].id.replaceX("p2p-","");
+		if(id.indexOf(user.phone) != -1){
+			nim.sendMsgReceipt({
+			    msg: data.sessions[i].lastMsg,
+			    done: function(error, obj){
+			    	console.log('发送消息已读回执' + (!error?'成功':'失败'), error, obj);
+			    }
+			}); 
+		}
+	}
+    
+    console.log("本次消息类型" + JSON.stringify(msgs));
+    console.log("本次消息编号" + sessionId.replaceX("p2p-",""));
+    
+    // 刷新个人会话页面
+    webview = plus.webview.getTopWebview();
+    if(webview != null) {
+    	console.log("updateHistoryMsgsUI")
+	    mui.fire(webview, "updateHistoryMsgsUI", {
+	    	accid: sessionId.replaceX("p2p-",""),
+	    	obj: msgs
+	    })
     }
-    
 }
 
 function onOfflineSysMsgs(sysMsgs) {
@@ -786,6 +823,26 @@ window.addEventListener("applyFriend", function(event){
  
 
 
+window.addEventListener("applyTeam", function(event){
+	nim.applyTeam({
+	    teamId: event.detail.teamId,
+	    ps: event.detail.ps,
+	    done: function(error,obj){
+	    	console.log(error);
+		    console.log(obj);
+		    console.log('申请加群' + (!error?'成功':'失败'));
+		    
+		    
+		    var webview = plus.webview.getWebviewById("liveDetail-" + event.detail.id);
+			mui.fire(webview, "applyTeamDone", {
+				error: error,
+				obj: obj
+			})
+		    
+	    }
+	});
+})
+ 
  
 
 
@@ -905,4 +962,17 @@ window.addEventListener("getTeams", function(event){
 		  }
 	  }
 	}); 
+})
+
+
+
+window.addEventListener("leaveTeam", function(event){
+	nim.leaveTeam({
+	  teamId: event.detail.teamId,
+	  done: function(error, obj){
+		  console.log(error);
+		  console.log(obj);
+		  console.log('主动退群' + (!error?'成功':'失败'));
+	  }
+	});
 })

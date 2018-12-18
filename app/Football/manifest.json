@@ -210,6 +210,13 @@
 					"liveDetail.html"
 				],
 				"priority": 0
+			},
+			"liveDetail.html": {
+				"resources": [],
+				"refer": [
+					"share.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

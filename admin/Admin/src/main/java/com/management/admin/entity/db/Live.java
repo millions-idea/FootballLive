@@ -1,7 +1,12 @@
 package com.management.admin.entity.db;
 
 import lombok.*;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.code.IdentityDialect;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -17,6 +22,8 @@ public class Live {
     /**
      * 直播间编号
      */
+    @Id
+    @KeySql(dialect = IdentityDialect.MYSQL)
     private Integer liveId;
     /**
      * 直播间标题
