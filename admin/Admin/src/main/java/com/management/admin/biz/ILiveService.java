@@ -4,6 +4,7 @@ import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.resp.LiveInfo;
 
 import java.util.List;
 
@@ -69,4 +70,11 @@ public interface ILiveService {
      * @return
      */
     List<LiveHotDetail> getHotLives();
+
+    /**
+     * 获取直播间详情信息 DF 2018年12月18日15:27:04
+     * @param liveId
+     * @return
+     */
+    LiveInfo getLiveDetailInfo(Integer liveId);
 }

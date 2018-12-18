@@ -31,6 +31,20 @@ public class StringUtil {
 		return Pattern.matches("\\s*", s);
 	}
 
+	/**
+	 * 关联string数组，并为每个key加上单引号
+	 * @param spliter
+	 * @param arr
+	 * @return
+	 */
+	public static String joinChar(String spliter, String[] arr){
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = "'" +  arr[i] + "'";
+		}
+		String join = String.join(",", arr);
+		return join;
+	}
+
 	public static String join(String spliter, Object[] arr) {
 		if (arr == null || arr.length == 0) {
 			return "";

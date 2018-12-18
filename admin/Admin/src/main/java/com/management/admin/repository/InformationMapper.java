@@ -68,4 +68,12 @@ public interface InformationMapper extends MyMapper<Information> {
             "            \"FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 \\n\" +\n" +
             "            \"LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where informationId=#{informationId}")
     InformationDetail queryInformationById(Integer informationId);
+
+    /**
+     * 查询直播间情报信息 DF 2018年12月18日20:50:17
+     * @param liveId
+     * @return
+     */
+    @Select("SELECT * FROM tb_informations WHERE live_id=#{liveId}")
+    Information selectByLiveId(@Param("liveId") Integer liveId);
 }

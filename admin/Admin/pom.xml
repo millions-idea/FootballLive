@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>Admin</name>
-    <description>有讯通信后台管理系统</description>
+    <description>后台管理系统</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

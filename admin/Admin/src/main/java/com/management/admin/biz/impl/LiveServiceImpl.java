@@ -5,6 +5,7 @@ import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.resp.LiveInfo;
 import com.management.admin.repository.LiveMapper;
 import com.management.admin.repository.ScheduleMapper;
 import com.management.admin.repository.utils.ConditionUtil;
@@ -158,6 +159,17 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     public List<LiveHotDetail> getHotLives() {
         return liveMapper.selectHotLives();
+    }
+
+    /**
+     * 获取直播间详情信息 DF 2018年12月18日15:27:04
+     *
+     * @param liveId
+     * @return
+     */
+    @Override
+    public LiveInfo getLiveDetailInfo(Integer liveId) {
+        return liveMapper.selectLiveDetailInfo(liveId);
     }
 
     /**
