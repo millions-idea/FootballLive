@@ -113,10 +113,17 @@ public interface LiveMapper extends MyMapper<Live>{
             " t1.live_id, t1.live_title, t1.live_date, t1.source_url, " +
             " t3.game_name, t2.game_date, t2.game_duration, t2.`status`, t2.schedule_result,  " +
             " t2.schedule_grade, t2.win_team_id, t2.team_id, " +
-            " t4.type, t4.source_url AS playerAdUrl, t4.target_url AS playerAdTargetUrl " +
+            " t4.type, t4.source_url AS playerAdUrl, t4.target_url AS playerAdTargetUrl, " +
+            " t5.chat_room_id, t5.room_id, t5.frequency " +
             "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_advertisings t4 ON t4.ad_id = t1.ad_id " +
+            "LEFT JOIN tb_chat_rooms t5 ON t5.live_id = t1.live_id " +
             "WHERE t1.live_id = #{liveId}")
     LiveInfo selectLiveDetailInfo(@Param("liveId") Integer liveId);
+
+    @Insert("INSERT INTO tb_lives (live_title,live_date,schedule_id,status,share_count,collect_count,source_url,ad_id,add_date) " +
+            "VALUES(#{liveTitle}, #{liveDate}, #{scheduleId}, #{status}, #{shareCount}, #{collectCount}, #{sourceUrl}, #{adId}, #{addDate})")
+    @Options(useGeneratedKeys = true, keyProperty = "userId")
+    int insertReturn(Live live);
 }

@@ -20,8 +20,8 @@
 		<header class="mui-bar mui-bar-nav nav-default-backColor">
 			<a class="mui-action-back mui-icon mui-icon mui-icon-arrowleft mui-pull-left " style="color: #fff;position: relative;left: -8px;"></a>
 			<h1 class="mui-title nav-title" id="liveTitle">...</h1>
-			<a class="mui-action-back top-icon icon iconfont icon-fenxiang mui-pull-right" style="color: #fff;"></a>
-			<a class="mui-action-back top-icon icon iconfont icon-shoucangxing2 mui-pull-right" style="color: #fff; right: 10px;"></a>
+			<a class="top-icon icon iconfont icon-fenxiang mui-pull-right share" style="color: #fff;"></a>
+			<a class="top-icon icon iconfont icon-shoucang1 mui-pull-right collect" style="color: #fff; right: 10px;"></a>
 		</header>
 		
 		<div class="mui-content" id="app">  
@@ -61,10 +61,10 @@
 		    
 		    <!--chat begin-->
 		    <div name="content" class="content fixed-content message-content" tabindex="0">
-		    	<div class="message-list">
-			    	<div style="position: relative; top: 10px;">
+		    	<div id="message-list" class="message-list">
+			    	<div class="message-list-container" style="position: relative; top: 10px;">
 			    		<div class="padding-top-10"></div>
-			    		<div class="leftd">
+			    		<!--<div class="leftd">
 						    <span class="leftd_h">
 						        <img src="images/head-default-women.png" />
 						    </span>
@@ -175,11 +175,13 @@
 						    <div class="speech right" class="speech left">
 						         不不不，每天你都很漂亮的啦！123
 						    </div>
-						</div>
+						</div>-->
 			    	</div>
 					
 			    </div>
-			     
+		    </div>
+		    <!--chat end-->
+		      
 			    <footer class="editor">
 					<span class="group" style="display: none;" >
 			    		<i class="icon iconfont icon-yuyinqiehuan button voice"></i>
@@ -194,21 +196,6 @@
 			    	</div>
 			    	
 			    </footer>
-			    
-			    
-			    <!--emoji editor-->
-			    <div class="m-chat-emoji">
-				    <div class="emoji-content">
-				      <div class="cnt">
-				        
-				      </div>
-				    </div>
-			    </div>
-			    <!--emoji editor end-->
-			    <canvas id="cimg" style="display: none;"></canvas>
-		    </div>
-		    <!--chat end-->
-		    
 		    <div name="content"  class="content fixed-content" tabindex="1" style="display: none;">
 		    	<div class="live">
 		    		<ul>
@@ -246,6 +233,7 @@
 	    <script src="js/mui.min.js"></script>
 	    <script src="js/jquery-2.1.0.js"></script>
 		<script src="js/main.js" ></script> 
+		<script src="js/NIM_Web_NIM_v5.8.0.js" ></script> 
 		<script src="js/liveDetail.js" ></script>
 	</body>
 </html>

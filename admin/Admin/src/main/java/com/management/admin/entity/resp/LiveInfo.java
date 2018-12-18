@@ -109,4 +109,17 @@ public class LiveInfo {
      * 参赛球队信息
      */
     private List<Team> teamList;
+
+    /**
+     * 房间id
+     */
+    private Integer roomId;
+    /**
+     * 聊天室id
+     */
+    private String chatRoomId;
+    /**
+     * 发言频率
+     */
+    private Double frequency;
 }

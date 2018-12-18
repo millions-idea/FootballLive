@@ -19,15 +19,16 @@ import com.management.admin.entity.resp.LiveInformation;
 import com.management.admin.entity.resp.ScheduleGame;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
+import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.InfoException;
 import com.management.admin.utils.DateUtil;
 import com.management.admin.utils.PropertyUtil;
+import com.management.admin.utils.web.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,6 +50,7 @@ public class LiveApiController {
 
     @Autowired
     private IInformationService informationService;
+
 
     /**
      * 获取赛程信息列表 DF 2018年12月18日02:20:52
@@ -93,7 +95,6 @@ public class LiveApiController {
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
     }
 
-
     /**
      * 获取直播间详情信息 DF 2018年12月18日14:34:16
      * @param liveId
@@ -133,5 +134,31 @@ public class LiveApiController {
         liveInformation.setInformation(information);
 
         return new JsonResult<>().successful(liveInformation);
+    }
+
+    /**
+     * 添加收藏 DF 2018年12月19日03:58:21
+     * @param liveId
+     * @return
+     */
+    @PostMapping("addCollect")
+    public JsonResult addCollect(HttpServletRequest req, Integer liveId){
+        SessionModel session = SessionUtil.getSession(req);
+        Boolean result = liveService.addCollect(liveId, session.getUserId());
+        if(result) return JsonResult.successful();
+        return JsonResult.failing();
+    }
+
+    /**
+     * 取消收藏 DF 2018年12月19日03:58:21
+     * @param liveId
+     * @return
+     */
+    @PostMapping("cancelCollect")
+    public JsonResult cancelCollect(HttpServletRequest req, Integer liveId){
+        SessionModel session = SessionUtil.getSession(req);
+        Boolean result = liveService.cancelCollect(liveId, session.getUserId());
+        if(result) return JsonResult.successful();
+        return JsonResult.failing();
     }
 }

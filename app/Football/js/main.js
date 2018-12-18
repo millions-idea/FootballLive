@@ -1,4 +1,6 @@
-window.nim = {};
+window.nimService = null;
+
+window.nimData = null;
 
 window.app = {
 	config: {
@@ -73,6 +75,11 @@ window.app = {
 	},
 	
 	utils: {
+		call: function(name, param){
+			var webview = plus.webview.getWebviewById("index");
+			mui.fire(webview, name, param)
+		},
+		
 		getBase64: function(url, callback){
 			$.get(app.config.apiUrl + "api/common/getBaseDecode", {
 				url: url
@@ -160,7 +167,9 @@ window.app = {
 		},
 		
 		toUrl:function(url){
-			return url + "?token=" + app.utils.getToken();
+			var link =  url + "?token=" + app.utils.getToken();
+			app.print(link);
+			return link;
 		},
 		
 		toParam: function(obj){

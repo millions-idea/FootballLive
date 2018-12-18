@@ -56,7 +56,7 @@ public interface ILiveService {
      * @param liveDetail
      * @return
      */
-    Integer insertLive(LiveDetail liveDetail);
+    Boolean insertLive(LiveDetail liveDetail);
 
     /**
      * 修改直播间
@@ -77,4 +77,20 @@ public interface ILiveService {
      * @return
      */
     LiveInfo getLiveDetailInfo(Integer liveId);
+
+    /**
+     * 添加收藏 DF 2018年12月19日03:59:40
+     * @param liveId
+     * @param userId
+     * @return
+     */
+    Boolean addCollect(Integer liveId, Integer userId);
+
+    /**
+     * 取消收藏 DF 2018年12月19日03:59:48
+     * @param liveId
+     * @param userId
+     * @return
+     */
+    Boolean cancelCollect(Integer liveId, Integer userId);
 }

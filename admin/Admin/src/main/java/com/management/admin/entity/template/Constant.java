@@ -88,4 +88,8 @@ public interface Constant {
      * 网易热点用户
      */
     String HotAccId = "10000000000";
+    /**
+     * 系统热点用户(一般为管理员外的员工账户id)
+     */
+    Integer HotUserId = 1;
 }
