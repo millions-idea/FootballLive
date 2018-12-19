@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,7 +51,6 @@ public class LiveApiController {
 
     @Autowired
     private IInformationService informationService;
-
 
     /**
      * 获取赛程信息列表 DF 2018年12月18日02:20:52
@@ -101,17 +101,23 @@ public class LiveApiController {
      * @return
      */
     @GetMapping("getLiveInfo")
-    public JsonResult<LiveInfo> getLiveInfo(Integer liveId){
+    public JsonResult<LiveInfo> getLiveInfo(HttpServletRequest req, Integer liveId){
+        SessionModel session = SessionUtil.getSession(req);
         //获取直播间信息
         LiveInfo liveInfo = liveService.getLiveDetailInfo(liveId);
         if(liveInfo == null) return new JsonResult().failingAsString("加载直播间失败");
+        //根据时间判断比赛是否已经开始,如果已经开始将直播状态改为 正在直播
+        Date beginDate = DateUtil.getDate(liveInfo.getGameDate(), "yyyy-MM-dd HH:mm:ss");
+        Date currentDate = new Date();
+        if(currentDate.compareTo(beginDate) > 0){
+            liveService.setBeginLive(liveId);
+        }
+        //添加观看历史
+        liveService.addHistory(session.getUserId(), liveId);
         //查询球队信息
         List<Team> teamList = teamService.getTeams(liveInfo.getTeamId());
         if(teamList == null || teamList.size() == 0) return new JsonResult<>().failingAsString("加载球队数据失败");
         liveInfo.setTeamList(teamList);
-
-        //获取聊天室信息
-
         //获取全站广告信息
         List<Dictionary> advertisingList = dictionaryService.getWebAppAdvertising();
         if(advertisingList == null || advertisingList.size() != 2) return new JsonResult().failingAsString("加载直播间信息失败");
@@ -132,7 +138,6 @@ public class LiveApiController {
         //查询情报信息
         Information information = informationService.getLiveInformation(liveId);
         liveInformation.setInformation(information);
-
         return new JsonResult<>().successful(liveInformation);
     }
 
@@ -161,4 +166,5 @@ public class LiveApiController {
         if(result) return JsonResult.successful();
         return JsonResult.failing();
     }
+
 }

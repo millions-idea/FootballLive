@@ -148,4 +148,31 @@ public interface LiveMapper extends MyMapper<Live>{
 
 	@Select("select * from tb_lives where status=0")
     @Update("update tb_lives set ad_id=#{adId} where live_id=#{liveId} and status=0")
-    Integer modifyAdvertising(@Param("adId") Integer adId,@Param("liveId") Integer liveId); }
+    Integer modifyAdvertising(@Param("adId") Integer adId,@Param("liveId") Integer liveId);
+
+    /**
+     * 增加收藏次数 DF 2018年12月20日02:40:34
+     * @param liveId
+     * @return
+     */
+    @Update("UPDATE tb_lives SET collect_count = collect_count + 1 WHERE live_id = #{liveId}")
+    int addCollectCount(@Param("liveId") Integer liveId);
+
+    /**
+     * 减少收藏次数 DF 2018年12月20日02:42:30
+     * @param liveId
+     * @return
+     */
+    @Update("UPDATE tb_lives SET collect_count = collect_count - 1 WHERE live_id = #{liveId}")
+    int reduceCollectCount(@Param("liveId") Integer liveId);
+
+    /**
+     * 更新直播状态 DF 2018年12月20日02:52:35
+     * @param liveId
+     * @param status
+     * @return
+     */
+    @Update("UPDATE tb_schedules SET `status` = #{status} WHERE game_id = " +
+            "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId})")
+    int updateStatus(@Param("liveId") Integer liveId, @Param("status") int status);
+}

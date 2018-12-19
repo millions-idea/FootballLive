@@ -1,390 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d803e87c-743f-4ab8-be5c-5222b29e370b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/TeamControllor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/ScheduleGameTeam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/TeamCompetition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/configurationMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/competition/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/configuration/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/deleteAdmin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/insertAdmin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/modify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/team/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/adminEdit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/insertAdmin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/updatepassword.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/competition/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/competition/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/configuration/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/schedule/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/schedule/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/schedule/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/team/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/team/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/vs_yellow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/js/previewMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/js/systemMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/previewMessage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/setData.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/feedback.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/icons-extra.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.dtpicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.imageviewer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.indexedlist.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.listpicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.picker.all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.picker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.picker.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/css/mui.poppicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/accordion.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/actionsheet-plus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/actionsheet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/ad.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/ajax.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/badges.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/beecloud.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/best-practices/list-to-detail/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/best-practices/list-to-detail/list-to-detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/best-practices/list-to-detail/listview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/best-practices/list-to-detail/vue.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/buttons-with-badges.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/buttons-with-block.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/buttons-with-icons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/buttons-with-loading.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/buttons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/card.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/checkbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/clouddb_wilddog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/date.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/dialog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/dtpicker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/echarts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/feedback.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/grid-default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/grid-pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/guide.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/icons-extra.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/icons.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/im-chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/imageviewer-native.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/imageviewer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/indexed-list-select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/indexed-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/input.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/lazyload-image.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/list-triplex-row.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/list-with-input.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/locker-dom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/media-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/message-bottom.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/modals.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/nav-nativeObj.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/nav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/nav_transparent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/nav_transparent_native.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/numbox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-down.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-left-plus-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-left-plus-menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-left.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-right-plus-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-right-plus-menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/offcanvas-drag-right.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/picker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/popovers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/progressbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/pullrefresh.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/pullrefresh_main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/pullrefresh_sub.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/pullrefresh_with_tab.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/radio.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/range.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/slider-default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/slider-native.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/slider-table-default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/slider-table-pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/slider-with-title.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/switches.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-top-subpage-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-top-subpage-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-top-subpage-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-top-subpage-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-top-subpage-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-top-webview-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-vertical-scroll.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-webview-main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-webview-subpage-about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-webview-subpage-chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-webview-subpage-contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-webview-subpage-setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-with-segmented-control-vertical.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-with-segmented-control.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tab-with-viewpagerindicator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tabbar-labels-only.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tabbar-with-submenus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tabbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tableviews-with-badges.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tableviews-with-collapses.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tableviews-with-swipe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/tableviews.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/examples/typography.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/fonts/mui-icons-extra.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/fonts/mui.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/60x60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/cbd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/login-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/muwu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/qrcode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/shuijiao.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/images/yuantiao.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/index-menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/95516.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/arttmpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/beecloud.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/city.data-3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/city.data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/feedback.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.dtpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.imageViewer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.indexedlist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.lazyload.img.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.lazyload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.listpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.locker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.picker.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.picker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.picker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.poppicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.previewimage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.pullToRefresh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.pullToRefresh.material.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.view.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/mui.zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/update.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/js/webviewGroup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/libs/echarts-all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/HelloMUI/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/NIM_Web_UIKit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/jquery插件库.url" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/mdate/Mdate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/mdate/iScroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/mdate/needcss/Mdate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/demo/mdate/www.jq22.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/数据备份/first_football.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/detail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/58pic_27133745_4ac0feedbc37f3b7be4b/125.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/9922720e0cf3d7caa9de6efcf91fbe096b63a914.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/_办会家_右滑.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/_办会家_左滑.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/e4dde71190ef76c6b960aca19616fdfaae51678d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/个人中心.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/公告.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/分享.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/右滑.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/后退.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/展开.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/收 藏-产品详情.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/直播.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/竞争情报.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/表情.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/首页 (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/resources/首页.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/vs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ICompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ICompetitionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IPublishMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IPublishMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ITeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ITeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ICompetitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/PublishMessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/PublishMessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/CompetitionControllor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/CompetitionControllor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/PublishMessageRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/PublishMessageRelation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/PublishMessageDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/PublishMessageDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/CompetitionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/CompetitionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/DictionaryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/DictionaryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/PublishMessageRelationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/PublishMessageRelationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/TeamMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/TeamMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/CosUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/CosUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/member/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/json/nav_main.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/json/nav_main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/member/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/member/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/my.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/my.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/setData.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/setData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/systemMessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/systemMessage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" afterDir="false" />
-    </list>
+    <list default="true" id="d803e87c-743f-4ab8-be5c-5222b29e370b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-967457687">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="3" />
-          <entry key="java" value="10" />
-          <entry key="js" value="1" />
-          <entry key="json" value="1" />
-          <entry key="yml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="3" />
-          <entry key="JAVA" value="10" />
-          <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="1" />
-          <entry key="YAML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="6" />
-          <entry key="html" value="260" />
-          <entry key="java" value="68" />
-          <entry key="json" value="10" />
-          <entry key="yml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="260" />
-          <entry key="JAVA" value="68" />
-          <entry key="JSON" value="10" />
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="YAML" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/member/edit.html">
+      <file leaf-file-name="ProfileApiController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-558">
-              <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+            <state relative-caret-position="-1332">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#1509#1524#0" expanded="false" />
+                <element signature="docComment;method#getMessageList#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="method#getMessageList#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="docComment;method#signMessage#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="method#signMessage#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="docComment;method#getLiveHistoryList#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="method#getLiveHistoryList#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="e#3756#4041#0" expanded="false" />
+                <element signature="docComment;method#cleanHistorys#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="docComment;method#getLiveCollectList#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="method#getLiveCollectList#0;class#ProfileApiController#0" expanded="false" />
+                <element signature="e#5324#5609#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java">
+      <file leaf-file-name="IDictionaryService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveCollect.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/PublishMessageRelation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="11" selection-start-line="11" selection-end-line="14" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/PublishMessageDetail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/pushMessage/index.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/pushMessange/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="23" column="38" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/member/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="112" />
+            <state relative-caret-position="204">
+              <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -395,8 +51,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Interface" />
         <option value="JavaScript File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -410,8 +66,10 @@
       <dir>F:\repository\FootballLive\admin\Admin\src\main\resources\templates</dir>
     </dirStrings>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -426,19 +84,36 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/schedule/update.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/configuration/configuration.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/json/nav_main.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/configurationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/DictionaryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/configuration/config.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/configuration/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/json/nav_main.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/member/edit.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveCollect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/pushMessange/index.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/PublishMessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/PublishMessageDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/PublishMessageRelationMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/LiveHistory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveHistoryDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/LiveHistoryDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/LiveHistoryInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveHistoryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/LiveCollectInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveCollectMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/DictionaryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/VersionInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java" />
       </list>
     </option>
   </component>
@@ -471,10 +146,21 @@
     <option name="height" value="696" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -506,25 +192,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -533,10 +200,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="apiController" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
@@ -544,8 +209,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -555,153 +218,35 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="dbExt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="configuration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="pushMessange" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="json" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="competition" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="member" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="pushMessage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
+              <item name="resp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelOrder2" value="2" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545261216723" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.management.admin.entity.resp" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -717,47 +262,95 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <module />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
     </configuration>
     <configuration name="ManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Admin" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.management.admin.ManagementApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <module name="Admin" />
+      <envs />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -770,51 +363,44 @@
       <option name="presentableId" value="Default" />
       <updated>1545203518537</updated>
       <workItem from="1545203531573" duration="5074000" />
-      <workItem from="1545209318730" duration="22150000" />
-      <workItem from="1545257963202" duration="3241000" />
+      <workItem from="1545209318730" duration="42326000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30465000" />
+    <option name="totallyTimeSpent" value="47400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.15027027" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.26362625" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="LuaCheck" order="7" />
-      <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.33837837" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Bean Validation" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33837837" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="LuaCheck" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15027027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2521322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33945945" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -823,133 +409,84 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="11" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="282" column="50" lean-forward="true" selection-start-line="282" selection-start-column="50" selection-end-line="282" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#1574#1575#0" />
-            <element signature="e#1630#1631#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/TeamMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="51" column="5" selection-start-line="44" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="81" column="52" selection-start-line="81" selection-start-column="52" selection-end-line="81" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="211" column="111" selection-start-line="211" selection-start-column="111" selection-end-line="211" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5751" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/deleteAdmin.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7119">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/insertAdmin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1179" />
+        <state relative-caret-position="-1179">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/member/modify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1557" />
+        <state relative-caret-position="-1557">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-909" />
+        <state relative-caret-position="-909">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/adminEdit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450" />
+        <state relative-caret-position="-450">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/insertAdmin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1998">
           <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/updatepassword.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-923" />
+        <state relative-caret-position="-923">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+          <caret line="50" column="51" lean-forward="false" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/configurationMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -957,6 +494,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -964,191 +512,437 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/CompetitionControllor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/competition/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="48" column="60" lean-forward="false" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/configuration/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/competition/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="30" column="53" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1925">
-          <caret line="96" column="27" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
-          <folding>
-            <element signature="e#2472#2473#0" expanded="true" />
-            <element signature="e#2537#2538#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/DictionaryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/configuration/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="101" column="42" lean-forward="true" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+        <state relative-caret-position="369">
+          <caret line="99" column="40" lean-forward="true" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#fieldset#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#fieldset#0;n#div#1;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#fieldset#0;n#div#2;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/SystemLogController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layout/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="23" />
+        <state relative-caret-position="504">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/PublishMessageController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/finance/pay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="297">
+          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/UserFeedbackController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/finance/pay/recharge.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="27">
+          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding>
+            <element signature="e#2706#3267#0" expanded="false" />
+            <element signature="e#3315#3514#0" expanded="false" />
+            <element signature="e#3601#3711#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/json/nav_main.json">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/pushMessage/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2365">
-          <caret line="99" column="49" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/member/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="112" />
+        <state relative-caret-position="207">
+          <caret line="66" column="44" lean-forward="true" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/pushMessange/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="234">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#304#375#0" expanded="false" />
+            <element signature="e#465#520#0" expanded="false" />
+            <element signature="e#525#581#0" expanded="false" />
+            <element signature="e#1360#2282#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/pushMessage/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/member/edit.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-base/1.0.1/mapper-base-1.0.1-sources.jar!/tk/mybatis/mapper/common/special/InsertListMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-558">
-          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="194">
+          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/PublishMessageDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="504">
+          <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/PublishMessageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
+        <state relative-caret-position="213">
+          <caret line="82" column="51" lean-forward="true" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/PublishMessageRelation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/PublishMessageRelationMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="11" selection-start-line="11" selection-end-line="14" selection-end-column="7" />
+        <state relative-caret-position="159">
+          <caret line="20" column="72" lean-forward="true" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveCollect.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/LiveInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="175" column="67" lean-forward="false" selection-start-line="175" selection-start-column="67" selection-end-line="175" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="21" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/LiveHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="35" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/LiveCollect.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        <state relative-caret-position="-9">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
+        <state relative-caret-position="243">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="23" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/LiveHistoryInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveHistoryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="39" column="36" lean-forward="false" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/LiveCollectInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="133" column="36" lean-forward="false" selection-start-line="133" selection-start-column="36" selection-end-line="133" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveCollectMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="37" column="97" lean-forward="false" selection-start-line="37" selection-start-column="97" selection-end-line="37" selection-end-column="97" />
+          <folding>
+            <element signature="docComment;method#getLimit#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="method#getLimit#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getCount#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getLimitCount#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="method#getLimitCount#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getLiveInfo#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#insertLive#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="e#3887#3896#0" expanded="false" />
+            <element signature="method#insertLive#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#modifyLive#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="e#5987#5996#0" expanded="false" />
+            <element signature="method#modifyLive#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getHotLives#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getLiveDetailInfo#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#addCollect#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="e#7471#7480#0" expanded="false" />
+            <element signature="method#addCollect#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#cancelCollect#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="e#8148#8157#0" expanded="false" />
+            <element signature="method#cancelCollect#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#extractLimitWhere#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="method#extractLimitWhere#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#extractBetweenTime#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="method#extractBetweenTime#0;class#LiveServiceImpl#0" expanded="false" />
+            <element signature="e#11306#11307#0" expanded="true" />
+            <element signature="e#11372#11373#0" expanded="true" />
+            <element signature="e#11781#11782#0" expanded="true" />
+            <element signature="e#11846#11847#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="545" column="0" lean-forward="true" selection-start-line="545" selection-start-column="0" selection-end-line="545" selection-end-column="0" />
+          <folding>
+            <element signature="e#17418#17419#0" expanded="true" />
+            <element signature="e#17478#17479#0" expanded="true" />
+            <element signature="e#17859#17860#0" expanded="true" />
+            <element signature="e#17924#17925#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/GameApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="e#1327#1342#0" expanded="false" />
+            <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
+            <element signature="e#2613#3448#0" expanded="false" />
+            <element signature="docComment;method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#getInformation#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#getInformation#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#addCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#addCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#cancelCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#cancelCollect#0;class#LiveApiController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/UserApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+          <folding>
+            <element signature="e#1100#1115#0" expanded="false" />
+            <element signature="docComment;method#sendSmsCode#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#sendSmsCode#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#sendResetPwdSmsCode#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#sendResetPwdSmsCode#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#signUp#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#signUp#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#initSettings#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#initSettings#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#signIn#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#signIn#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#resetPassword#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#resetPassword#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#uploadAvatar#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#updateInfo#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#updateInfo#0;class#UserApiController#0" expanded="false" />
+            <element signature="docComment;method#getUserInfo#0;class#UserApiController#0" expanded="false" />
+            <element signature="method#getUserInfo#0;class#UserApiController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/DictionaryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="128" column="27" lean-forward="false" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
+          <folding>
+            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/VersionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="122" column="5" lean-forward="true" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+          <folding>
+            <element signature="e#1244#1259#0" expanded="false" />
+            <element signature="docComment;method#getHomeGroupInfo#0;class#HomeApiController#0" expanded="false" />
+            <element signature="method#getHomeGroupInfo#0;class#HomeApiController#0" expanded="false" />
+            <element signature="e#1736#1744#0" expanded="false" />
+            <element signature="docComment;method#getHotGameList#0;class#HomeApiController#0" expanded="false" />
+            <element signature="method#getHotGameList#0;class#HomeApiController#0" expanded="false" />
+            <element signature="e#2773#3434#0" expanded="false" />
+            <element signature="docComment;method#getLiveCategoryList#0;class#HomeApiController#0" expanded="false" />
+            <element signature="method#getLiveCategoryList#0;class#HomeApiController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1332">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="e#1509#1524#0" expanded="false" />
+            <element signature="docComment;method#getMessageList#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="method#getMessageList#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="docComment;method#signMessage#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="method#signMessage#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="docComment;method#getLiveHistoryList#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="method#getLiveHistoryList#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="e#3756#4041#0" expanded="false" />
+            <element signature="docComment;method#cleanHistorys#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="docComment;method#getLiveCollectList#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="method#getLiveCollectList#0;class#ProfileApiController#0" expanded="false" />
+            <element signature="e#5324#5609#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
