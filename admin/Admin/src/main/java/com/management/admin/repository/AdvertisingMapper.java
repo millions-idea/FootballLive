@@ -17,10 +17,10 @@ public interface AdvertisingMapper extends MyMapper<Advertising> {
     @Select("select * from tb_advertisings")
     List<Advertising> queryAllAdvertising();
 
-    @Select("select t2.live_id,t2.live_title,t1.type,t1.source_url,\n" +
-            "t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on\n" +
-            "t2.ad_id = t1.ad_id and t2.is_delete=0 \n " +
-            "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+    @Select("select t1.ad_id,t2.live_id,t2.live_title,t1.type,t1.source_url," +
+            "t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on " +
+            "t2.ad_id = t1.ad_id  " +
+            "WHERE ${condition} and t1.is_delete=0 and t2.status=0 GROUP BY t1.ad_id DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
@@ -31,16 +31,16 @@ public interface AdvertisingMapper extends MyMapper<Advertising> {
      * @param where
      * @return
      */
-    List<InformationDetail> selectLimit(@Param("page") Integer page, @Param("limit") String limit
+    List<AdvertisingDetail> selectLimit(@Param("page") Integer page, @Param("limit") String limit
             , @Param("isEnable") Integer isEnable
             , @Param("beginTime") String beginTime
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
 
-    @Select("select t2.live_id,t2.live_title,t1.type,t1.source_url,\\n\" +\n" +
-            "            \"t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on\\n\" +\n" +
-            "            \"t2.ad_id = t1.ad_id and t2.is_delete=0 \\n \" +\n" +
-            "            \"WHERE ${condition} and t1.is_delete=0 ")
+    @Select("select t2.live_id,t2.live_title,t1.type,t1.source_url," +
+                       "t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on " +
+                       "t2.ad_id = t1.ad_id " +
+                       "WHERE ${condition} and t1.is_delete=0 and t2.status=0 ")
     /**
      * 分页查询记录数 韦德 2018年8月30日11:33:30
      * @param state
@@ -54,15 +54,22 @@ public interface AdvertisingMapper extends MyMapper<Advertising> {
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
 
-    @Update("update tb_advertising set type=#{type},source_url=#{sourceUrl}" +
-            ",target_url=#{targetUrl} where ad_id = #{adId}")
-    Integer modifyAdvertising(Advertising advertising);
+    @Select("select count(*) from tb_advertisings where is_delete=0")
+    Integer selectAdvertisingCount();
 
-    @Update("update tb_advertising set is_delete=1")
+    @Update("update tb_advertisings set type=#{type},source_url=#{sourceUrl}" +
+            ",target_url=#{targetUrl} where ad_id = #{adId} and is_delete=0")
+    Integer modifyAdvertising(AdvertisingDetail advertising);
+
+    @Update("update tb_advertisings set is_delete=1 where ad_id=#{adId}")
     Integer deleteAdvertisingById(Integer adId);
 
-    @Select("select t2.live_id,t2.live_title,t1.type,t1.source_url,\\n\" +\n" +
-            "            \"t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on\\n\" +\n" +
-            "            \"t2.ad_id = t1.ad_id and t2.is_delete=0 where advertising_id=#{advertisingId} ")
+    @Select("select t2.live_id,t2.live_title,t1.ad_id,t1.type,t1.source_url," +
+            "t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on " +
+            " t2.ad_id = t1.ad_id where t1.ad_id=#{advertisingId}")
     AdvertisingDetail queryAdvertisingById(Integer advertisingId);
+
+    @Insert("insert into tb_advertisings(type,source_url,target_url) values(#{type},#{sourceUrl},#{targetUrl})")
+    @Options(useGeneratedKeys = true, keyProperty = "adId")
+    Integer insertAdvertising(AdvertisingDetail advertising);
 }

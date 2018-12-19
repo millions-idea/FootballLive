@@ -16,7 +16,7 @@ public class Advertising {
 
     private Integer adId;
 
-    private Integer type;
+    private boolean type;
 
     private String sourceUrl;
 

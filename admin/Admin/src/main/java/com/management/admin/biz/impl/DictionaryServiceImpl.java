@@ -10,6 +10,7 @@ package com.management.admin.biz.impl;
 import com.management.admin.biz.IDictionaryService;
 import com.management.admin.entity.db.Dictionary;
 import com.management.admin.repository.DictionaryMapper;
+import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +59,30 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         String join = String.join(",", keys);
         List<Dictionary> dictionaries = dictionaryMapper.selectInKey(join);
         return dictionaries;
+    }
+
+    /**
+     * 获取webApp全站广告数据 DF 2018年12月18日15:25:17
+     *
+     * @return
+     */
+    @Override
+    public List<Dictionary> getWebAppAdvertising() {
+        String[] keys = {"webapp.image.ad.url", "webapp.image.ad.target.url"};
+        String joinKey =StringUtil.joinChar(",", keys);
+        List<Dictionary> dictionaries = dictionaryMapper.selectInKey(joinKey);
+        return dictionaries;
+    }
+
+    /**
+     * 根据键设置值
+     *
+     * @param dictionaryId
+     * @param url
+     * @return
+     */
+    @Override
+    public Integer updateById(Integer dictionaryId, String url) {
+        return dictionaryMapper.updateUrlById(dictionaryId,url);
     }
 }

@@ -6,22 +6,30 @@ import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
 import com.management.admin.entity.enums.UserRoleEnum;
+import com.management.admin.repository.GameMapper;
 import com.management.admin.repository.InformationMapper;
+import com.management.admin.repository.LiveMapper;
 import com.management.admin.repository.utils.ConditionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class InformationServiceImpl implements IInformationService {
 
     private InformationMapper informationMapper;
+    private LiveMapper liveMapper;
+    private GameMapper gameMapper;
 
-    public InformationServiceImpl(InformationMapper informationMapper){
+    @Autowired
+    public InformationServiceImpl(InformationMapper informationMapper, LiveMapper liveMapper, GameMapper gameMapper) {
         this.informationMapper = informationMapper;
+        this.liveMapper = liveMapper;
+        this.gameMapper = gameMapper;
     }
-
-
 
     /**
      * 添加情报
@@ -40,7 +48,6 @@ public class InformationServiceImpl implements IInformationService {
      * @param page
      * @param limit
      * @param condition
-     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
@@ -68,7 +75,6 @@ public class InformationServiceImpl implements IInformationService {
     /**
      * 加载分页记录数 韦德 2018年8月30日11:29:22
      * @param condition
-     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
@@ -88,6 +94,7 @@ public class InformationServiceImpl implements IInformationService {
      */
     @Override
     public Integer InsertInformation(Information information) {
+        information.setAddDate(new Date());
         return informationMapper.insertInformation(information);
     }
 
@@ -114,6 +121,17 @@ public class InformationServiceImpl implements IInformationService {
     }
 
     /**
+     * 获取直播间情报信息 DF 2018年12月18日20:49:22
+     *
+     * @param liveId
+     * @return
+     */
+    @Override
+    public Information getLiveInformation(Integer liveId) {
+        return informationMapper.selectByLiveId(liveId);
+    }
+
+    /**
      * 提取分页条件
      * @return
      */
@@ -122,13 +140,17 @@ public class InformationServiceImpl implements IInformationService {
         String where = " 1=1";
         if(condition != null) {
             condition = condition.trim();
-            where += " AND (" + ConditionUtil.like("informationId", condition, true, "t1");
+            where += " AND (" + ConditionUtil.like("isr_id", condition, true, "t1");
             if (condition.split("-").length == 2){
                 where += " OR " + ConditionUtil.like("add_date", condition, true, "t1");
                 where += " OR " + ConditionUtil.like("update_date", condition, true, "t1");
+                where += " OR " + ConditionUtil.like("like_title", condition, true, "t2");
+                where += " OR " + ConditionUtil.like("content", condition, true, "t1");
+                where += " OR " + ConditionUtil.like("status", condition, true, "t2");
             }
             where += " OR " + ConditionUtil.like("live_id", condition, true, "t1");
-            where += " OR " + ConditionUtil.like("game_id", condition, true, "t1")+ ")";
+            where += " OR " + ConditionUtil.like("game_name", condition, true, "t3");
+            where += " OR " + ConditionUtil.like("game_id", condition, true, "t3")+ ")";
         }
 
         // 取两个日期之间或查询指定日期
@@ -151,5 +173,24 @@ public class InformationServiceImpl implements IInformationService {
             where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
         }
         return where;
+    }
+
+    /**
+     * 根据编号查询情报并封装
+     * @param isrId
+     * @return
+     */
+    @Override
+    @Transactional
+    public InformationDetail queryInformationById(Integer isrId) {
+        InformationDetail informationDetail = informationMapper.queryInformationById(isrId);
+        if(informationDetail.getScheduleStatus()==0){
+            informationDetail.setScheduleStatusStr("未开始");
+        }else if(informationDetail.getScheduleStatus()==1){
+            informationDetail.setScheduleStatusStr("正在直播");
+        }else {
+            informationDetail.setScheduleStatusStr("已结束");
+        }
+        return informationDetail;
     }
 }

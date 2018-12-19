@@ -1,0 +1,110 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <div class="layui-form-item">
+        <label class="layui-form-label">赛事信息</label>
+        <div class="layui-input-block">
+            <select id="games"   lay-verify="required">
+                <option th:each="game:${games}" th:value="${game.gameId}" th:text="${game.gameName}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">主队</label>
+        <div class="layui-input-block">
+            <select id="primaryTeam"   lay-verify="required">
+                <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">客队</label>
+        <div class="layui-input-block">
+            <select id="secondTeam"  lay-verify="required">
+                <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">比赛时长</label>
+        <div class="layui-input-block">
+            <input type="number" id="duration" name="compName" required  lay-verify="required" placeholder="请输入比赛时长"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">比赛时间</label>
+        <div class="layui-inline">
+            <input type="text" id="gameDate"   required  lay-verify="required" placeholder="请选择比赛时间"
+                   autocomplete="off" class="layui-input">
+        </div>
+
+    </div>
+        <script>
+             layui.use('laydate', function(){
+                  var laydate = layui.laydate;
+
+                    //执行一个laydate实例
+                     laydate.render({
+                         elem: '#gameDate' //指定元素
+                         ,type:'datetime'
+                   });
+              });
+        </script>
+    </div>
+
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+    $("#save").click(function () {
+        var games=$("#games").val();
+        var primaryTeam=$("#primaryTeam").val();
+        var secondTeam=$("#secondTeam").val()
+        var duration=$("#duration").val();
+        var gameDate=$("#gameDate").val();
+
+
+        var schedule={}
+        schedule.gameId=games;
+        schedule.teamId=primaryTeam+","+secondTeam;
+        schedule.gameDate=gameDate;
+        schedule.gameDuration=duration;
+
+        if (primaryTeam==secondTeam) {
+            layer.msg("选择有误");
+            return false;
+        }
+        if((duration!=null&&duration>0) && (gameDate!=null&&gameDate.length>0)){
+            $.ajax({
+                url:"/management/schedule/addSchedule",
+                data:schedule,
+                type:"GET",
+                contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                success:function (data) {
+                    if (data.code==200){
+                        location.reload();
+                    } else {
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('添加失败', {icon: 5,time: 2000});
+                        });
+                    }
+                }
+            })
+
+        }else{
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                layer.msg('添加有误！', {icon: 5,time: 2000});
+            });
+        }
+
+    })
+</script>

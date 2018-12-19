@@ -106,10 +106,14 @@ public class LiveController {
     @PostMapping("/addLiveInfo")
     @ResponseBody
     public JsonResult addLiveInfo(LiveDetail liveDetail) {
-        Integer result = liveService.insertLive(liveDetail);
-        if (result > 0) {
-            return JsonResult.successful();
-        }
+        Boolean result = liveService.insertLive(liveDetail);
+        if (result) return JsonResult.successful();
         return JsonResult.failing();
+    }
+
+    @GetMapping("/getAll")
+    @ResponseBody
+    public JsonArrayResult<Live> getAll(){
+        return new JsonArrayResult<Live>(liveService.queryAll());
     }
 }

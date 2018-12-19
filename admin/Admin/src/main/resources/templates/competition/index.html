@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'赛事管理-' + ${title}"></title>
+</head>
+<body>
+
+<th:block layout:fragment="current_page">
+    <a><cite>赛事管理</cite></a>
+</th:block>
+
+<th:block layout:fragment="body">
+    <div class="layui-row">
+        <div class="layui-col-md12" style="">
+            <!--主体 begin-->
+            <!-- 工具集 -->
+            <div class="my-btn-box">
+                <!--下拉列表-->
+                <div class="layui-form">
+                    <!--days begin-->
+                    <a id="my-data-table-add" lay-event="add" class="layui-btn mgl-20" >添加赛事</a>
+                </div>
+
+            </div>
+            <!-- 表格 -->
+            <div id="my-data-table" class="my-data-table" lay-filter="my-data-table"></div>
+            <!--主体 end-->
+        </div>
+    </div>
+
+</th:block>
+<th:block layout:fragment="free_footer">
+    <!-- 表格操作按钮集 -->
+    <script type="text/html" id="barOption">
+        <a name="item-edit" class="layui-btn layui-btn layui-btn-xs layui-btn-primary" lay-event="enable">删除</a>
+    </script>
+    <script type="text/javascript" th:src="@{/js/competition/index.js}"></script>
+    <script>
+        layui.use(['laydate'], function(){
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: "#date"
+            });
+            laydate.render({
+                elem: "#date2"
+            });
+        });
+        $("#my-data-table-add").click(function () {
+            service.add({
+            }, function(html){
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['420px', 'auto'], //宽高
+                    shadeClose: true,
+                    content:html
+                });
+            });
+        })
+    </script>
+</th:block>
+</body>
+</html>

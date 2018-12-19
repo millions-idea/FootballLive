@@ -15,22 +15,22 @@ public interface InformationMapper extends MyMapper<Information> {
      * @param information
      * @return
      */
-    @Insert("insert into tb_informations(game_id,live_id,content) values(gameId,liveId,content)")
+    @Insert("insert into tb_informations(game_id,live_id,content,add_date) values(#{gameId},#{liveId},#{content},#{addDate})")
     Integer insertInformation(Information information);
 
     @Update("update tb_informations set live_id=#{liveId},game_id=#{gameId}" +
-            ",content=#{content} where information_id = #{informationId} and is_delete=0")
+            ",content=#{content} where isr_id = #{isrId} and is_delete=0")
     Integer modifyInformationById(Information informationId);
 
     @Select("select * from tb_information where is_delete=0")
     List<Information> queryAll();
 
-    @Update("update tb_informations set is_delete=1 where information_id=#{informationId}")
+    @Update("update tb_informations set is_delete=1 where isr_id=#{informationId}")
     Integer deleteInformationById(Integer informationId);
 
-    @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon\n" +
-            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 \n" +
-            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 \n " +
+    @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon " +
+            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 " +
+            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id  " +
             "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
@@ -48,8 +48,8 @@ public interface InformationMapper extends MyMapper<Information> {
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
 
-    @Select("SELECT COUNT(t1.user_id) FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 \n" +
-            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id t3.is_delete=0 "+
+    @Select("SELECT COUNT(t1.isr_id) FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0  " +
+            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id "+
             "WHERE ${condition} and t1.is_delete=0")
     /**
      * 分页查询记录数 韦德 2018年8月30日11:33:30
@@ -64,8 +64,16 @@ public interface InformationMapper extends MyMapper<Information> {
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
 
-    @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon\\n\" +\n" +
-            "            \"FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 \\n\" +\n" +
-            "            \"LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where informationId=#{informationId}")
+    @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon " +
+            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0  " +
+            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where isr_id=#{informationId}")
     InformationDetail queryInformationById(Integer informationId);
+
+    /**
+     * 查询直播间情报信息 DF 2018年12月18日20:50:17
+     * @param liveId
+     * @return
+     */
+    @Select("SELECT * FROM tb_informations WHERE live_id=#{liveId}")
+    Information selectByLiveId(@Param("liveId") Integer liveId);
 }
