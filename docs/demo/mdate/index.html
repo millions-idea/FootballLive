@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title>Document</title>
+    <script src="Mdate/iScroll.js"></script>
+    <script src="Mdate/Mdate.js"></script>
+</head>
+
+<body>
+    <style type="text/css">
+    html,
+    body {
+        font-size: 14px;
+    }
+    
+    body {
+        background-image: url(bg.png);
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+        padding: 20px;
+    }
+    
+    .demoBox {
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+        margin-bottom: 15px;
+        padding: 8px 8px 20px;
+    }
+
+    .demoBox >p{
+        padding-top: 10px;
+    }
+    
+    .demoBox >ol {
+        padding-top: 15px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+    
+    .demoBox >ol>li {
+        padding-top: 10px;
+        margin-left: 7%;
+    }
+    
+    .demoBox >ol>li>span {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        display: block;
+    }
+    
+    .demo {
+        height: 35px;
+        margin: 15px 0;
+        display: flex;
+        display: -webkit-flex;
+        display: -moz-flex;
+    }
+    
+    .demo >input {
+        display: block;
+        border: 0;
+        border-radius: 3px;
+        padding: 0 8px;
+        height: 100%;
+        flex: 1;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        font-size: 14px;
+    }
+    
+    .demo >button {
+        background-color: #00c599;
+        color: #fff;
+        border: 0;
+        height: 100%;
+        margin-left: 8px;
+        padding: 0 15px;
+        border-radius: 3px;
+        font-size: 14px;
+    }
+    </style>
+    <div class="demoBox">
+        <p>Mdate.js 是一款依托于iScroll.js的日期选择小型插件，可滑动选择年、月、日，只适用于移动端。</p>
+        <p>操作简易，只需要在页面中引入iScroll.js和Mdate.js即可。</p>
+    </div>
+    <div class="demoBox">
+        <p>案例1：默认项</p>
+        <div class="demo">
+            <input type="text" id="dateSelectorOne" placeholder="选择日期">
+        </div>
+        <ol>
+            <p>使用说明</p>
+            <li>代码：new Mdate("dateSelectorOne");</li>
+            <li>"dateSelectorOne"为你要显示选择后的日期的input，必填项;</li>
+            <li>Mdate的默认开始日期为：2000年1月1日，可自定义</li>
+            <li>Mdate的默认结束日期为：今天，可自定义</li>
+            <li>Mdate的默认日期格式为：xxxx年xx月xx日，可自定义</li>
+        </ol>
+    </div>
+    <div class="demoBox">
+        <p>案例2：自定义项</p>
+        <div class="demo">
+            <input type="text" id="dateSelectorTwo" placeholder="请填写：xxxx-xx-xx">
+            <button type="button" id="dateShowBtn">选择日期</button>
+        </div>
+        <ol>
+            <p>使用说明</p>
+            <li>
+                new Mdate("dateShowBtn", { <span>//"dateShowBtn"为你点击触发Mdate的id，必填项</span>
+                <br/> acceptId: "dateSelectorTwo", <span>//此项为你要显示选择后的日期的input，不填写默认为上一行的"dateShowBtn"</span>
+                <br/> beginYear: "2002",<span>//此项为Mdate的初始年份，不填写默认为2000</span>
+                <br/> beginMonth: "10",<span>//此项为Mdate的初始月份，不填写默认为1</span>
+                <br/> beginDay: "24",<span>//此项为Mdate的初始日期，不填写默认为1</span>
+                <br/> endYear: "2017",<span>//此项为Mdate的结束年份，不填写默认为当年</span>
+                <br/> endMonth: "1",<span>//此项为Mdate的结束月份，不填写默认为当月</span>
+                <br/> endDay: "1",<span>//此项为Mdate的结束日期，不填写默认为当天</span>
+                <br/> format: "-"<span>//此项为Mdate需要显示的格式，可填写"/"或"-"或".",不填写默认为年月日</span>
+                <br/> })
+            </li>
+        </ol>
+    </div>
+</body>
+<script type="text/javascript">
+new Mdate("dateSelectorOne");
+
+new Mdate("dateShowBtn", {
+    acceptId: "dateSelectorTwo",
+    beginYear: "2002",
+    beginMonth: "10",
+    beginDay: "24",
+    endYear: "2017",
+    endMonth: "1",
+    endDay: "1",
+    format: "-"
+})
+</script>
+
+</html>

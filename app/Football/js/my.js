@@ -1,126 +1,5 @@
 mui.init();
 
-var myInfo;
-
-function updateMyInfoUI(obj){
-	
-	app.logger("updateMyInfoUI", JSON.stringify(obj));
-	
-	var model = JSON.parse(obj);
-	
-	var user = JSON.parse(plus.storage.getItem("userInfo"));
-	
-	myInfo = model;
-	
-	$("#face").attr("src", "images/head-default.png");
-	$("#nickname").text("");
-	$("#signature").text("");
-	
-	if(model.avatar != null && model.avatar.length > 0) $("#face").attr("src", model.avatar);
-	$("#account").text(user.userCode);
-	if(model.nick != null && model.nick.length > 0) $("#nickname").text(model.nick);
-	if(model.sign != null && model.sign.length > 0) $("#signature").text(model.sign);
-	
-	// 判断是否还有修改userCode的次数
-	if(user.editCount > 0){
-		$(".userCode .mui-icon-arrowright").show();
-		$(".userCode").bind("click", function(){
-			//修改有讯号
-			app.utils.openNewWindowParam("setData.html","setData-userCode", {
-				map: {
-					title: "修改有讯账号",
-					placeholder: "字母开头+数字,最短5位,最长15位,仅可修改一次",
-					webview: "my",
-					method: "onUpdateUserCode"
-				}
-			})
-		});
-	}else{
-		$(".userCode .mui-icon-arrowright").hide();
-		$(".userCode").unbind("click");
-	}
-}
-
-/**
- * 更新绑定有讯号 DF 2018年12月11日03:43:58
- * @param {Object} inputValue
- */
-function onUpdateUserCode(inputValue){
-	$.post(app.utils.toUrl(app.config.apiUrl + "api/user/updateUserCode"), {
-		userCode: inputValue
-	}, function(data){
-		app.logger("onUpdateUserCode", JSON.stringify(data));
-		
-		if(app.utils.ajax.isError(data)) {
-			if(data.code == 300) {
-				app.utils.msgBox.msg(data.msg);
-				return;
-			}
-			app.utils.msgBox.msg("修改失败");
-			return;
-		}
-
-		app.utils.msgBox.msg("修改成功");
-		
-		logout();
-	})
-	 
-}
-
-/**
- * 修改个人昵称 DF 2018年12月11日04:17:14
- * @param {Object} inputValue
- */
-function onUpdateNickname(inputValue){
-	$.post(app.utils.toUrl(app.config.apiUrl + "api/user/updateInfo"), {
-		nickname: inputValue
-	}, function(data){
-		app.logger("onUpdateNickname", JSON.stringify(data));
-		
-		if(app.utils.ajax.isError(data)) {
-			if(data.code == 300) {
-				app.utils.msgBox.msg(data.msg);
-				return;
-			}
-			app.utils.msgBox.msg("修改失败");
-			return;
-		}
-
-		app.utils.msgBox.msg("修改成功");
-		
-		var webview = plus.webview.getWebviewById("index");
-		webview.evalJS("updateMyInfoUI()");
-	})
-}
-
-
-
-/**
- * 修改个人签名 DF 2018年12月11日04:18:58
- * @param {Object} inputValue
- */
-function onUpdateSignature(inputValue){
-	$.post(app.utils.toUrl(app.config.apiUrl + "api/user/updateInfo"), {
-		signature: inputValue
-	}, function(data){
-		app.logger("onUpdateSignature", JSON.stringify(data));
-		
-		if(app.utils.ajax.isError(data)) {
-			if(data.code == 300) {
-				app.utils.msgBox.msg(data.msg);
-				return;
-			}
-			app.utils.msgBox.msg("修改失败");
-			return;
-		}
-
-		app.utils.msgBox.msg("修改成功");
-		
-		var webview = plus.webview.getWebviewById("index");
-		webview.evalJS("updateMyInfoUI()");
-	})
-}
-
 mui.plusReady(function(){ 
 	// 自定义webview样式
 	var webview = plus.webview.currentWebview();
@@ -129,9 +8,6 @@ mui.plusReady(function(){
 	webview.addEventListener("show", function(){
 		var webview = plus.webview.getWebviewById("index");
 		webview.evalJS("updateMyInfoUI()");
-		
-		//plus.navigator.setStatusBarStyle("light");
-		//plus.navigator.setStatusBarBackground("#6B1EC2");
 	})
 	 
 	//更改昵称
@@ -169,6 +45,8 @@ mui.plusReady(function(){
 	$(".pushMessage").click(function(){
 		app.utils.openNewWindow("systemMessage.html","systemMessage");
 	});
+	
+	
 	// 清除缓存
 	$("#cleanCache").click(function(){
 		logout();

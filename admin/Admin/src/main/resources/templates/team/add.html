@@ -1,0 +1,100 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <!--<input type="hidden" id="userId" th:value="${user.getUserId()}">-->
+    <input type="hidden" id="upload">
+    <div class="layui-form-item">
+        <label class="layui-form-label">球队名称</label>
+        <div class="layui-input-block">
+            <input type="text" id="TeamName" name="TeamName" required  lay-verify="required" placeholder="请输入球队名称"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">LOGO</label>
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn" id="LOGO">
+                <i class="layui-icon">&#xe67c;</i>球队LOGO
+            </button>
+        </div>
+        <script>
+            layui.use('upload', function(){
+                var upload = layui.upload;
+
+                //执行实例
+                var uploadInst = upload.render({
+                    elem: '#LOGO' //绑定元素
+                    ,url: '/management/file/cosUpload'
+                    ,done: function(res){
+
+                        if (res.code==200){
+                            $("#upload").val(res.msg)
+
+                        }
+                    }
+                    ,error: function(){
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('上传失败', {icon: 5,time: 2000});
+
+                        });
+                    }
+                });
+            });
+        </script>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">隶属赛事</label>
+        <div class="layui-input-block">
+            <select id="TeamCategory" name="category"  lay-verify="required">
+                <option th:each="game:${games}" th:value="${game.gameId}" th:text="${game.gameName}"></option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+    $("#save").click(function () {
+        var gameName=$.trim($("#TeamName").val());
+        var logo=$.trim($("#upload").val());
+        var category=$("#TeamCategory").val()
+
+        var team={}
+        team.teamName=gameName;
+        team.teamIcon=logo;
+        team.gameId=category;
+        if((gameName!=null&&gameName.length>0) && (logo!=null&&logo.length>0)) {
+            $.ajax({
+                url:"/management/team/addTeam",
+                data:team,
+                type:"GET",
+                contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                success:function (data) {
+                    if (data.code==200){
+                        location.reload();
+                    } else {
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('添加失败', {icon: 5,time: 2000});
+                        });
+                    }
+                }
+            })
+
+        }else {
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                layer.msg('LOGO不能为空', {icon: 5,time: 2000});
+            });
+        }
+
+    })
+</script>
