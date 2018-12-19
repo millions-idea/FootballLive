@@ -1,6 +1,21 @@
 /*! framework page by DF 2018-11-24 09:57:41*/
 mui.init();
 
+var service = {
+	/**
+	 * 获取消息列表 DF 2018年12月19日06:30:15
+	 * @param {Object} param
+	 * @param {Object} callback
+	 */
+	getMessageList: function(param, callback){
+		$.get(app.utils.toUrl(app.config.apiUrl + "api/profile/getMessageList"), param, function(data){
+			app.logger("profile", JSON.stringify(data));
+			callback(data);
+		});
+	}
+}
+
+
 var data = {};
 var nim = {};
 
@@ -9,7 +24,34 @@ mui.plusReady(function(){
 	
   	//plus.navigator.setStatusBarStyle("light");
 	//plus.navigator.setStatusBarBackground(app.style.barBackgroundColor);
-      	
+    
+    //手动关闭启动页
+    plus.navigator.closeSplashscreen();
+    
+    
+    /**
+     * 获取本地存储中launchFlag的值
+     * http://www.html5plus.org/doc/zh_cn/storage.html#plus.storage.getItem
+     * 若存在，说明不是首次启动，直接进入首页；
+     * 若不存在，说明是首次启动，进入引导页；
+     */
+    var launchFlag = plus.storage.getItem("launchFlag");
+    if(launchFlag) {
+        mui.openWindow({
+            url: "home.html",
+            id: "home",
+            extras: {
+                mark: "index" //额外的参数，仅仅是个标识，实际开发中不用；
+            }
+        });
+    } else {
+        mui.openWindow({
+            url: "guide.html",
+            id: "guide"
+        });
+    }
+    
+    
 	// 禁止返回到登录注册页面
 	mui.back = function() {
 		return false;
@@ -65,84 +107,128 @@ mui.plusReady(function(){
 });
 
 function newInstance(){
+	// 设置激活图标
 	var items = document.getElementsByClassName("mui-tab-item");
-		for (var i = 0; i < items.length; i++) {
-			items[i].classList.remove("mui-active");
-		}
-		items[0].classList.add("mui-active");
-		
-		// 获取缓存信息 
-		var cacheString = plus.storage.getItem("userInfo"); 
-		if(cacheString == null) {
-			app.logger("index","请先登录");
-			app.utils.msgBox.msg("请先登录");
-			app.utils.openWindow("login.html", "login");
+	for (var i = 0; i < items.length; i++) {
+		items[i].classList.remove("mui-active");
+	}
+	items[0].classList.add("mui-active");
+	
+	// 获取缓存信息 
+	var cacheString = plus.storage.getItem("userInfo"); 
+	if(cacheString == null) {
+		app.logger("index","请先登录");
+		app.utils.msgBox.msg("请先登录");
+		app.utils.openWindow("login.html", "login");
+		return;
+	}
+	var cache = JSON.parse(cacheString);
+	
+	// 拉取短消息列表
+	service.getMessageList({}, function(res){
+		if(app.utils.ajax.isError(res)) {
+			app.utils.msgBox.msg("加载消息列表失败");
 			return;
 		}
-		var cache = JSON.parse(cacheString);
-		// 实例化网易云信服务
-		nim = NIM.getInstance({
-		    appKey: "76688b21d1656063933c1199a3e425a1",
-		    account: cache.cloudAccid,
-		    token: cache.cloudToken,
-		    customTag: 'TV',
-		    db: true,
-		    onconnect: onConnect,
-		    onerror: onError,
-		    onwillreconnect: onWillReconnect,
-		    ondisconnect: onDisconnect,
-		    // 多端登录
-		    onloginportschange: onLoginPortsChange,
-		    // 用户关系
-		    onblacklist: onBlacklist,
-		    onsyncmarkinblacklist: onMarkInBlacklist,
-		    onmutelist: onMutelist,
-		    onsyncmarkinmutelist: onMarkInMutelist,
-		    // 好友关系
-		    onfriends: onFriends,
-		    onsyncfriendaction: onSyncFriendAction,
-		    // 用户名片
-		    onmyinfo: onMyInfo,
-		    onupdatemyinfo: onUpdateMyInfo,
-		    onusers: onUsers,
-		    onupdateuser: onUpdateUser,
-		    // 机器人列表的回调
-		    onrobots: onRobots,
-		    // 群组
-		    onteams: onTeams,
-		    onsynccreateteam: onCreateTeam,
-		    onUpdateTeam: onUpdateTeam,
-		    onteammembers: onTeamMembers,
-		    // onsyncteammembersdone: onSyncTeamMembersDone,
-		    onupdateteammember: onUpdateTeamMember,
-		    // 群消息业务已读通知
-		    onTeamMsgReceipt: onTeamMsgReceipt,
-		    // 会话
-		    onsessions: onSessions,
-		    onupdatesession: onUpdateSession,
-		    syncSessionUnread: true,
-		    autoMarkRead: true,
-		    // 消息
-		    onroamingmsgs: onRoamingMsgs,
-		    onofflinemsgs: onOfflineMsgs,
-		    onmsg: onMsg,
-		    // 系统通知
-		    onofflinesysmsgs: onOfflineSysMsgs,
-		    onsysmsg: onSysMsg,
-		    onupdatesysmsg: onUpdateSysMsg,
-		    onsysmsgunread: onSysMsgUnread,
-		    onupdatesysmsgunread: onUpdateSysMsgUnread,
-		    onofflinecustomsysmsgs: onOfflineCustomSysMsgs,
-		    oncustomsysmsg: onCustomSysMsg,
-		    // 收到广播消息
-		    onbroadcastmsg: onBroadcastMsg,
-		    onbroadcastmsgs: onBroadcastMsgs,
-		    // 同步完成
-		    onsyncdone: onSyncDone
-		});
+		
 
+		for (var i = 0; i < res.data.length; i++) {
+			var item = res.data[i];
+			var message = item.message;
+			if(item.isRead==1) continue;
+			if(item.type) message = "点击查看详情";
+			plus.push.createMessage("您有一条未读消息: " + message);			
+		}
+		
+		plus.push.addEventListener("receive", function(){
+			clickPushMessage();
+		})
+		
+		plus.push.addEventListener("click", function(){
+			clickPushMessage();
+		});
+	})
+	
+	
+	
+	// 实例化网易云信服务
+	nim = NIM.getInstance({
+	    appKey: "76688b21d1656063933c1199a3e425a1",
+	    account: cache.cloudAccid,
+	    token: cache.cloudToken,
+	    customTag: 'TV',
+	    db: true,
+	    onconnect: onConnect,
+	    onerror: onError,
+	    onwillreconnect: onWillReconnect,
+	    ondisconnect: onDisconnect,
+	    // 多端登录
+	    onloginportschange: onLoginPortsChange,
+	    // 用户关系
+	    onblacklist: onBlacklist,
+	    onsyncmarkinblacklist: onMarkInBlacklist,
+	    onmutelist: onMutelist,
+	    onsyncmarkinmutelist: onMarkInMutelist,
+	    // 好友关系
+	    onfriends: onFriends,
+	    onsyncfriendaction: onSyncFriendAction,
+	    // 用户名片
+	    onmyinfo: onMyInfo,
+	    onupdatemyinfo: onUpdateMyInfo,
+	    onusers: onUsers,
+	    onupdateuser: onUpdateUser,
+	    // 机器人列表的回调
+	    onrobots: onRobots,
+	    // 群组
+	    onteams: onTeams,
+	    onsynccreateteam: onCreateTeam,
+	    onUpdateTeam: onUpdateTeam,
+	    onteammembers: onTeamMembers,
+	    // onsyncteammembersdone: onSyncTeamMembersDone,
+	    onupdateteammember: onUpdateTeamMember,
+	    // 群消息业务已读通知
+	    onTeamMsgReceipt: onTeamMsgReceipt,
+	    // 会话
+	    onsessions: onSessions,
+	    onupdatesession: onUpdateSession,
+	    syncSessionUnread: true,
+	    autoMarkRead: true,
+	    // 消息
+	    onroamingmsgs: onRoamingMsgs,
+	    onofflinemsgs: onOfflineMsgs,
+	    onmsg: onMsg,
+	    // 系统通知
+	    onofflinesysmsgs: onOfflineSysMsgs,
+	    onsysmsg: onSysMsg,
+	    onupdatesysmsg: onUpdateSysMsg,
+	    onsysmsgunread: onSysMsgUnread,
+	    onupdatesysmsgunread: onUpdateSysMsgUnread,
+	    onofflinecustomsysmsgs: onOfflineCustomSysMsgs,
+	    oncustomsysmsg: onCustomSysMsg,
+	    // 收到广播消息
+	    onbroadcastmsg: onBroadcastMsg,
+	    onbroadcastmsgs: onBroadcastMsgs,
+	    // 同步完成
+	    onsyncdone: onSyncDone
+	});
 
 }
+
+function clickPushMessage(){
+	app.print("推送消息被单击");
+	if(plus.webview.getWebviewById("systemMessage") != null) plus.webview.getWebviewById("systemMessage").close();
+	mui.openWindow({
+        url: "systemMessage.html",
+        id: "systemMessage",
+        preload: false,
+        waiting: {
+            autoShow: true,
+          title:'正在加载...'
+        },
+        createNew: true
+    });
+}
+
 
 // 监听网络状态更改
 function hookNetwork(){
