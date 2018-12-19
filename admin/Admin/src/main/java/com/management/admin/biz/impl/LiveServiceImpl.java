@@ -1,12 +1,11 @@
 package com.management.admin.biz.impl;
 
 import com.management.admin.biz.ILiveService;
-import com.management.admin.entity.db.ChatRoom;
-import com.management.admin.entity.db.ChatRoomUserRelation;
-import com.management.admin.entity.db.Live;
-import com.management.admin.entity.db.LiveCollect;
+import com.management.admin.entity.db.*;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.resp.LiveCollectInfo;
+import com.management.admin.entity.resp.LiveHistoryInfo;
 import com.management.admin.entity.resp.LiveInfo;
 import com.management.admin.entity.resp.NAGroup;
 import com.management.admin.entity.template.Constant;
@@ -15,6 +14,8 @@ import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,20 +25,23 @@ import java.util.List;
 
 @Service
 public class LiveServiceImpl implements ILiveService {
+    private final Logger logger = LoggerFactory.getLogger(LiveServiceImpl.class);
 
     private final LiveMapper liveMapper;
     private final ScheduleMapper scheduleMapper;
     private final ChatRoomMapper chatRoomMapper;
     private final ChatRoomUserRelationMapper chatRoomUserRelationMapper;
     private final LiveCollectMapper liveCollectMapper;
+    private final LiveHistoryMapper liveHistoryMapper;
 
     @Autowired
-    public  LiveServiceImpl(LiveMapper liveMapper, ScheduleMapper scheduleMapper, ChatRoomMapper chatRoomMapper, ChatRoomUserRelationMapper chatRoomUserRelationMapper, LiveCollectMapper liveCollectMapper){
+    public  LiveServiceImpl(LiveMapper liveMapper, ScheduleMapper scheduleMapper, ChatRoomMapper chatRoomMapper, ChatRoomUserRelationMapper chatRoomUserRelationMapper, LiveCollectMapper liveCollectMapper, LiveHistoryMapper liveHistoryMapper){
         this.liveMapper = liveMapper;
         this.scheduleMapper = scheduleMapper;
         this.chatRoomMapper = chatRoomMapper;
         this.chatRoomUserRelationMapper = chatRoomUserRelationMapper;
         this.liveCollectMapper = liveCollectMapper;
+        this.liveHistoryMapper = liveHistoryMapper;
     }
 
 
@@ -217,13 +221,19 @@ public class LiveServiceImpl implements ILiveService {
      * @return
      */
     @Override
+    @Transactional
     public Boolean addCollect(Integer liveId, Integer userId) {
         LiveCollect liveCollect = new LiveCollect();
         liveCollect.setLiveId(liveId);
         liveCollect.setUserId(userId);
         liveCollect.setIsCancel(0);
         liveCollect.setAddDate(new Date());
+        //更新我的收藏
         boolean result = liveCollectMapper.insertOrUpdate(liveCollect) > 0;
+        if(!result) throw new InfoException("收藏失败");
+
+        //更新直播间收藏总数
+        result = liveMapper.addCollectCount(liveId) > 0;
         return result;
     }
 
@@ -235,8 +245,12 @@ public class LiveServiceImpl implements ILiveService {
      * @return
      */
     @Override
+    @Transactional
     public Boolean cancelCollect(Integer liveId, Integer userId) {
         boolean result = liveCollectMapper.cancelCollect(liveId, userId) > 0;
+        if(result){
+            result = liveMapper.reduceCollectCount(liveId) > 0;
+        }
         return result;
     }
 
@@ -281,5 +295,75 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     public List<Live> queryAll() {
         return liveMapper.queryAll();
+    }
+
+    /**
+     * 设置开始直播 DF 2018年12月20日02:51:29
+     *
+     * @param liveId
+     */
+    @Override
+    public void setBeginLive(Integer liveId) {
+        boolean result = liveMapper.updateStatus(liveId, 1) > 0;
+        if(!result) logger.info("刷新直播状态失败");
+    }
+
+    /**
+     * 添加观看历史 DF 2018年12月20日03:22:12
+     *
+     * @param userId
+     * @param liveId
+     */
+    @Override
+    public void addHistory(Integer userId, Integer liveId) {
+        LiveHistory liveHistory = new LiveHistory();
+        liveHistory.setLiveId(liveId);
+        liveHistory.setUserId(userId);
+        boolean result = liveHistoryMapper.insertOrUpdate(liveHistory) > 0;
+        if(!result) logger.info("添加观看历史失败");
+    }
+
+    /**
+     * 获取观看历史 DF 2018年12月20日04:15:05
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<LiveHistoryInfo> getLiveHistoryList(Integer userId) {
+        return liveHistoryMapper.getLiveHistoryList(userId);
+    }
+
+    /**
+     * 清空观看历史 DF 2018年12月20日04:45:25
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public boolean cleanHistorys(Integer userId) {
+        return liveHistoryMapper.cleanHistorys(userId) > 0;
+    }
+
+    /**
+     * 获取个人收藏 DF 2018年12月20日04:54:26
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<LiveCollectInfo> getLiveCollectList(Integer userId) {
+        return liveCollectMapper.getLiveCollectList(userId);
+    }
+
+    /**
+     * 清空个人收藏 DF 2018年12月20日04:58:02
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public boolean cleanCollect(Integer userId) {
+        return liveCollectMapper.cleanCollect(userId) > 0;
     }
 }

@@ -57,6 +57,7 @@ public class PublishMessageServiceImpl implements IPublishMessageService {
                 PublishMessageRelation relation = new PublishMessageRelation();
                 relation.setMsgId(publishMessageDetail.getMsgId());
                 relation.setUserId(item.getUserId());
+                relation.setAddDate(new Date());
                 relationList.add(relation);
             });
         }

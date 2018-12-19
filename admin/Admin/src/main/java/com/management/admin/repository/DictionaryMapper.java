@@ -33,6 +33,14 @@ public interface DictionaryMapper extends MyMapper<Dictionary> {
      */
     List<Dictionary> selectByKey(@Param("likeKey") String likeKey);
 
+    @Select("SELECT * FROM tb_dictionary WHERE `key` = #{key} LIMIT 1")
+    /**
+     * 模糊查询  2018年8月18日13:14:02
+     * @param likeKey
+     * @return
+     */
+    Dictionary selectOneKey(@Param("key") String key);
+
     @Update("UPDATE tb_dictionary SET `value`=#{url} WHERE dictionary_id=#{dictionaryId}")
     int updateUrlById(@Param("dictionaryId") Integer dictionaryId, @Param("url") String url);
 

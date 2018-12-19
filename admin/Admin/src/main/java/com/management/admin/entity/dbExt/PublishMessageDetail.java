@@ -45,4 +45,9 @@ public class PublishMessageDetail {
      * 推送消息关系id
      */
     private Integer relationId;
+
+    /**
+     * 是否签收阅读
+     */
+    private Integer isRead;
 }
