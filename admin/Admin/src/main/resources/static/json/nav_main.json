@@ -53,11 +53,11 @@
         },{
           "text": "球队管理",
           "icon": "&#xe63c;",
-          "href": "/management/team"
+          "href": "/management/team/index"
         },{
           "text": "赛程管理",
           "icon": "&#xe63c;",
-          "href": "/management/schedule"
+          "href": "/management/schedule/index"
         }
       ]
     },{

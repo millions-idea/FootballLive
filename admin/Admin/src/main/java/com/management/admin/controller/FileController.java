@@ -6,9 +6,11 @@ import com.management.admin.entity.template.JsonResult;
 import com.management.admin.exception.InfoException;
 import com.management.admin.utils.FileUtil;
 import com.management.admin.utils.ResponseUtil;
+import com.management.admin.utils.http.CosUtil;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,6 +35,7 @@ public class FileController {
      */
     @RequestMapping(value = "upload", method = RequestMethod.POST)
     @ResponseBody
+
     public void fileUpload(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         //文件不存在
         if (file == null || file.isEmpty()) {
@@ -122,5 +125,13 @@ public class FileController {
         } catch (Exception e) {
             ResponseUtil.renderJson(response, JsonResult.failing());
         }
+    }
+
+    @RequestMapping(value = "cosUpload", method = RequestMethod.POST)
+    @ResponseBody
+    public void cosUpload(MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String url=CosUtil.upload(file);
+        ResponseUtil.renderJson(response, new JsonResult().successful(url));
+
     }
 }
