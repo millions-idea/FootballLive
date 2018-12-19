@@ -11,6 +11,7 @@ import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.NASignIn;
@@ -683,5 +684,16 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User queryBackUserById(Integer userId) {
         return userMapper.queryBackUserById(userId);
+    }
+
+    /**
+     * 查询用户收藏直播间
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId) {
+        return userMapper.queryLiveCollectByUserId(userId);
     }
 }

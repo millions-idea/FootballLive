@@ -10,6 +10,7 @@ package com.management.admin.controller;
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.db.UserFeedback;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.utils.DateUtil;
@@ -65,6 +66,10 @@ public class MemberController {
     @GetMapping("edit")
     public String edit(Integer userId, final Model model) {
         User user = userService.getUserInfoById(userId);
+        List<LiveCollectDetail> collectDetail = userService.queryLiveCollectByUserId(userId);
+        model.addAttribute("editDate",DateUtil.getFormatDateTime(user.getEditDate(), "yyyy-MM-dd HH:mm:ss"));
+        model.addAttribute("addDate",DateUtil.getFormatDateTime(user.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
+        model.addAttribute("collectDetail",collectDetail);
         model.addAttribute("user", user);
         return "member/edit";
     }

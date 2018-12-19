@@ -10,10 +10,12 @@ package com.management.admin.biz;
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.UserInfo;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -262,4 +264,11 @@ public interface IUserService {
      * @return
      */
     User queryBackUserById(Integer userId);
+
+    /**
+     * 查询用户收藏直播间
+     * @param userId
+     * @return
+     */
+    List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId);
 }

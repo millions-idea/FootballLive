@@ -9,6 +9,7 @@ package com.management.admin.repository;
 
 import com.management.admin.entity.db.LiveCollect;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.resp.UserInfo;
 import jdk.nashorn.internal.objects.annotations.Setter;
 import org.apache.ibatis.annotations.*;
@@ -173,5 +174,11 @@ public interface UserMapper extends MyMapper<User> {
      */
     @Select("select * from tb_users where user_id=#{userId} and is_delete=1")
     User queryBackUserById(Integer userId);
+
+
+    @Select("SELECT * FROM tb_live_collects t1 " +
+            "LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id " +
+            "WHERE t1.user_id = #{userId};")
+    List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId);
 
 }
