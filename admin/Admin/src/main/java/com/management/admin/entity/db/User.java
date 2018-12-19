@@ -71,4 +71,14 @@ public class User {
      * 用户类型（0用户1管理员）
      */
     private Integer type;
+
+    /**
+     * 拉黑时间
+     */
+    private Date blackTime;
+    /**
+     * 拉黑理由
+     */
+    private String blackRemark;
+
 }

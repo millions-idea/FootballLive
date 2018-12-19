@@ -97,11 +97,11 @@
         }, {
           "text": "用户反馈",
           "icon": "&#xe63c;",
-          "href": "/management/system/feedback"
+          "href": "/management/userFeedback/index"
         }, {
           "text": "推送消息",
           "icon": "&#xe63c;",
-          "href": "/management/system/PushMessage"
+          "href": "/management/publishMessage/index"
         }, {
           "text": "系统日志",
           "icon": "&#xe63c;",
