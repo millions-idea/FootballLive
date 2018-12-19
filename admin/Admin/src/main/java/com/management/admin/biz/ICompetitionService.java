@@ -3,8 +3,11 @@ package com.management.admin.biz;
 
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.Game;
+import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.GameCategory;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -22,6 +25,12 @@ import java.util.List;
 public interface ICompetitionService {
 
     /**
+     * 查询所有赛事信息 DF 2018-12-17 14:39:562
+     * @return
+     */
+    List<Game> getGames();
+
+    /**
      * 分页加载赛事信息列表 DF 2018-12-17 14:39:562
      * @param page
      * @param limit
@@ -36,10 +45,21 @@ public interface ICompetitionService {
     Integer getCompetitionLimitCount();
 
     /**
-     * 查询赛事信息记录总数 DF 2018-12-17 14:43:462
+     * 添加赛事信息 DF 2018-12-18 14:43:462
      * @return
      */
-    Integer getAdminCount();
+    boolean addCompetition(Game game);
 
+    /**
+     * 查询赛事分类  DF 2018-12-18 14:43:462
+     * @return
+     */
+    List<LiveCategory> selectLiveCategory();
+
+    /**
+     * 删除赛事信息 提莫 2018年12月18日19:33:30
+     * @return
+     */
+    boolean  deleteCompetition(@Param("gameId") Integer gameId);
 
 }

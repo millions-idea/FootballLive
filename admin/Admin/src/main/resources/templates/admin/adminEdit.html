@@ -1,0 +1,78 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+      enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+   <!-- <input type="hidden" id="userId" th:value="${targetUser.getUserId()}">-->
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号码</label>
+        <div class="layui-input-block">
+            <input type="text" id="phone" autocomplete="off"
+                    disabled="disabled" lay-verify="required" class="layui-input" th:value="${targetUser.getPhone()}">
+        </div>
+    </div>
+
+    <!--修改密码-->
+    <div class="layui-form-item" th:if="${user.getType().equals(2)&&!targetUser.getType().equals(2)}">
+        <label class="layui-form-label">重置密码</label>
+        <div class="layui-input-block">
+            <input type="text" id="password" autocomplete="off" class="layui-input">
+
+        </div>
+    </div>
+    <!--禁用与恢复-->
+    <div class="layui-form-item" th:if="${user.getType().equals(2)&&!targetUser.getType().equals(2)}">
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-block">
+            <input type="radio" name="status" value=0 title="正常"checked>
+            <input type="radio" name="status" value=1 title="禁用">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+
+    $(function () {
+        $("#save").click(function () {
+             var phone=$.trim($("#phone").val());
+             var password=$.trim($("#password").val());
+             var status=$("input[type='radio']:checked").val()
+
+                 var formData=new FormData();
+                 formData.append("phone",phone);
+                 formData.append("status",status);
+                 formData.append("password",password);
+
+                 $.ajax({
+                     url:"/management/admin/updateSupAdmin",
+                     data:formData,
+                     type:"post",
+                     processData:false,
+                     contentType:false,
+                     cache:false,
+                     success:function (data) {
+                         if (data.code==200){
+
+                             layui.use('layer', function(){
+                                 var layer = layui.layer;
+                                 layer.msg('修改成功', {icon: 6,time: 2000});
+                                 location.reload();
+                             });
+                         } else {
+                             layui.use('layer', function(){
+                                 var layer = layui.layer;
+                                 layer.msg('修改失败', {icon: 5,time: 2000});
+                             });
+                         }
+                     }
+                 })
+
+        })
+    })
+</script>

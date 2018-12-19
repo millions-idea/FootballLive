@@ -240,7 +240,7 @@ function getTableColumns() {
         , {field: 'userId', title: 'ID', width: 80, sort: true}
         , {field: 'photo', title: '头像', width: 150, templet: function(d){
                 var part = 'data-id="' + d.userId + '" data-nick="' + d.nickName + '"';
-                return '<img ' + part + '  width="27px" class="face" src="' + d.photo + '" /> <span style="color: red">点击图片放大</span>';
+                return '<img ' + part + '  width="27px" class="face" src="' + d.photo + '" />';
             }}
         , {field: 'nickName', title: '昵称', width: 150}
         , {field: 'phone', title: '手机号', width: 150}

@@ -73,4 +73,16 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         List<Dictionary> dictionaries = dictionaryMapper.selectInKey(joinKey);
         return dictionaries;
     }
+
+    /**
+     * 根据键设置值
+     *
+     * @param dictionaryId
+     * @param url
+     * @return
+     */
+    @Override
+    public Integer updateById(Integer dictionaryId, String url) {
+        return dictionaryMapper.updateUrlById(dictionaryId,url);
+    }
 }
