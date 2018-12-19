@@ -116,4 +116,12 @@ public interface UserMapper extends MyMapper<User> {
             , @Param("beginTime") String beginTime
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
+
+    /**
+     * 根据手机号查询用户
+     * @param phone
+     * @return
+     */
+    @Select("select * from tb_users where phone=#{phone}")
+    User selectUserByPhone(String phone);
 }

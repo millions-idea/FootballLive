@@ -1,4 +1,3 @@
-
 <div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
      enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
 
@@ -39,7 +38,7 @@
         <label class="layui-form-label">直播链接</label>
         <div class="layui-input-block">
             <input type="text" id="source-url" autocomplete="off"
-                    lay-verify="required" class="layui-input" th:value="${live.sourceUrl}">
+                   lay-verify="required" class="layui-input" th:value="${live.sourceUrl}">
         </div>
     </div>
     <div class="layui-form-item">
@@ -63,84 +62,82 @@
     </div>
     <!--广告内容结束-->
     <div class="layui-form-item">
-        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定
+        </button>
     </div>
 </div>
 
 <script>
-    layui.use(['form'], function(){
+    layui.use(['form'], function () {
         var form = layui.form;
-        $.getJSON("/management/advertising/getAll",function (data) {
-            var html='';
-            data.data.forEach(function (item,index) {
-                html+='<option value="'+item.adId+'">'+item.targetUrl+'</option>'
+        $.getJSON("/management/advertising/getAll", function (data) {
+            var html = '';
+            data.data.forEach(function (item, index) {
+                html += '<option value="' + item.adId + '">' + item.targetUrl + '</option>'
             })
             $("#target-url").html(html);
             $("#target-url").selected(adId);
             form.render();
         });
-            $.getJSON("/management/game/getAll",function (data) {
-                var html='';
-                data.data.forEach(function (item,index) {
-                    html+='<option value="'+item.gameId+'">'+item.gameName+'</option>';
-                })
-                $("#required").html(html);
-                form.render();
+        $.getJSON("/management/game/getAll", function (data) {
+            var html = '';
+            data.data.forEach(function (item, index) {
+                html += '<option value="' + item.gameId + '">' + item.gameName + '</option>';
             })
+            $("#required").html(html);
             form.render();
-            var liveDetail={};
-        layui.use(['laydate'], function(){
+        })
+        form.render();
+        var liveDetail = {};
+        layui.use(['laydate'], function () {
             var laydate = layui.laydate;
             //日期时间选择器
             laydate.render({
                 elem: '#beginData'
-                ,type: 'datetime'
-                ,done: function(value, date, endDate){
+                , type: 'datetime'
+                , done: function (value, date, endDate) {
                     alert(value);
-                    liveDetail.liveDate=value;
+                    liveDetail.liveDate = value;
 
                 }
             });
         });
         $("#save").click(function () {
-            $("#save").click(function () {
-                if(liveDetail.liveDate==null){
-                    liveDetail.liveDate = $("#beginData").val();
-                }
-                liveDetail.scheduleStatus=$("#scheduleStatus").val();
-                if(liveDetail.scheduleStatus=='-1'){
-                    layer.msg("请选择比赛状态");
-                    return false;
-                }
-                liveDetail.scheduleId=$("#scheduleId").val();
-                liveDetail.liveId=$("#liveId").val();
-                liveDetail.liveTitle = $("#live-title").val();
-                liveDetail.gameId = $("#required").val();
-                liveDetail.gameDuration = $("#game-duration").val();
-                liveDetail.sourceUrl = $("#source-url").val();
-                liveDetail.adId = $("#target-url").val();
-                var jsonStr = JSON.stringify(liveDetail);
-                $.ajax({
-                    url:"/management/live/setLiveInfo",    //请求的url地址
-                    dataType:"json",   //返回格式为json
-                    data: liveDetail,    //参数值
-                    type:"post",   //请求方式
-                    success:function(data){
-                        //请求成功时处理
-                        if(data == null || data.code == null || data.code != 200) {
-                            if(data.code == 300){
-                                layer.msg(data.msg);
-                                return;
-                            }else{
-                                layer.msg("修改成功");
-                                return;
-                            }
+            if (liveDetail.liveDate == null) {
+                liveDetail.liveDate = $("#beginData").val();
+            }
+            liveDetail.scheduleStatus = $("#scheduleStatus").val();
+            if (liveDetail.scheduleStatus == '-1') {
+                layer.msg("请选择比赛状态");
+                return false;
+            }
+            liveDetail.scheduleId = $("#scheduleId").val();
+            liveDetail.liveId = $("#liveId").val();
+            liveDetail.liveTitle = $("#live-title").val();
+            liveDetail.gameId = $("#required").val();
+            liveDetail.gameDuration = $("#game-duration").val();
+            liveDetail.sourceUrl = $("#source-url").val();
+            liveDetail.adId = $("#target-url").val();
+            $.ajax({
+                url: "/management/live/setLiveInfo",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                data: liveDetail,    //参数值
+                type: "post",   //请求方式
+                success: function (data) {
+                    //请求成功时处理
+                    if (data == null || data.code == null || data.code != 200) {
+                        if (data.code == 300) {
+                            layer.msg(data.msg);
+                            return;
+                        } else {
+                            layer.msg("修改成功");
+                            return;
                         }
-                        tableIndex.reload();
-                        layer.closeAll();
                     }
-                });
-            })
+                    tableIndex.reload();
+                    layer.closeAll();
+                }
+            });
         })
     });
 </script>

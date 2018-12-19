@@ -7,10 +7,13 @@ import com.management.admin.entity.dbExt.InformationDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
+import com.management.admin.utils.DateUtil;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +29,6 @@ public class InformationController {
 
     @GetMapping("/index")
     public String index(){
-        System.err.println("============================================================");
         return "information/index";
     }
 
@@ -52,7 +54,7 @@ public class InformationController {
         jsonArrayResult.setCount(count);
         return jsonArrayResult;
     }
-    @GetMapping("/setInformationContent")
+    @PostMapping("/setInformationContent")
     @ResponseBody
     public JsonResult setInformationContent(Information information){
         Integer result = informationService.modifyInfromation(information);
@@ -63,18 +65,46 @@ public class InformationController {
     }
     @GetMapping("/deleteInformation")
     @ResponseBody
-    public JsonResult deleteInformation(Integer informationId){
-        Integer result = informationService.deleteInformation(informationId);
+    public JsonResult deleteInformation(Integer isrId){
+        Integer result = informationService.deleteInformation(isrId);
         if(result>0){
             return JsonResult.successful();
         }
         return JsonResult.failing();
     }
+    @PostMapping("/insertInformation")
+    @ResponseBody
     public JsonResult insertInformation(Information information){
+        // TODO 注意如果一次添加多个情报给一个赛程或者直播间，直播详情点开时会出异常
         Integer result = informationService.insertInformation(information);
         if(result>0){
             return JsonResult.successful();
         }
         return JsonResult.failing();
+    }
+
+    /**
+     * 获取情报详情
+     * @param isrId
+     * @param model
+     * @return
+     */
+    @GetMapping("/getInformationById")
+    public String getInformationById(Integer isrId, final Model model){
+        InformationDetail informationDetail = informationService.queryInformationById(isrId);
+        informationDetail.setAddDateStr(DateUtil.getFormatDateTime(informationDetail.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
+        model.addAttribute("informationDetail",informationDetail);
+        return "information/details";
+    }
+
+    @GetMapping("/edit")
+    public String edit(Integer isrId,final Model model){
+        InformationDetail informationDetail = informationService.queryInformationById(isrId);
+        model.addAttribute("informationDetail",informationDetail);
+        return "information/edit";
+    }
+    @GetMapping("/add")
+    public String add(){
+        return "information/add";
     }
 }

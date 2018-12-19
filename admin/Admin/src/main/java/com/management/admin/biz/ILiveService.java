@@ -70,7 +70,6 @@ public interface ILiveService {
      * @return
      */
     List<LiveHotDetail> getHotLives();
-
     /**
      * 获取直播间详情信息 DF 2018年12月18日15:27:04
      * @param liveId
@@ -92,5 +91,12 @@ public interface ILiveService {
      * @param userId
      * @return
      */
-    Boolean cancelCollect(Integer liveId, Integer userId);
+    Boolean cancelCollect(Integer liveId, Integer userId);    List<Live> queryAll();
+
+
+
+
+
+
+
 }

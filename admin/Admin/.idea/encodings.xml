@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="jar://$MAVEN_REPOSITORY$/com/alipay/sdk/alipay-sdk-java/3.3.49.ALL/alipay-sdk-java-3.3.49.ALL-sources.jar!/com/alipay/api/AbstractAlipayClient.java" charset="GBK" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/kafka/sms/entity/AlipayConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/application-dev.yml" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

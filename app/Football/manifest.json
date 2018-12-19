@@ -193,7 +193,8 @@
 					"login.html",
 					"feedback.html",
 					"system-settings.html",
-					"systemSetting.html"
+					"systemSetting.html",
+					"systemMessage.html"
 				],
 				"priority": 0
 			},

@@ -1,50 +1,51 @@
 {
-  "index.html": {
-    "resources": [
-      "my.html",
-      "home.html"
-    ],
-    "refer": [
-      "my.html",
-      "home.html",
-      "informations.html",
-      "lives.html"
-    ]
-  },
-  "login.html": {
-    "refer": [
-      "findPassword.html",
-      "index.html",
-      "regPact.html",
-      "reg.html",
-      "home.html",
-      "lives.html"
-    ],
-    "resources": []
-  },
-  "my.html": {
-    "refer": [
-      "login.html",
-      "feedback.html",
-      "system-settings.html",
-      "systemSetting.html"
-    ],
-    "resources": []
-  },
-  "reg.html": {
-    "refer": [
-      "regPact.html"
-    ],
-    "resources": []
-  },
-  "lives.html": {
-    "refer": [
-      "liveDetail.html"
-    ]
-  },
-  "liveDetail.html": {
-    "refer": [
-      "share.html"
-    ]
-  }
+	"index.html": {
+		"resources": [
+			"my.html",
+			"home.html"
+		],
+		"refer": [
+			"my.html",
+			"home.html",
+			"informations.html",
+			"lives.html"
+		]
+	},
+	"login.html": {
+		"refer": [
+			"findPassword.html",
+			"index.html",
+			"regPact.html",
+			"reg.html",
+			"home.html",
+			"lives.html"
+		],
+		"resources": []
+	},
+	"my.html": {
+		"refer": [
+			"login.html",
+			"feedback.html",
+			"system-settings.html",
+			"systemSetting.html",
+			"systemMessage.html"
+		],
+		"resources": []
+	},
+	"reg.html": {
+		"refer": [
+			"regPact.html"
+		],
+		"resources": []
+	},
+	"lives.html": {
+		"refer": [
+			"liveDetail.html"
+		]
+	},
+	"liveDetail.html": {
+		"refer": [
+			"share.html"
+		]
+	}
 }

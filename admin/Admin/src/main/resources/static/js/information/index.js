@@ -32,11 +32,10 @@ var tableIndex;
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的DOM对象
-            if(layEvent === 'details'){ //详情
+            if(layEvent == 'details'){ //详情
                 service.details({
-                    liveId: data.liveId
+                    isrId: data.isrId
                 }, function(html){
-                    debugger;
                     layer.open({
                         type: 1,
                         skin: 'layui-layer-rim', //加上边框
@@ -47,7 +46,7 @@ var tableIndex;
                 });
             }else if(layEvent === 'edit'){ //修改
                 service.edit({
-                    liveId: data.liveId
+                    isrId: data.isrId
                 }, function(html){
                     layer.open({
                         type: 1,
@@ -93,12 +92,12 @@ function initService(r) {
             });
         },
         delete: function (param, callback) {
-            $.get(r + "/delete", param, function (data) {
+            $.get(r + "/deleteInformation", param, function (data) {
                 callback(data);
             });
         },
         details: function (param, callback) {
-            $.get(r + "/getLiveDetailByLiveId", param, function (data) {
+            $.get(r + "/getInformationById", param, function (data) {
                 callback(data);
             });
         },

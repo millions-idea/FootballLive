@@ -164,6 +164,7 @@ public class LiveServiceImpl implements ILiveService {
      * @return
      */
     @Override
+    @Transactional
     public Integer modifyLive(LiveDetail liveDetail) {
         Live live = new Live();
         live.setLiveId(liveDetail.getLiveId());
@@ -277,4 +278,8 @@ public class LiveServiceImpl implements ILiveService {
         return where;
     }
 
+    @Override
+    public List<Live> queryAll() {
+        return liveMapper.queryAll();
+    }
 }

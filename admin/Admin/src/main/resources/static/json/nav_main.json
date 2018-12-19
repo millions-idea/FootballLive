@@ -71,15 +71,15 @@
         },{
           "text": "聊天室管理",
           "icon": "&#xe63c;",
-          "href": "/management/live/chatroom"
+          "href": "/management/chatRoom/index"
         },{
           "text": "情报管理",
           "icon": "&#xe63c;",
-          "href": "/management/live/information"
+          "href": "/management/information/index"
         },{
           "text": "广告管理",
           "icon": "&#xe63c;",
-          "href": "/management/live/advertising"
+          "href": "/management/advertising/index"
         }
       ]
     }, {
@@ -117,7 +117,7 @@
         }, {
           "text": "系统日志",
           "icon": "&#xe63c;",
-          "href": "/management/system/log"
+          "href": "/management/systemlog/index"
         }
       ]
     }

@@ -36,5 +36,17 @@ window.utils = {
                     break;
             }
         }
+    },
+    type: {
+        typeInfo: function (ts) {
+            switch (ts) {
+                case true:
+                    return '图片广告';
+                    break;
+                case false:
+                    return '视频广告';
+                    break;
+            }
+        }
     }
 }

@@ -92,9 +92,8 @@
             liveDetail.liveTitle = $("#live-title").val();
             liveDetail.gameId = $("#required").val();
             liveDetail.gameDuration = $("#game-duration").val();
-            liveDetail.sourceUrl = $("#source-url").text();
+            liveDetail.sourceUrl = $("#source-url").val();
             liveDetail.adId = $("#target-url").val();
-            var jsonStr = JSON.stringify(liveDetail);
             $.ajax({
                 url:"/management/live/addLiveInfo",    //请求的url地址
                 dataType:"json",   //返回格式为json
