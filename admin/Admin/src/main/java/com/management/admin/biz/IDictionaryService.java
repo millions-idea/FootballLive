@@ -25,4 +25,6 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
      * @return
      */
     List<Dictionary> getWebAppAdvertising();
+
+    Integer updateById(Integer dictionaryId,String url);
 }

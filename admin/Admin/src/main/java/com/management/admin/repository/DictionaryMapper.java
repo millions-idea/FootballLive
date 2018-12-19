@@ -43,4 +43,5 @@ public interface DictionaryMapper extends MyMapper<Dictionary> {
      */
     @Select("SELECT * FROM tb_dictionary WHERE `key` IN (${joinKeys})")
     List<Dictionary> selectInKey(@Param("joinKeys") String join);
+
 }

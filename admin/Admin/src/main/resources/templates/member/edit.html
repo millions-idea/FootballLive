@@ -3,21 +3,54 @@
     <!--<input type="hidden" id="userId" th:value="${user.getUserId()}">-->
 
     <div class="layui-form-item">
-        <label class="layui-form-label">手机号码</label>
-        <div class="layui-input-block">
-            <input type="text" id="phone" autocomplete="off"
-                    disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.getPhone()}">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
         <label class="layui-form-label">用户昵称</label>
         <div class="layui-input-block">
             <input type="text" id="nickName" autocomplete="off"
                    disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.getNickName()}">
         </div>
     </div>
-
+    <div class="layui-form-item">
+        <label class="layui-form-label">头像</label>
+        <div class="layui-input-block">
+            <img type="text" id="photo" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:src="${user.photo}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号码</label>
+        <div class="layui-input-block">
+            <input type="text" id="phone" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.getPhone()}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">注册时间</label>
+        <div class="layui-input-block">
+            <input type="text" id="addDate" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.addDate}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">注册IP</label>
+        <div class="layui-input-block">
+            <input type="text" id="ip" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.ip}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">上次登陆时间</label>
+        <div class="layui-input-block">
+            <input type="text" id="lastDate" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.editDate}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">收藏记录</label>
+        <div class="layui-input-block">
+            <input type="text" id="lastDate" autocomplete="off"
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.editDate}">
+        </div>
+    </div>
     <div class="layui-form-item">
         <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
     </div>
