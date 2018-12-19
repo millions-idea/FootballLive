@@ -78,6 +78,16 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
     Integer deleteSchedule(@Param("scheduleId") Integer scheduleId);
 
 
+    @Update("update tb_schedules set game_id=#{gameId},team_id=#{teamId}, game_date=#{gameDate}, game_duration=#{gameDuration}," +
+            "  status=#{status}, schedule_result=#{scheduleResult}, schedule_grade=#{scheduleGrade}," +
+            "  win_team_id=#{winTeamId} where schedule_id=#{scheduleId}")
+    /**
+     * 修改赛程 提莫 2018年12月19日1:40:30
+     * @return
+     */
+    Integer updateSchedule(Schedule schedule);
+
+
     @Insert("insert into tb_schedules(game_id,team_id,game_date,game_duration) values (#{gameId},#{teamId},#{gameDate},#{gameDuration})")
     /**
      * 添加赛程信息 提莫 2018年12月18日14:50:30

@@ -48,8 +48,6 @@ public class TeamServiceImpl implements ITeamService {
         return teamMapper.selectTeams(teamIdList);
     }
 
-<<<<<<< HEAD
-
     /**
      * 加载赛事信息列表分页记录数 DF 2018年12月17日14:40:233
      * @return
@@ -98,6 +96,4 @@ public class TeamServiceImpl implements ITeamService {
         }
         return false ;
     }
-=======
->>>>>>> fbdf85d67e922fcaacc2d2e35b0c64ab52fa9753
 }

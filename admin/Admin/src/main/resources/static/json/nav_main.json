@@ -87,21 +87,9 @@
       "icon": "&#xe65e;",
       "subset": [
         {
-          "text": "banner图管理",
+          "text": "系统配置管理",
           "icon": "&#xe63c;",
-          "href": "/management/system/banner"
-        }, {
-          "text": "启动图管理",
-          "icon": "&#xe63c;",
-          "href": "/management/system/startupDiagram"
-        }, {
-          "text": "公告管理",
-          "icon": "&#xe63c;",
-          "href": "/management/system/notice"
-        }, {
-          "text": "直播分类管理",
-          "icon": "&#xe63c;",
-          "href": "/management/system/liveCategory"
+          "href": "/management/configuration/index"
         }, {
           "text": "联系我们",
           "icon": "&#xe63c;",

@@ -37,6 +37,15 @@ public interface DictionaryMapper extends MyMapper<Dictionary> {
     int updateUrlById(@Param("dictionaryId") Integer dictionaryId, @Param("url") String url);
 
     /**
+     * 根据key修改value
+     * @param key
+     * @param value
+     * @return
+     */
+    @Update("UPDATE tb_dictionary SET `value`=#{value} WHERE `key`=#{key}")
+    int updateUrlByKey(@Param("key") String key, @Param("value") String value);
+
+    /**
      * 匹配key数组中的字典数据 DF 2018年12月14日10:46:20
      * @param join
      * @return

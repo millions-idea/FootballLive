@@ -208,8 +208,8 @@ function getTableColumns() {
             }}
         , {fixed: 'right',title: '操作', width: 200, align: 'center', templet: function(d){
                 var html = "";
-                html += '<a name="delete"  class="layui-btn layui-btn layui-btn-xs" lay-event="delete">删除</a>';
                 html += '<a name="edit"  class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
+                html += '<a name="delete"  class="layui-btn layui-btn layui-btn-xs" lay-event="delete">删除</a>';
                 return html;
             }}
     ]];

@@ -25,8 +25,6 @@ public interface TeamMapper extends MyMapper<Team> {
     @Select("SELECT * FROM tb_teams WHERE team_id IN(${teamId}) AND is_delete = 0 ORDER BY FIELD(team_id,${teamId});")
     List<Team> selectTeams(@Param("teamId") String teamIdList);
 
-<<<<<<< HEAD
-
     @Select("select * from tb_teams where is_delete =0")
     /**
      * 查询所有球队 Timor 2018年8月30日11:33:22
@@ -64,6 +62,4 @@ public interface TeamMapper extends MyMapper<Team> {
      * @return
      */
     Integer deleteTeam(@Param("teamId") Integer teamId);
-=======
->>>>>>> fbdf85d67e922fcaacc2d2e35b0c64ab52fa9753
 }

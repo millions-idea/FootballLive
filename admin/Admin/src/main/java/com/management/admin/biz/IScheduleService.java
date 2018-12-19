@@ -45,6 +45,13 @@ public interface IScheduleService {
     boolean deleteSchedule(Integer scheduleId);
 
     /**
+     * 修改赛程信息 DF 2018年12月17日14:40:233
+     * @return
+     */
+    boolean updateSchedule(Schedule schedule);
+
+
+    /**
      * 添加赛程信息 DF 2018年12月17日14:40:233
      * @return
      */

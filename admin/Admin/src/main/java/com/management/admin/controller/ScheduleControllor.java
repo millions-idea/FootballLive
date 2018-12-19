@@ -1,13 +1,5 @@
 package com.management.admin.controller;
 
-/**
- * @ClassName ScheduleControllor
- * @Description TODO
- * @Author ZXL01
- * @Date 2018/12/18 22:30
- * Version 1.0
- **/
-
 import com.management.admin.biz.ICompetitionService;
 import com.management.admin.biz.IScheduleService;
 import com.management.admin.biz.ITeamService;
@@ -27,7 +19,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName TeamControllor
@@ -129,17 +123,25 @@ public class ScheduleControllor {
         List<Team> teams=teamService.getAllTeams();
 
         ScheduleGameTeam scheduleGameTeam=scheduleService.selectScheduleById(scheduleId);
+
+
+
         String tameIds=scheduleGameTeam.getTeamId();
         String[] split = tameIds.split(",");
 
+        Map<String,Integer> statuses = new HashMap<>();
+        statuses.put("未开始", 0);
+        statuses.put("正在直播", 1);
+        statuses.put("已结束", 2);
+
         String primaryId=split[0];
         String secondId=split[1];
-        System.out.println(primaryId+secondId+"========="+scheduleGameTeam);
         model.addAttribute("primaryId",primaryId);
         model.addAttribute("secondId",secondId);
         model.addAttribute("scheduleGameTeam", scheduleGameTeam);
         model.addAttribute("games",games);
         model.addAttribute("teams",teams);
+        model.addAttribute("statuses",statuses);
         return "schedule/update";
     }
 
@@ -152,6 +154,19 @@ public class ScheduleControllor {
    public JsonResult addSchedule(Schedule schedule){
         System.err.println(schedule);
         if(scheduleService.addSchedule(schedule)){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
+    }
+
+    /**
+     * 修改赛程 提莫 2018年12月18日11:42:31
+     * @return
+     */
+    @GetMapping("updateSchedule")
+    @ResponseBody
+    public JsonResult updateSchedule(Schedule schedule){
+        if(scheduleService.updateSchedule(schedule)){
             return JsonResult.successful();
         }
         return JsonResult.failing();

@@ -25,21 +25,16 @@ public class Schedule {
      */
     private Integer gameId;
 
-<<<<<<< HEAD
-    private String teamId;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
-=======
     /**
      * 球队id(支持多个)
      */
-    private Integer teamId;
+    private String  teamId;
 
     /**
      * 开始比赛时间
      */
->>>>>>> fbdf85d67e922fcaacc2d2e35b0c64ab52fa9753
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm")
     private Date gameDate;
 
     /**
@@ -50,17 +45,8 @@ public class Schedule {
     /**
      * 比赛状态(0=未开始, 1=正在直播, 2=已结束)
      */
-    private String status;
+    private Integer status;
 
-<<<<<<< HEAD
-    private String scheduleResult;
-
-    private String scheduleGrade;
-
-    private Integer  winTeamId;
-
-    private Integer isDelete;
-=======
     /**
      * 删除(0=正常 1=删除)
      */
@@ -80,6 +66,5 @@ public class Schedule {
      * 胜利方球队id
      */
     private Integer winTeamId;
->>>>>>> fbdf85d67e922fcaacc2d2e35b0c64ab52fa9753
 
 }

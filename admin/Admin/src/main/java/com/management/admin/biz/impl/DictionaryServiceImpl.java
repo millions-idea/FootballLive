@@ -85,4 +85,15 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
     public Integer updateById(Integer dictionaryId, String url) {
         return dictionaryMapper.updateUrlById(dictionaryId,url);
     }
+
+    /**
+     * 根据键设置值
+     * @param key
+     * @param value
+     * @return
+     */
+    @Override
+    public Integer upadteConfig(String key, String value) {
+        return dictionaryMapper.updateUrlByKey(key,value);
+    }
 }

@@ -79,6 +79,20 @@ public class ScheduleServiceImpl implements IScheduleService {
     }
 
     /**
+     * 修改赛程信息 DF 2018-12-17 14:39:562
+     * @return
+     */
+    @Override
+    public boolean updateSchedule(Schedule schedule) {
+        Integer result=scheduleMapper.updateSchedule(schedule);
+        if(result>0){
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
      * 添加赛程信息 DF 2018-12-17 14:39:562
      * @return
      */

@@ -1,5 +1,6 @@
 <div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
      enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <input type="hidden" id="ID" th:value="${scheduleGameTeam.scheduleId}">
     <div class="layui-form-item">
         <label class="layui-form-label">赛事信息</label>
         <div class="layui-input-block">
@@ -21,7 +22,8 @@
         <label class="layui-form-label">客队</label>
         <div class="layui-input-block">
             <select id="secondTeam"  lay-verify="required">
-                <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+                <option th:if="${secondId}!=${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+                <option th:if="${secondId}==${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}" selected></option>
             </select>
         </div>
     </div>
@@ -29,7 +31,7 @@
         <label class="layui-form-label">比赛时长</label>
         <div class="layui-input-block">
             <input type="number" id="duration" name="compName" required  lay-verify="required" placeholder="请输入比赛时长"
-                   autocomplete="off" class="layui-input">
+                   th:value="${scheduleGameTeam.gameDuration}" autocomplete="off" class="layui-input">
         </div>
     </div>
 
@@ -37,7 +39,7 @@
         <label class="layui-form-label">比赛时间</label>
         <div class="layui-inline">
             <input type="text" id="gameDate"   required  lay-verify="required" placeholder="请选择比赛时间"
-                   autocomplete="off" class="layui-input">
+                  th:value="${#dates.format(scheduleGameTeam.gameDate, 'yyyy-MM-dd HH:mm')}"  autocomplete="off" class="layui-input">
         </div>
 
     </div>
@@ -45,9 +47,8 @@
         <label class="layui-form-label">状态</label>
         <div class="layui-input-block">
             <select id="status"   lay-verify="required">
-                <option  value="0">未开始</option>
-                <option  value="1">正在直播</option>
-                <option  value="2">已结束</option>
+                <option selected th:if="${scheduleGameTeam.status}==${status.value}"  th:each="status : ${statuses}" th:value="${status.value}" th:text="${status.key}"></option>
+                <option th:if="${scheduleGameTeam.status}!=${status.value}"  th:each="status : ${statuses}" th:value="${status.value}" th:text="${status.key}"></option>
             </select>
         </div>
     </div>
@@ -55,21 +56,22 @@
         <label class="layui-form-label">比赛结果</label>
         <div class="layui-input-block">
             <input type="text" id="scheduleResult"   required  lay-verify="required" placeholder="赛事结果"
-                   autocomplete="off" class="layui-input">
+                   th:value="${scheduleGameTeam.scheduleResult}"   autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">成绩</label>
         <div class="layui-input-block">
             <input type="text" id="scheduleGrade"   required  lay-verify="required" placeholder="请输入成绩"
-                   autocomplete="off" class="layui-input">
+                   th:value="${scheduleGameTeam.scheduleGrade}"  autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">胜利方</label>
         <div class="layui-input-block">
-            <select id="winTteamId"  lay-verify="required">
-                <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+            <select id="winTeamId"  lay-verify="required">
+                <option th:if="${scheduleGameTeam.winTeamId}!=${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+                <option th:if="${scheduleGameTeam.winTeamId}==${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}" selected></option>
             </select>
         </div>
     </div>
@@ -83,6 +85,7 @@
             laydate.render({
                 elem: '#gameDate' //指定元素
                 ,type:'datetime'
+                ,format:'yyyy-MM-dd HH:mm'
             });
         });
     </script>
@@ -99,18 +102,31 @@
         form.render();
     });
     $("#save").click(function () {
+        var scheduleId=$("#ID").val();
         var games=$("#games").val();
         var primaryTeam=$("#primaryTeam").val();
         var secondTeam=$("#secondTeam").val()
         var duration=$("#duration").val();
         var gameDate=$("#gameDate").val();
+        var status=$("#status").val();
+        var scheduleResult=$("#scheduleResult").val();
+        var scheduleGrade=$("#scheduleGrade").val();
+        var winTeamId=$("#winTeamId").val();
+
+
 
 
         var schedule={}
+
+        schedule.scheduleId=scheduleId;
         schedule.gameId=games;
         schedule.teamId=primaryTeam+","+secondTeam;
         schedule.gameDate=gameDate;
         schedule.gameDuration=duration;
+        schedule.status=status;
+        schedule.scheduleResult=scheduleResult;
+        schedule.scheduleGrade=scheduleGrade;
+        schedule.winTeamId=winTeamId;
 
         if (primaryTeam==secondTeam) {
             layer.msg("选择有误");
@@ -118,7 +134,7 @@
         }
         if((duration!=null&&duration>0) && (gameDate!=null&&gameDate.length>0)){
             $.ajax({
-                url:"/management/schedule/addSchedule",
+                url:"/management/schedule/updateSchedule",
                 data:schedule,
                 type:"GET",
                 contentType:"application/x-www-form-urlencoded;charset=UTF-8",
@@ -128,7 +144,7 @@
                     } else {
                         layui.use('layer', function(){
                             var layer = layui.layer;
-                            layer.msg('添加失败', {icon: 5,time: 2000});
+                            layer.msg('修改失败', {icon: 5,time: 2000});
                         });
                     }
                 }
@@ -137,7 +153,7 @@
         }else{
             layui.use('layer', function(){
                 var layer = layui.layer;
-                layer.msg('添加有误！', {icon: 5,time: 2000});
+                layer.msg('修改有误！', {icon: 5,time: 2000});
             });
         }
 
