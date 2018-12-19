@@ -53,11 +53,11 @@
         },{
           "text": "球队管理",
           "icon": "&#xe63c;",
-          "href": "/management/team"
+          "href": "/management/team/index"
         },{
           "text": "赛程管理",
           "icon": "&#xe63c;",
-          "href": "/management/schedule"
+          "href": "/management/schedule/index"
         }
       ]
     },{
@@ -87,21 +87,9 @@
       "icon": "&#xe65e;",
       "subset": [
         {
-          "text": "banner图管理",
+          "text": "系统配置管理",
           "icon": "&#xe63c;",
-          "href": "/management/system/banner"
-        }, {
-          "text": "启动图管理",
-          "icon": "&#xe63c;",
-          "href": "/management/system/startupDiagram"
-        }, {
-          "text": "公告管理",
-          "icon": "&#xe63c;",
-          "href": "/management/system/notice"
-        }, {
-          "text": "直播分类管理",
-          "icon": "&#xe63c;",
-          "href": "/management/system/liveCategory"
+          "href": "/management/configuration/index"
         }, {
           "text": "联系我们",
           "icon": "&#xe63c;",
@@ -109,11 +97,11 @@
         }, {
           "text": "用户反馈",
           "icon": "&#xe63c;",
-          "href": "/management/system/feedback"
+          "href": "/management/userFeedback/index"
         }, {
           "text": "推送消息",
           "icon": "&#xe63c;",
-          "href": "/management/system/PushMessage"
+          "href": "/management/publishMessage/index"
         }, {
           "text": "系统日志",
           "icon": "&#xe63c;",

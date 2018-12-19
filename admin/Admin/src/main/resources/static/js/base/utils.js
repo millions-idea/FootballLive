@@ -29,10 +29,10 @@ window.utils = {
                     return '未开始';
                     break;
                 case 1:
-                    return '正在直播';
+                    return '<span  style="color: red">正在直播</span> ';
                     break;
                 case 2:
-                    return '已结束';
+                    return '<span  style="color: silver">已结束</span> ';
                     break;
             }
         }
@@ -49,4 +49,5 @@ window.utils = {
             }
         }
     }
+
 }

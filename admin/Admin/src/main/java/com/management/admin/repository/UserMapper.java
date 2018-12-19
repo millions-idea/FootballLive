@@ -7,6 +7,7 @@
  */
 package com.management.admin.repository;
 
+import com.management.admin.entity.db.LiveCollect;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.resp.UserInfo;
 import jdk.nashorn.internal.objects.annotations.Setter;
@@ -172,4 +173,5 @@ public interface UserMapper extends MyMapper<User> {
      */
     @Select("select * from tb_users where user_id=#{userId} and is_delete=1")
     User queryBackUserById(Integer userId);
+
 }

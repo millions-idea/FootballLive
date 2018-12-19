@@ -1,9 +1,11 @@
 package com.management.admin.entity.db;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -26,11 +28,13 @@ public class Schedule {
     /**
      * 球队id(支持多个)
      */
-    private Integer teamId;
+    private String  teamId;
 
     /**
      * 开始比赛时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm")
     private Date gameDate;
 
     /**
@@ -41,7 +45,7 @@ public class Schedule {
     /**
      * 比赛状态(0=未开始, 1=正在直播, 2=已结束)
      */
-    private String status;
+    private Integer status;
 
     /**
      * 删除(0=正常 1=删除)

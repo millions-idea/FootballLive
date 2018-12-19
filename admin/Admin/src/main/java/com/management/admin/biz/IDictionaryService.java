@@ -27,4 +27,10 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
     List<Dictionary> getWebAppAdvertising();
 
     Integer updateById(Integer dictionaryId,String url);
+
+
+    /**
+     *根据key修改value
+     */
+    Integer upadteConfig(String key,String value);
 }

@@ -70,4 +70,27 @@ public class PublishMessageServiceImpl implements IPublishMessageService {
         }
         return 0;
     }
+
+    /**
+     * 获取推送消息列表 DF 2018年12月19日06:19:32
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<PublishMessageDetail> getPushMessageList(Integer userId) {
+        return publishMessageRelationMapper.selectByUserId(userId);
+    }
+
+    /**
+     * 签收指定消息 DF 2018年12月19日06:23:39
+     *
+     * @param relationId
+     * @param userId
+     * @return
+     */
+    @Override
+    public boolean signMessage(Integer relationId, Integer userId) {
+        return publishMessageRelationMapper.updateSignMessage(relationId, userId) > 0;
+    }
 }

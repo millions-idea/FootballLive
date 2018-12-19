@@ -40,4 +40,9 @@ public class PublishMessageDetail {
      * 用户手机号
      */
     private String phone;
+
+    /**
+     * 推送消息关系id
+     */
+    private Integer relationId;
 }

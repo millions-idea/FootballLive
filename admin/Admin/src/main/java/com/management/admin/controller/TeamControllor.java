@@ -1,104 +1,111 @@
 package com.management.admin.controller;
 
 /**
- * @ClassName CompetitionControllor
+ * @ClassName TeamControllor
  * @Description TODO
  * @Author ZXL01
- * @Date 2018/12/18 2:09
+ * @Date 2018/12/18 19:48
  * Version 1.0
  **/
 
 import com.management.admin.biz.ICompetitionService;
-import com.management.admin.entity.db.AdminUser;
+import com.management.admin.biz.ITeamService;
+import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.Game;
 import com.management.admin.entity.db.LiveCategory;
+import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameCategory;
+import com.management.admin.entity.dbExt.TeamCompetition;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
-import com.management.admin.utils.StringUtil;
 import com.management.admin.utils.web.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @ClassName  CompetitionControllor
- * @Description 赛事管理
+ * @ClassName TeamControllor
+ * @Description 球队管理
  * @Author ZXL01
  * @Date 2018/12/17 10:47
  * Version 1.0
  **/
 @Controller
-@RequestMapping("/competition")
-public class CompetitionControllor {
+@RequestMapping("management/team")
+public class TeamControllor {
+    @Autowired
+    private ITeamService teamService;
     @Autowired
     private ICompetitionService competitionService;
 
+
     /**
-     * 跳转到赛事管理界面
+     * 跳转到球队管理界面
      * @return
      */
     @GetMapping("/index")
     public String index(){
-
-        return "competition/index";
+        return "team/index";
     }
+
     /**
-     * 赛事列表 提莫 2018年8月29日11:42:31
+     * 球队列表 提莫 2018年8月29日11:42:31
      * @return
      */
-    @GetMapping("/getCompetitionLimit")
+    @GetMapping("/getTeamLimit")
     @ResponseBody
-    public JsonArrayResult<GameCategory> getMemberLimit(Integer page, String limit){
+    public JsonArrayResult<TeamCompetition> getMemberLimit(Integer page, String limit){
         Integer count = 0;
-        List<GameCategory> list = competitionService.getCompetitionLimit(page,limit);
+        List<TeamCompetition> list = teamService.getTeamLimit(page,limit);
         JsonArrayResult jsonArrayResult = new JsonArrayResult(0, list);
-        count = competitionService.getCompetitionLimitCount();
+        count = teamService .getTeamLimitCount();
         jsonArrayResult.setCount(count);
         return jsonArrayResult;
     }
 
     /**
-     * 直播分类 提莫 2018年12月18日11:42:31
+     * 查询球队信息 提莫 2018年12月18日11:42:31
      * @return
      */
     @GetMapping("add")
     public String addCompetition(final Model model){
-        List<LiveCategory> liveCategories=competitionService.selectLiveCategory();
-        model.addAttribute("categorys",liveCategories);
-        return "competition/add";
+        List<Game> games=competitionService.getGames();
+        model.addAttribute("games",games);
+        return "team/add";
     }
 
     /**
      * 添加赛事信息 提莫 2018年12月18日15:06:31
      * @return
      */
-    @GetMapping("addCompetition")
+    @GetMapping("addTeam")
     @ResponseBody
-    public JsonResult addCompetition(Game  game){
-         System.out.println(game);
-         boolean  result=competitionService.addCompetition(game);
-         if(result){
-             return  JsonResult.successful();
-         }
-         return  JsonResult.failing();
+    public JsonResult addCompetition(Team team){
+        boolean  result=teamService.addTeam(team) ;
+        if(result){
+            return  JsonResult.successful();
+        }
+        return  JsonResult.failing();
     }
 
     /**
      * 删除赛事信息 提莫 2018年12月18日15:06:31
      * @return
      */
-    @GetMapping("deleteGame")
+    @GetMapping("deleteTeam")
     @ResponseBody
-    public JsonResult deleteCompetition(Integer gameId){
-        boolean  result=competitionService.deleteCompetition(gameId);
+    public JsonResult deleteCompetition(Integer teamId){
+        boolean  result=teamService.deleteTeam(teamId);
         if(result){
             return  JsonResult.successful();
         }
         return  JsonResult.failing();
     }
+
 }

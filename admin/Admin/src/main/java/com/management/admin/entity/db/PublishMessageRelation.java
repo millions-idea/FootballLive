@@ -24,4 +24,6 @@ public class PublishMessageRelation {
     private Integer isRead;
 
     private Date readDate;
+
+    private Date addDate;
 }
