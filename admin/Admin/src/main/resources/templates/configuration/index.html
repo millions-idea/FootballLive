@@ -6,7 +6,7 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title th:text="'系统配置管理-' + ${title}"></title>
+    <title th:text="'系统配置-' + ${title}"></title>
     <style>
         .layui-upload-img {
             width: 92px;
@@ -34,7 +34,7 @@
 </head>
 <body>
 <th:block layout:fragment="current_page">
-    <a href="/management/management/index"><cite>系统配置管理</cite></a>
+    <a href="/management/configuration/index"><cite>系统配置管理</cite></a>
 </th:block>
 
 <th:block layout:fragment="body">
@@ -84,6 +84,29 @@
                 <button type="button" style="float: left" class="layui-btn" id="btnUrl3">上传轮播图地址</button>
                 <div class="layui-input-block">
                     <input type="text" id="bannerUrl3"  th:each="banner:${banner}" th:if="${banner.getKey()}=='banner.image3.targetUrl'" th:value="${banner.getValue()}"  style="width: 50%" required  lay-verify="required"  autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--全站广告-->
+    <div class="form-line" style="height: 250px">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>全站广告</legend>
+        </fieldset>
+        <div class="layui-upload">
+            <div class="photo">
+                <button type="button" class="layui-btn" id="total">上传图片</button>
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img" id="station" th:each="banner:${banner}" th:if="${banner.getKey()}=='webapp.image.ad.url'" th:src="${banner.getValue()}">
+                </div>
+            </div>
+        </div>
+        <!--全站广告链接地址-->
+        <div class="bannerUrl">
+            <div class="layui-form-item">
+                <button type="button" style="float: left"  class="layui-btn" id="totalUrl">上传全站广告地址</button>
+                <div class="layui-input-block">
+                    <input type="text" id="stationUrl"  th:each="banner:${banner}" th:if="${banner.getKey()}=='webapp.image.ad.target.url'" th:value="${banner.getValue()}"  style="width: 50%" required  lay-verify="required"  autocomplete="off" class="layui-input">
                 </div>
             </div>
         </div>

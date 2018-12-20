@@ -20,7 +20,7 @@ public interface AdvertisingMapper extends MyMapper<Advertising> {
     @Select("select t1.ad_id,t2.live_id,t2.live_title,t1.type,t1.source_url," +
             "t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on " +
             "t2.ad_id = t1.ad_id  " +
-            "WHERE ${condition} and t1.is_delete=0 and t2.status=0 GROUP BY t1.ad_id DESC LIMIT #{page},${limit}")
+            "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.ad_id DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
@@ -40,7 +40,7 @@ public interface AdvertisingMapper extends MyMapper<Advertising> {
     @Select("select t2.live_id,t2.live_title,t1.type,t1.source_url," +
                        "t1.target_url from tb_advertisings as t1 left join tb_lives as t2 on " +
                        "t2.ad_id = t1.ad_id " +
-                       "WHERE ${condition} and t1.is_delete=0 and t2.status=0 ")
+                       "WHERE ${condition} and t1.is_delete=0 ")
     /**
      * 分页查询记录数 韦德 2018年8月30日11:33:30
      * @param state

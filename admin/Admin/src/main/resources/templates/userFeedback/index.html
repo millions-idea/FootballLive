@@ -6,13 +6,13 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title th:text="'会员管理-' + ${title}"></title>
+    <title th:text="'系统配置-' + ${title}"></title>
     <link rel="stylesheet" th:href="@{/css/member/index.css}">
 </head>
 <body>
 
 <th:block layout:fragment="current_page">
-    <a><cite>用户反馈列表</cite></a>
+    <a href="/management/userFeedback/index"><cite>用户反馈</cite></a>
 </th:block>
 
 <th:block layout:fragment="body">
