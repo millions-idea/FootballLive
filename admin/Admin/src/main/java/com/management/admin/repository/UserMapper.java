@@ -7,6 +7,7 @@
  */
 package com.management.admin.repository;
 
+import com.management.admin.entity.db.LiveCollect;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.resp.UserInfo;
 import jdk.nashorn.internal.objects.annotations.Setter;
@@ -124,4 +125,53 @@ public interface UserMapper extends MyMapper<User> {
      */
     @Select("select * from tb_users where phone=#{phone}")
     User selectUserByPhone(String phone);
+
+    @Select("SELECT t1.* FROM tb_users t1 " +
+            "WHERE t1.is_delete=1 and ${condition}  GROUP BY t1.user_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+    /**
+     * 分页查询 韦德 2018年8月30日11:33:22
+     * @param page
+     * @param limit
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @param where
+     * @return
+     */
+    List<User> selectBackLimit(@Param("page") Integer page, @Param("limit") String limit
+            , @Param("isEnable") Integer isEnable
+            , @Param("beginTime") String beginTime
+            , @Param("endTime") String endTime
+            , @Param("condition") String condition);
+
+    @Select("SELECT COUNT(t1.user_id) FROM tb_users t1 " +
+            "WHERE ${condition} and is_delete=1")
+    /**
+     * 分页查询记录数 韦德 2018年8月30日11:33:30
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @param where
+     * @return
+     */
+    Integer selectLimitBackCount(@Param("isEnable") Integer isEnable
+            , @Param("beginTime") String beginTime
+            , @Param("endTime") String endTime
+            , @Param("condition") String condition);
+
+    /**
+     * 查询黑名单用户数量
+     * @return
+     */
+    @Select("select count(*) from tb_users where is_delete=1")
+    Integer queryBackCount();
+
+    /**
+     * 根据用户编号查询相应的黑名单用户
+     * @param userId
+     * @return
+     */
+    @Select("select * from tb_users where user_id=#{userId} and is_delete=1")
+    User queryBackUserById(Integer userId);
+
 }

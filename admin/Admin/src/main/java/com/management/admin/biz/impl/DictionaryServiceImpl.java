@@ -9,6 +9,7 @@ package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IDictionaryService;
 import com.management.admin.entity.db.Dictionary;
+import com.management.admin.entity.resp.VersionInfo;
 import com.management.admin.repository.DictionaryMapper;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,5 +96,36 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
     @Override
     public Integer upadteConfig(String key, String value) {
         return dictionaryMapper.updateUrlByKey(key,value);
+    }
+
+    /**
+     * 根据key获取string类型的字典value DF 2018年12月20日06:27:13
+     *
+     * @param key
+     * @return
+     */
+    @Override
+    public String get(String key) {
+        Dictionary dictionary = dictionaryMapper.selectOneKey(key);
+        if(dictionary != null) return dictionary.getValue();
+        return null;
+    }
+
+    /**
+     * 获取版本号 DF 2018年12月20日06:39:59
+     *
+     * @return
+     */
+    @Override
+    public VersionInfo getVersion() {
+        List<Dictionary> list = dictionaryMapper.selectInKey("version,iosDownload,androidDownload");
+        String version =list.stream().filter(item -> item.getKey().equals("version")).findFirst().get().getValue();
+        String iosDownload = list.stream().filter(item -> item.getKey().equals("iosDownload")).findFirst().get().getValue();
+        String androidDownload = list.stream().filter(item -> item.getKey().equals("androidDownload")).findFirst().get().getValue();
+        VersionInfo versionInfo = new VersionInfo();
+        versionInfo.setVersion(version);
+        versionInfo.setIosDownload(iosDownload);
+        versionInfo.setAndroidDownload(androidDownload);
+        return versionInfo;
     }
 }

@@ -12,6 +12,12 @@
 	    <link href="css/my.css" rel="stylesheet"/> 
 	</head>
 	<body>
+		<header class="mui-bar mui-bar-nav nav-default-backColor" >
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left" style="color: #000;"></a>
+			<h1 class="mui-title nav-title" style="color: #000;">修改资料</h1>
+		</header>
+	
+	
 		<div class="mui-content" id="app">  
 		    <ul class="mui-table-view" style="padding: 0;margin: 0;"> 
 		         <!--sheet photo-->
@@ -24,7 +30,7 @@
 		            </a>
 		        </li>
 		        <!--sheet photo end-->
-		        <li class="mui-table-view-cell mui-media history">
+		        <li class="mui-table-view-cell mui-media nickname">
 		            <a  href="javascript:;">
 		                <div class="mui-media-body">
 		                	<span>
@@ -38,23 +44,11 @@
 		    
 		    <br />
 		    
-		    <ul class="mui-table-view">
-		    	<li id="logout" class="mui-table-view-cell btn-color-stress" 
-		    		style="text-align: center;">
-		            退出登录
-		        </li>
-		    </ul>
-		    
 		    <canvas id="cimg" style="display: none;"></canvas>
-		    
-		    
-		    <!--bottom navigation begin-->
-			<div class="bottom-navigation-style"></div>
-		    <!--bottom navigation end-->
 		</div>
 	    <script src="js/mui.min.js"></script>
 	    <script src="js/jquery-2.1.0.js"></script>
 		<script type="text/javascript" src="js/main.js" ></script>
-	    <script src="js/my.js"></script>
+	    <script src="js/profile.js"></script>
 	</body>
 </html>

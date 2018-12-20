@@ -10,17 +10,46 @@
 	    <link href="css/reset.css" rel="stylesheet"/>
 	    <link href="css/reg.css" rel="stylesheet"/>
 	    <link href="css/findPassword.css" rel="stylesheet"/>
+	    <style>
+	    	.head{
+	    		background-color: #fff;
+	    	}
+	    	
+	    	.title{
+	    		color: #000000;
+	    	}
+	    	
+	    	.content{
+    		    background-color: #e8e8e8;
+    top: -132px;
+    		    
+	    	}
+	    	
+	    	.btn-blue {
+			    background-color: #7b7b7b;
+			    color: #fff;
+			    border: 0px solid #fff;
+			}
+			 
+	    </style>
 	</head>
 	<body>
+		<header class="mui-bar mui-bar-nav nav-default-backColor" >
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left" style="color: #000;"></a>
+			<h1 class="mui-title nav-title" style="color: #000;">意见反馈</h1>
+			<a class="icon iconfont icon-lajixiang mui-pull-right clean" style="color: #000;"></a>
+		</header>
+		
 		<div class="mui-content">
 		    <div class="head">
-		    	<span class="title">反馈</span>
+
 		    </div>
 		    
 		    <div class="content form">
 		    	<div class="item-line">
 		    		<label>请填写您的反馈内容</label>
-		    		<textarea rows="10"></textarea>
+			    	<div class="padding-top-10"></div>
+		    		<textarea id="content" rows="10"></textarea>
 		    	</div>
 		    	<div class="padding-top-10"></div>
 		    	<div class="item-line">
@@ -33,5 +62,7 @@
 		<script type="text/javascript" src="js/main.js" ></script>
 		<script type="text/javascript" src="js/header.js" ></script>
 		<script type="text/javascript" src="js/findPassword.js" ></script>
+		<script type="text/javascript" src="js/feedback.js" ></script>
+		
 	</body>
 </html>

@@ -18,12 +18,11 @@ layui.use('form', function(){
         var all = $('input[name="type"]:checked').val();
         publishMessageDetail.phone = $.trim($("#phone").val());
         if((publishMessageDetail.phone==null||publishMessageDetail.phone=='')&&(all==true)){
-            layer.msg("手机号或者全部必填一个");
+            layer.msg("请输入手机号或选中(全部)");
             return false;
         }
         if((publishMessageDetail.phone!=null&&publishMessageDetail.phone!='')&&(all!=true)){
-            layer.msg("手机号只能全部选一个");
-            return false;
+            $("#phone").val("");
         }
 
         $.ajax({
@@ -62,10 +61,14 @@ layui.use('form', function(){
                     end: function () {
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
+                        location.reload();
                     }
                 });
-                return;
             }
         });
+
+        return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
     });
+
+    form.render();
 });

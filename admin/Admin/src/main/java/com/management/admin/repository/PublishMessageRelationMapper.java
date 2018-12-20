@@ -16,9 +16,9 @@ public interface PublishMessageRelationMapper extends MyMapper<PublishMessageRel
      * @param userId
      * @return
      */
-    @Select("SELECT t1.*, t2.message FROM tb_publish_message_relations t1 " +
-            "LEFT JOIN tb_publish_message t2 ON t1.msg_id = t2.msg_id " +
-            "WHERE user_id=#{userId} ORDER BY add_date ASC")
+    @Select("SELECT t1.*, t2.message, t2.type FROM tb_publish_message_relations t1 " +
+            "LEFT JOIN tb_publish_messages t2 ON t1.msg_id = t2.msg_id " +
+            "WHERE user_id=#{userId} ORDER BY t1.is_read ASC, t1.add_date ASC")
     List<PublishMessageDetail> selectByUserId(@Param("userId") Integer userId);
 
     /**

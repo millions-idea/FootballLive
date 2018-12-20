@@ -16,7 +16,9 @@ import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.entity.resp.HotGame;
+import com.management.admin.entity.resp.VersionInfo;
 import com.management.admin.entity.template.JsonArrayResult;
+import com.management.admin.entity.template.JsonResult;
 import com.management.admin.exception.InfoException;
 import com.management.admin.utils.DateUtil;
 import com.management.admin.utils.PropertyUtil;
@@ -106,5 +108,17 @@ public class HomeApiController {
     public JsonArrayResult<LiveCategory> getLiveCategoryList(){
         List<LiveCategory> liveCategoryList = liveCategoryService.getLiveCategorys();
         return new JsonArrayResult<LiveCategory>(liveCategoryList);
+    }
+
+    /**
+     * 获取版本号 DF 2018年12月20日06:25:35
+     * @return
+     */
+    @GetMapping("getVersion")
+    public JsonResult getVersion(){
+        VersionInfo versionInfo = dictionaryService.getVersion();
+        versionInfo.setUpdate(versionInfo.getVersion().contains("U") ? 1 : 0);
+        versionInfo.setVersion(versionInfo.getVersion().replace("U","").trim());
+        return new JsonResult().successful(versionInfo);
     }
 }

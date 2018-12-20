@@ -8,6 +8,7 @@
 package com.management.admin.biz;
 
 import com.management.admin.entity.db.Dictionary;
+import com.management.admin.entity.resp.VersionInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -33,4 +34,17 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
      *根据key修改value
      */
     Integer upadteConfig(String key,String value);
+
+    /**
+     * 根据key获取string类型的字典value DF 2018年12月20日06:27:13
+     * @param key
+     * @return
+     */
+    String get(String key);
+
+    /**
+     * 获取版本号 DF 2018年12月20日06:39:59
+     * @return
+     */
+    VersionInfo getVersion();
 }

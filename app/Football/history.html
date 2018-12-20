@@ -15,20 +15,53 @@
 		<link href="css/mui.dtpicker.css" rel="stylesheet" /> 
 		<link href="css/lives.css" rel="stylesheet" />
 		<link href="css/informations.css" rel="stylesheet" />
+		<style>
+			.clean{
+			    margin-right: -10px;
+			    margin-left: -10px;
+			    padding-right: 10px;
+			    padding-left: 10px;
+			    font-size: 20px;
+			    position: relative;
+			    z-index: 20;
+			    padding-top: 8px;
+			}
+			
+			.live .top {
+			    height: 22px;
+			    line-height: 22px;
+			    padding-left: 5px;
+			    float: left;
+			}
+			
+			.live li {
+			    background-position-y: 44px;
+			}
+			
+			.live .content .info {
+			    bottom: -60px !important;
+			}
+			
+			.live .content .info {
+			    line-height: 22px;
+			}
+		</style>
 		<script src="js/template-web.js"></script>
 	</head>
+		<header class="mui-bar mui-bar-nav nav-default-backColor" >
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left" style="color: #000;"></a>
+			<h1 class="mui-title nav-title" style="color: #000;">观看历史</h1>
+			<a class="icon iconfont icon-lajixiang mui-pull-right clean" style="color: #000;"></a>
+		</header>
+	
 		<div class="mui-content" id="refreshContainer">
 		    <!--live list begin-->
 		    <div class="live">
 		    	<ul>
-		    		<li>
-		    			<!--header-->
+		    		<!--<li>
 		    			<div class="top">
 		    				<span class="off">中超联赛 12:00</span>
 		    			</div>
-		    			<!--header end-->
-		    			
-		    			<!--content-->
 		    			<div class="content">
 		    				<div class="left">
 		    					<img src="images/luneng.png" alt="" />
@@ -42,69 +75,19 @@
 		    					<span>北京国安</span>
 		    				</div>
 		    			</div>
-		    			<!--content end-->
-		    			
-		    		</li>
-		    		
-		    		
-		    		<li>
-		    			<!--header-->
-		    			<div class="top">
-		    				<span class="off">中超联赛 12:00</span>
-		    			</div>
-		    			<!--header end-->
-		    			
-		    			<!--content-->
-		    			<div class="content">
-		    				<div class="left"> 
-		    					<img src="images/luneng.png" alt="" />
-		    					<span>山东鲁能</span>
-		    				</div>
-		    				<div class="info">
-		    					<span>让胜：-1/2</span>
-		    				</div>
-		    				<div class="right">
-		    					<img src="images/guoan.png" alt="" />
-		    					<span>北京国安</span>
-		    				</div>
-		    			</div>
-		    			<!--content end-->
-		    			
-		    		</li>
+		    		</li>-->
+
 		    	</ul>
 		    </div>
 		    <!--live list end-->
 		    
-		    <!--category begin-->
-			<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action ">
-				<!-- 可选择菜单 -->
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<a href="#">足球赛事</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="#">篮球赛事</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a href="#">乒乓球赛事</a>
-					</li>
-				</ul>
-			</div>
-		    <!--category end-->
-		    
-		    <!--bottom navigation begin-->
-			<div class="bottom-navigation-style"></div>
-		    <!--bottom navigation end-->
 		</div>
 		
 		
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/main.js" ></script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
-		<script type="text/javascript" src="js/mui.picker.min.js" ></script>
-		<script type="text/javascript" src="mdate/iScroll.js" ></script>
-		<script type="text/javascript" src="mdate/Mdate.js" ></script>
-		<script type="text/javascript" src="js/informations.js" ></script>
+		<script type="text/javascript" src="js/history.js" ></script>
 	</body>
 
 </html>

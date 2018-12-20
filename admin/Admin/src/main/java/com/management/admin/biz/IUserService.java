@@ -223,4 +223,43 @@ public interface IUserService {
      * @return
      */
     AdminUser getAdminUserInfoById(Integer userId);
+
+    /**
+     * 分页加载 韦德 2018年8月30日11:29:00
+     * @param page
+     * @param limit
+     * @param condition
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    public List<User> getBackLimit(Integer page, String limit, String condition,Integer state, String beginTime, String endTime);
+
+
+
+    /**
+     * 加载总记录数 韦德 2018年8月30日11:29:11
+     * @return
+     */
+    Integer getBackCount();
+
+
+    /**
+     * 加载分页记录数 韦德 2018年8月30日11:29:22
+     * @param condition
+     * @param userRole
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    Integer getBackLimitCount(String condition, Integer state, String beginTime, String endTime);
+
+    /**
+     * 根据黑名单用户编号查询相应的黑名单用户
+     * @param userId
+     * @return
+     */
+    User queryBackUserById(Integer userId);
 }

@@ -4,6 +4,8 @@ import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.resp.LiveCollectInfo;
+import com.management.admin.entity.resp.LiveHistoryInfo;
 import com.management.admin.entity.resp.LiveInfo;
 
 import java.util.List;
@@ -94,9 +96,44 @@ public interface ILiveService {
     Boolean cancelCollect(Integer liveId, Integer userId);    List<Live> queryAll();
 
 
+    /**
+     * 设置开始直播 DF 2018年12月20日02:51:29
+     * @param liveId
+     */
+    void setBeginLive(Integer liveId);
 
+    /**
+     * 添加观看历史 DF 2018年12月20日03:22:12
+     * @param userId
+     * @param liveId
+     */
+    void addHistory(Integer userId, Integer liveId);
 
+    /**
+     * 获取观看历史 DF 2018年12月20日04:15:05
+     * @param userId
+     * @return
+     */
+    List<LiveHistoryInfo> getLiveHistoryList(Integer userId);
 
+    /**
+     * 清空观看历史 DF 2018年12月20日04:45:25
+     * @param userId
+     * @return
+     */
+    boolean cleanHistorys(Integer userId);
 
+    /**
+     * 获取个人收藏 DF 2018年12月20日04:54:26
+     * @param userId
+     * @return
+     */
+    List<LiveCollectInfo> getLiveCollectList(Integer userId);
 
+    /**
+     * 清空个人收藏 DF 2018年12月20日04:58:02
+     * @param userId
+     * @return
+     */
+    boolean cleanCollect(Integer userId);
 }

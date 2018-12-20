@@ -12,7 +12,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">头像</label>
         <div class="layui-input-block">
-            <img type="text" id="photo" autocomplete="off"
+            <img type="text" style="width: 200px;height: 200px;" id="photo" autocomplete="off"
                    disabled="disabled" lay-verify="required" class="layui-input" th:src="${user.photo}">
         </div>
     </div>
@@ -52,6 +52,13 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label">推送消息</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-layer-input" style="display: inline-block; height: 34px;width: 70%;background-color: #fff;" id="pushMessage" />
+            <a id="publish" name="item-edit" class="layui-btn" lay-event="disable">推送</a>
+        </div>
+    </div>
+    <div class="layui-form-item">
         <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
     </div>
 </div>
@@ -63,6 +70,60 @@
     });
 
     $(function () {
+        $("#publish").click(function () {
+            var publishMessange = $.trim($("#pushMessage").val());
+            if(publishMessange==null||publishMessange==''){
+                layer.msg("请输入推送内容！")
+                return false;
+            }else {
+                var phone = $("#phone").val();
+                var publishMessageDetail={};
+                publishMessageDetail.message=publishMessange;
+                publishMessange.phone=phone;
+                publishMessange.type=true;
+                $.ajax({
+                    url:"/management/publishMessage/pushMessage",    //请求的url地址
+                    dataType:"json",   //返回格式为json
+                    data: publishMessageDetail,    //参数值
+                    type:"post",   //请求方式
+                    success:function(data){
+                        //请求成功时处理
+                        if(data == null || data.code == null || data.code != 200) {
+                            if(data.code == 300){
+                                layer.msg(data.msg, {
+                                    icon: 1,
+                                    time: 3000,
+                                    end: function () {
+                                        var index = parent.layer.getFrameIndex(window.name);
+                                        parent.layer.close(index);
+                                    }
+                                });
+                                return;
+                            }else{
+                                layer.msg("发送失败", {
+                                    icon: 1,
+                                    time: 3000,
+                                    end: function () {
+                                        var index = parent.layer.getFrameIndex(window.name);
+                                        parent.layer.close(index);
+                                    }
+                                });
+                                return false;
+                            }
+                        }
+                        layer.msg("发送成功", {
+                            icon: 1,
+                            time: 3000,
+                            end: function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(index);
+                            }
+                        });
+                        return false;
+                    }
+                });
+            }
+        })
         var $updateGradeButtons = $("button[name='updateGrade']"),
             $closeAccountsButton = $("#closeAccounts");
         $updateGradeButtons.click(function () {
