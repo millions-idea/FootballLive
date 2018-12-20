@@ -91,9 +91,13 @@
           "icon": "&#xe63c;",
           "href": "/management/configuration/index"
         }, {
+          "text": "直播分类管理",
+          "icon": "&#xe63c;",
+          "href": "/management/configuration/classification"
+        }, {
           "text": "联系我们",
           "icon": "&#xe63c;",
-          "href": "/management/system/contactUs"
+          "href": "/management/configuration/contactUs"
         }, {
           "text": "用户反馈",
           "icon": "&#xe63c;",

@@ -86,9 +86,17 @@
                 layer.open({
                     type: 1,
                     skin: 'layui-layer-rim', //加上边框
-                    area: ['420px', 'auto'], //宽高
+                    area: ['auto', '700px'], //宽高
+                    closeBtn: 2,
+                    shade: [0.8, '#393D49'],
                     shadeClose: true,
-                    content:html
+                    content:html,
+                    cancel: function(index, layero){
+                        if(confirm('确定要关闭么')){ //只有当点击confirm框的确定时，该层才会关闭
+                            layer.close(index)
+                        }
+                        return false;
+                    }
                 });
             });
         })
