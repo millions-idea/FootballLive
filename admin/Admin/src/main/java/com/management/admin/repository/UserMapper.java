@@ -181,4 +181,13 @@ public interface UserMapper extends MyMapper<User> {
             "WHERE t1.user_id = #{userId};")
     List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId);
 
+    /**
+     * 根据用户编号加入黑名单
+     * @param userId
+     * @param blackRemark
+     * @return
+     */
+    @Update("update tb_users set is_delete=1 ,black_time=now(), black_remark=#{blackRemark} where user_id=#{userId}")
+    Integer addBlackList(@Param("userId") Integer userId,@Param("blackRemark") String blackRemark);
+
 }

@@ -43,98 +43,16 @@ var tableIndex;
                         content:html
                     });
                 });
-            }else if(layEvent === 'disable'){ //冻结
-                layer.confirm('您确定要冻结此用户账户吗？', {
-                    btn: ['冻结','取消'] //按钮
-                }, function(){
-                    data.isEnable = 0;
-                    service.updateEnable(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            }else if(layEvent === 'del'){ //删除
-                layer.confirm('您确定要删除此用户账户吗？', {
-                    btn: ['删除','取消'] //按钮
-                }, function(){
-                    data.isEnable = 0;
-                    data.isDelete = 1;
-                    service.updateAvailability(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            }else if(layEvent === 'enable'){ //解冻
-                layer.confirm('您确定要解冻此用户账户吗？', {
-                    btn: ['解冻','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    service.updateEnable(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'renew'){ //删除
-                layer.confirm('您确定要恢复此用户账户吗？', {
-                    btn: ['恢复','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    data.isDelete = 0;
-                    service.updateAvailability(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setService'){ //删除
-                layer.confirm('确定要提升为客服账号？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    service.changeRole({
-                        "userId": data.userId,
-                        "roleName": "STAFF"
-                    }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setAdmin'){ //删除
-                layer.confirm('确定要提升为管理员账号？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    data.isDelete = 0;
-                    service.changeRole({
-                        "userId": data.userId,
-                        "roleName": "ADMIN"
-                    }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setMerchant'){ //删除
-                layer.confirm('确定要提升/撤销为代理商？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    service.setMerchant({
-                        "userId": data.userId
-                    }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
+            } else if(layEvent === 'listBlack'){ //加入黑名单
+                service.listBlack({
+                    userId: data.userId
+                }, function(html){
+                    layer.open({
+                        type: 1,
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['420px', 'auto'], //宽高
+                        content:html
+                    });
                 });
             }
         });
@@ -158,6 +76,11 @@ function initService(r) {
                 callback(data);
             });
         }
+        ,listBlack: function (param, callback) {
+        $.get(r + "/popuplistblack", param, function (data) {
+            callback(data);
+        });
+    }
     }
 }
 
@@ -254,6 +177,7 @@ function getTableColumns() {
         , {fixed: 'right',title: '操作', width: 560, align: 'center', templet: function(d){
                 var html = "";
                 html += '<a name="item-edit" class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
+                html += '<a name="item-edit"  class="layui-btn layui-btn layui-btn-xs" lay-event="listBlack">加入黑名单</a>';
                 return html;
             }}
     ]];

@@ -250,7 +250,6 @@ public interface IUserService {
     /**
      * 加载分页记录数 韦德 2018年8月30日11:29:22
      * @param condition
-     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
@@ -271,4 +270,12 @@ public interface IUserService {
      * @return
      */
     List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId);
+
+    /**
+     * BY Id 加入黑名单
+     * @param userId
+     * @param blackRemark
+     * @return
+     */
+    Integer listBlack(Integer userId,String blackRemark);
 }

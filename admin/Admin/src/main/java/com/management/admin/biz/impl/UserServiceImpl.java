@@ -59,6 +59,17 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
+     *
+     * @param userId
+     * @param blackRemark
+     * @return
+     */
+    @Override
+    public Integer listBlack(Integer userId, String blackRemark) {
+        return userMapper.addBlackList(userId,blackRemark);
+    }
+
+    /**
      * 添加新用户 DF 2018年11月29日00:47:48
      *
      * @param phone    1500000000 必填
