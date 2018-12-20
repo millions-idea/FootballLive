@@ -174,10 +174,10 @@ mui.plusReady(function(){
 					}
 					
 					//推荐理由渲染
-					if(inf.content == null){
+					if(inf.information == null || inf.information.content == null){
 						$(".information-content").html("<span style='color:#BEBEBE'>暂无情报</span>");
 					}else{
-						$(".information-content").html(inf.content);
+						$(".information-content").html(inf.information.content);
 					}
 
 					
@@ -203,6 +203,7 @@ mui.plusReady(function(){
 				teamId: live.chatRoomId,
 				ps: "hi"
 			});
+			//TODO 
 		}else{
 	    	disableChat("全员禁言");
 		}
@@ -247,6 +248,7 @@ mui.plusReady(function(){
  */
 function sendMessage(accid){
 	var html = $(".message-input").html();
+	if(html == null || html.length <= 0) return app.utils.msgBox.msg("请输入聊天内容");
 	var msgHtml = html;
 	
 	$(".message-input").html("");
@@ -508,7 +510,9 @@ function getMessagePartHtml(obj){
 function applyTeamDone(error, obj){
 	if(error != null){
 	    disableChat("聊天室人数已满,无法加入聊天");
+	    return;
 	}
+	app.utils.msgBox.msg("您已成功进入聊天室, 赶快发表一下自己的看法吧~");
 }
 
 
@@ -588,7 +592,7 @@ function playImageAd(url, targetUrl, callback){
 		plus.runtime.openURL(targetUrl);
     })
     
-	app.utils.msgBox.msg("广告" + 5 + "秒后进入直播画面……");
+	app.utils.msgBox.msg("广告" + 3 + "秒后进入直播画面……");
     
 	var obj = setTimeout(function(){
 		$(".video .player").css("background-image", "url("+ "images/liveBackground.png" +")"); 
@@ -597,7 +601,7 @@ function playImageAd(url, targetUrl, callback){
 		app.utils.msgBox.msg("进入直播画面");
 		callback();
 		clearTimeout(obj); 
-	}, 5000);
+	}, 3000);
 	
 }
 

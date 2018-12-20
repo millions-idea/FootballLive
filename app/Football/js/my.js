@@ -14,8 +14,15 @@ mui.plusReady(function(){
 	// 自定义webview样式
 	var webview = plus.webview.currentWebview();
 	
+	plus.navigator.setStatusBarStyle("dark");
+	plus.navigator.setStatusBarBackground("#F3F3F3");
+	
 	 
 	webview.addEventListener("show", function(){
+		
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
+	
 		//显示现在的信息
 		profileService.getProfile({}, function(res){
 			app.print(JSON.stringify(res));
@@ -58,13 +65,8 @@ mui.plusReady(function(){
 	});
 	
 	//联系我们
-	$(".share").click(function(){
+	$(".contact").click(function(){
 		app.utils.openNewWindow("contact.html","contact");
-	});
-	
-	// 清除缓存
-	$("#cleanCache").click(function(){
-		logout();
 	});
 	
 	// 注销登录
@@ -94,7 +96,7 @@ function updateUserInfo(photo, userCode, nickname, signature){
 }
 
 function logout(){
-	plus.storage.clear();
+	plus.storage.removeItem("userInfo");
 	var webview = plus.webview.getWebviewById("index");
 	webview.evalJS("destroyNim()");
 	app.utils.openWindow("login.html", "login");

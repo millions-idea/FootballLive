@@ -3,6 +3,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
+import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -76,4 +77,20 @@ public interface InformationMapper extends MyMapper<Information> {
      */
     @Select("SELECT * FROM tb_informations WHERE live_id=#{liveId}")
     Information selectByLiveId(@Param("liveId") Integer liveId);
+
+    /**
+     * 查询赛程信息列表 DF 2018年12月18日02:26:40
+     * @param condition
+     * @return
+     */
+    @Select("SELECT *,t5.team_icon AS winTeamIcon, t5.team_name AS winTeamName FROM tb_informations t1 " +
+            "LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
+            "LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
+            "LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
+            "LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
+            "WHERE t1.is_delete = 0 AND t2.status = 0 AND t3.is_delete = 0 AND t4.is_delete = 0  " +
+            "AND ${condition} AND (t3.schedule_result IS NOT NULL OR t3.schedule_grade IS NOT NULL) " +
+            "ORDER BY t2.live_date ")
+    List<LiveScheduleDetail> selectInformationDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
+                                                      @Param("condition") String condition);
 }

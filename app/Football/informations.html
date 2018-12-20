@@ -19,24 +19,21 @@
 	</head>
 		<header class="mui-bar mui-bar-nav nav-default-backColor category-navgation">
 			<h1 class="mui-title nav-title showCategory">
-				足球
+				...
 				<i class="icon iconfont icon-webicon215"></i>
 			</h1> 
 		</header> 
 	
 		<div class="mui-content" id="refreshContainer">
+			<input type="hidden" id="gameId" value="" />
+			<input type="hidden" id="liveCategoryId" value="" />
+			<input type="hidden" id="date" value="" />
+
+			
 		    <!--category begin-->
 		    <div class="category">
 		    	<ul>
-		    		<li class="active">中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
-		    		<li>中超赛事</li>
+
 		    	</ul>
 		    </div>
 		    <!--category end-->
@@ -53,14 +50,10 @@
 		    <!--live list begin-->
 		    <div class="live">
 		    	<ul>
-		    		<li>
-		    			<!--header-->
+		    <!--		<li> 
 		    			<div class="top">
 		    				<span class="off">中超联赛 12:00</span>
-		    			</div>
-		    			<!--header end-->
-		    			
-		    			<!--content-->
+		    			</div> 
 		    			<div class="content">
 		    				<div class="left left-hot">
 		    					<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>
@@ -74,20 +67,14 @@
 		    					<img src="images/guoan.png" alt="" />
 		    					<span>北京国安</span>
 		    				</div>
-		    			</div>
-		    			<!--content end-->
-		    			
+		    			</div> 
 		    		</li>
 		    		
 		    		
-		    		<li>
-		    			<!--header-->
+		    		<li> 
 		    			<div class="top">
 		    				<span class="off">中超联赛 12:00</span>
-		    			</div>
-		    			<!--header end-->
-		    			
-		    			<!--content-->
+		    			</div> 
 		    			<div class="content">
 		    				<div class="left"> 
 		    					<img src="images/luneng.png" alt="" />
@@ -101,10 +88,9 @@
 		    					<img src="images/guoan.png" alt="" />
 		    					<span>北京国安</span>
 		    				</div>
-		    			</div>
-		    			<!--content end-->
-		    			
+		    			</div> 
 		    		</li>
+		    		-->
 		    	</ul>
 		    </div>
 		    <!--live list end-->
@@ -112,8 +98,8 @@
 		    <!--category begin-->
 			<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action ">
 				<!-- 可选择菜单 -->
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
+				<ul class="mui-table-view live-category">
+					<!--<li class="mui-table-view-cell">
 						<a href="#">足球赛事</a>
 					</li>
 					<li class="mui-table-view-cell">
@@ -121,7 +107,7 @@
 					</li>
 					<li class="mui-table-view-cell">
 						<a href="#">乒乓球赛事</a>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 		    <!--category end-->

@@ -15,6 +15,7 @@ import com.management.admin.entity.db.Dictionary;
 import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.resp.DictionaryInfo;
 import com.management.admin.entity.resp.HotGame;
 import com.management.admin.entity.resp.VersionInfo;
 import com.management.admin.entity.template.JsonArrayResult;
@@ -51,12 +52,12 @@ public class HomeApiController {
      * @return
      */
     @GetMapping("getGroupInfo")
-    public JsonArrayResult<Dictionary> getHomeGroupInfo(){
+    public JsonArrayResult<DictionaryInfo> getHomeGroupInfo(){
         //1.轮播广告
         //2.走马灯广告
         //3.分类板块信息
-        List<Dictionary> maps = dictionaryService.getHomeGroupInfo();
-        if(maps != null && maps.size() > 0) return new JsonArrayResult<Dictionary>(maps);
+        List<DictionaryInfo> maps = dictionaryService.getHomeGroupInfo();
+        if(maps != null && maps.size() > 0) return new JsonArrayResult<DictionaryInfo>(maps);
         return JsonArrayResult.failing();
     }
 

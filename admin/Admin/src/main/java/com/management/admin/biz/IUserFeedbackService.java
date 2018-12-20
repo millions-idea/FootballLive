@@ -43,4 +43,12 @@ public interface IUserFeedbackService {
      * @return
      */
     UserFeedback queryUserFeedbackById(Integer feedbackId);
+
+    /**
+     * 添加反馈 DF 2018年12月20日07:55:20
+     * @param userId
+     * @param content
+     * @return
+     */
+    boolean addFeedback(Integer userId, String content);
 }

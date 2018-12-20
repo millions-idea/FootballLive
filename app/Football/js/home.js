@@ -27,7 +27,7 @@ var homeService = {
 	 * 获取版本号  DF 2018年12月20日06:24:57
 	 * @param {Object} callback
 	 */
-	getHotGameList: function(callback){
+	getVersion: function(callback){
 		$.get(app.config.apiUrl + "api/home/getVersion", function(data){
 			app.logger("home", JSON.stringify(data));
 			callback(data);
@@ -53,7 +53,10 @@ var homeService = {
 		var tempList = new Array();
 		for (var i = 0; i < list.length; i++) {
 			if(list[i].key.indexOf("banner.image") != -1){
-				tempList.push(list[i]);
+				if(list[i].key.indexOf("targetUrl") == -1){
+					tempList.push(list[i]);
+				}
+
 			}
 		}
 		return tempList;
@@ -75,11 +78,16 @@ var homeService = {
 }
 
 mui.plusReady(function(){
+    
+    //设置状态栏样式
+	plus.navigator.setStatusBarStyle("dark");
+	plus.navigator.setStatusBarBackground("#F3F3F3");
+	
     plus.webview.currentWebview().addEventListener("show", function(){
-		//设置状态栏样式
-		plus.navigator.setStatusBarStyle("light");
-		plus.navigator.setStatusBarBackground("#333333");
 		
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
+	
 		//获得slider插件对象
 	    var gallery = mui('.mui-slider');
 	        gallery.slider({
@@ -89,55 +97,86 @@ mui.plusReady(function(){
 	    // 检测更新版本
 		checkVersion(plus);
 	    
-    	//加载首页聚合数据
-		homeService.getGroupInfo(function(res){
-			if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载聚合数据失败");
-		
-			//获取滚动图列表
-			var runnerImageList = homeService.getRunnerImageList(res.data);
-			
-			//渲染滚动图列表
-			$("#runnerImage").html(app.utils.raw(runnerImageList));
-			
-			//渲染今日头条 
-			var headLineMap = homeService.getTodayHeadLine(res.data);
-			if(headLineMap == null) headLineMap = { value : "加载今日头条失败"};
-			$("#topTextAd").text(headLineMap.value);
-		});
-		
-		//加载热门直播数据
-		homeService.getHotGameList(function(res){
-			if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
-			
-			//参赛球队信息设置
-			$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
-			$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
-			$(".left .teamName").text(res.data[0].team.teamName);
-			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
-			$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
-			
-			//对战球队信息设置
-			$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
-			$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
-			$(".right .teamName").text(res.data[1].team.teamName);
-			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
-			$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
-		});
-		
-		//加载直播分类信息
-		homeService.getLiveCategoryList(function(res){
-			if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
-			
-			for (var i = 0; i < res.data.length; i++) {
-				$(".item").eq(i).attr("title", res.data[i].categoryName)
-				$(".item").eq(i).data("id", res.data[i].categoryId)
-				$(".item").eq(i).css("background-image", "url(" + res.data[i].categoryBackgroundImageUrl + ")")
-			}
-		})
-		
+	    // 加载初始化数据
+    	initData();
     })
+    
+    initData();
 })
  
+ 
+function initData(){
+	//加载首页聚合数据
+	homeService.getGroupInfo(function(res){
+		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载聚合数据失败");
+	
+		//获取滚动图列表
+		var runnerImageList = homeService.getRunnerImageList(res.data);
+		
+		//渲染滚动图列表
+		$("#runnerImage").html(app.utils.raw(runnerImageList));
+		
+		//渲染今日头条 
+		var headLineMap = homeService.getTodayHeadLine(res.data);
+		if(headLineMap == null) headLineMap = { value : "加载今日头条失败"};
+		$("#topTextAd").text(headLineMap.value);
+	});
+	
+	//加载热门直播数据
+	homeService.getHotGameList(function(res){
+		app.logger("getHotGameList", JSON.stringify(res))
+		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
+		
+		//参赛球队信息设置
+		$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
+		$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
+		$(".left .teamName").text(res.data[0].team.teamName);
+		$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
+		$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
+		$(".left").data("id", res.data[0].liveId);
+		
+		//对战球队信息设置
+		$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
+		$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
+		$(".right .teamName").text(res.data[1].team.teamName);
+		$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
+		$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
+		$(".right").data("id", res.data[1].liveId);
+		
+		
+		
+		$(".headline .left, .headline .right").unbind("click").bind("click",function(){
+			var id = $(this).data("id");
+			console.log(id)
+			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
+				liveId: id
+			})
+		});
+	});
+	
+	//加载直播分类信息
+	homeService.getLiveCategoryList(function(res){
+		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
+		
+		for (var i = 0; i < res.data.length; i++) {
+			$(".item").eq(i).attr("title", res.data[i].categoryName)
+			$(".item").eq(i).data("id", res.data[i].categoryId)
+			$(".item").eq(i).css("background-image", "url(" + res.data[i].categoryBackgroundImageUrl + ")")
+		}
+		
+		
+		$(".category .item").unbind("click").bind("click", function(){
+			var that = $(this);
+			var view = plus.webview.getWebviewById(app.pages[1].id);
+			mui.fire(view, "refreshIndex", {
+				currentIndex: $(that).attr("tabindex"),
+				liveCategoryId: $(that).data("id")
+			});
+			plus.webview.show(app.pages[1].id);
+		});
+	})
+		
+}
 
 
 
@@ -146,7 +185,9 @@ function checkVersion(plugin){
     plugin.runtime.getProperty(plugin.runtime.appid, function (inf) {
         ver = inf.version;
         try{
-        	homeService.getVersion({}, function(data){
+        	homeService.getVersion(function(res){
+        		app.logger("getVersion", JSON.stringify(res))
+        		var data = res.msg;
 				ver = ver.trim();
 				var ua = navigator.userAgent.toLowerCase(); 
 				var newVersion = parseInt(data.version.trim().toString().replace(".","").replace(".",""));
@@ -172,7 +213,7 @@ function checkVersion(plugin){
          			}
 	                
 	            } else {
-                    plugin.nativeUI.toast('当前版本为最新版本');
+                    //plugin.nativeUI.toast('当前版本为最新版本');
                     mui("body").progressbar().hide();
 	                return;
 	            }

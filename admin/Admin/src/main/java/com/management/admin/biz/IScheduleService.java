@@ -10,7 +10,6 @@ package com.management.admin.biz;
 import com.management.admin.entity.db.Schedule;
 import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import com.management.admin.entity.dbExt.ScheduleGameTeam;
-import com.management.admin.entity.dbExt.TeamCompetition;
 
 import java.util.List;
 
@@ -18,10 +17,13 @@ public interface IScheduleService {
 
     /**
      * 获取赛事信息列表 DF 2018年12月18日02:23:48
-     * @param gameId
+     *
+     * @param gameId            赛事id 选填
+     * @param liveCategoryId    直播分类id 选填
+     * @param date              日期时间 2018-12-20 yyyy:MM:dd 选填
      * @return
      */
-    List<LiveScheduleDetail> getScheduleDetailList(Integer gameId);
+    List<LiveScheduleDetail> getScheduleDetailList(Integer gameId, Integer liveCategoryId, String date);
 
 
     /**
@@ -63,4 +65,12 @@ public interface IScheduleService {
      */
     ScheduleGameTeam selectScheduleById(Integer scheduleId);
 
+    /**
+     * 查询情报详情信息列表 DF 2018年12月20日19:05:03
+     * @param gameId
+     * @param liveCategoryId
+     * @param date
+     * @return
+     */
+    List<LiveScheduleDetail> getInformationDetailList(Integer gameId, Integer liveCategoryId, String date);
 }

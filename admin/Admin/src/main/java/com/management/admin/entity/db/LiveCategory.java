@@ -24,7 +24,7 @@ public class LiveCategory {
 
     private String categoryName;
 
-    private String categoryBackgroundImage;
+    private String categoryBackgroundImageUrl;
 
     private Integer sort;
 

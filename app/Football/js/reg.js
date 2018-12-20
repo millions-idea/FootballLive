@@ -7,7 +7,8 @@ mui.plusReady(function() {
 	var webview = plus.webview.currentWebview();
 	webview.setStyle({
 		titleNView: {
-			autoBackButton: true
+			autoBackButton: true,
+			backgroundColor: app.style.backgroundColor
 		}
 	})
 	
