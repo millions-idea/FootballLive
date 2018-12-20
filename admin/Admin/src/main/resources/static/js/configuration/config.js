@@ -102,5 +102,34 @@ layui.use('upload', function () {
             uploadConfig("bootstrap.image3",value);
         }
     });
+ //修改公告管理
+    $("#title").click(function () {
+        var announcement=$("#announcement").val();
+        if (announcement==""||announcement.length==0){
+            layer.msg("公告不能为空");
+            return false;
+        }
+        uploadConfig("home.text.ad",announcement);
+    })
+   //修改版本信息
+    $("#ver").click(function () {
+        var version=$("#version").val();
+        var ios=$("#ios").val();
+        var android=$("#android").val();
+
+        if (version==""||version.length==0){
+            layer.msg("版本不能为空");
+            return false;
+        }else if (ios==""||ios.length==0){
+            layer.msg("ios不能为空");
+            return false;
+        }else if (android==""||android.length==0){
+            layer.msg("android不能为空");
+            return false;
+        }
+        uploadConfig("version",version);
+        uploadConfig("iosDownload",ios);
+        uploadConfig("androidDownload",android);
+    })
 
 })

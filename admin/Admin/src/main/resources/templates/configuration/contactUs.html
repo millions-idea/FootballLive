@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'联系我们-' + ${title}"></title>
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: 0 auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+<th:block layout:fragment="current_page">
+    <a href="contactUs.html"><cite>联系我们</cite></a>
+</th:block>
+
+<th:block layout:fragment="body">
+    <!--banner图片管理-->
+    <div class="form-line">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>联系我们</legend>
+        </fieldset>
+    </div>
+
+    <input type="hidden" id="photo"/><!--接收图片地址-->
+
+
+    <div id="div1">
+    </div>
+    <div style="height: 20px"></div>
+    <button  type="button" id="add" class="layui-btn">提交</button>
+    <!--wangEditor 使用 E-->
+
+    <script type="text/javascript" src="/js/configuration/wangEditor.js"></script>
+    <script src="/js/common/jquery-2.0.0.js"></script>
+    <script type="text/javascript">
+
+        //富文本使用
+        var E = window.wangEditor;
+        var editor = new E('#div1');
+        //重新设置富文本的内容
+        editor.customConfig.menus = [
+
+            'fontName',  // 字体
+            'strikeThrough',  // 删除线
+            'backColor',  // 背景颜色
+            'head',  // 标题
+            'bold',  // 粗体
+            'fontSize',  // 字号
+            'italic',  // 斜体
+            'underline',  // 下划线
+            'foreColor',  // 文字颜色
+            'link',  // 插入链接
+            'justify',  // 对齐方式
+            'image',  // 插入图片
+            'undo',  // 撤销
+            'redo'  // 重复
+        ];
+        // 隐藏“网络图片”tab
+        editor.customConfig.showLinkImg = false;
+        // 将图片大小限制为 3M
+        editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+        // 限制一次最多上传 1 张图片
+        editor.customConfig.uploadImgMaxLength = 1;
+        //开启wangEditor的错误提示
+        editor.customConfig.debug=true;
+        // 关闭粘贴样式的过滤
+        editor.customConfig.pasteFilterStyle = false;
+        // 忽略粘贴内容中的图片
+        editor.customConfig.pasteIgnoreImg = true;
+
+        var photo="";
+
+        //上传图片 将图片以文件的形式传给后台进行操作返回图片 url
+        editor.customConfig.customUploadImg = function (files, insert) {
+            var date = new FormData();
+            date.append("file", files[0]);
+            $.ajax({
+                type: "POST",
+                url:"/management/file/cosUpload",
+                data: date,
+                dataType: 'json',
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    photo=result.msg;
+                    console.log(result.msg);
+                    insert(result.msg);// insert 是获取图片 url 后，插入到编辑器的方法
+                }
+            })
+        };
+
+        editor.create();//创建富文
+
+        document.getElementById('add').addEventListener('click', function () {
+            var value=editor.txt.html();
+            if (value=="<p><br></p>") {
+                layer.msg("不能为空");
+                return false;
+            }
+            uploadConfig("contact",value);
+
+        }, false)
+
+
+
+    </script>
+
+</th:block>
+<th:block layout:fragment="free_footer">
+    <script>
+           /* ?key="+key+"&value="+value*/
+        function uploadConfig(key,value) {
+            alert(value);
+            $.ajax({
+                url:"/management/configuration/upadteConfig",
+                type:"POST",
+                data:{
+                  key:key,
+                  value:value
+                },
+                contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                success:function (data) {
+                    if (data.code==200){
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('上传成功', {icon: 6,time: 2000});
+                        });
+                    }else {
+                        layer.msg('上传失败', {icon: 5,time: 2000});
+                    }
+
+                }
+            })
+        }
+    </script>
+
+</th:block>
+</body>
+</html>

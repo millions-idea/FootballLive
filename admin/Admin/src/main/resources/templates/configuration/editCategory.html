@@ -1,0 +1,104 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <input type="hidden" id="ID" th:value="${liveCategory.categoryId}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">直播分类名称</label>
+        <div class="layui-input-block">
+            <input type="text" id="cartgoryName"   required  lay-verify="required"
+                   th:value="${liveCategory.categoryName}"   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分类LOGO</label>
+        <button type="button" class="layui-btn" id="photo">修改图片</button>
+        <div style="height: 10px"></div>
+        <div class="layui-input-block">
+            <img class="layui-upload-img" id="categoryUrl" style="height: 92px;width: 92px;margin: 0 10px 10px 0"  th:src="${liveCategory.categoryBackgroundImageUrl}" >
+        </div>
+        <script>
+            layui.use('upload', function () {
+                var $ = layui.jquery
+                    , upload = layui.upload;
+                var uploadInst = upload.render({
+                    elem: '#photo'
+                    , url: '/management/file/cosUpload'
+                    , before: function (obj) {
+                        obj.preview(function (index, file, result) {
+                            $('#categoryUrl').attr('src', result); //图片链接（base64）
+                        });
+                    }
+                    , done: function (res) {
+                        $('#categoryUrl').attr('src', res.msg); //图片链接（base64）
+                    }
+                });
+            });
+        </script>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">优先级</label>
+        <div class="layui-input-block">
+            <select id="sort"  lay-verify="required">
+                <option selected th:if="${liveCategory.sort}==${sort.value}"  th:each="sort: ${sorts}" th:value="${sort.value}" th:text="${sort.key}"></option>
+                <option selected th:if="${liveCategory.sort}!=${sort.value}"  th:each="sort: ${sorts}" th:value="${sort.value}" th:text="${sort.key}"></option>
+            </select>
+        </div>
+    </div>
+
+</div>
+
+<div class="layui-form-item">
+    <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
+</div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+    $("#save").click(function () {
+
+        var categoryId=$("#ID").val();
+        var categoryName=$("#cartgoryName").val();
+        var categoryPhoto=$("#categoryUrl").attr("src");
+        var sort=$("#sort").val();
+        alert(categoryPhoto);
+
+        var category={}
+
+        category.categoryId=categoryId;
+        category.categoryName=categoryName;
+        category.categoryBackgroundImageUrl=categoryPhoto;
+        category.sort=sort;
+        alert(JSON.stringify(category))
+        if (categoryName==null||categoryName.length==0){
+            layer.msg("不能为空")
+            return false;
+        }
+        if(categoryPhoto!=null&&categoryPhoto.length>0){
+            $.ajax({
+                url:"/management/configuration/updateCategory",
+                data:category,
+                type:"GET",
+                contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                success:function (data) {
+                    if (data.code==200){
+                        location.reload();
+                    } else {
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('修改失败', {icon: 5,time: 2000});
+                        });
+                    }
+                }
+            })
+
+        }else{
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                layer.msg('修改有误！', {icon: 5,time: 2000});
+            });
+        }
+
+    })
+</script>
