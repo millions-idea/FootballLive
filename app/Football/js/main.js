@@ -60,7 +60,7 @@ window.app = {
 	style: {
 		frontBackgroundColor: "#",
 		/*barBackgroundColor: "#6B1EC2",*/
-		backgroundColor: "#622BAB"
+		backgroundColor: "#7C28EA"
 	}, 
 	
 	logger: function(id, text){

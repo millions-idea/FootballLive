@@ -22,6 +22,7 @@ public class ScheduleGame {
     private String liveTitle;
     private String liveDate;
     private String sourceUrl;
+    private Integer categoryId;
 
     private Integer gameId;
     private String gameName;
@@ -29,4 +30,27 @@ public class ScheduleGame {
 
     private Team team;
     private Team targetTeam;
+
+
+
+    /**
+     * 比赛结果(让胜\让平\让负...)
+     */
+    private String scheduleResult;
+    /**
+     * 比赛成绩(-1.5/2或2-1这种格式)
+     */
+    private String scheduleGrade;
+    /**
+     * 胜利方球队id
+     */
+    private Integer winTeamId;
+    /**
+     * 胜利方球队logo
+     */
+    private String winTeamIcon;
+    /**
+     * 胜利方球队名称
+     */
+    private String winTeamName;
 }

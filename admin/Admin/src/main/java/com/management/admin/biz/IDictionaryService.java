@@ -8,6 +8,7 @@
 package com.management.admin.biz;
 
 import com.management.admin.entity.db.Dictionary;
+import com.management.admin.entity.resp.DictionaryInfo;
 import com.management.admin.entity.resp.VersionInfo;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
      * 获取首页聚合数据 DF  2018年12月14日09:46:24
      * @return
      */
-    List<Dictionary> getHomeGroupInfo();
+    List<DictionaryInfo> getHomeGroupInfo();
 
     /**
      * 获取webApp全站广告数据 DF 2018年12月18日15:25:17
@@ -47,4 +48,10 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
      * @return
      */
     VersionInfo getVersion();
+
+    /**
+     * 随机获取启动页图片 DF 2018年12月20日07:50:18
+     * @return
+     */
+    String getBootstrapRandomImage();
 }

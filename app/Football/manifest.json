@@ -5,16 +5,16 @@
 		"iPad"
 	],
 	"id": "H59CE6336",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "Football",/*应用名称，程序桌面图标名称*/
+	"name": "卫星体育",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0",/*应用版本名称*/
+		"name": "1.0.0",/*应用版本名称*/
 		"code": ""
 	},
-	"description": "",/*应用描述信息*/
+	"description": "在线高清观看体育赛事直播",/*应用描述信息*/
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "guide.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -43,17 +43,17 @@
 			"description": "管理语音识别插件"
 		},
 		"LivePusher": {},
-		"VideoPlayer": {}
+		"VideoPlayer": {},"Push":{}
 	},
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true
+			"waiting": false,"delay":"0"
 		},
 		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
 		"runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {
+		"distribute": {"plugins":{"push":{"igexin":{"appid":"wbqODIXmdr5YjvYE5Kx5x3","appkey":"MJqHAP563A6IYaeP007uN6","appsecret":"CnZ162IpNd9NmKzsPwRvO"}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -68,26 +68,7 @@
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
 				"hardwareAccelerated": true,//表示开启Webview的硬件加速，false表示关闭Webview的硬件加速
-				"permissions": [
-					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
-					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
-					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
-					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
-					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
-					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
-					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
-					"<uses-feature android:name=\"android.hardware.camera\"/>",
-					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
-					"<uses-permission android:name=\"android.permission.CAMERA\"/>"
-				]
+				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
 			},
 			"orientation": [
 				"portrait-primary"
@@ -133,18 +114,18 @@
 				"ios": {
 					"iphone": {
 						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
-						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-						"retina40": "",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
-						"retina47": "",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
-						"retina55": "",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
-						"retina55l": ""
+						"retina35": "images/guide.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": "images/guide.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
+						"retina47": "images/guide.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
+						"retina55": "images/guide.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
+						"iphonex":"images/guide.png"
 					},
 					"ipad": {
 						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
-						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						/*iPad高分屏竖屏图片，分辨率：1536x2008*/
 						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
 						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait7": "images/guide.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
 						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
 						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
 						"landscape-retina7": ""
@@ -153,11 +134,11 @@
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
 					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": ""
+					"hdpi": "images/guide.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "images/guide.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "images/guide.png"
 				}
-			}
+			},"debug":false
 		},
 		"allowsInlineMediaPlayback": true
 	},
@@ -172,7 +153,8 @@
 					null,
 					"informations.html",
 					"lives.html",
-					"systemMessage.html"
+					"systemMessage.html",
+					"guide.html"
 				],
 				"priority": 0
 			},
@@ -198,12 +180,23 @@
 					"systemMessage.html",
 					"history.html",
 					"collect.html",
-					"profile.html"
+					"profile.html",
+					"contact.html"
 				],
 				"priority": 0
 			},
 			"reg.html": {
-				"resources": [],
+				"resources": [
+					"images/check-box_outline.png",
+					"css/index.fonts.css",
+					"css/main.css",
+					"js/jquery-ajax.js",
+					"css/reg.css",
+					"css/mui.min.css",
+					"css/reset.css",
+					"images/check-box.png",
+					"js/reg.js"
+				],
 				"refer": [
 					"regPact.html"
 				],
@@ -236,6 +229,60 @@
 					"setData.html"
 				],
 				"priority": 0
+			},
+			"guide.html": {
+				"resources": [],
+				"refer": [
+					"home.html",
+					"index.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"findPassword.html": {
+				"resources": [
+					"css/findPassword.css",
+					"css/index.fonts.css",
+					"css/main.css",
+					"css/reg.css",
+					"css/mui.min.css",
+					"js/findPassword.js",
+					"css/reset.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"regPact.html": {
+				"resources": [
+					"css/main.css",
+					"css/mui.min.css",
+					"css/icon.fonts.css",
+					"css/reset.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"systemSetting.html": {
+				"resources": [],
+				"refer": [
+					"feedback.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"informations.html": {
+				"resources": [],
+				"refer": [
+					"liveDetail.html"
+				],
+				"priority": 0
+			},
+			"home.html": {
+				"resources": [],
+				"refer": [
+					"liveDetail.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -248,7 +295,6 @@
 				"images/emoji/lt/lt016.png",
 				"images/emoji/emoji/emoji_23.png",
 				"images/emoji/emoji/emoji_30.png",
-				"js/reg.js",
 				"images/emoji/emoji/emoji_143.png",
 				"images/emoji/emoji/emoji_02.png",
 				"images/emoji/emoji/emoji_40.png",
@@ -328,11 +374,9 @@
 				"images/emoji/emoji/emoji_51.png",
 				"images/emoji/emoji/emoji_45.png",
 				"images/emoji/emoji/emoji_71.png",
-				"js/findPassword.js",
 				"images/emoji/emoji/emoji_63.png",
 				"images/bz.png",
 				"images/emoji/emoji/emoji_10.png",
-				"css/index.fonts.css",
 				"images/emoji/emoji/emoji_160.png",
 				"images/emoji/emoji/emoji_141.png",
 				"images/emoji/ajmd/ajmd002.png",
@@ -425,7 +469,6 @@
 				"images/emoji/lt/lt001.png",
 				"images/emoji/emoji/emoji_82.png",
 				"css/groupPreview.css",
-				"css/reg.css",
 				"js/mui.js",
 				"images/emoji/emoji/emoji_50.png",
 				"images/emoji/emoji/emoji_24.png",
@@ -471,7 +514,6 @@
 				"images/emoji/xxy/xxy006.png",
 				"images/emoji/emoji/emoji_0.png",
 				"js/mui.min.js",
-				"css/icon.fonts.css",
 				"images/im/default-icon.png",
 				"images/emoji/xxy/xxy031.png",
 				"images/emoji/emoji/emoji_69.png",
@@ -493,11 +535,9 @@
 				"images/emoji/emoji/emoji_95.png",
 				"images/emoji/emoji/emoji_151.png",
 				"images/emoji/ajmd/ajmd009.png",
-				"css/mui.min.css",
 				"images/emoji/emoji/emoji_73.png",
 				"images/emoji/ajmd/ajmd033.png",
 				"images/emoji/emoji/emoji_57.png",
-				"images/check-box.png",
 				"images/emoji/emoji/emoji_46.png",
 				"images/emoji/emoji/emoji_56.png",
 				"images/emoji/xxy/xxy005.png",
@@ -528,7 +568,6 @@
 				"js/main.js",
 				"images/im/chat-editor-3.png",
 				"images/emoji/ajmd/ajmd044.png",
-				"css/main.css",
 				"images/emoji/xxy/xxy001.png",
 				"images/emoji/emoji/emoji_77.png",
 				"images/head-default1.png",
@@ -580,8 +619,6 @@
 				"images/emoji/emoji/emoji_149.png",
 				"images/emoji/ajmd/ajmd046.png",
 				"images/emoji/emoji/emoji_47.png",
-				"images/check-box_outline.png",
-				"css/findPassword.css",
 				"images/emoji/lt/lt003.png",
 				"images/emoji/emoji/emoji_162.png",
 				"images/emoji/ajmd/ajmd047.png",
@@ -603,7 +640,6 @@
 				"images/emoji/ajmd/ajmd004.png",
 				"images/emoji/xxy/xxy024.png",
 				"images/emoji/emoji/emoji_115.png",
-				"js/jquery-ajax.js",
 				"images/emoji/emoji/emoji_135.png",
 				"images/emoji/lt/lt018.png",
 				"images/emoji/emoji/emoji_36.png",
@@ -612,7 +648,6 @@
 				"images/emoji/emoji/emoji_96.png",
 				"images/emoji/xxy/xxy040.png",
 				"images/emoji/emoji/emoji_136.png",
-				"css/reset.css",
 				"css/chatEmoji.css"
 			]
 		}

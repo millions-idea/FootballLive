@@ -16,6 +16,9 @@
 	</head>
 	
 	<body>
+		<header class="mui-bar mui-bar-nav nav-default-backColor" style="z-index: 999;" >
+			<h1 class="mui-title nav-title" style="color: #000;">卫星体育</h1>
+		</header>
 		<div class="mui-content" id="refreshContainer">
 		    <!--runner ad begin-->
 		    <div class="runnerAd">
@@ -35,7 +38,7 @@
 					<script id="runnerImageTemplate" type="text/html">
 						{{each list as item index}}
 						    <div class="mui-slider-item">
-						    	<a href="javascript:void(0);">
+						    	<a href="{{item.url}}">
 						    		<img src="{{item.value}}" alt="{{index}}" />
 						    	</a>
 						    </div>
@@ -75,7 +78,7 @@
 						</div>
 					</div>
 					<div class="right">
-						<div class="title title-color-green title"></div>
+						<div class="title title-color-green title">...</div>
 						<div class="content">
 							<div class="team team-left">
 								<img class="teamIcon" src="" alt="" />

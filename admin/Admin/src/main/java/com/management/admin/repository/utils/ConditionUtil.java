@@ -50,6 +50,20 @@ public class ConditionUtil {
     }
 
 
+    public static String like2(String column, String value, boolean isJoin, String alias){
+        String condition = "";
+        if (!isJoin){
+            alias = "";
+        }else{
+            alias += ".";
+        }
+        String tb = alias + "`" + column + "`";
+        condition += tb + " LIKE '%" + value + "' ";
+        return condition;
+    }
+
+
+
     /**
      * 准确匹配
      * @param column

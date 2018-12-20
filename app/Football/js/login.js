@@ -22,8 +22,8 @@ mui.init({
 mui.plusReady(function() {
 	// 自定义webview样式
 	var webview = plus.webview.currentWebview();
-	plus.navigator.setStatusBarStyle("light");
-	plus.navigator.setStatusBarBackground(app.style.backgroundColor);
+	//plus.navigator.setStatusBarStyle("dark");
+	//plus.navigator.setStatusBarBackground(app.style.backgroundColor);
 	
 	/*webview.setStyle({
 		bounce: 'all',//窗口回弹效果
@@ -32,7 +32,12 @@ mui.plusReady(function() {
 	})*/
 	//清空webSocket连接
 	
-	
+	var cacheString = plus.storage.getItem("userInfo"); 
+	if(cacheString != null) {
+		app.logger("index","已登录，自动跳转到首页");
+		app.utils.openWindow("index.html", "index");
+		return;
+	}
 	
 	//刷新标题
 	$("span[class='title']").text(app.config.brand);
