@@ -24,6 +24,17 @@ var homeService = {
 	},
 	
 	/**
+	 * 获取版本号  DF 2018年12月20日06:24:57
+	 * @param {Object} callback
+	 */
+	getHotGameList: function(callback){
+		$.get(app.config.apiUrl + "api/home/getVersion", function(data){
+			app.logger("home", JSON.stringify(data));
+			callback(data);
+		});
+	},
+	
+	/**
 	 * 获取直播分类信息列表 DF 2018年12月18日01:47:31
 	 * @param {Object} callback
 	 */
@@ -75,6 +86,9 @@ mui.plusReady(function(){
 	  	    interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
 	    });
 	    
+	    // 检测更新版本
+		checkVersion(plus);
+	    
     	//加载首页聚合数据
 		homeService.getGroupInfo(function(res){
 			if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载聚合数据失败");
@@ -124,3 +138,98 @@ mui.plusReady(function(){
     })
 })
  
+
+
+
+function checkVersion(plugin){
+	var btn = ["确定升级", "取消"];
+    plugin.runtime.getProperty(plugin.runtime.appid, function (inf) {
+        ver = inf.version;
+        try{
+        	homeService.getVersion({}, function(data){
+				ver = ver.trim();
+				var ua = navigator.userAgent.toLowerCase(); 
+				var newVersion = parseInt(data.version.trim().toString().replace(".","").replace(".",""));
+				var oldVersion = parseInt(ver.trim().toString().replace(".","").replace(".",""))
+ 				console.log("转换版本号:" + newVersion);
+ 				console.log("转换版本号:" + oldVersion);
+         		if (newVersion > oldVersion) {
+					if (/iphone|ipad|ipod/.test(ua)) return plus.runtime.openURL(data.iosDownload);
+         			console.log("update版本号" + data.update);
+         			if(data.update == 0){
+         				var _msg = "发现新版本:V" + data.version;
+		                mui.confirm(_msg, '升级确认', btn,
+		                function(e) {
+		                    if (e.index == 0) { //执行升级操作
+								createDownload(plugin, data.androidDownload);
+		                    }
+		                });
+         			}else{
+						if (/iphone|ipad|ipod/.test(ua)) return plus.runtime.openURL(data.iosDownload);
+         				console.log("开始自动下载……");
+                    	plugin.nativeUI.toast('正在为您自动下载最新版本……');
+         				createDownload(plugin, data.androidDownload);
+         			}
+	                
+	            } else {
+                    plugin.nativeUI.toast('当前版本为最新版本');
+                    mui("body").progressbar().hide();
+	                return;
+	            }
+	         })
+        }catch(e){
+        	//TODO handle the exception
+        	console.log("自动下载抛出异常: " + JSON.stringify(e))
+        }
+         
+    });
+}
+
+function createDownload(plugin, url){
+	// 初始化下载进度
+	mui("body").progressbar({progress:0}).show();
+    plugin.nativeUI.toast("正在准备环境，请稍后！"); 
+    var dtask = plugin.downloader.createDownload(url, {}, function(d, status) {
+        console.log("下载响应码:" + status)
+        if (status == 200) {
+            var path = d.filename; //下载apk
+            plugin.runtime.install(path); // 自动安装apk文件
+			mui("body").progressbar().hide();
+        } else {
+            plugin.nativeUI.msg('版本更新失败:' + status);
+			mui("body").progressbar().hide();
+        }
+    });
+    dtask.addEventListener( "statechanged", onStateChanged, false );
+    dtask.start();
+}
+
+// 监听下载任务状态 
+function onStateChanged(download, status ) {
+	switch(download.state){
+		case 0:
+			console.log("下载任务开始调度");
+			break;
+		case 1:
+			console.log("下载任务开始请求");
+			break;
+		case 2:
+			console.log("下载任务请求已经接收");                   
+			break;
+		case 3:
+			console.log("下载任务接收数据");
+			 var percent = download.downloadedSize / download.totalSize * 100;
+                mui("body").progressbar().setProgress(parseInt(percent));    
+			break;
+		case 4:
+			console.log("下载任务已完成");
+			break;
+		case 5:
+			console.log("下载任务已暂停");
+			break;
+	}
+	if ( download.state == 4 && status == 200 ) {
+		// 下载完成 
+		alert( "Download success: " + download.getFileName() );  
+	}  
+}

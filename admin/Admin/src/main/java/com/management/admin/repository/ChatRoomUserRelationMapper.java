@@ -1,5 +1,6 @@
 package com.management.admin.repository;
 
+import com.management.admin.entity.db.ChatRoom;
 import com.management.admin.entity.db.ChatRoomUserRelation;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
@@ -67,4 +68,20 @@ public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelatio
      */
     @Update("update tb_chat_room_user_relations set is_black_list=1 where user_id=#{userId}")
     Integer ShieldingUser(Integer userId);
+
+    /**
+     * 根据直播间编号查询相应的聊天室
+     * @param liveId
+     * @return
+     */
+    @Select("select * from tb_chat_rooms where live_id=#{liveId}")
+    List<ChatRoom> queryChatRoomByLiveId(Integer liveId);
+
+    /**
+     * 根据直播间编号查询相应的聊天室
+     * @param liveId
+     * @return
+     */
+    @Update("update tb_chat_rooms set is_delete=1 where live_id=#{liveId}")
+    Integer deleteChatRoomByLiveId(Integer liveId);
 }

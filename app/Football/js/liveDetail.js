@@ -8,7 +8,7 @@ var liveService = {
 	 * @param {Object} callback
 	 */
 	getLiveInfo: function(param, callback){
-		$.get(app.config.apiUrl + "api/live/getLiveInfo", param, function(data){
+		$.get(app.utils.toUrl(app.config.apiUrl + "api/live/getLiveInfo"), param, function(data){
 			app.logger("live", JSON.stringify(data));
 			callback(data);
 		});
@@ -59,6 +59,12 @@ mui.plusReady(function(){
 	
 	//打开等待加载弹窗
 	plus.nativeUI.showWaiting("正在加载页面资源");
+	
+	
+	$(".share").click(function(){
+		app.utils.copyTo(app.config.shareUrl);
+		app.utils.msgBox.msg("已为您复制宣传网址，快发给朋友吧~");
+	})
 	
 	//获取直播间信息
 	liveService.getLiveInfo({

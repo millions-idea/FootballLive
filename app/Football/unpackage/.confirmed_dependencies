@@ -8,7 +8,8 @@
 			"my.html",
 			"home.html",
 			"informations.html",
-			"lives.html"
+			"lives.html",
+			"systemMessage.html"
 		]
 	},
 	"login.html": {
@@ -28,7 +29,10 @@
 			"feedback.html",
 			"system-settings.html",
 			"systemSetting.html",
-			"systemMessage.html"
+			"systemMessage.html",
+			"history.html",
+			"collect.html",
+			"profile.html"
 		],
 		"resources": []
 	},
@@ -46,6 +50,16 @@
 	"liveDetail.html": {
 		"refer": [
 			"share.html"
+		]
+	},
+	"systemMessage.html": {
+		"refer": [
+			"previewMessage.html"
+		]
+	},
+	"profile.html": {
+		"refer": [
+			"setData.html"
 		]
 	}
 }

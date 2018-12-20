@@ -7,6 +7,7 @@ window.app = {
 		title: "卫星体育",
 		brand: "卫星体育",
 		apiUrl: "http://stack-app.natapp1.cc/",
+		shareUrl: "http://test.com/",
 		version: "1.0.1"
 	},
 	
@@ -278,6 +279,32 @@ window.app = {
 			return template("runnerImageTemplate", {
 				list: list
 			})
+		},
+		
+		
+		copyTo: function(copy_content){
+			mui.plusReady(function(){
+				//判断是安卓还是ios
+				if(mui.os.ios){
+					//ios
+					var UIPasteboard = plus.ios.importClass("UIPasteboard");
+				    var generalPasteboard = UIPasteboard.generalPasteboard();
+				    //设置/获取文本内容:
+				    generalPasteboard.plusCallMethod({
+				        setValue:copy_content,
+				        forPasteboardType: "public.utf8-plain-text"
+				    });
+				    generalPasteboard.plusCallMethod({
+				        valueForPasteboardType: "public.utf8-plain-text"
+				    });
+				}else{
+				//安卓
+				  var context = plus.android.importClass("android.content.Context");
+				  var main = plus.android.runtimeMainActivity();
+				  var clip = main.getSystemService(context.CLIPBOARD_SERVICE);
+				  plus.android.invoke(clip,"setText",copy_content);
+				}
+			});
 		}
 	}
 }

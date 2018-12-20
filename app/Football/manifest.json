@@ -171,7 +171,8 @@
 				"refer": [
 					null,
 					"informations.html",
-					"lives.html"
+					"lives.html",
+					"systemMessage.html"
 				],
 				"priority": 0
 			},
@@ -194,7 +195,10 @@
 					"feedback.html",
 					"system-settings.html",
 					"systemSetting.html",
-					"systemMessage.html"
+					"systemMessage.html",
+					"history.html",
+					"collect.html",
+					"profile.html"
 				],
 				"priority": 0
 			},
@@ -216,6 +220,20 @@
 				"resources": [],
 				"refer": [
 					"share.html"
+				],
+				"priority": 0
+			},
+			"systemMessage.html": {
+				"resources": [],
+				"refer": [
+					"previewMessage.html"
+				],
+				"priority": 0
+			},
+			"profile.html": {
+				"resources": [],
+				"refer": [
+					"setData.html"
 				],
 				"priority": 0
 			}
