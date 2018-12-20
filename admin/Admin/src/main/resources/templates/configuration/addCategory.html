@@ -1,0 +1,107 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <!--<input type="hidden" id="userId" th:value="${user.getUserId()}">-->
+    <input type="hidden" id="upload">
+    <div class="layui-form-item">
+        <label class="layui-form-label">直播名称</label>
+        <div class="layui-input-block">
+            <input type="text" id="categoryName" name="compName" required  lay-verify="required" placeholder="请输入直播分类名称"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">直播分类LOGO</label>
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn" id="LOGO">
+                <i class="layui-icon">&#xe67c;</i>上传直播分类LOGO
+            </button>
+        </div>
+        <script>
+            layui.use('upload', function(){
+                var upload = layui.upload;
+
+                //执行实例
+                var uploadInst = upload.render({
+                    elem: '#LOGO' //绑定元素
+                    ,url: '/management/file/cosUpload'
+                    ,done: function(res){
+
+                        if (res.code==200){
+                            $("#upload").val(res.msg)
+
+                        }
+                    }
+                    ,error: function(){
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('上传失败', {icon: 5,time: 2000});
+
+                        });
+                    }
+                });
+            });
+        </script>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">优先级</label>
+        <div class="layui-input-block">
+            <select id="sort"  lay-verify="required">
+                <option value="0" >一级</option>
+                <option value="1" >二级</option>
+                <option value="2" >三级</option>
+                <option value="3" >四级</option>
+                <option value="4" >五级</option>
+                <option value="5" >六级</option>
+                <option value="6" >七级</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+    $("#save").click(function () {
+        var categoryName=$.trim($("#categoryName").val());
+        var logo=$.trim($("#upload").val());
+        var sort=$("#sort").val()
+
+
+        var liveCategory={}
+        liveCategory.categoryName=categoryName;
+        liveCategory.categoryBackgroundImageUrl=logo;
+        liveCategory.sort=sort;
+        if((categoryName!=null&&categoryName.length>0) && (logo!=null&&logo.length>0)){
+            $.ajax({
+                url:"/management/configuration/insertCategory",
+                data:liveCategory,
+                type:"GET",
+                contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                success:function (data) {
+                    if (data.code==200){
+                        location.reload();
+                    } else {
+                        layui.use('layer', function(){
+                            var layer = layui.layer;
+                            layer.msg('添加失败', {icon: 5,time: 2000});
+                        });
+                    }
+                }
+            })
+
+        }else{
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                layer.msg('LOGO不能为空！', {icon: 5,time: 2000});
+            });
+        }
+
+    })
+</script>

@@ -16,7 +16,7 @@ public interface InformationMapper extends MyMapper<Information> {
      * @param information
      * @return
      */
-    @Insert("insert into tb_informations(game_id,live_id,content,add_date) values(#{gameId},#{liveId},#{content},#{addDate})")
+    @Insert("insert into tb_informations(game_id,live_id,content,add_date) values(#{gameId},#{liveId},#{content},NOW())")
     Integer insertInformation(Information information);
 
     @Update("update tb_informations set live_id=#{liveId},game_id=#{gameId}" +

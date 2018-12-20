@@ -113,7 +113,7 @@ public class ScheduleControllor {
         return "schedule/add";
     }
     /**
-     * 直播分类 提莫 2018年12月18日11:42:31
+     * 修改赛程传递显示参数  提莫 2018年12月18日11:42:31
      * @return
      */
     @GetMapping("edit")
