@@ -27,6 +27,39 @@ var tableIndex;
                 ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
             });
         })
+        //导出EXEC
+        $("#exec").click(function () {
+            var arrs=new Array();
+            $(function () {
+                $.each(layui.table.cache["my-data-table"], function (index, item) {
+                    var array=new Array();
+                    var name =item.nickName;
+                    array[0]=item.userId;
+                    array[1]=name;
+                    if (array[1]==""||array[1]==null){
+                        array[1]="无"
+                    }
+                    array[2]=item.phone;
+                    array[3]=item.ip;
+                    if (array[3]==""||array[3]==null){
+                        array[3]="无"
+                    }
+                    array[4]=changeDate(item.addDate);
+                    if (array[4]=="NaN-NaN-NaN NaN:NaN:NaN"){
+                        array[4]="无"
+                    }
+                    array[5]=changeDate(item.editDate);
+                    if (array[5]=="NaN-NaN-NaN NaN:NaN:NaN"){
+                        array[5]="无"
+                    }
+
+                    arrs[index]=array;
+                });
+            });
+           layui.table.exportFile(['ID','昵称','手机号','IP地址','注册时间','更新时间'],arrs
+            , 'xls'); //默认导出 csv，也可以为：xls
+
+        })
         // 监听工具条
         table.on('tool(my-data-table)', function(obj){
             var data = obj.data; //获得当前行数据
@@ -55,6 +88,8 @@ var tableIndex;
                     });
                 });
             }
+
+
         });
     });
 })()
@@ -217,3 +252,26 @@ function resetPager() {
         $(o).height(640);
     });
 }
+
+
+/**
+ * 将毫秒级时间戳转换为标准时间显示
+ * @param {Object} value
+ */
+function changeDate(value){
+    var date = new Date();
+    date.setTime(value);
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    var h = date.getHours();
+    h = h < 10 ? ('0' + h) : h;
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    minute = minute < 10 ? ('0' + minute) : minute;
+    second = second < 10 ? ('0' + second) : second;
+    return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;
+}
+

@@ -575,12 +575,7 @@ public class UserServiceImpl implements IUserService {
             where += " OR " + ConditionUtil.like("ip", condition, true, "t1") + ")";
         }
 
-        if(userRole.equals(UserRoleEnum.SuperAdmin)){
-            where +=" AND (" +ConditionUtil.match("type", "1", true, "t1");
-            where +=" OR " +ConditionUtil.match("type", "2", true, "t1") + ")";
-        }else{
-            where +=" AND " +ConditionUtil.match("type", userRole.ordinal() + "", true, "t1");
-        }
+        where +=" AND " +ConditionUtil.match("type", userRole.ordinal() + "", true, "t1");
 
         // 取两个日期之间或查询指定日期
         where = extractBetweenTime(beginTime, endTime, where);
