@@ -28,6 +28,19 @@ mui.plusReady(function(){
     //手动关闭启动页
     plus.navigator.closeSplashscreen();
     
+    plus.webview.currentWebview().addEventListener("show", function(){
+    			
+		plus.push.addEventListener("receive", function(){
+			console.log("推送消息被点击")
+			clickPushMessage();
+		})
+		
+		plus.push.addEventListener("click", function(){
+			console.log("推送消息被点击")
+			clickPushMessage();
+		});
+    })
+    
     
     /**
      * 获取本地存储中launchFlag的值
@@ -37,13 +50,14 @@ mui.plusReady(function(){
      */
     var launchFlag = plus.storage.getItem("launchFlag");
     if(launchFlag) {
-        mui.openWindow({
-            url: "home.html",
-            id: "home",
+    	console.log("直接进入首页")
+        /*mui.openWindow({
+            url: "index.html",
+            id: "index",
             extras: {
                 mark: "index" //额外的参数，仅仅是个标识，实际开发中不用；
             }
-        });
+        });*/
     } else {
         mui.openWindow({
             url: "guide.html",
@@ -113,6 +127,7 @@ function newInstance(){
 		items[i].classList.remove("mui-active");
 	}
 	items[0].classList.add("mui-active");
+	plus.webview.show(app.pages[0].id);
 	
 	// 获取缓存信息 
 	var cacheString = plus.storage.getItem("userInfo"); 
@@ -216,15 +231,12 @@ function newInstance(){
 
 function clickPushMessage(){
 	app.print("推送消息被单击");
+	
 	if(plus.webview.getWebviewById("systemMessage") != null) plus.webview.getWebviewById("systemMessage").close();
 	mui.openWindow({
         url: "systemMessage.html",
         id: "systemMessage",
         preload: false,
-        waiting: {
-            autoShow: true,
-          title:'正在加载...'
-        },
         createNew: true
     });
 }
@@ -493,8 +505,8 @@ function onUpdateMyInfo(user) {
 }
 function updateMyInfoUI() {
     // 刷新界面
-    var webview = plus.webview.getWebviewById("my");
-    if(webview != null) webview.evalJS("updateMyInfoUI('" + JSON.stringify(data.myInfo) + "')");
+    //var webview = plus.webview.getWebviewById("my");
+    //if(webview != null) webview.evalJS("updateMyInfoUI('" + JSON.stringify(data.myInfo) + "')");
 }
 function onUsers(users) {
     console.log('收到用户名片列表', users);
@@ -788,11 +800,18 @@ window.addEventListener("sendText", function(event){
 	    to: event.detail.to,
 	    text: event.detail.text,
 	    done: function(error, msg){
-	    	var webview = plus.webview.getWebviewById("chat-" + event.detail.to);
+	    	
+	    	if(!error){
+	    		app.utils.msgBox.msg("DEBUG:消息发送失败");
+	    	}else{
+	    		app.utils.msgBox.msg("DEBUG:消息发送成功");
+	    	}
+	    	
+	    	/*var webview = plus.webview.getWebviewById("chat-" + event.detail.to);
 			mui.fire(webview, "sendMsgDone", {
 				error: error,
 				msg: msg
-			})
+			})*/
 	   		pushMsg(msg);
 	    }
 	}); 
@@ -917,8 +936,7 @@ window.addEventListener("applyTeam", function(event){
 	    	console.log(error);
 		    console.log(obj);
 		    console.log('申请加群' + (!error?'成功':'失败'));
-		    
-		    
+		     
 		    var webview = plus.webview.getWebviewById("liveDetail-" + event.detail.id);
 			mui.fire(webview, "applyTeamDone", {
 				error: error,

@@ -54,13 +54,17 @@ public class LiveApiController {
 
     /**
      * 获取赛程信息列表 DF 2018年12月18日02:20:52
-     * @param gameId
+     * @param gameId            赛事id 选填
+     * @param liveCategoryId    直播分类id 选填
+     * @param date              日期时间 2018-12-20 yyyy:MM:dd 选填
      * @return
      */
     @GetMapping("getLiveGameDetailList")
-    public JsonArrayResult<ScheduleGame> getLiveGameDetailList(@RequestParam(required = false) Integer gameId){
+    public JsonArrayResult<ScheduleGame> getLiveGameDetailList(@RequestParam(required = false) Integer gameId,
+                                                               @RequestParam(required = false) Integer liveCategoryId,
+                                                               @RequestParam(required = false) String date){
         // 获取赛事信息列表
-        List<LiveScheduleDetail> scheduleDetailList = scheduleService.getScheduleDetailList(gameId);
+        List<LiveScheduleDetail> scheduleDetailList = scheduleService.getScheduleDetailList(gameId, liveCategoryId, date);
         if (scheduleDetailList == null || scheduleDetailList.size() == 0) throw new InfoException("空的集合");
 
         // 获取团队详细信息
@@ -76,6 +80,7 @@ public class LiveApiController {
             scheduleGame.setLiveTitle(item.getLiveTitle());
             scheduleGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
             scheduleGame.setSourceUrl(item.getSourceUrl());
+            scheduleGame.setCategoryId(item.getCategoryId());
 
             scheduleGame.setGameId(item.getGameId());
             scheduleGame.setGameName(item.getGameName());
@@ -165,6 +170,60 @@ public class LiveApiController {
         Boolean result = liveService.cancelCollect(liveId, session.getUserId());
         if(result) return JsonResult.successful();
         return JsonResult.failing();
+    }
+
+
+    /**
+     * 获取情报信息列表 DF 2018年12月18日02:20:52
+     * @param gameId            赛事id 选填
+     * @param liveCategoryId    直播分类id 选填
+     * @param date              日期时间 2018-12-20 yyyy:MM:dd 选填
+     * @return
+     */
+    @GetMapping("getInformationDetailList")
+    public JsonArrayResult<ScheduleGame> getInformationDetailList(@RequestParam(required = false) Integer gameId,
+                                                               @RequestParam(required = false) Integer liveCategoryId,
+                                                               @RequestParam(required = false) String date){
+        // 获取赛事信息列表
+        List<LiveScheduleDetail> scheduleDetailList = scheduleService.getInformationDetailList(gameId, liveCategoryId, date);
+        if (scheduleDetailList == null || scheduleDetailList.size() == 0) throw new InfoException("空的集合");
+
+        // 获取团队详细信息
+        String teamIdList = String.join(",", scheduleDetailList.stream().map(item -> item.getTeamId()).collect(Collectors.toList()));
+        if(teamIdList == null || teamIdList.isEmpty()) throw new InfoException("获取团队关系失败");
+        List<Team> teams = teamService.getTeams(teamIdList);
+
+        // 封装返回信息
+        List<ScheduleGame> scheduleGames = new ArrayList<>();
+        scheduleDetailList.stream().forEach(item -> {
+            ScheduleGame scheduleGame = new ScheduleGame();
+            scheduleGame.setLiveId(item.getLiveId());
+            scheduleGame.setLiveTitle(item.getLiveTitle());
+            scheduleGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
+            scheduleGame.setSourceUrl(item.getSourceUrl());
+            scheduleGame.setCategoryId(item.getCategoryId());
+            scheduleGame.setScheduleResult(item.getScheduleResult());
+            scheduleGame.setScheduleGrade(item.getScheduleGrade());
+            scheduleGame.setWinTeamIcon(item.getWinTeamIcon());
+            scheduleGame.setWinTeamName(item.getWinTeamName());
+            scheduleGame.setWinTeamId(item.getWinTeamId());
+
+            scheduleGame.setGameId(item.getGameId());
+            scheduleGame.setGameName(item.getGameName());
+            scheduleGame.setStatus(item.getStatus());
+
+            Team team = new Team();
+            PropertyUtil.clone(teams.get(0), team);
+
+            Team targetTeam = new Team();
+            PropertyUtil.clone(teams.get(1), targetTeam);
+
+            scheduleGame.setTeam(team);
+            scheduleGame.setTargetTeam(targetTeam);
+
+            scheduleGames.add(scheduleGame);
+        });
+        return new JsonArrayResult<ScheduleGame>(scheduleGames);
     }
 
 }

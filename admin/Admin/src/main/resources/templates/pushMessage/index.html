@@ -6,7 +6,7 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title th:text="'会员管理-' + ${title}"></title>
+    <title th:text="'系统配置-' + ${title}"></title>
     <style>
         .layui-form-label {
             float: left;
@@ -22,7 +22,7 @@
 <body>
 
 <th:block layout:fragment="current_page">
-    <a><cite>推送消息</cite></a>
+    <a href="/management/publishMessage/index"><cite>推送消息</cite></a>
 </th:block>
 
 <th:block layout:fragment="body">
@@ -44,7 +44,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <input type="checkbox" name="type" value="true" id="checkAll" title="全部">
+                <input type="checkbox" name="type" value="true" id="checkAll" title="发送全部用户">
             </div>
         </div>
         <div class="layui-form-item">

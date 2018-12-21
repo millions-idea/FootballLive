@@ -9,15 +9,14 @@ package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IDictionaryService;
 import com.management.admin.entity.db.Dictionary;
+import com.management.admin.entity.resp.DictionaryInfo;
 import com.management.admin.entity.resp.VersionInfo;
 import com.management.admin.repository.DictionaryMapper;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implements IDictionaryService {
@@ -45,10 +44,13 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
      * @return
      */
     @Override
-    public List<Dictionary> getHomeGroupInfo() {
+    public List<DictionaryInfo> getHomeGroupInfo() {
         String[] keys = {"banner.image1",
             "banner.image2",
-            "banner.image3",
+                "banner.image3",
+                "banner.image1.targetUrl",
+                "banner.image2.targetUrl",
+                "banner.image3.targetUrl",
             "bootstrap.image1",
             "bootstrap.image2",
             "bootstrap.image3",
@@ -59,7 +61,20 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         }
         String join = String.join(",", keys);
         List<Dictionary> dictionaries = dictionaryMapper.selectInKey(join);
-        return dictionaries;
+        List<DictionaryInfo> dictionaryInfos = new ArrayList<>();
+        dictionaries.stream().forEach(item -> {
+            DictionaryInfo dictionaryInfo = new DictionaryInfo();
+            dictionaryInfo.setDictionaryId(item.getDictionaryId());
+            dictionaryInfo.setKey(item.getKey());
+            dictionaryInfo.setValue(item.getValue());
+            if (item.getKey().contains("banner.image")){
+                if (item.getKey().contains("targetUrl")){
+                    dictionaryInfo.setUrl(item.getKey());
+                }
+            }
+            dictionaryInfos.add(dictionaryInfo);
+        });
+        return dictionaryInfos;
     }
 
     /**
@@ -118,7 +133,7 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
      */
     @Override
     public VersionInfo getVersion() {
-        List<Dictionary> list = dictionaryMapper.selectInKey("version,iosDownload,androidDownload");
+        List<Dictionary> list = dictionaryMapper.selectInKey("'version', 'iosDownload' , 'androidDownload'");
         String version =list.stream().filter(item -> item.getKey().equals("version")).findFirst().get().getValue();
         String iosDownload = list.stream().filter(item -> item.getKey().equals("iosDownload")).findFirst().get().getValue();
         String androidDownload = list.stream().filter(item -> item.getKey().equals("androidDownload")).findFirst().get().getValue();
@@ -127,5 +142,20 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         versionInfo.setIosDownload(iosDownload);
         versionInfo.setAndroidDownload(androidDownload);
         return versionInfo;
+    }
+
+    /**
+     * 随机获取启动页图片 DF 2018年12月20日07:50:18
+     *
+     * @return
+     */
+    @Override
+    public String getBootstrapRandomImage() {
+        List<Dictionary> list = dictionaryMapper.selectInKey("'bootstrap.image1', 'bootstrap.image2', 'bootstrap.image3'");
+        if(list != null && list.size() > 0){
+            Random rand = new Random();
+            return list.get(rand.nextInt(list.size())).getValue();
+        }
+        return null;
     }
 }

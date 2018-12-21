@@ -3,6 +3,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
+import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public interface InformationMapper extends MyMapper<Information> {
     Integer deleteInformationById(Integer informationId);
 
     @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon " +
-            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 " +
+            "FROM tb_lives t2 LEFT JOIN tb_informations t1  ON  t2.live_id = t1.live_id and t2.status=0 " +
             "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id  " +
             "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
@@ -65,8 +66,8 @@ public interface InformationMapper extends MyMapper<Information> {
             , @Param("condition") String condition);
 
     @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon " +
-            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0  " +
-            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where isr_id=#{informationId}")
+            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id  " +
+            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where t2.status=0 and  isr_id=#{informationId} ")
     InformationDetail queryInformationById(Integer informationId);
 
     /**
@@ -76,4 +77,20 @@ public interface InformationMapper extends MyMapper<Information> {
      */
     @Select("SELECT * FROM tb_informations WHERE live_id=#{liveId}")
     Information selectByLiveId(@Param("liveId") Integer liveId);
+
+    /**
+     * 查询赛程信息列表 DF 2018年12月18日02:26:40
+     * @param condition
+     * @return
+     */
+    @Select("SELECT *,t5.team_icon AS winTeamIcon, t5.team_name AS winTeamName FROM tb_informations t1 " +
+            "LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
+            "LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
+            "LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
+            "LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
+            "WHERE t1.is_delete = 0 AND t2.status = 0 AND t3.is_delete = 0 AND t4.is_delete = 0  " +
+            "AND ${condition} AND (t3.schedule_result IS NOT NULL OR t3.schedule_grade IS NOT NULL) " +
+            "ORDER BY t2.live_date ")
+    List<LiveScheduleDetail> selectInformationDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
+                                                      @Param("condition") String condition);
 }

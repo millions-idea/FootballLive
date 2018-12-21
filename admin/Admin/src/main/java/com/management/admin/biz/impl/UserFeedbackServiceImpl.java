@@ -5,17 +5,23 @@ import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.db.UserFeedback;
 import com.management.admin.entity.enums.UserRoleEnum;
+import com.management.admin.exception.InfoException;
 import com.management.admin.repository.UserFeedbackMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class UserFeedbackServiceImpl implements IUserFeedbackService {
 
     private UserFeedbackMapper feedbackMapper;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     public UserFeedbackServiceImpl(UserFeedbackMapper feedbackMapper) {
@@ -27,7 +33,6 @@ public class UserFeedbackServiceImpl implements IUserFeedbackService {
      * @param page
      * @param limit
      * @param condition
-     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
@@ -118,5 +123,35 @@ public class UserFeedbackServiceImpl implements IUserFeedbackService {
     @Override
     public UserFeedback queryUserFeedbackById(Integer feedbackId) {
         return feedbackMapper.queryUserFeedbackById(feedbackId);
+    }
+
+    /**
+     * 添加反馈 DF 2018年12月20日07:55:20
+     *
+     * @param userId
+     * @param content
+     * @return
+     */
+    @Override
+    public boolean addFeedback(Integer userId, String content) {
+        UserFeedback userFeedback = feedbackMapper.selectLastSubmit(userId);
+
+        Date currentDate = new Date();
+
+        long nd = 1000 * 24 * 60 * 60;//每天毫秒数
+
+        long nh = 1000 * 60 * 60;//每小时毫秒数
+
+        long nm = 1000 * 60;//每分钟毫秒数
+
+        long diff = currentDate.getTime() - userFeedback.getAddDate().getTime(); // 获得两个时间的毫秒时间差异
+
+        long day = diff / nd;   // 计算差多少天
+
+        long hour = diff % nd / nh; // 计算差多少小时
+
+        if(day > 0 || hour >= 8) throw  new InfoException("您已提交反馈, 8小时内不能再次提交！");
+
+        return feedbackMapper.insertFeedback(userId, content) > 0;
     }
 }

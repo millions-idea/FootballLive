@@ -10,8 +10,18 @@ var feedbackService = {
 }
 
 mui.plusReady(function(){
+	
+	// 自定义webview样式
+	var webview = plus.webview.currentWebview();
+	webview.setStyle({
+		titleNView: {
+			autoBackButton: true,
+			titleText: "反馈"
+		}
+	})
+	
 	$("#submit").click(function(){
-		var content = $("#content").text();
+		var content = $("#content").val();
 		if(content == null || content.length <= 0){
 			return app.utils.msgBox.msg("请输入反馈内容");
 		}

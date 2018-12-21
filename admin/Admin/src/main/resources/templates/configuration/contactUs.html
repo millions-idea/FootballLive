@@ -6,7 +6,7 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title th:text="'联系我们-' + ${title}"></title>
+    <title th:text="'系统配置-' + ${title}"></title>
     <style type="text/css">
         body {
             width: 800px;
@@ -16,7 +16,7 @@
 </head>
 <body>
 <th:block layout:fragment="current_page">
-    <a href="contactUs.html"><cite>联系我们</cite></a>
+    <a href="/management/configuration/contactUs"><cite>联系我们</cite></a>
 </th:block>
 
 <th:block layout:fragment="body">

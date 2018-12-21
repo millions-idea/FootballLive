@@ -2,6 +2,8 @@ package com.management.admin.repository;
 
 import com.management.admin.entity.db.UserFeedback;
 import com.management.admin.entity.dbExt.LiveDetail;
+import jdk.nashorn.internal.objects.annotations.Setter;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -57,4 +59,22 @@ public interface UserFeedbackMapper extends MyMapper<UserFeedback>{
      */
     @Select("select * from tb_user_feedback where feedback_id=#{feedbackId}")
     UserFeedback queryUserFeedbackById(Integer feedbackId);
+
+    /**
+     * 添加反馈 DF 2018年12月20日07:59:48
+     * @param userId
+     * @param content
+     * @return
+     */
+    @Insert("INSERT INTO tb_user_feedback (user_id, user_avatar, user_nick, content, user_phone) " +
+            "VALUES(#{userId}, (SELECT photo FROM tb_users WHERE user_id = #{userId}), (SELECT nick_name FROM tb_users WHERE user_id = #{userId}) , #{content}, (SELECT phone FROM tb_users WHERE user_id = #{userId}))")
+    int insertFeedback(@Param("userId") Integer userId, @Param("content") String content);
+
+    /**
+     * 查询最后一次提交记录 DF 2018年12月20日22:33:29
+     * @param userId
+     * @return
+     */
+    @Select("SELECT * FROM `tb_user_feedback` WHERE user_id = #{userId} ORDER BY add_date DESC LIMIT 1")
+    UserFeedback selectLastSubmit(@Param("userId") Integer userId);
 }

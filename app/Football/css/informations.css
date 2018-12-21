@@ -9,7 +9,7 @@
 }
 
 .live li{
-	background-position-y: 50px;
+	background-position-y: 44px;
 }
 
 
@@ -21,7 +21,7 @@
 .content .left-hot .icon{
 	position: relative;
 	left: -1px;
-	top: -22px;
+	top: -16px;
 	font-size: 35px;
 	color: #FE4541;
 	float: left;
@@ -37,7 +37,7 @@
 .content .right-hot .icon{
 	position: relative;
 	right: -1px;
-	top: -24px;
+	top: -18px;
 	font-size: 35px;
 	color: #FE4541;
 	float: right;

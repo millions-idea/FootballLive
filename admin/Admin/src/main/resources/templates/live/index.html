@@ -6,12 +6,12 @@
       layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title th:text="'会员管理-' + ${title}"></title>
+    <title th:text="'直播间-' + ${title}"></title>
 </head>
 <body>
 
 <th:block layout:fragment="current_page">
-    <a><cite>会员管理</cite></a>
+    <a href="/management/live/index"><cite>直播间列表</cite></a>
 </th:block>
 
 <th:block layout:fragment="body">

@@ -10,10 +10,12 @@ package com.management.admin.biz;
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.UserInfo;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -248,7 +250,6 @@ public interface IUserService {
     /**
      * 加载分页记录数 韦德 2018年8月30日11:29:22
      * @param condition
-     * @param userRole
      * @param state
      * @param beginTime
      * @param endTime
@@ -262,4 +263,19 @@ public interface IUserService {
      * @return
      */
     User queryBackUserById(Integer userId);
+
+    /**
+     * 查询用户收藏直播间
+     * @param userId
+     * @return
+     */
+    List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId);
+
+    /**
+     * BY Id 加入黑名单
+     * @param userId
+     * @param blackRemark
+     * @return
+     */
+    Integer listBlack(Integer userId,String blackRemark);
 }

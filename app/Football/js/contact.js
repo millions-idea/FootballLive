@@ -15,7 +15,7 @@ mui.plusReady(function(){
 	
 	service.getContact({}, function(res){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载失败");
-		$("#content").text(res.msg);
+		$("#content").html(res.msg);
 	})
 	
 

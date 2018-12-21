@@ -60,6 +60,9 @@ public class ProfileApiController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IUserFeedbackService userFeedbackService;
+
     /**
      * 获取消息列表 DF 2018年12月19日06:21:27
      * @param req
@@ -192,11 +195,14 @@ public class ProfileApiController {
     /**
      * 发送反馈意见 DF 2018年12月19日06:22:24
      * @param req
+     * @param content
      * @return
      */
     @GetMapping("addFeedback")
-    public JsonResult addFeedback(HttpServletRequest req){
-
+    public JsonResult addFeedback(HttpServletRequest req, String content){
+        SessionModel session = SessionUtil.getSession(req);
+        boolean result = userFeedbackService.addFeedback(session.getUserId(), content);
+        if(result) return JsonResult.successful();
         return JsonResult.failing();
     }
 
@@ -211,5 +217,15 @@ public class ProfileApiController {
         return new JsonResult().successful(contact);
     }
 
+    /**
+     * 获取启动页图片 DF 2018年12月20日07:49:03
+     * @param req
+     * @return
+     */
+    @GetMapping("getGuide")
+    public JsonResult getGuide(HttpServletRequest req){
+        String url = dictionaryService.getBootstrapRandomImage();
+        return new JsonResult().successful(url);
+    }
 
 }
