@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.ISystemLogService;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.SystemLog;
@@ -29,12 +30,13 @@ public class SystemLogController {
     }
 
     /**
-     * 会员列表 韦德 2018年8月29日11:42:31
+     * 系统日志 韦德 2018年8月29日11:42:31
      *
      * @return
      */
     @GetMapping("/getSystemLogLimit")
     @ResponseBody
+    @WebLog(section = "SystemLog",content = "查看系统日志")
     public JsonArrayResult<Live> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<SystemLog> list = systemLogService.getLimit(page, limit, condition, state, beginTime, endTime);

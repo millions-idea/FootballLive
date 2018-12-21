@@ -8,6 +8,7 @@
 package com.management.admin.controller;
 
 import com.google.common.collect.ImmutableMap;
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.JsonResult;
@@ -51,6 +52,7 @@ public class BootstrapController {
      */
     @PostMapping("login")
     @ResponseBody
+    @WebLog(section = "User", content = "管理员登陆")
     public JsonResult login(HttpServletRequest req, HttpServletResponse response, String username, String password){
         UserInfo userInfo = userService.staffLogin(username, password);
 
@@ -79,6 +81,7 @@ public class BootstrapController {
      */
     @GetMapping("/logout")
     @ResponseBody
+    @WebLog(section = "User", content = "管理员注销登陆")
     public JsonResult logout(HttpServletRequest req, HttpServletResponse res){
         userService.logout(SessionUtil.getToken(req));
         CookieUtil.deleteCookie(req,res,"token");

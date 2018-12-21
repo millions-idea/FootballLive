@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IDictionaryService;
 import com.management.admin.entity.template.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class DictionaryController {
      * @return
      */
     @GetMapping("/setContact")
+    @WebLog(section = "Config",content = "修改联系我们")
     public JsonResult setContact(String value){
         Integer result = dictionaryService.updateById(17,value);
         if(result>0){

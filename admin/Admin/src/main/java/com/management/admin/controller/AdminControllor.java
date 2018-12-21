@@ -1,6 +1,7 @@
 package com.management.admin.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionRelation;
@@ -33,6 +34,7 @@ public class AdminControllor {
     private IUserService userService;
 
     @GetMapping("/index")
+    @WebLog(section = "User", content = "访问管理员管理")
     public String index(HttpServletRequest request, final Model model){
         Integer userId = SessionUtil.getSession(request).getUserId();
         Integer type=userService.selectType(userId);
@@ -46,6 +48,7 @@ public class AdminControllor {
      */
     @GetMapping("/getAdminLimit")
     @ResponseBody
+    @WebLog(section = "User", content = "访问管理员列表")
     public JsonArrayResult<AdminUser> getMemberLimit(Integer page, String limit, String condition, Integer type,Integer state, String beginTime, String endTime){
         Integer count = 0;
         List<AdminUser> list = userService.getAdminLimit(page, limit, condition, state, beginTime, endTime);
@@ -63,6 +66,7 @@ public class AdminControllor {
     }
 
     @GetMapping("edit")
+    @WebLog(section = "User", content = "修改管理员信息")
     public String edit(HttpServletRequest request, Integer userId, final Model model){
         SessionModel session = SessionUtil.getSession(request);
         AdminUser user = userService.getAdminUserInfoById(session.getUserId());
@@ -87,6 +91,7 @@ public class AdminControllor {
      */
     @PostMapping(value = "updateuserpwd")
     @ResponseBody
+    @WebLog(section = "User", content = "修改管理员密码")
     public JsonResult setUpdatePwd(HttpServletRequest request, String phone, String password, String newpwd){
             boolean result=userService.resetAdminPassword(request,phone,password,newpwd);
             if(result){
@@ -102,6 +107,7 @@ public class AdminControllor {
      */
     @PostMapping(value = "updateSupAdmin")
     @ResponseBody
+    @WebLog(section = "User", content = "超级管理员修改信息")
     public JsonResult setSupUpdatePwd(String phone, String password,Integer status){
         boolean result=userService.resetSupAdmin(phone,password,status);
         if(result){
@@ -122,6 +128,7 @@ public class AdminControllor {
      */
     @PostMapping(value = "insertAdmin")
     @ResponseBody
+    @WebLog(section = "User", content = "添加管理员")
     public JsonResult insertAdmin(String phone,String password,Integer type){
 
         JsonResult jsonResult= new JsonResult();
@@ -151,6 +158,7 @@ public class AdminControllor {
      */
     @GetMapping(value = "deleteAdmin")
     @ResponseBody
+    @WebLog(section = "User", content = "删除管理员")
     public JsonResult deleteAdmin(Integer   userId) {
          if(userService.deleteAdmin(userId)){
            return   JsonResult.successful();

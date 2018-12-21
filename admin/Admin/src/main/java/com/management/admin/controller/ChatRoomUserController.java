@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IChatRoomUserRelationService;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
@@ -34,6 +35,7 @@ public class ChatRoomUserController {
      */
     @GetMapping("/getchatRoomLimit")
     @ResponseBody
+    @WebLog(section = "ChatRoom",content = "查看聊天室用户列表")
     public JsonArrayResult<Live> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime,Integer roomId) {
         Integer count = 0;
         List<ChatRoomDetail> list = relationService.getLimit(page, limit, condition, state, beginTime, endTime,roomId);
@@ -57,6 +59,7 @@ public class ChatRoomUserController {
      */
     @GetMapping("/shieldingUser")
     @ResponseBody
+    @WebLog(section = "ChatRoom", content = "拉黑用户")
     public JsonResult shieldingUser(Integer userId){
         Integer result = relationService.shieldingUser(userId);
         if(result>0){

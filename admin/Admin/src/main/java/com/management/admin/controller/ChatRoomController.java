@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IChatRoomService;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
@@ -34,6 +35,7 @@ public class ChatRoomController {
      */
     @GetMapping("/getchatRoomLimit")
     @ResponseBody
+    @WebLog(section = "ChatRoom",content = "查看所有的直播间")
     public JsonArrayResult<Live> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<ChatRoomDetail> list = chatRoomService.getLimit(page, limit, condition, state, beginTime, endTime);
@@ -57,6 +59,7 @@ public class ChatRoomController {
      * @return
      */
     @GetMapping("/getChatRoomDetails")
+    @WebLog(section = "ChatRoom",content = "查看聊天室详情")
     public String getChatRoomDetails(Integer roomId, final Model model){
         ChatRoomDetail chatRoomDetail = chatRoomService.queryChatRoomById(roomId);
         model.addAttribute("chatRoomDetail",chatRoomDetail);

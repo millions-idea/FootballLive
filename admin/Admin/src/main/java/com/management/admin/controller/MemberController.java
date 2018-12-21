@@ -7,6 +7,7 @@
  */
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.db.UserFeedback;
@@ -48,6 +49,7 @@ public class MemberController {
      */
     @GetMapping("/getMemberLimit")
     @ResponseBody
+    @WebLog(section = "User",content = "查看用户列表")
     public JsonArrayResult<User> getMemberLimit(Integer page, String limit, String condition, Integer type, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<User> list = userService.getLimit(page, limit, condition, UserRoleEnum.Member, state, beginTime, endTime);
@@ -64,6 +66,12 @@ public class MemberController {
         return jsonArrayResult;
     }
 
+    /**
+     * 跳转修改面
+     * @param userId
+     * @param model
+     * @return
+     */
     @GetMapping("edit")
     public String edit(Integer userId, final Model model) {
         User user = userService.getUserInfoById(userId);
@@ -77,12 +85,13 @@ public class MemberController {
     }
 
     /**
-     * 会员列表 韦德 2018年8月29日11:42:31
+     * 获取黑名单列表 韦德 2018年8月29日11:42:31
      *
      * @return
      */
     @GetMapping("/getuserFeedbackLimit")
     @ResponseBody
+    @WebLog(section = "User",content = "查看黑名单列表")
     public JsonArrayResult<User> getBackLimit(Integer page, String limit, String condition, Integer type, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<User> list = userService.getBackLimit(page, limit, condition, state, beginTime, endTime);
@@ -99,7 +108,14 @@ public class MemberController {
         return jsonArrayResult;
     }
 
+    /**
+     * 黑名单详情
+     * @param backUserId
+     * @param model
+     * @return
+     */
     @GetMapping("/backDetails")
+    @WebLog(section = "User",content = "查看黑名单详情")
     public String backDetails(Integer backUserId, final Model model) {
         User user = userService.queryBackUserById(backUserId);
         model.addAttribute("addDate", DateUtil.getFormatDateTime(user.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
@@ -128,6 +144,7 @@ public class MemberController {
      */
     @GetMapping("/blacklist")
     @ResponseBody
+    @WebLog(section = "User",content = "加入黑名单")
     public JsonResult blacklist(Integer userId,String blackRemark){
             blackRemark+="   ";
             Integer result=userService.listBlack(userId,blackRemark);

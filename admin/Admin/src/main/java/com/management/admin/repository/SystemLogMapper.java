@@ -2,6 +2,7 @@ package com.management.admin.repository;
 
 import com.management.admin.entity.db.SystemLog;
 import com.management.admin.entity.dbExt.LiveDetail;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -54,5 +55,13 @@ public interface SystemLogMapper extends MyMapper<SystemLog>{
      */
     @Select("select * from tb_system_logs where log_id=#{logId}")
     SystemLog querySystemLogById(Integer logId);
+
+    /**
+     * 添加系统日志 狗蛋 2018年12月21日19:38:49
+     * @param systemLog
+     * @return
+     */
+    @Insert("insert into tb_system_logs(user_id,section,content,add_date) values(#{userId}#{section},#{content},NOW())")
+    Integer insertSystemLog(SystemLog systemLog);
 
 }

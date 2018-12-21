@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.ICompetitionService;
 import com.management.admin.biz.IScheduleService;
 import com.management.admin.biz.ITeamService;
@@ -57,6 +58,7 @@ public class ScheduleControllor {
      */
     @GetMapping("/getScheduleLimit")
     @ResponseBody
+    @WebLog(section = "Schedule",content = "查看球队列表")
     public JsonArrayResult<ScheduleGameTeam> getMemberLimit(Integer page, String limit){
         Integer count = 0;
         List<ScheduleGameTeam> list = scheduleService.getScheduleLimit(page,limit);
@@ -72,6 +74,7 @@ public class ScheduleControllor {
      */
     @GetMapping("/queryTeam")
     @ResponseBody
+    @WebLog(section = "Schedule",content = "查看赛程双方球队")
     public JsonResult queryTeam(String teamId){
         List<Team> list=teamService.getTeams(teamId);
         //StringBuffer buffer =new StringBuffer();
@@ -93,6 +96,7 @@ public class ScheduleControllor {
      */
     @GetMapping("/deleteSchedule")
     @ResponseBody
+    @WebLog(section = "Schedule",content = "删除赛程信息")
     public JsonResult deleteSchedule(Integer scheduleId){
          if(scheduleService.deleteSchedule(scheduleId)){
              return JsonResult.successful();
@@ -151,6 +155,7 @@ public class ScheduleControllor {
      */
     @GetMapping("addSchedule")
     @ResponseBody
+    @WebLog(section = "Schedule",content = "添加赛程信息")
    public JsonResult addSchedule(Schedule schedule){
         System.err.println(schedule);
         if(scheduleService.addSchedule(schedule)){
@@ -165,6 +170,7 @@ public class ScheduleControllor {
      */
     @GetMapping("updateSchedule")
     @ResponseBody
+    @WebLog(section = "Schedule",content = "修改赛程")
     public JsonResult updateSchedule(Schedule schedule){
         if(scheduleService.updateSchedule(schedule)){
             return JsonResult.successful();

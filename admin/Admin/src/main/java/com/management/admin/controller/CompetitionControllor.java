@@ -8,6 +8,7 @@ package com.management.admin.controller;
  * Version 1.0
  **/
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.ICompetitionService;
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.Game;
@@ -53,6 +54,7 @@ public class CompetitionControllor {
      */
     @GetMapping("/getCompetitionLimit")
     @ResponseBody
+    @WebLog(section = "Competition",content = "查看赛事列表")
     public JsonArrayResult<GameCategory> getMemberLimit(Integer page, String limit){
         Integer count = 0;
         List<GameCategory> list = competitionService.getCompetitionLimit(page,limit);
@@ -79,6 +81,7 @@ public class CompetitionControllor {
      */
     @GetMapping("addCompetition")
     @ResponseBody
+    @WebLog(section = "Competition", content = "添加赛事信息")
     public JsonResult addCompetition(Game  game){
          System.out.println(game);
          boolean  result=competitionService.addCompetition(game);
@@ -94,6 +97,7 @@ public class CompetitionControllor {
      */
     @GetMapping("deleteGame")
     @ResponseBody
+    @WebLog(section = "Competition", content = "访问用户管理")
     public JsonResult deleteCompetition(Integer gameId){
         boolean  result=competitionService.deleteCompetition(gameId);
         if(result){

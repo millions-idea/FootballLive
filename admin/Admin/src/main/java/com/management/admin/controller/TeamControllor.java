@@ -8,6 +8,7 @@ package com.management.admin.controller;
  * Version 1.0
  **/
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.ICompetitionService;
 import com.management.admin.biz.ITeamService;
 import com.management.admin.biz.IUserService;
@@ -60,6 +61,7 @@ public class TeamControllor {
      */
     @GetMapping("/getTeamLimit")
     @ResponseBody
+    @WebLog(section = "Team",content = "查看球队列表")
     public JsonArrayResult<TeamCompetition> getMemberLimit(Integer page, String limit){
         Integer count = 0;
         List<TeamCompetition> list = teamService.getTeamLimit(page,limit);
@@ -86,6 +88,7 @@ public class TeamControllor {
      */
     @GetMapping("addTeam")
     @ResponseBody
+    @WebLog(section = "Team",content = "添加赛程")
     public JsonResult addCompetition(Team team){
         boolean  result=teamService.addTeam(team) ;
         if(result){
@@ -100,6 +103,7 @@ public class TeamControllor {
      */
     @GetMapping("deleteTeam")
     @ResponseBody
+    @WebLog(section = "Team",content = "删除赛程信息")
     public JsonResult deleteCompetition(Integer teamId){
         boolean  result=teamService.deleteTeam(teamId);
         if(result){

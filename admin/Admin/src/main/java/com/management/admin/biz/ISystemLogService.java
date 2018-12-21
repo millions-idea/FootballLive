@@ -44,4 +44,11 @@ public interface ISystemLogService {
      * @return
      */
     SystemLog querySystemLogById(Integer logId);
+
+    /**
+     * 添加系统日志 狗蛋 2018年12月21日19:54:29
+     * @param systemLog
+     * @return
+     */
+    Integer insertSystemLog(SystemLog systemLog);
 }
