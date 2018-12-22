@@ -133,29 +133,37 @@ function initData(){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
 		
 		//参赛球队信息设置
-		$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
-		$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
-		$(".left .teamName").text(res.data[0].team.teamName);
-		$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
-		$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
-		$(".left").data("id", res.data[0].liveId);
+		if(res.data[0] != null){
+			$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
+			$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
+			$(".left .teamName").text(res.data[0].team.teamName);
+			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
+			$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
+			$(".left").data("id", res.data[0].liveId);
+				
+		}
 		
 		//对战球队信息设置
-		$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
-		$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
-		$(".right .teamName").text(res.data[1].team.teamName);
-		$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
-		$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
-		$(".right").data("id", res.data[1].liveId);
+		if(res.data[1] != null){
+			$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
+			$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
+			$(".right .teamName").text(res.data[1].team.teamName);
+			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
+			$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
+			$(".right").data("id", res.data[1].liveId);
+		}
+		
 		
 		
 		
 		$(".headline .left, .headline .right").unbind("click").bind("click",function(){
 			var id = $(this).data("id");
-			console.log(id)
-			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
-				liveId: id
-			})
+
+			if(id != null && id.length > 0 ){
+				app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
+					liveId: id
+				})
+			}
 		});
 	});
 	
