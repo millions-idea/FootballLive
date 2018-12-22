@@ -226,7 +226,10 @@ public final class CookieUtil {
             String[] ary = domainName.split("\\:");
             domainName = ary[0];
         }
-        return domainName;
+
+        //TODO:以上代码在生产环境二级域名下无法使用，直接返回serverName
+
+        return serverName;
     }
 
 }

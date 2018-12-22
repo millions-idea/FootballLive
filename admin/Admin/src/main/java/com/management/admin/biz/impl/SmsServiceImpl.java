@@ -47,7 +47,7 @@ public class SmsServiceImpl implements ISmsService {
             randomCode = Long.parseLong((randomCode + "").substring(0, 6));
 
             // 调用短信服务中心远程接口发送验证码到客户端手机
-            PaasSmsUtil.sendMessage(phone,"【253云通讯】验证码为："+randomCode+",您正在注册成为平台会员，感谢您的支持！");
+            sendResult = PaasSmsUtil.sendMessage(phone,"【253云通讯】验证码为："+randomCode+",您正在注册成为平台会员，感谢您的支持！");
 
             // 存储正确结果到缓存服务器中, 有效期5分钟
             if(sendResult){
@@ -82,7 +82,7 @@ public class SmsServiceImpl implements ISmsService {
             randomCode = Long.parseLong((randomCode + "").substring(0, 6));
 
             // 调用短信服务中心远程接口发送验证码到客户端手机
-            PaasSmsUtil.sendMessage(phone,"【253云通讯】验证码为："+randomCode+",您正在注册成为平台会员，感谢您的支持！");
+            sendResult = PaasSmsUtil.sendMessage(phone,"【253云通讯】验证码为："+randomCode+",您正在找回平台密码，感谢您的支持！");
 
             // 存储正确结果到缓存服务器中, 有效期5分钟
             if(sendResult){
