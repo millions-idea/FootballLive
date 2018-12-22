@@ -168,7 +168,7 @@ function newInstance(){
 
 	// 实例化网易云信服务
 	nim = NIM.getInstance({
-	    appKey: "76688b21d1656063933c1199a3e425a1",
+	    appKey: "c58b616a2dbfa83bf7857364f77ae13b",
 	    account: cache.cloudAccid,
 	    token: cache.cloudToken,
 	    customTag: 'TV',
@@ -306,8 +306,11 @@ function onWillReconnect(obj) {
     console.log(obj.duration);
     app.utils.msgBox.msg("您已断开连接，正在尝试重新连接……");
 }
-function destroyNim(){ 
+function destroyNim(disconnect){ 
+	if(disconnect == null){
 	nim.disconnect();
+		
+	}
 	
 	// 清除实例
     nim.destroy({
@@ -320,30 +323,43 @@ function onDisconnect(error) {
     // 此时说明 `SDK` 处于断开状态, 开发者此时应该根据错误码提示相应的错误信息, 并且跳转到登录页面
     console.log('丢失连接');
     console.log(JSON.stringify(error));
+	/*destroyNim();
+    console.log("主动清除实例并断开")
+    plus.webview.currentWebview().close();*/
     if (error) {
         switch (error.code) {
         // 账号或者密码错误, 请跳转到登录页面并提示错误
         case 302:
-        	destroyNim();
+        	destroyNim(false);
         	app.logger("IM_onDisconnect","账号或密码错误");
         	app.utils.msgBox.msg("账号或密码错误");
         	app.utils.openNewWindow("login.html", "login");
+        	return;
             break;
         // 被踢, 请提示错误后跳转到登录页面
         case 'kicked':
-        	destroyNim();
+        	destroyNim(false);
         	app.logger("IM_onDisconnect","您的账号在别处登录,被迫下线");
         	app.utils.msgBox.msg("您的账号在别处登录,被迫下线");
         	app.utils.openNewWindow("login.html", "login");
+        	return;
+        	
             break;
         default:
-        destroyNim();
+        	destroyNim(false);
         	app.logger("IM_onDisconnect","服务器出现连接问题,被迫下线");
         	app.utils.msgBox.msg("服务器出现连接问题,被迫下线");
         	app.utils.openNewWindow("login.html", "login");
+        	return;
             break;
         }
     }
+    
+    destroyNim(false);	
+	app.print("应用启动失败");
+	app.utils.msgBox.msg(error.message);
+	app.utils.openNewWindow("login.html", "login");
+	return;
 }
 function onError(error) {
     console.log(error);
