@@ -34,10 +34,8 @@ public class AdminControllor {
 
     @GetMapping("/index")
     public String index(HttpServletRequest request, final Model model){
-        Integer userId = SessionUtil.getSession(request).getUserId();
-        Integer type=userService.selectType(userId);
-        model.addAttribute("model",type);
-        return "admin/admin";
+
+        return "admin/index";
     }
 
     /**
@@ -49,6 +47,7 @@ public class AdminControllor {
     public JsonArrayResult<AdminUser> getMemberLimit(Integer page, String limit, String condition, Integer type,Integer state, String beginTime, String endTime){
         Integer count = 0;
         List<AdminUser> list = userService.getAdminLimit(page, limit, condition, state, beginTime, endTime);
+        System.err.println(list);
         JsonArrayResult jsonArrayResult = new JsonArrayResult(0, list);
         if (StringUtil.isBlank(condition)
                 && StringUtil.isBlank(beginTime)
@@ -65,6 +64,7 @@ public class AdminControllor {
     @GetMapping("edit")
     public String edit(HttpServletRequest request, Integer userId, final Model model){
         SessionModel session = SessionUtil.getSession(request);
+
         AdminUser user = userService.getAdminUserInfoById(session.getUserId());
         AdminUser targetUser = userService.getAdminUserInfoById(userId);
         model.addAttribute("user", user);
@@ -137,7 +137,7 @@ public class AdminControllor {
             jsonResult.setMsg("该账号已经存在");
         }else if(userService.insertAdminUsers(adminUsers)){
                 jsonResult.setCode(200);
-                jsonResult.setMsg("添加成功");
+                jsonResult.setMsg("删除成功");
             }else {
             jsonResult.setCode(500);
             jsonResult.setMsg("添加失败");
@@ -151,10 +151,21 @@ public class AdminControllor {
      */
     @GetMapping(value = "deleteAdmin")
     @ResponseBody
-    public JsonResult deleteAdmin(Integer   userId) {
-         if(userService.deleteAdmin(userId)){
-           return   JsonResult.successful();
-         }
-        return  JsonResult.failing();
+    public JsonResult deleteAdmin(Integer   userId,HttpServletRequest request) {
+        JsonResult jsonResult= new JsonResult();
+
+        Integer sessionId = SessionUtil.getSession(request).getUserId();
+        Integer type=userService.selectType(sessionId);
+
+        if(type==2){
+             jsonResult.setMsg("无权删除");
+        }else if(userService.deleteAdmin(userId)){
+            jsonResult.setCode(200);
+            jsonResult.setMsg("删除成功");
+        }else{
+            jsonResult.setCode(500);
+            jsonResult.setMsg("删除失败");
+        }
+        return  jsonResult;
     }
 }

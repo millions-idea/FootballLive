@@ -77,7 +77,7 @@ public interface AdminUserMapper extends MyMapper<AdminUser> {
 
 
     @Select("SELECT t1.* FROM tb_admin_users t1 " +
-            "WHERE status<2 and  ${condition} GROUP BY t1.user_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+            "WHERE t1.status<2 and  ${condition} GROUP BY t1.user_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
