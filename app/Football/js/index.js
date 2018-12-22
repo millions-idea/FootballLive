@@ -29,17 +29,33 @@ mui.plusReady(function(){
     plus.navigator.closeSplashscreen();
     
     plus.webview.currentWebview().addEventListener("show", function(){
-    			
-		plus.push.addEventListener("receive", function(){
-			console.log("推送消息被点击")
-			clickPushMessage();
+		// 拉取短消息列表
+		service.getMessageList({}, function(res){
+			if(app.utils.ajax.isError(res)) {
+				app.utils.msgBox.msg("加载消息列表失败");
+				return;
+			}
+	
+			for (var i = 0; i < res.data.length; i++) {
+				var item = res.data[i];
+				var message = item.message;
+				if(item.isRead==1) continue;
+				if(item.type) message = "点击查看详情";
+				plus.push.createMessage("您有一条未读消息: " + message);			
+			}
 		})
-		
-		plus.push.addEventListener("click", function(){
-			console.log("推送消息被点击")
-			clickPushMessage();
-		});
     })
+    
+    		
+	plus.push.addEventListener("receive", function(){
+		console.log("推送消息被点击")
+		clickPushMessage();
+	})
+	
+	plus.push.addEventListener("click", function(){
+		console.log("推送消息被点击")
+		clickPushMessage();
+	});
     
     
     /**
@@ -50,14 +66,9 @@ mui.plusReady(function(){
      */
     var launchFlag = plus.storage.getItem("launchFlag");
     if(launchFlag) {
-    	console.log("直接进入首页")
-        /*mui.openWindow({
-            url: "index.html",
-            id: "index",
-            extras: {
-                mark: "index" //额外的参数，仅仅是个标识，实际开发中不用；
-            }
-        });*/
+    	console.log("不是首次启动，直接进入首页")
+		//app.utils.call("asyncLoginNIM", {});
+
     } else {
         mui.openWindow({
             url: "guide.html",
@@ -120,7 +131,21 @@ mui.plusReady(function(){
 	
 });
 
+window.addEventListener("asyncLoginNIM", function(){
+	console.log("同步登录云信服务器：" + nim);
+	if(nim == null){
+		newInstance();	
+	}else{
+		console.log("已登录云信服务器：" + nim);
+	}
+
+	
+
+})
+
 function newInstance(){
+	app.logger("index", "创建云信服务")
+	
 	// 设置激活图标
 	var items = document.getElementsByClassName("mui-tab-item");
 	for (var i = 0; i < items.length; i++) {
@@ -138,34 +163,9 @@ function newInstance(){
 		return;
 	}
 	var cache = JSON.parse(cacheString);
-	
-	// 拉取短消息列表
-	service.getMessageList({}, function(res){
-		if(app.utils.ajax.isError(res)) {
-			app.utils.msgBox.msg("加载消息列表失败");
-			return;
-		}
-		
 
-		for (var i = 0; i < res.data.length; i++) {
-			var item = res.data[i];
-			var message = item.message;
-			if(item.isRead==1) continue;
-			if(item.type) message = "点击查看详情";
-			plus.push.createMessage("您有一条未读消息: " + message);			
-		}
-		
-		plus.push.addEventListener("receive", function(){
-			clickPushMessage();
-		})
-		
-		plus.push.addEventListener("click", function(){
-			clickPushMessage();
-		});
-	})
-	
-	
-	
+	app.logger("index", "实例化云信服务")
+
 	// 实例化网易云信服务
 	nim = NIM.getInstance({
 	    appKey: "76688b21d1656063933c1199a3e425a1",
@@ -226,6 +226,9 @@ function newInstance(){
 	    // 同步完成
 	    onsyncdone: onSyncDone
 	});
+	
+	app.logger("index", "实例化云信服务成功" + nim)
+	
 
 }
 
@@ -304,6 +307,8 @@ function onWillReconnect(obj) {
     app.utils.msgBox.msg("您已断开连接，正在尝试重新连接……");
 }
 function destroyNim(){ 
+	nim.disconnect();
+	
 	// 清除实例
     nim.destroy({
       done: function (err) {
@@ -796,16 +801,10 @@ window.addEventListener("getHistoryMsgs", function(event){
 
 window.addEventListener("sendText", function(event){
 	var msg = nim.sendText({
-	    scene: 'p2p',
+	    scene: 'team',
 	    to: event.detail.to,
 	    text: event.detail.text,
 	    done: function(error, msg){
-	    	
-	    	if(!error){
-	    		app.utils.msgBox.msg("DEBUG:消息发送失败");
-	    	}else{
-	    		app.utils.msgBox.msg("DEBUG:消息发送成功");
-	    	}
 	    	
 	    	/*var webview = plus.webview.getWebviewById("chat-" + event.detail.to);
 			mui.fire(webview, "sendMsgDone", {
@@ -928,7 +927,7 @@ window.addEventListener("applyFriend", function(event){
  
 
 
-window.addEventListener("applyTeam", function(event){
+window.addEventListener("applyTeam", function(event){	
 	nim.applyTeam({
 	    teamId: event.detail.teamId,
 	    ps: event.detail.ps,

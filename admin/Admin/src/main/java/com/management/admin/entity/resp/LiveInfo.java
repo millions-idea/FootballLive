@@ -122,4 +122,7 @@ public class LiveInfo {
      * 发言频率
      */
     private Double frequency;
+
+
+    private String  chatRoomErrorMsg;
 }

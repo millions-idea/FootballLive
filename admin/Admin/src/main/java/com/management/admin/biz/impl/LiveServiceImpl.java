@@ -7,6 +7,7 @@ import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.entity.resp.*;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.exception.InfoException;
+import com.management.admin.exception.MsgException;
 import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.JsonUtil;
@@ -382,5 +383,33 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     public boolean cleanCollect(Integer userId) {
         return liveCollectMapper.cleanCollect(userId) > 0;
+    }
+
+    /**
+     * 加入群组 DF 2018年12月20日23:27:13
+     *
+     * @param phone
+     * @param userId
+     * @param liveId
+     */
+    @Override
+    @Transactional
+    public String addGroup(String phone, Integer userId, Integer liveId) {
+        ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
+        if(chatRoom == null) return "直播间不存在";
+
+        ChatRoomUserRelation chatRoomUserRelation = chatRoomUserRelationMapper.selectRelation(userId, liveId);
+
+        if(chatRoomUserRelation != null && chatRoomUserRelation.getIsBlackList() == 1) return "您已被加入直播间黑名单";
+
+        chatRoomUserRelationMapper.insertRelation(userId, liveId);
+
+        //同步云端数据
+        String response = NeteaseImUtil.post("nimserver/team/add.action", "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId
+                + "&members=" + JsonUtil.getJson(new String[]{phone}) + "&magree=0" + "&msg=ADD");
+        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+        if (!model.getCode().equals(200)) return "同步云端数据失败";
+
+        return null;
     }
 }

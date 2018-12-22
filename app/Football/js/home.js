@@ -116,6 +116,11 @@ function initData(){
 		//渲染滚动图列表
 		$("#runnerImage").html(app.utils.raw(runnerImageList));
 		
+		$(".runnerLink").click(function(){
+			var url = $(this).data("url");
+			plus.runtime.openURL(url);
+		})
+		
 		//渲染今日头条 
 		var headLineMap = homeService.getTodayHeadLine(res.data);
 		if(headLineMap == null) headLineMap = { value : "加载今日头条失败"};
@@ -192,8 +197,6 @@ function checkVersion(plugin){
 				var ua = navigator.userAgent.toLowerCase(); 
 				var newVersion = parseInt(data.version.trim().toString().replace(".","").replace(".",""));
 				var oldVersion = parseInt(ver.trim().toString().replace(".","").replace(".",""))
- 				console.log("转换版本号:" + newVersion);
- 				console.log("转换版本号:" + oldVersion);
          		if (newVersion > oldVersion) {
 					if (/iphone|ipad|ipod/.test(ua)) return plus.runtime.openURL(data.iosDownload);
          			console.log("update版本号" + data.update);

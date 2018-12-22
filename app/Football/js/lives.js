@@ -184,7 +184,7 @@ function getSchedules(param){
     		html += '		</div>';
     		html += '	</div> 	';
     		html += '<div class="foot">';
-			html += '	<span class="status off">这是直播间标题……</span>';
+			html += '	<span class="status off">' + item.liveTitle + '</span>';
 			html += '</div>';
     		html += '</li>';
 		} 

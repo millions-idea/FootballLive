@@ -41,9 +41,13 @@ mui.plusReady(function(){
 	
 	refreshHeight();
 	
+	plus.nativeUI.closeWaiting();
+	
 	webview.addEventListener("show", function(){
 		refreshHeight();
+		plus.nativeUI.closeWaiting();
 	})
+	
 	
 	
 	messageService.getMessageList({}, function(res){

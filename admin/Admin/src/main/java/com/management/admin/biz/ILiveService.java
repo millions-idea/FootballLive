@@ -14,6 +14,7 @@ public interface ILiveService {
 
     /**
      * 分页加载 韦德 2018年8月30日11:29:00
+     *
      * @param page
      * @param limit
      * @param condition
@@ -27,6 +28,7 @@ public interface ILiveService {
 
     /**
      * 加载总记录数 韦德 2018年8月30日11:29:11
+     *
      * @return
      */
     Integer getCount();
@@ -34,6 +36,7 @@ public interface ILiveService {
 
     /**
      * 加载分页记录数 韦德 2018年8月30日11:29:22
+     *
      * @param condition
      * @param state
      * @param beginTime
@@ -44,6 +47,7 @@ public interface ILiveService {
 
     /**
      * 获取用户信息--用户id DF 2018年12月16日19:11:09
+     *
      * @param liveId
      * @return
      */
@@ -55,6 +59,7 @@ public interface ILiveService {
 
     /**
      * 添加直播间
+     *
      * @param liveDetail
      * @return
      */
@@ -62,6 +67,7 @@ public interface ILiveService {
 
     /**
      * 修改直播间
+     *
      * @param liveDetail
      * @return
      */
@@ -69,11 +75,14 @@ public interface ILiveService {
 
     /**
      * 获取热门直播信息 DF 2018年12月17日23:42:36
+     *
      * @return
      */
     List<LiveHotDetail> getHotLives();
+
     /**
      * 获取直播间详情信息 DF 2018年12月18日15:27:04
+     *
      * @param liveId
      * @return
      */
@@ -81,6 +90,7 @@ public interface ILiveService {
 
     /**
      * 添加收藏 DF 2018年12月19日03:59:40
+     *
      * @param liveId
      * @param userId
      * @return
@@ -89,21 +99,26 @@ public interface ILiveService {
 
     /**
      * 取消收藏 DF 2018年12月19日03:59:48
+     *
      * @param liveId
      * @param userId
      * @return
      */
-    Boolean cancelCollect(Integer liveId, Integer userId);    List<Live> queryAll();
+    Boolean cancelCollect(Integer liveId, Integer userId);
+
+    List<Live> queryAll();
 
 
     /**
      * 设置开始直播 DF 2018年12月20日02:51:29
+     *
      * @param liveId
      */
     void setBeginLive(Integer liveId);
 
     /**
      * 添加观看历史 DF 2018年12月20日03:22:12
+     *
      * @param userId
      * @param liveId
      */
@@ -111,6 +126,7 @@ public interface ILiveService {
 
     /**
      * 获取观看历史 DF 2018年12月20日04:15:05
+     *
      * @param userId
      * @return
      */
@@ -118,6 +134,7 @@ public interface ILiveService {
 
     /**
      * 清空观看历史 DF 2018年12月20日04:45:25
+     *
      * @param userId
      * @return
      */
@@ -125,6 +142,7 @@ public interface ILiveService {
 
     /**
      * 获取个人收藏 DF 2018年12月20日04:54:26
+     *
      * @param userId
      * @return
      */
@@ -132,8 +150,18 @@ public interface ILiveService {
 
     /**
      * 清空个人收藏 DF 2018年12月20日04:58:02
+     *
      * @param userId
      * @return
      */
     boolean cleanCollect(Integer userId);
+
+    /**
+     * 加入群组 DF 2018年12月20日23:27:13
+     *
+     * @param phone
+     * @param userId
+     * @param liveId
+     */
+    String addGroup(String phone, Integer userId, Integer liveId);
 }

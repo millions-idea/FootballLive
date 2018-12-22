@@ -19,6 +19,7 @@ import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.InfoException;
+import com.management.admin.exception.MsgException;
 import com.management.admin.repository.AdminUserMapper;
 import com.management.admin.repository.UserMapper;
 import com.management.admin.repository.utils.ConditionUtil;
@@ -79,6 +80,7 @@ public class UserServiceImpl implements IUserService {
      * @return 事务提交失败会抛出MsgException异常, 成功返回用户信息
      */
     @Override
+    @Transactional
     public UserInfo addUser(String phone, String password, String smsCode, String ip) {
         // 校验短信验证码是否正确或过期
         String dbSmsCode = (String) redisTemplate.opsForValue().get("sms-" + phone);
@@ -96,7 +98,7 @@ public class UserServiceImpl implements IUserService {
         user.setIp(ip);
         user.setType(0);
 
-        // 完善平台用户数据
+        // 完善平台用户数据1
         boolean result = userMapper.insert(user) > 0;
         if(!result) throw new InfoException("注册失败");
 
@@ -170,6 +172,10 @@ public class UserServiceImpl implements IUserService {
     public User login(String phone, String password) {
         User user = getUser(phone, password);
         if(user != null){
+            if(user.getIsDelete() != null && user.getIsDelete().equals(1)){
+                throw new InfoException("禁止登录, 理由:" + user.getBlackRemark());
+            }
+
             // 更新并获取新token
             String response = NeteaseImUtil.post("nimserver/user/refreshToken.action", "accid=" + user.getPhone());
             NASignIn model = JsonUtil.getModel(response, NASignIn.class);

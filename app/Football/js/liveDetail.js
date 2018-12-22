@@ -77,11 +77,32 @@ mui.plusReady(function(){
 			plus.webview.currentWebview().close();
 			return;
 		}
+
 		
-		//关闭等待加载弹窗
+		//关闭等待加载弹窗00
 		plus.nativeUI.closeWaiting();
 		
 		var live = res.msg;
+	
+
+		if(live.chatRoomErrorMsg != null){
+			if(live.chatRoomErrorMsg == "您已被加入直播间黑名单"){
+				disableChat("您已被管理员设置禁止发言");				
+			}else{
+				disableChat("全员禁言");				
+			}
+		}
+
+		//加入群组
+		if(live.chatRoomId != null){
+			app.utils.call("applyTeam", {
+				id: self.id,
+				teamId: live.chatRoomId,
+				ps: "hi"
+			});
+		}else{
+	    	disableChat("全员禁言");
+		}
 		
 		var old_back = mui.back;
 	    mui.back = function(event) {
@@ -195,18 +216,7 @@ mui.plusReady(function(){
 			}
 			
 		});
-		
-		//加入群组
-		if(live.chatRoomId != null){
-			app.utils.call("applyTeam", {
-				id: self.id,
-				teamId: live.chatRoomId,
-				ps: "hi"
-			});
-			//TODO 
-		}else{
-	    	disableChat("全员禁言");
-		}
+ 		
 		
 		
 		// 发送消息
@@ -490,10 +500,21 @@ function getMessagePartHtml(obj){
 		}
 	}
 	
+	console.log(JSON.stringify(obj));
+	
 	if(obj.type == "text"){
 		msgListHtml += '         ' + body;
 	}else if(obj.type == "image"){
 		msgListHtml += '         ' + "<img class='diyImage' src='" + obj.file.url + "' data-preview-src='' data-preview-group='2'/>";
+	}else if(obj.type == "notification") {
+		
+		var currentUser = obj.attach.users[0].account.substr(6, obj.attach.users[0].account.length);
+		if(obj.attach.type == "addTeamMembers"){
+			msgListHtml += '         ' +  "用户" + currentUser +"进入了直播间";
+		}else if(obj.attach.type == "leaveTeam"){
+			msgListHtml += '         ' +  "用户" + currentUser +"离开了直播间";
+		}
+
 	}else{
 		msgListHtml += '         ' +  "不支持的消息格式";
 	}
