@@ -11,6 +11,7 @@ import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.PermissionRelation;
 import com.management.admin.entity.db.User;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.NASignIn;
@@ -56,6 +57,17 @@ public class UserServiceImpl implements IUserService {
     public UserServiceImpl(UserMapper userMapper, AdminUserMapper adminUserMapper) {
         this.userMapper = userMapper;
         this.adminUserMapper = adminUserMapper;
+    }
+
+    /**
+     *
+     * @param userId
+     * @param blackRemark
+     * @return
+     */
+    @Override
+    public Integer listBlack(Integer userId, String blackRemark) {
+        return userMapper.addBlackList(userId,blackRemark);
     }
 
     /**
@@ -569,12 +581,7 @@ public class UserServiceImpl implements IUserService {
             where += " OR " + ConditionUtil.like("ip", condition, true, "t1") + ")";
         }
 
-        if(userRole.equals(UserRoleEnum.SuperAdmin)){
-            where +=" AND (" +ConditionUtil.match("type", "1", true, "t1");
-            where +=" OR " +ConditionUtil.match("type", "2", true, "t1") + ")";
-        }else{
-            where +=" AND " +ConditionUtil.match("type", userRole.ordinal() + "", true, "t1");
-        }
+        where +=" AND " +ConditionUtil.match("type", userRole.ordinal() + "", true, "t1");
 
         // 取两个日期之间或查询指定日期
         where = extractBetweenTime(beginTime, endTime, where);
@@ -689,5 +696,16 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User queryBackUserById(Integer userId) {
         return userMapper.queryBackUserById(userId);
+    }
+
+    /**
+     * 查询用户收藏直播间
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<LiveCollectDetail> queryLiveCollectByUserId(Integer userId) {
+        return userMapper.queryLiveCollectByUserId(userId);
     }
 }

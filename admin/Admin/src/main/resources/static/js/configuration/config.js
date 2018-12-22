@@ -52,6 +52,60 @@ layui.use('upload', function () {
             uploadConfig("banner.image3",value);
         }
     });
+ //滚动图1地址上传
+    $("#btnUrl1").click(function () {
+        var bannerUrl1=$("#bannerUrl1").val();
+        if (bannerUrl1==""||bannerUrl1.length==0){
+            layer.msg("地址不能为空");
+            return false;
+        }
+        uploadConfig("banner.image1.targetUrl",bannerUrl1);
+    })
+    //滚动图2地址上传
+    $("#btnUrl2").click(function () {
+        var bannerUrl2=$("#bannerUrl2").val();
+        if (bannerUrl2==""||bannerUrl2.length==0){
+            layer.msg("地址不能为空");
+            return false;
+        }
+        uploadConfig("banner.image2.targetUrl",bannerUrl2);
+    })
+    //滚动图3地址上传
+    $("#btnUrl3").click(function () {
+        var bannerUrl3=$("#bannerUrl3").val();
+        if (bannerUrl3==""||bannerUrl3.length==0){
+            layer.msg("地址不能为空");
+            return false;
+        }
+        uploadConfig("banner.image3.targetUrl",bannerUrl3);
+    })
+    //全站广告图
+    var uploadInst = upload.render({
+        elem: '#total'
+        , url: '/management/file/cosUpload'
+        , before: function (obj) {
+            //预读本地文件示例，不支持ie8
+            obj.preview(function (index, file, result) {
+                $('#station').attr('src', result); //图片链接（base64）
+            });
+        }
+        , done: function (res) {
+            $("#station").val(res.msg);
+            var value=$("#station").val();
+            uploadConfig("webapp.image.ad.url",value);
+        }
+    });
+    //全站广告图链接
+    $("#totalUrl").click(function () {
+        var stationUrl=$("#stationUrl").val();
+        if (stationUrl==""||stationUrl.length==0){
+            layer.msg("地址不能为空");
+            return false;
+        }
+        uploadConfig("webapp.image.ad.target.url",stationUrl);
+    })
+
+
 //APP启动图片1上传
     var uploadInst = upload.render({
         elem: '#app1'

@@ -27,7 +27,7 @@
         <label class="layui-form-label">注册时间</label>
         <div class="layui-input-block">
             <input type="text" id="addDate" autocomplete="off"
-                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.addDate}">
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${#dates.format(addDate, 'yyyy-MM-dd HH:mm:ss')}">
         </div>
     </div>
     <div class="layui-form-item">
@@ -41,14 +41,16 @@
         <label class="layui-form-label">上次登陆时间</label>
         <div class="layui-input-block">
             <input type="text" id="lastDate" autocomplete="off"
-                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.editDate}">
+                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${#dates.format(editDate, 'yyyy-MM-dd HH:mm:ss')}"/>
         </div>
     </div>
+
     <div class="layui-form-item">
         <label class="layui-form-label">收藏记录</label>
         <div class="layui-input-block">
-            <input type="text" id="lastDate" autocomplete="off"
-                   disabled="disabled" lay-verify="required" class="layui-input" th:value="${user.editDate}">
+            <select name="city" lay-verify="" id="scheduleStatus">
+                <option  th:each="item:${collectDetail}" th:value="${item.liveId}" th:text="${item.liveTitle}"></option>
+            </select>
         </div>
     </div>
     <div class="layui-form-item">

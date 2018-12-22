@@ -10,8 +10,10 @@ package com.management.admin.controller;
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.db.UserFeedback;
+import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.template.JsonArrayResult;
+import com.management.admin.entity.template.JsonResult;
 import com.management.admin.utils.DateUtil;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +67,12 @@ public class MemberController {
     @GetMapping("edit")
     public String edit(Integer userId, final Model model) {
         User user = userService.getUserInfoById(userId);
+        List<LiveCollectDetail> collectDetail = userService.queryLiveCollectByUserId(userId);
+        model.addAttribute("editDate",user.getEditDate());
+        model.addAttribute("addDate",user.getAddDate());
+        model.addAttribute("collectDetail",collectDetail);
         model.addAttribute("user", user);
+        System.out.println(collectDetail);
         return "member/edit";
     }
 
@@ -100,4 +107,35 @@ public class MemberController {
         model.addAttribute("user", user);
         return "member/backDetails";
     }
+
+
+    /**
+     * 加入黑名单弹窗 地址 Timor 2018年8月29日11:42:31
+     *
+     * @return
+     */
+    @GetMapping("/popuplistblack")
+    public String blacklist(final Model model,Integer userId){
+         model.addAttribute("userId",userId);
+         return "/member/addBlackList";
+    }
+
+
+    /**
+     * 加入黑名单 Timor 2018年8月29日11:42:31
+     *
+     * @return
+     */
+    @GetMapping("/blacklist")
+    @ResponseBody
+    public JsonResult blacklist(Integer userId,String blackRemark){
+            blackRemark+="   ";
+            Integer result=userService.listBlack(userId,blackRemark);
+            if(result>0){
+                return JsonResult.successful();
+            }
+            return JsonResult.failing();
+    }
+
+
 }

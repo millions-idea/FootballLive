@@ -100,7 +100,27 @@ public class LiveServiceImpl implements ILiveService {
     }
 
     @Override
+    @Transactional
     public Integer deleteLive(Integer liveId) {
+
+        // 获取此直播间对应的聊天室
+        List<ChatRoom> chatRooms = chatRoomUserRelationMapper.queryChatRoomByLiveId(liveId);
+
+        // 遍历下的所有聊天室
+        chatRooms.forEach(item->{
+            // 同步云信（删除其下所有聊天室）
+            String response = NeteaseImUtil.post("nimserver/team/remove.action", "tid=" + item.getChatRoomId()
+                    + "&owner=" + Constant.HotAccId);
+            NASignIn model = JsonUtil.getModel(response, NASignIn.class);
+            if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+/*            // 删除数据库聊天室
+            Integer result = chatRoomUserRelationMapper.deleteChatRoomByLiveId(item.getRoomId());
+            if(result<0) throw new InfoException("同步数据库数据失败");*/
+        });
+
+
+
+
         return liveMapper.deleteLive(liveId);
     }
 

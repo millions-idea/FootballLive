@@ -1,0 +1,41 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <input type="hidden" id="userId" th:value="${userId}">
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">理由</label>
+        <div class="layui-input-block">
+            <textarea name="desc" id="listblack" placeholder="请输入理由" class="layui-textarea"></textarea>
+        </div>
+        <div class="layui-form-item">
+            <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+
+    $("#save").click(function () {
+        var userId=$("#userId").val();
+        var blackRemark=$("#listblack").val();
+
+        $.ajax({
+            url: "/management/member/blacklist",    //请求的url地址
+            type: "GET",   //请求方式
+            data:{
+              userId:userId,
+              blackRemark:blackRemark
+            },
+            success: function (data) {
+                if(data.code==200){
+                    location.reload()
+                }else {
+                    layer.msg("添加失败");
+                }
+
+            }
+        })
+    })
+</script>

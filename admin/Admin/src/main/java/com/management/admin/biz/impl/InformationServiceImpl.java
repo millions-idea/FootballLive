@@ -184,6 +184,7 @@ public class InformationServiceImpl implements IInformationService {
     @Transactional
     public InformationDetail queryInformationById(Integer isrId) {
         InformationDetail informationDetail = informationMapper.queryInformationById(isrId);
+        System.err.println(informationDetail.getScheduleStatus());
         if(informationDetail.getScheduleStatus()==0){
             informationDetail.setScheduleStatusStr("未开始");
         }else if(informationDetail.getScheduleStatus()==1){

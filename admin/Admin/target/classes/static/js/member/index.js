@@ -27,6 +27,39 @@ var tableIndex;
                 ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
             });
         })
+        //导出EXEC
+        $("#exec").click(function () {
+            var arrs=new Array();
+            $(function () {
+                $.each(layui.table.cache["my-data-table"], function (index, item) {
+                    var array=new Array();
+                    var name =item.nickName;
+                    array[0]=item.userId;
+                    array[1]=name;
+                    if (array[1]==""||array[1]==null){
+                        array[1]="无"
+                    }
+                    array[2]=item.phone;
+                    array[3]=item.ip;
+                    if (array[3]==""||array[3]==null){
+                        array[3]="无"
+                    }
+                    array[4]=changeDate(item.addDate);
+                    if (array[4]=="NaN-NaN-NaN NaN:NaN:NaN"){
+                        array[4]="无"
+                    }
+                    array[5]=changeDate(item.editDate);
+                    if (array[5]=="NaN-NaN-NaN NaN:NaN:NaN"){
+                        array[5]="无"
+                    }
+
+                    arrs[index]=array;
+                });
+            });
+           layui.table.exportFile(['ID','昵称','手机号','IP地址','注册时间','更新时间'],arrs
+            , 'xls'); //默认导出 csv，也可以为：xls
+
+        })
         // 监听工具条
         table.on('tool(my-data-table)', function(obj){
             var data = obj.data; //获得当前行数据
@@ -43,100 +76,20 @@ var tableIndex;
                         content:html
                     });
                 });
-            }else if(layEvent === 'disable'){ //冻结
-                layer.confirm('您确定要冻结此用户账户吗？', {
-                    btn: ['冻结','取消'] //按钮
-                }, function(){
-                    data.isEnable = 0;
-                    service.updateEnable(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            }else if(layEvent === 'del'){ //删除
-                layer.confirm('您确定要删除此用户账户吗？', {
-                    btn: ['删除','取消'] //按钮
-                }, function(){
-                    data.isEnable = 0;
-                    data.isDelete = 1;
-                    service.updateAvailability(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            }else if(layEvent === 'enable'){ //解冻
-                layer.confirm('您确定要解冻此用户账户吗？', {
-                    btn: ['解冻','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    service.updateEnable(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'renew'){ //删除
-                layer.confirm('您确定要恢复此用户账户吗？', {
-                    btn: ['恢复','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    data.isDelete = 0;
-                    service.updateAvailability(data, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setService'){ //删除
-                layer.confirm('确定要提升为客服账号？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    service.changeRole({
-                        "userId": data.userId,
-                        "roleName": "STAFF"
-                    }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setAdmin'){ //删除
-                layer.confirm('确定要提升为管理员账号？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    data.isEnable = 1;
-                    data.isDelete = 0;
-                    service.changeRole({
-                        "userId": data.userId,
-                        "roleName": "ADMIN"
-                    }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
-                });
-            } else if(layEvent === 'setMerchant'){ //删除
-                layer.confirm('确定要提升/撤销为代理商？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
-                    service.setMerchant({
-                        "userId": data.userId
-                    }, function (data) {
-                        if(utils.response.isErrorByCode(data)) return layer.msg("操作失败");
-                        if(utils.response.isException(data)) return layer.msg(data.msg);
-                        tableIndex.reload();
-                        layer.msg("操作成功");
-                    })
+            } else if(layEvent === 'listBlack'){ //加入黑名单
+                service.listBlack({
+                    userId: data.userId
+                }, function(html){
+                    layer.open({
+                        type: 1,
+                        skin: 'layui-layer-rim', //加上边框
+                        area: ['420px', 'auto'], //宽高
+                        content:html
+                    });
                 });
             }
+
+
         });
     });
 })()
@@ -158,6 +111,11 @@ function initService(r) {
                 callback(data);
             });
         }
+        ,listBlack: function (param, callback) {
+        $.get(r + "/popuplistblack", param, function (data) {
+            callback(data);
+        });
+    }
     }
 }
 
@@ -254,6 +212,7 @@ function getTableColumns() {
         , {fixed: 'right',title: '操作', width: 560, align: 'center', templet: function(d){
                 var html = "";
                 html += '<a name="item-edit" class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
+                html += '<a name="item-edit"  class="layui-btn layui-btn layui-btn-xs" lay-event="listBlack">加入黑名单</a>';
                 return html;
             }}
     ]];
@@ -293,3 +252,26 @@ function resetPager() {
         $(o).height(640);
     });
 }
+
+
+/**
+ * 将毫秒级时间戳转换为标准时间显示
+ * @param {Object} value
+ */
+function changeDate(value){
+    var date = new Date();
+    date.setTime(value);
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    var h = date.getHours();
+    h = h < 10 ? ('0' + h) : h;
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    minute = minute < 10 ? ('0' + minute) : minute;
+    second = second < 10 ? ('0' + second) : second;
+    return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;
+}
+

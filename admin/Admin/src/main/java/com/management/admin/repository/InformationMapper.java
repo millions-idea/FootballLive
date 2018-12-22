@@ -30,7 +30,7 @@ public interface InformationMapper extends MyMapper<Information> {
     Integer deleteInformationById(Integer informationId);
 
     @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon " +
-            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0 " +
+            "FROM tb_lives t2 LEFT JOIN tb_informations t1  ON  t2.live_id = t1.live_id and t2.status=0 " +
             "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id  " +
             "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
@@ -66,8 +66,8 @@ public interface InformationMapper extends MyMapper<Information> {
             , @Param("condition") String condition);
 
     @Select("SELECT t1.*,t2.live_date, t2.live_title, t2.status AS scheduleStatus, t3.game_name, t3.game_icon " +
-            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id and t2.status=0  " +
-            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where isr_id=#{informationId}")
+            "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id  " +
+            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 where t2.status=0 and  isr_id=#{informationId} ")
     InformationDetail queryInformationById(Integer informationId);
 
     /**
