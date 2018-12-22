@@ -37,7 +37,7 @@ public class PaasSmsUtil {
 
         SmsSendResponse smsSingleResponse = JSON.parseObject(response, SmsSendResponse.class);
         String code=smsSingleResponse.getCode();
-        if(code=="0"){
+        if(code.equals("0")){
             return true;
         }
         return false;
