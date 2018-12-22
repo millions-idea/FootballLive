@@ -1,7 +1,8 @@
 package com.management.admin;
 
 import com.management.admin.config.WebLogAspectConfiguration;
-import com.management.admin.interceptor.WebMvcOperationLogInterceptor;
+import com.management.admin.utils.IdWorker;
+import com.management.admin.utils.SMS.PaasSmsUtil;
 import com.management.admin.utils.SpringApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,8 +20,9 @@ import javax.servlet.MultipartConfigElement;
 @EnableAsync
 public class ManagementApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		SpringApplication.run(ManagementApplication.class, args);
+
 		System.out.println("启动内置tomcat服务成功!");
 	}
 
@@ -29,10 +31,6 @@ public class ManagementApplication {
 		return new WebLogAspectConfiguration(true);
 	}
 
-	@Bean
-	public WebMvcOperationLogInterceptor getWebMvcOperationLogInterceptor(){
-		return new WebMvcOperationLogInterceptor(true);
-	}
 	@Bean
 	public SpringApplicationContext getSpringApplicationContext() {
 		return new SpringApplicationContext();

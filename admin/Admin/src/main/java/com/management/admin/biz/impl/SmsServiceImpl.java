@@ -10,6 +10,7 @@ package com.management.admin.biz.impl;
 import com.aliyuncs.exceptions.ClientException;
 import com.management.admin.biz.ISmsService;
 import com.management.admin.utils.IdWorker;
+import com.management.admin.utils.SMS.PaasSmsUtil;
 import com.management.admin.utils.http.AliSmsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +47,7 @@ public class SmsServiceImpl implements ISmsService {
             randomCode = Long.parseLong((randomCode + "").substring(0, 6));
 
             // 调用短信服务中心远程接口发送验证码到客户端手机
-            sendResult = AliSmsUtil.sendMessage(phone, "有讯", "SMS_150574845", String.format("{\"code\":\"%s\"}", randomCode), phone);
+            PaasSmsUtil.sendMessage(phone,"【253云通讯】验证码为："+randomCode+",您正在注册成为平台会员，感谢您的支持！");
 
             // 存储正确结果到缓存服务器中, 有效期5分钟
             if(sendResult){
@@ -81,7 +82,7 @@ public class SmsServiceImpl implements ISmsService {
             randomCode = Long.parseLong((randomCode + "").substring(0, 6));
 
             // 调用短信服务中心远程接口发送验证码到客户端手机
-            sendResult = AliSmsUtil.sendMessage(phone, "有讯", "SMS_150574861", String.format("{\"code\":\"%s\"}", randomCode), phone);
+            PaasSmsUtil.sendMessage(phone,"【253云通讯】验证码为："+randomCode+",您正在注册成为平台会员，感谢您的支持！");
 
             // 存储正确结果到缓存服务器中, 有效期5分钟
             if(sendResult){
