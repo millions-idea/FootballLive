@@ -16,6 +16,8 @@ public class SystemLog {
 
     private Integer logId;
 
+    private Integer userId;
+
     private String section;
 
     private String content;

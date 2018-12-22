@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IPublishMessageService;
 import com.management.admin.entity.db.PublishMessage;
 import com.management.admin.entity.dbExt.PublishMessageDetail;
@@ -23,8 +24,14 @@ public class PublishMessageController {
         return "pushMessage/index";
     }
 
+    /**
+     * 推送消息
+     * @param publishMessageDetail
+     * @return
+     */
     @PostMapping("/pushMessage")
     @ResponseBody
+    @WebLog(section = "PublishMessage",content = "推送消息")
     public JsonResult pushMessage(PublishMessageDetail publishMessageDetail){
         Integer result = publishMessageService.pushMessage(publishMessageDetail);
         if(result>0){

@@ -7,6 +7,7 @@
  */
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IDictionaryService;
 import com.management.admin.biz.ILiveCategoryService;
 import com.management.admin.entity.db.Dictionary;
@@ -50,6 +51,7 @@ public class configurationController {
      * @return
      */
     @GetMapping("/index")
+    @WebLog(section = "Config",content = "访问系统配置")
     public String index(final Model model){
         List<Dictionary> list=dictionaryService.getList();
         model.addAttribute("banner",list);
@@ -62,6 +64,7 @@ public class configurationController {
      */
     @PostMapping ("/upadteConfig")
     @ResponseBody
+    @WebLog(section = "Config",content = "修改banner图，启动图，公告。")
     public JsonResult upadteConfig(String key,String value){
         val result = dictionaryService.upadteConfig(key, value);
         if(result>0){
@@ -111,6 +114,7 @@ public class configurationController {
      */
     @GetMapping("/deleteCategory")
     @ResponseBody
+    @WebLog(section = "Config",content = "删除直播分类")
     public JsonResult deleteCategory(Integer categoryId){
         Integer result=liveCategoryService.deleteCategoryById(categoryId);
         if (result>0){
@@ -125,6 +129,7 @@ public class configurationController {
      */
     @GetMapping("/insertCategory")
     @ResponseBody
+    @WebLog(section = "Config",content = "添加直播分类")
     public JsonResult insertCategory(LiveCategory category){
         Integer result=liveCategoryService.insertCategory(category);
         if (result>0){
@@ -139,6 +144,7 @@ public class configurationController {
      */
     @GetMapping("/updateCategory")
     @ResponseBody
+    @WebLog(section = "Config",content = "修改直播分类")
     public JsonResult updateCategory(LiveCategory category){
         Integer result=liveCategoryService.updateCategoryById(category);
         if (result>0){

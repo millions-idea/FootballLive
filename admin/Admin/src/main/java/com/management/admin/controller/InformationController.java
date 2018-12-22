@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IInformationService;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.Live;
@@ -33,12 +34,13 @@ public class InformationController {
     }
 
     /**
-     * 会员列表 韦德 2018年8月29日11:42:31
+     * 情报信息列表 韦德 2018年8月29日11:42:31
      *
      * @return
      */
     @GetMapping("/getInformationLimit")
     @ResponseBody
+    @WebLog(section = "Information",content = "查看所有的情报信息")
     public JsonArrayResult<Information> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<InformationDetail> list = informationService.getLimit(page, limit, condition, state, beginTime, endTime);
@@ -54,8 +56,15 @@ public class InformationController {
         jsonArrayResult.setCount(count);
         return jsonArrayResult;
     }
+
+    /**
+     * 修改情报信息
+     * @param information
+     * @return
+     */
     @PostMapping("/setInformationContent")
     @ResponseBody
+    @WebLog(section = "Information",content = "修改情报信息")
     public JsonResult setInformationContent(Information information){
         Integer result = informationService.modifyInfromation(information);
         if(result>0){
@@ -72,8 +81,15 @@ public class InformationController {
         }
         return JsonResult.failing();
     }
+
+    /**
+     * 添加情报信息
+     * @param information
+     * @return
+     */
     @PostMapping("/insertInformation")
     @ResponseBody
+    @WebLog(section = "Information",content = "添加情报信息")
     public JsonResult insertInformation(Information information){
         // TODO 注意如果一次添加多个情报给一个赛程或者直播间，直播详情点开时会出异常
         Integer result = informationService.insertInformation(information);

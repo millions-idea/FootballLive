@@ -31,6 +31,9 @@
                             $("#upload").val(res.msg)
 
                         }
+                        else {
+                            alert(res.code);
+                        }
                     }
                     ,error: function(){
                         layui.use('layer', function(){
@@ -72,6 +75,7 @@
         game.gameName=gameName;
         game.gameIcon=logo;
         game.categoryId=category;
+        debugger;
         if((gameName!=null&&gameName.length>0) && (logo!=null&&logo.length>0)){
             $.ajax({
                 url:"/competition/addCompetition",

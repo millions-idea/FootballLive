@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IUserFeedbackService;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.db.UserFeedback;
@@ -34,6 +35,7 @@ public class UserFeedbackController {
      */
     @GetMapping("/getuserFeedbackLimit")
     @ResponseBody
+    @WebLog(section = "Feedback",content = "查看用户反馈列表")
     public JsonArrayResult<User> getMemberLimit(Integer page, String limit, String condition, Integer type, Integer state, String beginTime, String endTime){
         Integer count = 0;
         List<UserFeedback> list = feedbackService.getLimit(page, limit, condition,state, beginTime, endTime);

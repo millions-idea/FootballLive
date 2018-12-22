@@ -1,5 +1,6 @@
 package com.management.admin.controller;
 
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IAdvertisingService;
 import com.management.admin.entity.db.Advertising;
 import com.management.admin.entity.db.Game;
@@ -43,12 +44,13 @@ public class AdvertisingController {
     }
 
     /**
-     * 会员列表 韦德 2018年8月29日11:42:31
+     * 广告列表 韦德 2018年8月29日11:42:31
      *
      * @return
      */
     @GetMapping("/getAdvertisingLimit")
     @ResponseBody
+    @WebLog(section = "Advertising", content = "查看所有广告")
     public JsonArrayResult<AdvertisingDetail> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<AdvertisingDetail> list = advertisingService.getLimit(page, limit, condition, state, beginTime, endTime);
@@ -65,24 +67,50 @@ public class AdvertisingController {
         System.out.println(jsonArrayResult.getData());
         return jsonArrayResult;
     }
+
+    /**
+     * 添加广告信息 狗蛋 2018年12月21日20:08:11
+     * @return
+     */
     @GetMapping("/add")
     public String add(){
         return "advertising/add";
     }
+
+    /**
+     * 修改广告信息
+     * @param adId
+     * @param model
+     * @return
+     */
     @GetMapping("/edit")
     public String edit(Integer adId, final Model model){
         AdvertisingDetail advertising = advertisingService.queryAdvertisingDetailById(adId);
         model.addAttribute("advertising",advertising);
         return "advertising/edit";
     }
+
+    /**
+     * 查看广告详情
+     * @param adId
+     * @param model
+     * @return
+     */
     @GetMapping("/details")
     public String details(Integer adId, final Model model){
         AdvertisingDetail advertising = advertisingService.queryAdvertisingDetailById(adId);
         model.addAttribute("advertising",advertising);
         return "advertising/details";
     }
+
+    /**
+     * 添加广告信息
+     * @param advertisingDetail
+     * @return
+     */
     @PostMapping("/addAdvertisingInfo")
     @ResponseBody
+    @WebLog(section = "Advertising", content = "添加广告信息")
     public JsonResult addAdvertisingInfo(AdvertisingDetail advertisingDetail){
         Integer result = advertisingService.insertAdvertising(advertisingDetail);
         if(result>0){
@@ -90,8 +118,15 @@ public class AdvertisingController {
         }
         return JsonResult.failing();
     }
+
+    /**
+     * 修改广告信息
+     * @param advertisingDetail
+     * @return
+     */
     @PostMapping("/setAdvertisingInfo")
     @ResponseBody
+    @WebLog(section = "Advertising", content = "修改广告信息")
     public JsonResult setAdvertisingInfo(AdvertisingDetail advertisingDetail){
         Integer result = advertisingService.modifyAdvertising(advertisingDetail);
         if(result>0){
@@ -99,8 +134,15 @@ public class AdvertisingController {
         }
         return JsonResult.failing();
     }
+
+    /**
+     * 删除广告信息
+     * @param adId
+     * @return
+     */
     @GetMapping("/deleteAdvertising")
     @ResponseBody
+    @WebLog(section = "Advertising", content = "删除广告信息")
     public JsonResult deleteAdvertising(Integer adId){
         Integer result = advertisingService.deleteAdvertising(adId);
         if(result>0){

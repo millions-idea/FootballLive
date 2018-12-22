@@ -9,6 +9,13 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label">操作人</label>
+        <div class="layui-input-block">
+            <input type="text" id="user" autocomplete="off"
+                   disabled="disabled" class="layui-input" th:value="${systemLog.nickName}">
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label">节点名称</label>
         <div class="layui-input-block">
             <input type="text" id="game-name" autocomplete="off"

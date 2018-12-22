@@ -1,6 +1,7 @@
 package com.management.admin.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.ILiveService;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
@@ -34,12 +35,13 @@ public class LiveController {
     }
 
     /**
-     * 会员列表 韦德 2018年8月29日11:42:31
+     * 直播间列表 韦德 2018年8月29日11:42:31
      *
      * @return
      */
     @GetMapping("/getLiveLimit")
     @ResponseBody
+    @WebLog(section = "live",content = "查看直播间列表")
     public JsonArrayResult<Live> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<LiveDetail> list = liveService.getLimit(page, limit, condition, state, beginTime, endTime);
@@ -56,6 +58,12 @@ public class LiveController {
         return jsonArrayResult;
     }
 
+    /**
+     * 跳转直播间修改
+     * @param liveId
+     * @param model
+     * @return
+     */
     @GetMapping("/edit")
     public String edit(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
@@ -66,8 +74,14 @@ public class LiveController {
         return "live/edit";
     }
 
+    /**
+     * 删除直播间
+     * @param liveId
+     * @return
+     */
     @GetMapping("/delete")
     @ResponseBody
+    @WebLog(section = "live",content = "删除直播间")
     public JsonResult delete(Integer liveId) {
         Integer live = liveService.deleteLive(liveId);
         if (live > 0) {
@@ -76,6 +90,12 @@ public class LiveController {
         return JsonResult.failing();
     }
 
+    /**
+     * 获取直播间详情
+     * @param liveId
+     * @param model
+     * @return
+     */
     @GetMapping("/getLiveDetailByLiveId")
     public String getLiveDetailByLiveId(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
@@ -87,13 +107,23 @@ public class LiveController {
         return "live/details";
     }
 
+    /**
+     * 跳转添加直播间
+     * @return
+     */
     @GetMapping("/add")
     public String add() {
         return "live/add";
     }
 
+    /**
+     * 修改直播间信息
+     * @param liveDetail
+     * @return
+     */
     @PostMapping("/setLiveInfo")
     @ResponseBody
+    @WebLog(section = "live",content = "修改直播间信息")
     public JsonResult setLiveInfo(LiveDetail liveDetail) {
         Integer result = liveService.modifyLive(liveDetail);
         if (result > 0) {
@@ -104,6 +134,7 @@ public class LiveController {
 
     @PostMapping("/addLiveInfo")
     @ResponseBody
+    @WebLog(section = "live",content = "添加直播间")
     public JsonResult addLiveInfo(LiveDetail liveDetail) {
         Boolean result = liveService.insertLive(liveDetail);
         if (result) return JsonResult.successful();

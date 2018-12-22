@@ -26,6 +26,7 @@ var tableIndex;
                     });
                 });
             }else if (layEvent == 'delete'){
+
                 layer.confirm('真的删除吗？', function (index) {
                     $.ajax({
                         url: "/management/admin/deleteAdmin?userId=" +data.userId,
@@ -34,11 +35,13 @@ var tableIndex;
                         contentType: false,
                         cache: false,
                         success: function (data) {
-                            if (data.code == 200) {
+                            if (data.msg == "删除成功") {
                                 layer.msg("删除成功");
                                 window.location.reload();
-                            } else {
-                                layer.msg("删除失败");
+                            } else if (data.msg=="无权删除") {
+                                layer.msg("您不是超管，无权删除！");
+                            }else {
+                                layer.msg("删除失败！");
                             }
                         }
                     });
@@ -137,6 +140,7 @@ function initDataTable(url, callback, loadDone) {
     });
 }
 
+
 /**
  * 获取表格列属性
  * @returns {*[]}
@@ -146,14 +150,14 @@ function getTableColumns() {
         {type: "numbers", fixed: 'left'}
         , {field: 'userId', title: 'ID', width: 80, sort: true}
         , {field: 'phone', title: '手机号', width: 150}
-        , {field: 'type', title: '角色', width: 180, sort: true, templet: function (d) {
+        , {field: 'type', title: '角色', width: 180, sort: true,templet: function (d) {
                 var roleName = "";
                 switch (d.type) {
                     case 1:
-                        roleName = "<span style='color: #000000;'>管理员</span>";
+                        roleName = "<span style='color: #ff0000;'>超级管理员</span>";
                         break;
                     case 2:
-                        roleName = "<span style='color: #ff0000;'>超级管理员</span>";
+                        roleName = "<span style='color: #000000;'>管理员</span>";
                         break;
                     default:
                         roleName = d.type;
@@ -185,10 +189,8 @@ function getTableColumns() {
         , {fixed: 'right',title: '操作', width: 150, align: 'center', templet: function(d){
                 var html = "";
                 html += '<a name="item-edit" class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
+                html += '<a name="delete"  class="layui-btn layui-btn layui-btn-xs" lay-event="delete" >删除</a>';
 
-                if ($("#selecttype").val()==2){
-                    html += '<a name="delete"  class="layui-btn layui-btn layui-btn-xs" lay-event="delete">删除</a>';
-                }
                 return html;
             }}
     ]];

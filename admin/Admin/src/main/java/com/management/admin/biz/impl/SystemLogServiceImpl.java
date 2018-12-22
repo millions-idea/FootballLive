@@ -3,6 +3,7 @@ package com.management.admin.biz.impl;
 import com.management.admin.biz.ISystemLogService;
 import com.management.admin.entity.db.SystemLog;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.SystemLogDetail;
 import com.management.admin.repository.SystemLogMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class SystemLogServiceImpl implements ISystemLogService {
      * @return
      */
     @Override
-    public SystemLog querySystemLogById(Integer logId) {
+    public SystemLogDetail querySystemLogById(Integer logId) {
         return systemLogMapper.querySystemLogById(logId);
     }
 
@@ -45,11 +46,11 @@ public class SystemLogServiceImpl implements ISystemLogService {
      * @return
      */
     @Override
-    public List<SystemLog> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
+    public List<SystemLogDetail> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         // 计算分页位置
         page = ConditionUtil.extractPageIndex(page, limit);
         String where = extractLimitWhere(condition, state, beginTime, endTime);
-        List<SystemLog> list = systemLogMapper.selectLimit(page, limit, state, beginTime, endTime, where);
+        List<SystemLogDetail> list = systemLogMapper.selectLimit(page, limit, state, beginTime, endTime, where);
         return list;
     }
 
@@ -111,5 +112,16 @@ public class SystemLogServiceImpl implements ISystemLogService {
             where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
         }
         return where;
+    }
+
+    /**
+     * 添加系统日志 狗蛋 2018年12月21日19:54:29
+     *
+     * @param systemLog
+     * @return
+     */
+    @Override
+    public Integer insertSystemLog(SystemLog systemLog) {
+        return systemLogMapper.insertSystemLog(systemLog);
     }
 }
