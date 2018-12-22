@@ -276,4 +276,7 @@ function onStateChanged(download, status ) {
 		// 下载完成 
 		alert( "Download success: " + download.getFileName() );  
 	}  
+
 }
+
+
