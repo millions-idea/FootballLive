@@ -4,6 +4,7 @@
             var that = $(this);
             layer.confirm('真的删除吗？',function (index) {
                 var userid = $(that).data("userid");
+
                 $.ajax({
                     url:"/users/deleteAdmin?userid="+userid,
                     type:"get",

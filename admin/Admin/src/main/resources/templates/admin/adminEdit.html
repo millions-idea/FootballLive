@@ -1,6 +1,6 @@
 <div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
       enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
-   <!--<input type="hidden" id="userId" th:value="${targetUser.getUserId()}">-->
+   <!-- <input type="hidden" id="userId" th:value="${targetUser.getUserId()}">-->
 
     <div class="layui-form-item">
         <label class="layui-form-label">手机号码</label>
@@ -11,7 +11,7 @@
     </div>
 
     <!--修改密码-->
-    <div class="layui-form-item" th:if="${user.getType().equals(1)&&!targetUser.getType().equals(1)}">
+    <div class="layui-form-item" th:if="${user.getType().equals(2)&&!targetUser.getType().equals(2)}">
         <label class="layui-form-label">重置密码</label>
         <div class="layui-input-block">
             <input type="text" id="password" autocomplete="off" class="layui-input">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <!--禁用与恢复-->
-    <div class="layui-form-item" th:if="${user.getType().equals(1)&&!targetUser.getType().equals(1)}">
+    <div class="layui-form-item" th:if="${user.getType().equals(2)&&!targetUser.getType().equals(2)}">
         <label class="layui-form-label">状态</label>
         <div class="layui-input-block">
             <input type="radio" name="status" value=0 title="正常"checked>

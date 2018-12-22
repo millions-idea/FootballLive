@@ -467,7 +467,7 @@ public class UserServiceImpl implements IUserService {
     public List<AdminUser> getAdminLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         // 计算分页位置
         page = ConditionUtil.extractPageIndex(page, limit);
-        String where = extractLimitWhere(condition, state, beginTime, endTime);
+        String where = extractLimitWhere(condition, UserRoleEnum.SuperAdmin, state, beginTime, endTime);
         List<AdminUser> list = adminUserMapper.selectLimit(page, limit, state, beginTime, endTime, where);
         return list;
     }
