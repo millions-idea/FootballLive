@@ -78,12 +78,12 @@ public interface Constant {
     /**
      * 网易IM通信服务appKey
      */
-    String AppKey = "76688b21d1656063933c1199a3e425a1";
+    String AppKey = "c58b616a2dbfa83bf7857364f77ae13b";//76688b21d1656063933c1199a3e425a1
 
     /**
      * 网易IM通信服务appSecret
      */
-    String AppSecret = "b416985f7f9a";
+    String AppSecret = "ef72133173f2";//b416985f7f9a
     /**
      * 网易热点用户
      */

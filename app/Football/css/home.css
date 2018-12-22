@@ -28,10 +28,11 @@
     margin: 0 auto;
     position: relative;
     top: 0px;
-    width: 100%;
-    height: 180px;
-    border-radius: 0px;
+    width: 90%;
+    height: 165px;
+    border-radius: 12px;
     overflow: hidden;
+    padding-top: 12px;
 }
 
 .headline{
@@ -173,8 +174,11 @@
 	float: left;
 	height: 90px;
 	width: 100%;
-	background-color: #BABABA;
+	background-color: #d2d2d2;
 	margin-bottom: 10px;
+	background-image: url(../images/runner.image.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
 .category .right{
@@ -185,13 +189,19 @@
 	float: right;
 	height: 90px;
 	width: 49%;
-	background-color: #BABABA;
+	background-color: #d2d2d2;
 	margin-bottom: 10px;
+	background-image: url(../images/runner.image.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
 
 .category .first{
 	height: 190px !important;
+	background-image: url(../images/category.image.png) !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 } 
 
 

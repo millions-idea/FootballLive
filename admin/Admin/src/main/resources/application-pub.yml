@@ -1,9 +1,6 @@
 #生产环境
 profiles: pub
 
-app:
-  domain: "http://132.232.61.181:59845"
-
 #数据库配置
 spring:
   thymeleaf:
@@ -13,19 +10,19 @@ spring:
     encoding: UTF-8
     cache: false
   datasource:
-    url: jdbc:mysql://127.0.0.1/youxun?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://localhost/football?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: ikyOedVzV4bpXeWl
+    password: 1qQp53iydbJ709U2
     type: com.alibaba.druid.pool.DruidDataSource
     dbcp2:
       max-wait-millis: 60000
 #缓存数据库配置
   redis:
-    host: 172.27.16.12
+    host: 127.0.0.1
     port: 6379
-    password: ikyOedVzV4bpXeWl
-    database: 0
+    password: 952e2ac15bfb43bdabb77984574f7282
+    database: 1
     jedis:
       pool:
         max-active: 8
@@ -40,7 +37,7 @@ mybatis:
 
 #服务容器配置
 server:
-  port: 59845
+  port: 80
   tomcat:
     uri-encoding: UTF-8
   address: 0.0.0.0
