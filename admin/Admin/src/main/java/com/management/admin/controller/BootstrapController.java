@@ -52,7 +52,6 @@ public class BootstrapController {
      */
     @PostMapping("login")
     @ResponseBody
-    @WebLog(section = "User", content = "管理员登陆")
     public JsonResult login(HttpServletRequest req, HttpServletResponse response, String username, String password){
         UserInfo userInfo = userService.staffLogin(username, password);
 

@@ -2,6 +2,7 @@ package com.management.admin.biz;
 
 import com.management.admin.entity.db.SystemLog;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.SystemLogDetail;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface ISystemLogService {
      * @param endTime
      * @return
      */
-    List<SystemLog> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
+    List<SystemLogDetail> getLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
 
 
     /**
@@ -43,7 +44,7 @@ public interface ISystemLogService {
      * @param logId
      * @return
      */
-    SystemLog querySystemLogById(Integer logId);
+    SystemLogDetail querySystemLogById(Integer logId);
 
     /**
      * 添加系统日志 狗蛋 2018年12月21日19:54:29

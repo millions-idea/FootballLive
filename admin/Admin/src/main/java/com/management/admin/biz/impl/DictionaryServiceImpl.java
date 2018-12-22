@@ -68,8 +68,9 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
             dictionaryInfo.setKey(item.getKey());
             dictionaryInfo.setValue(item.getValue());
             if (item.getKey().contains("banner.image")){
-                if (item.getKey().contains("targetUrl")){
-                    dictionaryInfo.setUrl(item.getKey());
+                Optional<Dictionary> targetUrl = dictionaries.stream().filter(d -> d.getKey().contains(item.getKey() + ".targetUrl")).findFirst();
+                if (targetUrl.isPresent() && targetUrl.get() != null){
+                    dictionaryInfo.setUrl(targetUrl.get().getValue());
                 }
             }
             dictionaryInfos.add(dictionaryInfo);

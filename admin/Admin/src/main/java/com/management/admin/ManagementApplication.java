@@ -1,6 +1,7 @@
 package com.management.admin;
 
 import com.management.admin.config.WebLogAspectConfiguration;
+import com.management.admin.interceptor.WebMvcOperationLogInterceptor;
 import com.management.admin.utils.SpringApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,6 +29,10 @@ public class ManagementApplication {
 		return new WebLogAspectConfiguration(true);
 	}
 
+	@Bean
+	public WebMvcOperationLogInterceptor getWebMvcOperationLogInterceptor(){
+		return new WebMvcOperationLogInterceptor(true);
+	}
 	@Bean
 	public SpringApplicationContext getSpringApplicationContext() {
 		return new SpringApplicationContext();

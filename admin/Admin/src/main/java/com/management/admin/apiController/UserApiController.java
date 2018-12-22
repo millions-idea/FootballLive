@@ -85,7 +85,7 @@ public class UserApiController {
         String ip = RequestUtil.getIp(req);
         UserInfo userInfo = userService.addUser(phone, password, smsCode, ip);
         Map<String, String> fields
-                = ImmutableMap.of("phone", phone, "userId", userInfo.getUserId() + "", "userCode", userInfo.getUserCode());
+                = ImmutableMap.of("phone", phone, "userId", userInfo.getUserId() + "");
         String token = TokenUtil.create(fields);
         userInfo.setToken(token);
 

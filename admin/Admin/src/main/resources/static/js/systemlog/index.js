@@ -160,11 +160,13 @@ function initDataTable(url, callback, loadDone) {
 function getTableColumns() {
     return [[
         {type: "numbers", fixed: 'left'}
+
         , {field: 'logId', title: 'ID', width: 80, sort: true}
+        , {field: 'nickName', title: '操作人', width: 150}
         , {field: 'section', title: '节点名称', width: 150}
         , {field: 'content', title: '日志内容', width: 150}
         , {field: 'addDate', title: '添加时间', width: 150, sort: true, templet: function (d) {
-                return d.liveDate == null ? '' : utils.date.timestampConvert(d.liveDate);
+                return d.addDate == null ? '' : utils.date.timestampConvert(d.addDate);
             }}
         , {fixed: 'right',title: '操作', width: 160, align: 'center', templet: function(d){
                 var html = "";

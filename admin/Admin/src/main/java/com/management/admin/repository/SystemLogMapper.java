@@ -2,6 +2,7 @@ package com.management.admin.repository;
 
 import com.management.admin.entity.db.SystemLog;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.SystemLogDetail;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +15,7 @@ public interface SystemLogMapper extends MyMapper<SystemLog>{
 
     // 要用方法：1：拷贝分页，2：查看详情
 
-    @Select("SELECT t1.log_id,t1.section,t1.content,t1.add_date from tb_system_logs t1 where ${condition} GROUP BY t1.log_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+    @Select("SELECT t1.log_id,t1.section,t1.content,t1.add_date,t2.nick_name from tb_system_logs t1 left join tb_users t2 on t1.user_id = t2.user_id where ${condition} GROUP BY t1.log_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
@@ -25,7 +26,7 @@ public interface SystemLogMapper extends MyMapper<SystemLog>{
      * @param where
      * @return
      */
-    List<SystemLog> selectLimit(@Param("page") Integer page, @Param("limit") String limit
+    List<SystemLogDetail> selectLimit(@Param("page") Integer page, @Param("limit") String limit
             , @Param("isEnable") Integer isEnable
             , @Param("beginTime") String beginTime
             , @Param("endTime") String endTime
@@ -53,15 +54,15 @@ public interface SystemLogMapper extends MyMapper<SystemLog>{
      * @param logId
      * @return
      */
-    @Select("select * from tb_system_logs where log_id=#{logId}")
-    SystemLog querySystemLogById(Integer logId);
+    @Select("select t1.*,t2.nick_name from tb_system_logs t1 left join tb_users t2 on t1.user_id = t2.user_id  where log_id=#{logId}")
+    SystemLogDetail querySystemLogById(Integer logId);
 
     /**
      * 添加系统日志 狗蛋 2018年12月21日19:38:49
      * @param systemLog
      * @return
      */
-    @Insert("insert into tb_system_logs(user_id,section,content,add_date) values(#{userId}#{section},#{content},NOW())")
+    @Insert("insert into tb_system_logs(user_id,section,content,add_date) values(#{userId},#{section},#{content},NOW())")
     Integer insertSystemLog(SystemLog systemLog);
 
 }

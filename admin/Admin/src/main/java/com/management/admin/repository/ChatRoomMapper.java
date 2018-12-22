@@ -16,16 +16,6 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
     @Select("select t1.room_id,t1.chat_room_id,t1.frequency,t2.live_title,t2.live_id "+
             "from tb_chat_rooms t1 left join tb_lives t2 on t1.live_id=t2.live_id"+
             " where ${condition} GROUP BY t1.room_id DESC LIMIT #{page},${limit}")
-    /**
-     * ·ÖÒ³²éÑ¯ Î¤µÂ 2018Äê8ÔÂ30ÈÕ11:33:22
-     * @param page
-     * @param limit
-     * @param state
-     * @param beginTime
-     * @param endTime
-     * @param where
-     * @return
-     */
     List<ChatRoomDetail> selectLimit(@Param("page") Integer page, @Param("limit") String limit
             , @Param("isEnable") Integer isEnable
             , @Param("beginTime") String beginTime
@@ -33,34 +23,25 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
             , @Param("condition") String condition);
 
     @Select("SELECT COUNT(t1.live_id) from tb_chat_rooms t1 left join tb_lives t2 on t1.live_id=t2.live_id where ${condition}")
-    /**
-     * ·ÖÒ³²éÑ¯¼ÇÂ¼Êı Î¤µÂ 2018Äê8ÔÂ30ÈÕ11:33:30
-     * @param state
-     * @param beginTime
-     * @param endTime
-     * @param where
-     * @return
-     */
+
     Integer selectLimitCount(@Param("isEnable") Integer isEnable
             , @Param("beginTime") String beginTime
             , @Param("endTime") String endTime
             , @Param("condition") String condition);
 
-    /**
-     * ²éÑ¯×Ü¼ÇÂ¼Êı
-     * @return
-     */
     @Select("select count(*) from tb_chat_rooms")
     Integer selectRoomCount();
 
-    /**
-     * ¸ù¾İÁÄÌìÊÒ±àºÅ²éÑ¯ÏàÓ¦µÄÁÄÌìÊÒÏêÇé ¹·µ° 2018Äê12ÔÂ19ÈÕ02:53:14
-     * @param roomId
-     * @return
-     */
     @Select("select t1.room_id,t1.chat_room_id,t1.frequency,t2.live_title,t2.live_id " +
             "  from tb_chat_rooms t1 left join tb_lives t2 on t1.live_id=t2.live_id where room_id=#{roomId}")
     ChatRoomDetail queryChatRoomById(Integer roomId);
 
 
+    /**
+     * æŸ¥è¯¢èŠå¤©å®¤ä¿¡æ¯--ç›´æ’­é—´id  DF 2018å¹´12æœˆ20æ—¥23:42:02
+     * @param liveId
+     * @return
+     */
+    @Select("SELECT * FROM tb_chat_rooms WHERE live_id = #{liveId}")
+    ChatRoom selectByLive(@Param("liveId") Integer liveId);
 }

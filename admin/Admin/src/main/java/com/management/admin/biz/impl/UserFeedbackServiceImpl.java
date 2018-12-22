@@ -136,21 +136,25 @@ public class UserFeedbackServiceImpl implements IUserFeedbackService {
     public boolean addFeedback(Integer userId, String content) {
         UserFeedback userFeedback = feedbackMapper.selectLastSubmit(userId);
 
-        Date currentDate = new Date();
+        if(userFeedback != null){
 
-        long nd = 1000 * 24 * 60 * 60;//每天毫秒数
+            Date currentDate = new Date();
 
-        long nh = 1000 * 60 * 60;//每小时毫秒数
+            long nd = 1000 * 24 * 60 * 60;//每天毫秒数
 
-        long nm = 1000 * 60;//每分钟毫秒数
+            long nh = 1000 * 60 * 60;//每小时毫秒数
 
-        long diff = currentDate.getTime() - userFeedback.getAddDate().getTime(); // 获得两个时间的毫秒时间差异
+            long nm = 1000 * 60;//每分钟毫秒数
 
-        long day = diff / nd;   // 计算差多少天
+            long diff = currentDate.getTime() - userFeedback.getAddDate().getTime(); // 获得两个时间的毫秒时间差异
 
-        long hour = diff % nd / nh; // 计算差多少小时
+            long day = diff / nd;   // 计算差多少天
 
-        if(day > 0 || hour >= 8) throw  new InfoException("您已提交反馈, 8小时内不能再次提交！");
+            long hour = diff % nd / nh; // 计算差多少小时
+
+            if(day <= 0 || hour <= 8) throw  new InfoException("您已提交反馈, 8小时内不能再次提交！");
+
+        }
 
         return feedbackMapper.insertFeedback(userId, content) > 0;
     }

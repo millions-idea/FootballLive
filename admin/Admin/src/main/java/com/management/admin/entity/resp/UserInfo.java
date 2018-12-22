@@ -22,10 +22,6 @@ import java.util.Date;
 public class UserInfo {
     private Integer userId;
     /**
-     * 用户编码(字母开头+数字,最短5位,最长15位)
-     */
-    private String userCode;
-    /**
      * 手机号(用户名)
      */
     private String phone;

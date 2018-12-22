@@ -102,16 +102,29 @@
 	                     * http://www.html5plus.org/doc/zh_cn/storage.html#plus.storage.setItem
 	                     */
 	                    plus.storage.setItem("launchFlag", "true");
-	                    
-	                    app.utils.openNewWindow("login.html", "login");
+                    	app.utils.openNewWindow("login.html", "login");        
 	                });
 					
 	                var flag = plus.storage.getItem("launchFlag");
 					if(flag == "true"){
-						$("#start").hide();
-						setTimeout(function(){
-	                    	app.utils.openNewWindow("login.html", "login");
-						}, 5000)
+						var cacheString = plus.storage.getItem("userInfo"); 
+						if(cacheString != null) {
+							app.logger("index","引导页，已登录，自动跳转到首页");
+							
+							var webview = plus.webview.getWebviewById("index");
+							if(webview != null) webview.evalJS("newInstance()");
+							
+							app.utils.openWindow("index.html", "index");
+							return;
+						}else{
+							app.logger("index","引导页，没有读取到登录缓存");
+							
+							$("#start").hide();
+							setTimeout(function(){
+		                    	app.utils.openNewWindow("login.html", "login");
+							}, 5000)
+						}	                    
+
 					}
 					
 				});

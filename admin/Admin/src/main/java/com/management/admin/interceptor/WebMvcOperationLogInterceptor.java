@@ -17,9 +17,12 @@ import com.management.admin.entity.template.Constant;
 import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.MsgException;
 import com.management.admin.utils.Base64Util;
+import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.RSAUtil;
 import com.management.admin.utils.RequestUtil;
 import com.management.admin.utils.web.SessionUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -32,6 +35,8 @@ import java.lang.reflect.Method;
  * Web操作日志记录
  */
 public class WebMvcOperationLogInterceptor implements HandlerInterceptor {
+    private final Logger logger = LoggerFactory.getLogger(WebMvcOperationLogInterceptor.class);
+
     /**
      * 控制验签系统开闭
      */
@@ -41,7 +46,7 @@ public class WebMvcOperationLogInterceptor implements HandlerInterceptor {
     private ISystemLogService systemLogService;
 
     public WebMvcOperationLogInterceptor(Boolean isOpen) {
-        this.isOpen = isOpen;
+            this.isOpen = isOpen;
     }
 
     @Override
@@ -56,19 +61,18 @@ public class WebMvcOperationLogInterceptor implements HandlerInterceptor {
             WebLog log = method.getAnnotation(WebLog.class);
             if (log != null){
                 // 获取
-                SessionModel session = SessionUtil.getSession(request);
-                SystemLog systemLog = new SystemLog();
-                systemLog.setUserId(session.getUserId());
-                systemLog.setSection(log.section());
-                systemLog.setContent(log.content());
-                // 放入数据库
-                Integer result = systemLogService.insertSystemLog(systemLog);
-                if(result>0){
-                    return true;
-                }else {
-                    return  false;
+                try {
+                    SessionModel session = SessionUtil.getSession(request);
+                    SystemLog systemLog = new SystemLog();
+                    systemLog.setUserId(session.getUserId());
+                    systemLog.setSection(log.section());
+                    systemLog.setContent(log.content());
+                    // 放入数据库
+                    Integer result = systemLogService.insertSystemLog(systemLog);
+                    logger.info("上报日志内容:" + JsonUtil.getJson(systemLog) +  " 结果:"  + result);
+                }catch (Exception e){
+                    logger.info("上报日志异常:" + JsonUtil.getJson(e) );
                 }
-
             }
         }
         return true;
