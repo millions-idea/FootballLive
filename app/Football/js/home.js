@@ -95,13 +95,18 @@ mui.plusReady(function(){
 	    });
 	    
 	    // 检测更新版本
-		checkVersion(plus);
+		//checkVersion(plus);
 	    
 	    // 加载初始化数据
     	initData();
     })
     
     initData();
+    
+    
+    // 检测更新版本
+	checkVersion(plus);
+    
 })
  
  
@@ -158,8 +163,8 @@ function initData(){
 		
 		$(".headline .left, .headline .right").unbind("click").bind("click",function(){
 			var id = $(this).data("id");
-
-			if(id != null && id.length > 0 ){
+			console.log(id != null);
+			if(id != null){
 				app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
 					liveId: id
 				})

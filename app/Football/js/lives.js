@@ -52,6 +52,7 @@ mui.plusReady(function(){
 	})
 
 	initData();
+	
 })
 
 
@@ -101,7 +102,7 @@ $(function(){
 	    	});
 	    }
 	}); 
-
+	
 	//显示所有分类
 	$(".showCategory").click(function(){
 		mui("#sheet").popover("toggle");
@@ -244,6 +245,10 @@ function initData(){
 		$("#liveCategoryId").val("");
 
 		$(".live-category").html(html); 
+		 
+		//设置滚动组件
+		mui('.mui-scroll-wrapper').scroll();
+		
 		
 		$(".toCategory").unbind("click").bind("click", function(){
 			var that = $(this);
@@ -259,6 +264,9 @@ function initData(){
 			});
 			
 			mui("#sheet").popover("toggle");
+			 
+			//设置滚动组件
+			mui('.mui-scroll-wrapper').scroll();
 		})
 	})
 
