@@ -29,7 +29,10 @@ mui.plusReady(function(){
 		feedbackService.addFeedback({
 			content: content
 		}, function(res){
-			if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("发送反馈失败");
+			if(app.utils.ajax.isError(res)) {
+				if(res.code == 300) return app.utils.msgBox.msg(res.msg);
+				return app.utils.msgBox.msg("发送反馈失败");
+			}
 			app.utils.msgBox.msg("感谢您的反馈，系统已成功收取！");
 		})
 	});

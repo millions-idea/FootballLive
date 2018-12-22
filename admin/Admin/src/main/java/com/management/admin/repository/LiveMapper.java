@@ -99,7 +99,7 @@ public interface LiveMapper extends MyMapper<Live>{
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id " +
             "LEFT JOIN tb_advertisings t5 ON t5.ad_id = t1.ad_id " +
             "LEFT JOIN tb_informations t6 ON t6.live_id = t1.live_id AND t6.game_id = t3.game_id" +
-            " where t1.live_id=#{liveId} and t1.status=0")
+            " where t1.live_id=#{liveId} and t1.status=0 LIMIT 1")
     LiveDetail queryLiveDetailByLiveId(Integer liveId);
 
 

@@ -38,7 +38,7 @@
 					<script id="runnerImageTemplate" type="text/html">
 						{{each list as item index}}
 						    <div class="mui-slider-item">
-						    	<a href="{{item.url}}">
+						    	<a href="javascript:void(0);" data-url="{{item.url}}" class="runnerLink">
 						    		<img src="{{item.value}}" alt="{{index}}" />
 						    	</a>
 						    </div>

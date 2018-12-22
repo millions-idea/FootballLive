@@ -35,6 +35,12 @@ mui.plusReady(function() {
 	var cacheString = plus.storage.getItem("userInfo"); 
 	if(cacheString != null) {
 		app.logger("index","已登录，自动跳转到首页");
+		
+			
+		var webview = plus.webview.getWebviewById("index");
+		if(webview != null) webview.evalJS("newInstance()");
+		
+		
 		app.utils.openWindow("index.html", "index");
 		return;
 	}

@@ -117,6 +117,8 @@ public class LiveApiController {
         if(currentDate.compareTo(beginDate) > 0){
             liveService.setBeginLive(liveId);
         }
+        //加入群组
+        liveInfo.setChatRoomErrorMsg(liveService.addGroup(session.getPhone(), session.getUserId(), liveId));
         //添加观看历史
         liveService.addHistory(session.getUserId(), liveId);
         //查询球队信息

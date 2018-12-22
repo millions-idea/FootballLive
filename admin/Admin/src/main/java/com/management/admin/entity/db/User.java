@@ -73,6 +73,11 @@ public class User {
     private Integer type;
 
     /**
+     * 是否删除(黑名单)
+     */
+    private Integer isDelete;
+
+    /**
      * 拉黑时间
      */
     private Date blackTime;
