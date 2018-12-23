@@ -12,27 +12,32 @@
     <div class="layui-form-item">
         <label class="layui-form-label">是否显示</label>
         <div class="layui-input-block">
-            <input type="radio" name="show" value=1 title="是"checked>
-            <input type="radio" name="show" value=0 title="否">
+            <select id="show"   lay-verify="required">
+                <option selected th:if="${liveCategory.isShow}==${select.value}"  th:each="select: ${select}" th:value="${select.value}" th:text="${select.key}"></option>
+                <option  th:if="${liveCategory.isShow}!=${select.value}"  th:each="select: ${select}" th:value="${select.value}" th:text="${select.key}"></option>
+            </select>
         </div>
     </div>
     <!--是否为主图-->
     <div class="layui-form-item">
         <label class="layui-form-label">是否为主图</label>
         <div class="layui-input-block" >
-            <input type="radio" name="master" value=1 title="是">
-            <input type="radio" name="master" value=0 title="否"checked>
+            <select id="main"   lay-verify="required">
+                <option selected th:if="${liveCategory.isMain}==${select.value}"  th:each="select: ${select}" th:value="${select.value}" th:text="${select.key}"></option>
+                <option  th:if="${liveCategory.isMain}!=${select.value}"  th:each="select: ${select}" th:value="${select.value}" th:text="${select.key}"></option>
+            </select>
         </div>
     </div>
     <!--是否显示左侧-->
     <div class="layui-form-item">
         <label class="layui-form-label">显示左侧</label>
         <div class="layui-input-block" >
-            <input type="radio" name="left" value=1 title="是" checked>
-            <input type="radio" name="left" value=0 title="否">
+            <select id="left"   lay-verify="required">
+                <option selected th:if="${liveCategory.isLeft}==${select.value}"  th:each="select: ${select}" th:value="${select.value}" th:text="${select.key}"></option>
+                <option  th:if="${liveCategory.isLeft}!=${select.value}"  th:each="select: ${select}" th:value="${select.value}" th:text="${select.key}"></option>
+            </select>
         </div>
     </div>
-
 
     <div class="layui-form-item">
         <label class="layui-form-label">分类LOGO</label>
@@ -87,17 +92,19 @@
         var categoryName=$("#cartgoryName").val();
         var categoryPhoto=$("#categoryUrl").attr("src");
         var sort=$("#sort").val();
-        var show= $("input[name='show']:checked").val();
-        var master= $("input[name='master']:checked").val();
-        var left= $("input[name='left']:checked").val()
+        var show= $("#show").val();
+        var master= $("#main").val();
+        var left= $("#left").val()
         var category={}
 
         category.categoryId=categoryId;
         category.categoryName=categoryName;
         category.categoryBackgroundImageUrl=categoryPhoto;
         category.sort=sort;
-
-
+        category.isShow=show;
+        category.isLeft=left;
+        category.isMain=master;
+        alert(show+"=="+left+"=="+master)
         if (categoryName==null||categoryName.length==0){
             layer.msg("不能为空")
             return false;

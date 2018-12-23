@@ -40,7 +40,8 @@
   },
   "reg.html": {
     "refer": [
-      "regPact.html"
+      "regPact.html",
+      "index.html"
     ],
     "resources": [
       "images/check-box_outline.png",
@@ -83,7 +84,8 @@
       "home.html",
       "index.html",
       "login.html"
-    ]
+    ],
+    "resources": []
   },
   "findPassword.html": {
     "resources": [
@@ -94,7 +96,8 @@
       "css/mui.min.css",
       "js/findPassword.js",
       "css/reset.css"
-    ]
+    ],
+    "refer": []
   },
   "regPact.html": {
     "resources": [
@@ -102,22 +105,26 @@
       "css/mui.min.css",
       "css/icon.fonts.css",
       "css/reset.css"
-    ]
+    ],
+    "refer": []
   },
   "systemSetting.html": {
     "refer": [
       "feedback.html",
       "login.html"
-    ]
+    ],
+    "resources": []
   },
   "informations.html": {
     "refer": [
       "liveDetail.html"
-    ]
+    ],
+    "resources": []
   },
   "home.html": {
     "refer": [
       "liveDetail.html"
-    ]
+    ],
+    "resources": []
   }
 }

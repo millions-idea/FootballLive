@@ -78,9 +78,25 @@ mui.plusReady(function(){
     
     
 	// 禁止返回到登录注册页面
-	mui.back = function() {
+	/*mui.back = function() {
 		return false;
-	}
+	}*/
+	
+	//首页返回键处理,处理逻辑：1秒内,连续两次按返回键，则退出应用
+    var first = null;
+    mui.back = function() {
+        if (!first) {//首次按键，提示‘再按一次退出应用’
+            first = (new Date()).getTime();
+            mui.toast('再按一次退出应用');
+            setTimeout(function() {
+                first = null;
+            }, 1000);
+        } else {
+            if ((new Date()).getTime() - first < 1000) {
+                plus.runtime.quit();
+            }
+        }
+    };
 	
 	// 对网络连接进行事件监听
 	hookNetwork();
@@ -168,7 +184,7 @@ function newInstance(){
 
 	// 实例化网易云信服务
 	nim = NIM.getInstance({
-	    appKey: "76688b21d1656063933c1199a3e425a1",
+	    appKey: "c58b616a2dbfa83bf7857364f77ae13b",
 	    account: cache.cloudAccid,
 	    token: cache.cloudToken,
 	    customTag: 'TV',
@@ -306,9 +322,7 @@ function onWillReconnect(obj) {
     console.log(obj.duration);
     app.utils.msgBox.msg("您已断开连接，正在尝试重新连接……");
 }
-function destroyNim(){ 
-	nim.disconnect();
-	
+function destroyNim(disconnect){ 
 	// 清除实例
     nim.destroy({
       done: function (err) {
@@ -324,26 +338,31 @@ function onDisconnect(error) {
         switch (error.code) {
         // 账号或者密码错误, 请跳转到登录页面并提示错误
         case 302:
-        	destroyNim();
+        	destroyNim(false);
         	app.logger("IM_onDisconnect","账号或密码错误");
         	app.utils.msgBox.msg("账号或密码错误");
         	app.utils.openNewWindow("login.html", "login");
+        	return;
             break;
         // 被踢, 请提示错误后跳转到登录页面
         case 'kicked':
-        	destroyNim();
+        	destroyNim(false);
         	app.logger("IM_onDisconnect","您的账号在别处登录,被迫下线");
         	app.utils.msgBox.msg("您的账号在别处登录,被迫下线");
         	app.utils.openNewWindow("login.html", "login");
+        	return;
+        	
             break;
         default:
-        destroyNim();
+        	destroyNim(false);
         	app.logger("IM_onDisconnect","服务器出现连接问题,被迫下线");
         	app.utils.msgBox.msg("服务器出现连接问题,被迫下线");
         	app.utils.openNewWindow("login.html", "login");
+        	return;
             break;
         }
     }
+	return;
 }
 function onError(error) {
     console.log(error);

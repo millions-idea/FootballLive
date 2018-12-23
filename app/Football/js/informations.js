@@ -219,6 +219,10 @@ function initData(){
 		}
 		$(".live-category").html(html); 
 		
+		
+		//设置滚动组件
+		mui('.mui-scroll-wrapper').scroll();
+		
 		$(".toCategory").unbind("click").bind("click", function(){
 			var that = $(this);
 			$("#liveCategoryId").val($(that).data("id"));
@@ -233,6 +237,9 @@ function initData(){
 			});
 			
 			mui("#sheet").popover("toggle");
+			
+			//设置滚动组件
+			mui('.mui-scroll-wrapper').scroll();
 		})
 	})
 

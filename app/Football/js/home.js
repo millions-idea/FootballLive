@@ -95,13 +95,18 @@ mui.plusReady(function(){
 	    });
 	    
 	    // 检测更新版本
-		checkVersion(plus);
+		//checkVersion(plus);
 	    
 	    // 加载初始化数据
     	initData();
     })
     
     initData();
+    
+    
+    // 检测更新版本
+	checkVersion(plus);
+    
 })
  
  
@@ -133,42 +138,74 @@ function initData(){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
 		
 		//参赛球队信息设置
-		$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
-		$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
-		$(".left .teamName").text(res.data[0].team.teamName);
-		$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
-		$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
-		$(".left").data("id", res.data[0].liveId);
+		if(res.data[0] != null){
+			$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
+			$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
+			$(".left .teamName").text(res.data[0].team.teamName);
+			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
+			$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
+			$(".left").data("id", res.data[0].liveId);
+				
+		}
 		
 		//对战球队信息设置
-		$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
-		$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
-		$(".right .teamName").text(res.data[1].team.teamName);
-		$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
-		$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
-		$(".right").data("id", res.data[1].liveId);
+		if(res.data[1] != null){
+			$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
+			$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
+			$(".right .teamName").text(res.data[1].team.teamName);
+			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
+			$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
+			$(".right").data("id", res.data[1].liveId);
+		}
+		
 		
 		
 		
 		$(".headline .left, .headline .right").unbind("click").bind("click",function(){
 			var id = $(this).data("id");
-			console.log(id)
-			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
-				liveId: id
-			})
+			console.log(id != null);
+			if(id != null){
+				app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
+					liveId: id
+				})
+			}
 		});
 	});
 	
 	//加载直播分类信息
+	
+	
 	homeService.getLiveCategoryList(function(res){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
 		
+		var html = "";
+		html += '<div class="left">';
 		for (var i = 0; i < res.data.length; i++) {
-			$(".item").eq(i).attr("title", res.data[i].categoryName)
-			$(".item").eq(i).data("id", res.data[i].categoryId)
-			$(".item").eq(i).css("background-image", "url(" + res.data[i].categoryBackgroundImageUrl + ")")
+			var item = res.data[i];
+			if(item.isLeft == 1 && item.isMain == 1) {
+				html += '	<div data-index="'+i+'" title="' + res.data[i].categoryName + '" id="' + res.data[i].categoryId + '" tabindex="' + i + '" class="item first" style="background-image: url('+ res.data[i].categoryBackgroundImageUrl   +')"></div>';
+			}else if (item.isLeft == 1){
+				html += '	<div data-index="'+i+'" title="' + res.data[i].categoryName + '" id="' + res.data[i].categoryId + '" tabindex="' + i + '" class="item" style="background-image: url('+ res.data[i].categoryBackgroundImageUrl   +')"></div>';
+			}else{
+				continue;
+			}
 		}
+		html += '</div>';
 		
+		html += '<div class="right">';
+		for (var i = 0; i < res.data.length; i++) {
+			var item = res.data[i];
+			if (item.isLeft == 0){
+				html += '	<div data-index="'+i+'" title="' + res.data[i].categoryName + '" id="' + res.data[i].categoryId + '" tabindex="' + i + '" class="item" style="background-image: url('+ res.data[i].categoryBackgroundImageUrl   +')"></div>';
+			}else{
+				continue;
+			}
+		}
+		html += '</div>';
+		html += '<div class="form-placeholder-10"></div>';
+		
+		
+		$(".category").html(html);
 		
 		$(".category .item").unbind("click").bind("click", function(){
 			var that = $(this);
@@ -280,3 +317,8 @@ function onStateChanged(download, status ) {
 }
 
 
+
+
+$(function(){
+	initData();
+})

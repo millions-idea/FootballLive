@@ -29,7 +29,7 @@
     position: relative;
     top: 0px;
     width: 90%;
-    height: 165px;
+    height: 155px;
     border-radius: 12px;
     overflow: hidden;
     padding-top: 12px;
@@ -162,7 +162,7 @@
 .category{
     width: 95%;
     margin: 0 auto;
-    height: 400px;
+    height: 100%;
 }
 
 .category .left{
@@ -199,9 +199,6 @@
 
 .category .first{
 	height: 190px !important;
-	background-image: url(../images/category.image.png) !important;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
 } 
 
 

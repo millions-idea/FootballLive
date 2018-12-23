@@ -169,7 +169,11 @@ public class configurationController {
         sort.put("五级", 4);
         sort.put("六级", 5);
         sort.put("七级", 6);
+        Map<String,Integer> select = new HashMap<>();
+        select.put("是", 1);
+        select.put("否", 0);
 
+        model.addAttribute("select",select);
         model.addAttribute("liveCategory",liveCategory);
         model.addAttribute("sorts",sort);
         return "configuration/editCategory";

@@ -29,4 +29,19 @@ public class LiveCategory {
     private Integer sort;
 
     private Integer isDelete;
+
+    /**
+     * 是否显示
+     */
+    private Integer isShow;
+
+    /**
+     * 是否在左侧显示
+     */
+    private Integer isLeft;
+
+    /**
+     * 是否为主图
+     */
+    private Integer isMain;
 }
