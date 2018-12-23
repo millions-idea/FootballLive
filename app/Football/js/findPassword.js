@@ -22,7 +22,12 @@ mui.plusReady(function() {
 		}, function(data){
 			app.logger("ResetSmsCode", JSON.stringify(data));
 			
-			if(utils.ajax.isError(data)) return utils.msgBox.msg("发送验证码失败");
+			if(utils.ajax.isError(data)) {
+				timeCount = 60;
+				document.getElementById("sendSmsCode").disabled = false;
+				document.getElementById("sendSmsCode").innerHTML = "重新发送验证码";
+				return utils.msgBox.msg("发送验证码失败");
+			}
 			
 			//再次获取验证码倒计时器
 			internalTimer = setInterval(function(){
@@ -47,7 +52,7 @@ mui.plusReady(function() {
 			$smsCode = $("input[name='smsCode']");
 			
 		if($phone == null || $phone.val().length != 11) return utils.msgBox.msg("请输入正确的手机号(11位)");
-		if($password == null || $password.val().length < 6) return utils.msgBox.msg("请输入密码(最短6位)");
+		if($password == null || $password.val().length <= 6) return utils.msgBox.msg("请输入密码(最短6位)");
 		if($smsCode == null || $smsCode.val().length != 6) return utils.msgBox.msg("请输入正确的验证码");
 		
 		

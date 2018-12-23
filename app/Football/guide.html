@@ -55,6 +55,11 @@
                             <button class="mui-btn mui-btn-blue mui-btn-outlined" type="button" id="start">开始体验</button>
                         </a>
                     </div>-->
+                    <div class="mui-slider-item">
+                        <a href="javascript:;">
+                            <img class="guide-img" src="images/guide.png">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,6 +78,7 @@
             	
             	$.get(app.utils.toUrl(app.config.apiUrl + "api/profile/getGuide"), {}, function(data){
 					app.logger("guide", JSON.stringify(data));
+					console.log("启动图: " + data.msg)
 					$(".guide-img").attr("src",  data.msg);
 					 
 					
