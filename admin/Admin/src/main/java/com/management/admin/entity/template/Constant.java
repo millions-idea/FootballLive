@@ -96,10 +96,10 @@ public interface Constant {
     /**
      * 消息密码
      */
-    String MsgPassword =  "123456789";
+    String MsgPassword =  "25f9e794323b453885f5181f1b624d0b";
 
 
-    String BindDomain = "yabolive.512ck.cn";
+    String BindDomain = "yabolive.512ck.cn,live.512ck.cn";
 
-    Boolean DebugMode = true;
+    Boolean DebugMode = false;
 }

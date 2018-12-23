@@ -20,6 +20,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /***
  * 域名拦截器
@@ -28,12 +29,21 @@ public class DomainAuthenticationInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        String url = RequestUtil.getParameters(request);
-        if(!url.contains(Constant.BindDomain)){
-           if(!Constant.DebugMode){
-               throw new InfoException("来路错误");
-           }
+        String url =  request.getRequestURL().toString().toLowerCase();
+        String[] arr = Constant.BindDomain.split(",");
+
+        int count = 0;
+        for (String u : arr){
+            if(!url.contains(u)){
+                count ++;
+            }
         }
+        if(count > 0){
+            if(!Constant.DebugMode){
+                throw new InfoException("来路错误" );
+            }
+        }
+
         return true;
     }
 }
