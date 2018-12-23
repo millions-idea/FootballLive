@@ -6,7 +6,7 @@ window.app = {
 	config: {
 		title: "卫星体育",
 		brand: "卫星体育",
-		apiUrl: "http://3bufgj.natappfree.cc/",
+		apiUrl: "http://live.512ck.cn/",
 		shareUrl: "http://share.512ck.cn/",
 		version: "1.0.1"
 	},

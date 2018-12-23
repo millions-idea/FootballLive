@@ -140,7 +140,7 @@
 				}
 			},"debug":false
 		},
-		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false},"adid":""
+		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false}
 	},
 	"dependencies": {
 		"pages": {
