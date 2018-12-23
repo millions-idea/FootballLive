@@ -34,7 +34,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
             "AND ${condition} " +
-            "ORDER BY t1.live_date ")
+            "ORDER BY t1.live_date desc")
     List<LiveScheduleDetail> selectScheduleDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
                                                       @Param("condition") String condition);
 

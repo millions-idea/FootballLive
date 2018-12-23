@@ -136,7 +136,7 @@ public class ChatRoomServiceImpl implements IChatRoomService {
         }
 
         String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", "from=" +  Constant.HotAccId + "&ope=1"
-                + "&to =" + chatRoom.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"}=");
+                + "&to =" + chatRoom.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"\"}");
         NAGroup model = JsonUtil.getModel(response, NAGroup.class);
         if (!model.getCode().equals(200)) return "同步云端数据失败";
 
@@ -157,7 +157,7 @@ public class ChatRoomServiceImpl implements IChatRoomService {
         for (ChatRoom item:liveList) {
 
             String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", "from=" +  Constant.HotAccId + "&ope=1"
-                    + "&to =" + item.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"}=");
+                    + "&to =" + item.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"\"}");
             NAGroup model = JsonUtil.getModel(response, NAGroup.class);
             if (!model.getCode().equals(200)) return "同步云端数据失败";
         }
