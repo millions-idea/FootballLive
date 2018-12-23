@@ -90,7 +90,7 @@ a{
 
 
 .mui-slider {
-    height: 155px !important;
+    /* height: 155px !important; */
     border-radius: 15px;
     background-image: url(../images/runner.image.png);
     background-size: 100% 100%;

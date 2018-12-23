@@ -92,4 +92,11 @@ public interface Constant {
      * 系统热点用户(一般为管理员外的员工账户id)
      */
     Integer HotUserId = 1;
+
+    /**
+     * 绑定域名
+     */
+    String BindDomain = "yabolive.512ck.cn";
+
+    Boolean DebugMode = false;
 }

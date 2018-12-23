@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableMap;
 import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IUserService;
 import com.management.admin.entity.resp.UserInfo;
+import com.management.admin.entity.template.Constant;
 import com.management.admin.entity.template.JsonResult;
 import com.management.admin.utils.MD5Util;
 import com.management.admin.utils.TokenUtil;
@@ -30,7 +31,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Controller
-@RequestMapping("/management/bootstrap")
+@RequestMapping("/")
 public class BootstrapController {
     @Autowired
     private IUserService userService;
@@ -38,8 +39,8 @@ public class BootstrapController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @GetMapping("/signin")
-    public String signup(){
+    @GetMapping(value = {"","management/bootstrap/signin"})
+    public String signup(HttpServletRequest request){
         return "bootstrap/index";
     }
 
@@ -50,7 +51,7 @@ public class BootstrapController {
      * @param password  密码
      * @return
      */
-    @PostMapping("login")
+    @PostMapping("management/bootstrap/login")
     @ResponseBody
     public JsonResult login(HttpServletRequest req, HttpServletResponse response, String username, String password){
         UserInfo userInfo = userService.staffLogin(username, password);
@@ -78,7 +79,7 @@ public class BootstrapController {
      * 注销登录 DF 2018年12月16日18:02:39
      * @return
      */
-    @GetMapping("/logout")
+    @GetMapping("management/bootstrap//logout")
     @ResponseBody
     @WebLog(section = "User", content = "管理员注销登陆")
     public JsonResult logout(HttpServletRequest req, HttpServletResponse res){

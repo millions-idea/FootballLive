@@ -1,6 +1,8 @@
 package com.management.admin;
 
 import com.management.admin.config.WebLogAspectConfiguration;
+import com.management.admin.entity.template.Constant;
+import com.management.admin.interceptor.DomainAuthenticationInterceptor;
 import com.management.admin.utils.IdWorker;
 import com.management.admin.utils.SMS.PaasSmsUtil;
 import com.management.admin.utils.SpringApplicationContext;
@@ -22,12 +24,11 @@ public class ManagementApplication {
 
 	public static void main(String[] args) throws Exception{
 		SpringApplication.run(ManagementApplication.class, args);
-
 		System.out.println("启动内置tomcat服务成功!");
 	}
 
 	@Bean
-	public WebLogAspectConfiguration geWebLogAspectConfiguration(){
+	public WebLogAspectConfiguration getWebLogAspectConfiguration(){
 		return new WebLogAspectConfiguration(true);
 	}
 

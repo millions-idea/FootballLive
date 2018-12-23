@@ -52,7 +52,10 @@ mui.plusReady(function(){
 	})
 
 	initData();
-	
+	  
+    
+    
+    
 })
 
 
@@ -107,6 +110,8 @@ $(function(){
 	$(".showCategory").click(function(){
 		mui("#sheet").popover("toggle");
 	});
+	
+	
 })
  
 

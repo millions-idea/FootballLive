@@ -15,6 +15,7 @@ import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
 import com.management.admin.entity.template.SessionModel;
+import com.management.admin.exception.InfoException;
 import com.management.admin.utils.PropertyUtil;
 import com.management.admin.utils.RequestUtil;
 import com.management.admin.utils.TokenUtil;
@@ -118,7 +119,7 @@ public class UserApiController {
     @PostMapping("signIn")
     public JsonResult signIn(HttpServletRequest req, HttpServletResponse resp, String phone, String password){
         User user = userService.login(phone, password);
-        if(user == null) return new JsonResult().failingAsString("账号或密码错误");
+        if(user == null) throw new InfoException("账号或密码错误");
         UserInfo userInfo = new UserInfo();
         PropertyUtil.clone(user, userInfo);
 

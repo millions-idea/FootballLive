@@ -167,17 +167,20 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
     @Override
+    @Transactional
     public User login(String phone, String password) {
         User user = getUser(phone, password);
         if(user != null){
             // 更新并获取新token
             String response = NeteaseImUtil.post("nimserver/user/refreshToken.action", "accid=" + user.getPhone());
             NASignIn model = JsonUtil.getModel(response, NASignIn.class);
-            if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
 
             // 更新数据库信息
             user.setEditDate(new Date());
-            user.setCloudToken(model.getInfo().getToken());
+
+            if(model != null && model.getCode().equals(200)){
+                user.setCloudToken(model.getInfo().getToken());
+            }
             if(userMapper.updateByPrimaryKey(user) <= 0) logger.error("UserServiceImpl_login()_登录验证_更新最后一次登录时间失败");
         }
         return user;
@@ -194,7 +197,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Boolean resetPassword(String phone, String password, String smsCode) {
         // 校验短信验证码是否正确或过期
-        String dbSmsCode = (String) redisTemplate.opsForValue().get("sms-" + phone);
+            String dbSmsCode = (String) redisTemplate.opsForValue().get("sms-" + phone);
         if(dbSmsCode == null || !dbSmsCode.equalsIgnoreCase(smsCode)) throw new InfoException("短信验证码不正确");
 
         // 加盐加密用户数据
@@ -210,12 +213,7 @@ public class UserServiceImpl implements IUserService {
 
         // 同步本地数据库
         Example example = new Example(User.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("phone", phone);
-        example.and(criteria);
-        User user = new User();
-        user.setCloudToken(model.getInfo().getToken());
-        Boolean updateResult = userMapper.updateByExample(user, example) > 0;
+        Boolean updateResult = userMapper.updateCloudToken(phone, model.getInfo().getToken()) > 0;
         if(!updateResult) throw new InfoException("同步本地数据失败");
 
         return result;
