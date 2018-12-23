@@ -43,4 +43,19 @@ public interface IChatRoomService {
      * @return
      */
     ChatRoomDetail queryChatRoomById(Integer roomId);
+
+    /**
+     * 发送消息给直播间
+     * @param MsgPassword
+     * @param liveId
+     * @param msg
+     * @return
+     */
+    String sendMsg(String MsgPassword,Integer liveId,String msg);
+
+    /**
+     * 发送消息给所有直播间
+     */
+
+    String sendMsgAllLive(String MsgPassword,Integer liveId,String msg);
 }

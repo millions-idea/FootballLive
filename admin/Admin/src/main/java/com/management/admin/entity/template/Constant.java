@@ -92,4 +92,9 @@ public interface Constant {
      * 系统热点用户(一般为管理员外的员工账户id)
      */
     Integer HotUserId = 1;
+
+    /**
+     * 消息密码
+     */
+    String MsgPassword =  "123456789";
 }

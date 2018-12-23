@@ -6,11 +6,13 @@ import com.management.admin.entity.db.Live;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.template.JsonArrayResult;
+import com.management.admin.entity.template.JsonResult;
 import com.management.admin.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -64,5 +66,40 @@ public class ChatRoomController {
         ChatRoomDetail chatRoomDetail = chatRoomService.queryChatRoomById(roomId);
         model.addAttribute("chatRoomDetail",chatRoomDetail);
         return "chatRoom/details";
+    }
+
+    /**
+     * 向指定直播间发送消息
+     * @param msgPassword
+     * @param liveId
+     * @param msg
+     * @return
+     */
+    @PostMapping("sendMsg")
+    @ResponseBody
+    @WebLog(section = "ChatRoom",content = "发送消息给直播间")
+    public JsonResult sendMsg(String msgPassword,Integer liveId,String msg){
+        String result = chatRoomService.sendMsg(msgPassword,liveId,msg);
+        if(result==null){
+            return JsonResult.failing();
+        }
+        return JsonResult.successful();
+    }
+    /**
+     * 向所有直播间发送消息
+     * @param msgPassword
+     * @param liveId
+     * @param msg
+     * @return
+     */
+    @PostMapping("sendAllLiveMsg")
+    @ResponseBody
+    @WebLog(section = "ChatRoom",content = "发送消息给直播间")
+    public JsonResult sendAllLiveMsg(String msgPassword,Integer liveId,String msg){
+        String result = chatRoomService.sendMsgAllLive(msgPassword,liveId,msg);
+        if(result==null){
+            return JsonResult.failing();
+        }
+        return JsonResult.successful();
     }
 }
