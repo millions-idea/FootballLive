@@ -8,6 +8,32 @@
                    th:value="${liveCategory.categoryName}"   autocomplete="off" class="layui-input">
         </div>
     </div>
+    <!--是否显示-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <input type="radio" name="show" value=1 title="是"checked>
+            <input type="radio" name="show" value=0 title="否">
+        </div>
+    </div>
+    <!--是否为主图-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否为主图</label>
+        <div class="layui-input-block" >
+            <input type="radio" name="master" value=1 title="是">
+            <input type="radio" name="master" value=0 title="否"checked>
+        </div>
+    </div>
+    <!--是否显示左侧-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">显示左侧</label>
+        <div class="layui-input-block" >
+            <input type="radio" name="left" value=1 title="是" checked>
+            <input type="radio" name="left" value=0 title="否">
+        </div>
+    </div>
+
+
     <div class="layui-form-item">
         <label class="layui-form-label">分类LOGO</label>
         <button type="button" class="layui-btn" id="photo">修改图片</button>
@@ -39,11 +65,10 @@
         <div class="layui-input-block">
             <select id="sort"  lay-verify="required">
                 <option selected th:if="${liveCategory.sort}==${sort.value}"  th:each="sort: ${sorts}" th:value="${sort.value}" th:text="${sort.key}"></option>
-                <option selected th:if="${liveCategory.sort}!=${sort.value}"  th:each="sort: ${sorts}" th:value="${sort.value}" th:text="${sort.key}"></option>
+                <option  th:if="${liveCategory.sort}!=${sort.value}"  th:each="sort: ${sorts}" th:value="${sort.value}" th:text="${sort.key}"></option>
             </select>
         </div>
     </div>
-
 </div>
 
 <div class="layui-form-item">
@@ -62,15 +87,17 @@
         var categoryName=$("#cartgoryName").val();
         var categoryPhoto=$("#categoryUrl").attr("src");
         var sort=$("#sort").val();
-        alert(categoryPhoto);
-
+        var show= $("input[name='show']:checked").val();
+        var master= $("input[name='master']:checked").val();
+        var left= $("input[name='left']:checked").val()
         var category={}
 
         category.categoryId=categoryId;
         category.categoryName=categoryName;
         category.categoryBackgroundImageUrl=categoryPhoto;
         category.sort=sort;
-        alert(JSON.stringify(category))
+
+
         if (categoryName==null||categoryName.length==0){
             layer.msg("不能为空")
             return false;
