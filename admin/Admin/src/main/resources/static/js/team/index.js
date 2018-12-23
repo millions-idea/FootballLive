@@ -43,7 +43,6 @@ var tableIndex;
                     });
                 });
             }else if (layEvent == 'delete'){
-                alert(data.teamId)
                 layer.confirm('真的删除吗？', function (index) {
                     $.ajax({
                         url: "/management/team/deleteTeam?teamId=" +data.teamId,

@@ -245,5 +245,6 @@ function loadTable(index,id,elem,cols,url,loadDone) {
 function resetPager() {
     $(".layui-table-body.layui-table-main").each(function (i, o) {
         $(o).height(640);
+
     });
 }

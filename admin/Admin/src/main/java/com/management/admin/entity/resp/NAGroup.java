@@ -16,6 +16,7 @@ public class NAGroup {
     private Integer code;
     private String tid;
     private faccid faccid;
+    private String roomid;
 
     @Getter
     @Setter

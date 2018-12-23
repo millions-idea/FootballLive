@@ -94,9 +94,12 @@ public interface Constant {
     Integer HotUserId = 1;
 
     /**
-     * 绑定域名
+     * 消息密码
      */
+    String MsgPassword =  "123456789";
+
+
     String BindDomain = "yabolive.512ck.cn";
 
-    Boolean DebugMode = false;
+    Boolean DebugMode = true;
 }

@@ -1,23 +1,29 @@
 package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IChatRoomService;
+import com.management.admin.entity.db.ChatRoom;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.resp.NAGroup;
+import com.management.admin.entity.template.Constant;
 import com.management.admin.repository.ChatRoomMapper;
 import com.management.admin.repository.utils.ConditionUtil;
+import com.management.admin.utils.JsonUtil;
+import com.management.admin.utils.http.NeteaseImUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
-public class ChatRoomService implements IChatRoomService {
+public class ChatRoomServiceImpl implements IChatRoomService {
 
 
     private ChatRoomMapper chatRoomMapper;
 
     @Autowired
-    public ChatRoomService(ChatRoomMapper chatRoomMapper) {
+    public ChatRoomServiceImpl(ChatRoomMapper chatRoomMapper) {
         this.chatRoomMapper = chatRoomMapper;
     }
 
@@ -112,5 +118,50 @@ public class ChatRoomService implements IChatRoomService {
     @Override
     public ChatRoomDetail queryChatRoomById(Integer roomId) {
         return chatRoomMapper.queryChatRoomById(roomId);
+    }
+
+    /**
+     * 发送信息
+     * @param MsgPassword
+     * @param liveId
+     * @param msg
+     * @return
+     */
+    public String sendMsg(String MsgPassword,Integer liveId,String msg){
+        ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
+        if(chatRoom == null) return "直播间不存在";
+
+        if(!MsgPassword.equals(Constant.MsgPassword)){
+            return "发送密码错误！";
+        }
+
+        String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", "from=" +  Constant.HotAccId + "&ope=1"
+                + "&to =" + chatRoom.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"}=");
+        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+        if (!model.getCode().equals(200)) return "同步云端数据失败";
+
+        return null;
+
+    }
+
+    /**
+     * 发送消息给所有直播间
+     *
+     * @param MsgPassword
+     * @param liveId
+     * @param msg
+     */
+    @Override
+    public String sendMsgAllLive(String MsgPassword, Integer liveId, String msg) {
+        List<ChatRoom> liveList =chatRoomMapper.selectAll();
+        for (ChatRoom item:liveList) {
+
+            String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", "from=" +  Constant.HotAccId + "&ope=1"
+                    + "&to =" + item.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"}=");
+            NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+            if (!model.getCode().equals(200)) return "同步云端数据失败";
+        }
+
+        return null;
     }
 }

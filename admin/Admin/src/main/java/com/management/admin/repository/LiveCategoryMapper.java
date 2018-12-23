@@ -68,6 +68,6 @@ public interface LiveCategoryMapper extends MyMapper<LiveCategory>{
      * @return
      */
     @Update("update tb_live_categorys set category_name=#{categoryName},category_background_image_url=#{categoryBackgroundImageUrl},sort=#{sort}" +
-            "  where category_Id=#{categoryId}")
+            "  ,is_show=#{isShow},is_left=#{isLeft},is_main=#{isMain} where category_Id=#{categoryId}")
     Integer  updateCategory(LiveCategory category);
 }

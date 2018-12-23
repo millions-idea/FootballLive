@@ -164,4 +164,7 @@ public interface ILiveService {
      * @param liveId
      */
     String addGroup(String phone, Integer userId, Integer liveId);
+
+
+
 }
