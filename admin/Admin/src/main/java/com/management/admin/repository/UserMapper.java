@@ -190,4 +190,12 @@ public interface UserMapper extends MyMapper<User> {
     @Update("update tb_users set is_delete=1 ,black_time=now(), black_remark=#{blackRemark} where user_id=#{userId}")
     Integer addBlackList(@Param("userId") Integer userId,@Param("blackRemark") String blackRemark);
 
+    /**
+     * 更新群令牌 DF 2018年12月23日21:44:00
+     * @param phone
+     * @param token
+     * @return
+     */
+    @Update("UPDATE tb_users SET cloud_token=#{token} WHERE phone=#{phone}")
+    int updateCloudToken(@Param("phone") String phone, @Param("token") String token);
 }

@@ -78,7 +78,6 @@ var homeService = {
 }
 
 mui.plusReady(function(){
-    
     //设置状态栏样式
 	plus.navigator.setStatusBarStyle("dark");
 	plus.navigator.setStatusBarBackground("#F3F3F3");
@@ -89,10 +88,7 @@ mui.plusReady(function(){
 		plus.navigator.setStatusBarBackground("#F3F3F3");
 	
 		//获得slider插件对象
-	    var gallery = mui('.mui-slider');
-	        gallery.slider({
-	  	    interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
-	    });
+        mui('.mui-slider').slider();
 	    
 	    // 检测更新版本
 		//checkVersion(plus);
@@ -101,8 +97,10 @@ mui.plusReady(function(){
     	initData();
     })
     
-    initData();
+    mui('.mui-slider').slider();
     
+    
+    initData();
     
     // 检测更新版本
 	checkVersion(plus);
@@ -173,15 +171,38 @@ function initData(){
 	});
 	
 	//加载直播分类信息
+	
 	homeService.getLiveCategoryList(function(res){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
 		
+		var html = "";
+		html += '<div class="left">';
 		for (var i = 0; i < res.data.length; i++) {
-			$(".item").eq(i).attr("title", res.data[i].categoryName)
-			$(".item").eq(i).data("id", res.data[i].categoryId)
-			$(".item").eq(i).css("background-image", "url(" + res.data[i].categoryBackgroundImageUrl + ")")
+			var item = res.data[i];
+			if(item.isLeft == 1 && item.isMain == 1) {
+				html += '	<div  data-id="' + res.data[i].categoryId + '"  data-index="'+i+'" title="' + res.data[i].categoryName + '" id="' + res.data[i].categoryId + '" tabindex="' + i + '" class="item first" style="background-image: url('+ res.data[i].categoryBackgroundImageUrl   +')"></div>';
+			}else if (item.isLeft == 1){
+				html += '	<div  data-id="' + res.data[i].categoryId + '"  data-index="'+i+'" title="' + res.data[i].categoryName + '" id="' + res.data[i].categoryId + '" tabindex="' + i + '" class="item" style="background-image: url('+ res.data[i].categoryBackgroundImageUrl   +')"></div>';
+			}else{
+				continue;
+			}
 		}
+		html += '</div>';
 		
+		html += '<div class="right">';
+		for (var i = 0; i < res.data.length; i++) {
+			var item = res.data[i];
+			if (item.isLeft == 0){
+				html += '	<div data-id="' + res.data[i].categoryId + '" data-index="'+i+'" title="' + res.data[i].categoryName + '" id="' + res.data[i].categoryId + '" tabindex="' + i + '" class="item" style="background-image: url('+ res.data[i].categoryBackgroundImageUrl   +')"></div>';
+			}else{
+				continue;
+			}
+		}
+		html += '</div>';
+		html += '<div class="form-placeholder-10"></div>';
+		
+		
+		$(".category").html(html);
 		
 		$(".category .item").unbind("click").bind("click", function(){
 			var that = $(this);
@@ -293,3 +314,8 @@ function onStateChanged(download, status ) {
 }
 
 
+
+
+$(function(){
+	initData();
+})

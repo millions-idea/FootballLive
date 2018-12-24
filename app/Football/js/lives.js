@@ -38,9 +38,11 @@ var liveService = {
 }
 
 window.addEventListener("refreshIndex", function(event){
-	console.log("刷新索引:" + event.detail.currentIndex + "," + event.detail.liveCategoryId)
 	$("#currentIndex").val(event.detail.currentIndex);
 	$("#liveCategoryId").val(event.detail.liveCategoryId);
+	initData();
+	loadLiveCategoryList();
+	
 })
 
 mui.plusReady(function(){ 
@@ -51,8 +53,43 @@ mui.plusReady(function(){
 		initData();
 	})
 
-	initData();
+	initData(); 
 	
+	
+	
+	//加载直播分类列表
+	loadLiveCategoryList();
+	
+	
+	//加载赛事列表
+	liveService.getGameList(function(res){
+		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
+		
+		var html = "";
+		for (var i = 0; i < res.data.length; i++) {
+			var partHtml = '';
+			if(i == 0){
+				partHtml = 'class="active"';
+			}
+			html += '<li '+ partHtml +' data-id="' + res.data[i].gameId + '">' + res.data[i].gameName + '</li>';
+		} 
+		$(".category ul").html(html);
+		$("#gameId").val("");
+		
+		$(".category ul li").unbind("click").bind("click", function(){
+			var that = $(this);
+			$("#gameId").val($(that).data("id"));
+			$(".category ul li").removeClass("active");
+			$(that).addClass("active");
+			
+			getSchedules({
+				gameId: $("#gameId").val(),
+				liveCategoryId: $("#liveCategoryId").val(),
+				date: $("#date").val()
+			});
+		});
+	})
+ 
 })
 
 
@@ -107,6 +144,8 @@ $(function(){
 	$(".showCategory").click(function(){
 		mui("#sheet").popover("toggle");
 	});
+	
+	
 })
  
 
@@ -193,6 +232,12 @@ function getSchedules(param){
 		
 		//打开直播间
 		$(".openLive").unbind("click").bind("click", function(){
+			//检测是否已经登录
+			var cacheString = plus.storage.getItem("userInfo"); 
+			if(cacheString != null) {
+            	app.utils.openNewWindow("login.html", "login");
+            	return;
+			} 
 			var id = $(this).data("id");
 			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
 				liveId: id
@@ -208,8 +253,7 @@ function getSchedules(param){
 
 function initData(){
 	//获取赛程信息列表
-
-	
+	console.log("加载数据:" + $("#liveCategoryId").val())
 	if($("#currentIndex").val() == null && $("#currentIndex").val().length <= 0){
 		getSchedules({});
 	}else{
@@ -221,7 +265,11 @@ function initData(){
 	}
 
 
-	//加载直播分类列表
+	
+}
+
+
+function loadLiveCategoryList(){
 	liveService.getLiveCategoryList(function(res){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载直播分类列表失败");
 		
@@ -243,7 +291,6 @@ function initData(){
 		}
 		$("#currentIndex").val("");
 		$("#liveCategoryId").val("");
-
 		$(".live-category").html(html); 
 		 
 		//设置滚动组件
@@ -270,32 +317,4 @@ function initData(){
 		})
 	})
 
-	//加载赛事列表
-	liveService.getGameList(function(res){
-		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
-		
-		var html = "";
-		for (var i = 0; i < res.data.length; i++) {
-			var partHtml = '';
-			if(i == 0){
-				partHtml = 'class="active"';
-			}
-			html += '<li '+ partHtml +' data-id="' + res.data[i].gameId + '">' + res.data[i].gameName + '</li>';
-		} 
-		$(".category ul").html(html);
-		$("#gameId").val("");
-		
-		$(".category ul li").unbind("click").bind("click", function(){
-			var that = $(this);
-			$("#gameId").val($(that).data("id"));
-			$(".category ul li").removeClass("active");
-			$(that).addClass("active");
-			
-			getSchedules({
-				gameId: $("#gameId").val(),
-				liveCategoryId: $("#liveCategoryId").val(),
-				date: $("#date").val()
-			});
-		});
-	})
 }

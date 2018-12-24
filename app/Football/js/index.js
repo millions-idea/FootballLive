@@ -78,9 +78,25 @@ mui.plusReady(function(){
     
     
 	// 禁止返回到登录注册页面
-	mui.back = function() {
+	/*mui.back = function() {
 		return false;
-	}
+	}*/
+	
+	//首页返回键处理,处理逻辑：1秒内,连续两次按返回键，则退出应用
+    var first = null;
+    mui.back = function() {
+        if (!first) {//首次按键，提示‘再按一次退出应用’
+            first = (new Date()).getTime();
+            mui.toast('再按一次退出应用');
+            setTimeout(function() {
+                first = null;
+            }, 1000);
+        } else {
+            if ((new Date()).getTime() - first < 1000) {
+                plus.runtime.quit();
+            }
+        }
+    };
 	
 	// 对网络连接进行事件监听
 	hookNetwork();
@@ -307,11 +323,6 @@ function onWillReconnect(obj) {
     app.utils.msgBox.msg("您已断开连接，正在尝试重新连接……");
 }
 function destroyNim(disconnect){ 
-	if(disconnect == null){
-	nim.disconnect();
-		
-	}
-	
 	// 清除实例
     nim.destroy({
       done: function (err) {
@@ -323,9 +334,6 @@ function onDisconnect(error) {
     // 此时说明 `SDK` 处于断开状态, 开发者此时应该根据错误码提示相应的错误信息, 并且跳转到登录页面
     console.log('丢失连接');
     console.log(JSON.stringify(error));
-	/*destroyNim();
-    console.log("主动清除实例并断开")
-    plus.webview.currentWebview().close();*/
     if (error) {
         switch (error.code) {
         // 账号或者密码错误, 请跳转到登录页面并提示错误
@@ -354,11 +362,6 @@ function onDisconnect(error) {
             break;
         }
     }
-    
-    destroyNim(false);	
-	app.print("应用启动失败");
-	app.utils.msgBox.msg(error.message);
-	app.utils.openNewWindow("login.html", "login");
 	return;
 }
 function onError(error) {

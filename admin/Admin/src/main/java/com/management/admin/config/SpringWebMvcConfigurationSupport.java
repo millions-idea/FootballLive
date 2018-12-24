@@ -1,5 +1,6 @@
 package com.management.admin.config;
 
+import com.management.admin.interceptor.DomainAuthenticationInterceptor;
 import com.management.admin.interceptor.WebMvcOperationLogInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,11 +20,16 @@ public class SpringWebMvcConfigurationSupport extends WebMvcConfigurationSupport
         return new WebMvcOperationLogInterceptor(true);
     }
 
+    @Bean
+    public DomainAuthenticationInterceptor DomainAuthenticationInterceptor() {
+        return new DomainAuthenticationInterceptor();
+    }
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         // 财务模块
         registry.addInterceptor(WebMvcOperationLogInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(DomainAuthenticationInterceptor()).addPathPatterns("/**");
         super.addInterceptors(registry);
     }
 

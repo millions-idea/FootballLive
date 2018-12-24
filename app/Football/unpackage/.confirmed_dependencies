@@ -10,7 +10,8 @@
       "informations.html",
       "lives.html",
       "systemMessage.html",
-      "guide.html"
+      "guide.html",
+      "login.html"
     ]
   },
   "login.html": {

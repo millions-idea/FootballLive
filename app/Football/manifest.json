@@ -4,7 +4,7 @@
 		"iPhone",
 		"iPad"
 	],
-	"id": "H59CE6336",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "H5D1C4336",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "卫星体育",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
@@ -14,7 +14,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "guide.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "home.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -48,7 +48,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": false,"delay":"0"
+			"waiting": true,"delay":"0"
 		},
 		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
 		"runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -114,18 +114,18 @@
 				"ios": {
 					"iphone": {
 						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
-						"retina35": "images/guide.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-						"retina40": "images/guide.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
-						"retina47": "images/guide.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
+						"retina35": "D:/Resource/Football/启动页/640x960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": "D:/Resource/Football/启动页/640x1136.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
+						"retina47": "D:/Resource/Football/启动页/750x1334.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
 						"retina55": "images/guide.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
-						"iphonex":"images/guide.png"
+						"iphonex":"D:/Resource/Football/启动页/1125x2436.png"
 					},
 					"ipad": {
 						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
 						/*iPad高分屏竖屏图片，分辨率：1536x2008*/
 						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
 						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
-						"portrait7": "images/guide.png", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						 /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
 						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
 						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
 						"landscape-retina7": ""
@@ -134,13 +134,13 @@
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
 					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "images/guide.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "images/guide.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "images/guide.png"
+					"hdpi": "D:/Resource/Football/启动页/480x762.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "D:/Resource/Football/启动页/720x1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "D:/Resource/Football/启动页/1080x1882.png"
 				}
 			},"debug":false
 		},
-		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false}
+		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false},"adid":""
 	},
 	"dependencies": {
 		"pages": {
@@ -154,7 +154,8 @@
 					"informations.html",
 					"lives.html",
 					"systemMessage.html",
-					"guide.html"
+					"guide.html",
+					"login.html"
 				],
 				"priority": 0
 			},

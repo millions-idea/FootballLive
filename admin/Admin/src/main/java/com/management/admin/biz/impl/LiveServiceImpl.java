@@ -154,7 +154,7 @@ public class LiveServiceImpl implements ILiveService {
             //创建云信聊天室(群组)
             String response = NeteaseImUtil.post("nimserver/team/create.action",
                     "owner=" + Constant.HotAccId + "&tname=" + liveDetail.getLiveTitle() + "&members=" + JsonUtil.getJson(new String[]{Constant.HotAccId})
-                        + "&msg=live&magree=0&joinmode=0");
+                            + "&msg=live&magree=0&joinmode=0");
             NAGroup model = JsonUtil.getModel(response, NAGroup.class);
             if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
 

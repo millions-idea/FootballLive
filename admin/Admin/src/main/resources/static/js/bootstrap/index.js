@@ -22,7 +22,7 @@ layui.use(['form', 'layer'], function () {
     // 提交监听
     form.on('submit(sub)', function (data) {
         localStorage.setItem("username", data.field.username);
-        $.post("./login", {
+        $.post("/management/bootstrap/login", {
             "username": data.field.username,
             "password": data.field.password,
            /* "_csrf": $("meta[name='_csrf']").prop("content"),

@@ -92,4 +92,14 @@ public interface Constant {
      * 系统热点用户(一般为管理员外的员工账户id)
      */
     Integer HotUserId = 1;
+
+    /**
+     * 消息密码
+     */
+    String MsgPassword =  "25f9e794323b453885f5181f1b624d0b";
+
+
+    String BindDomain = "yabolive.512ck.cn,live.512ck.cn,localhost";
+
+    Boolean DebugMode = false;
 }
