@@ -75,12 +75,12 @@ public class ChatRoomController {
      * @param msg
      * @return
      */
-    @PostMapping("sendMsg")
+    @GetMapping("sendMsg")
     @ResponseBody
     @WebLog(section = "ChatRoom",content = "发送消息给直播间")
     public JsonResult sendMsg(String msgPassword,Integer liveId,String msg){
         String result = chatRoomService.sendMsg(msgPassword,liveId,msg);
-        if(result==null){
+        if(result!=null){
             return JsonResult.failing();
         }
         return JsonResult.successful();
@@ -97,7 +97,7 @@ public class ChatRoomController {
     @WebLog(section = "ChatRoom",content = "发送消息给直播间")
     public JsonResult sendAllLiveMsg(String msgPassword,Integer liveId,String msg){
         String result = chatRoomService.sendMsgAllLive(msgPassword,liveId,msg);
-        if(result==null){
+        if(result!=null){
             return JsonResult.failing();
         }
         return JsonResult.successful();

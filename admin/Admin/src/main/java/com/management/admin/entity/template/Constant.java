@@ -101,5 +101,5 @@ public interface Constant {
 
     String BindDomain = "yabolive.512ck.cn,live.512ck.cn,localhost";
 
-    Boolean DebugMode = false;
+    Boolean DebugMode = true;
 }
