@@ -79,6 +79,7 @@ public class UserServiceImpl implements IUserService {
      * @return 事务提交失败会抛出MsgException异常, 成功返回用户信息
      */
     @Override
+    @Transactional
     public UserInfo addUser(String phone, String password, String smsCode, String ip) {
         // 校验短信验证码是否正确或过期
         String dbSmsCode = (String) redisTemplate.opsForValue().get("sms-" + phone);
@@ -95,6 +96,7 @@ public class UserServiceImpl implements IUserService {
         user.setAddDate(new Date());
         user.setIp(ip);
         user.setType(0);
+        user.setPhoto("images/head-default.png");
 
         // 完善平台用户数据
         boolean result = userMapper.insert(user) > 0;
@@ -103,7 +105,15 @@ public class UserServiceImpl implements IUserService {
         // 同步网易云信数据
         String response = NeteaseImUtil.post("nimserver/user/create.action", "accid=" + phone);
         NASignIn model = JsonUtil.getModel(response, NASignIn.class);
-        if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+        if (!model.getCode().equals(200)) {
+            if(response.contains("already register")){
+                response = NeteaseImUtil.post("nimserver/user/refreshToken.action", "accid=" + phone);
+                model = JsonUtil.getModel(response, NASignIn.class);
+                if(!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+            }else{
+                throw new InfoException("同步云端数据失败");
+            }
+        }
 
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
@@ -119,8 +129,6 @@ public class UserServiceImpl implements IUserService {
 
         // 添加系统账户好友
         response = NeteaseImUtil.post("nimserver/friend/add.action", "accid=" + phone + "&faccid=" + Constant.HotAccId + "&type=1");
-        model = JsonUtil.getModel(response, NASignIn.class);
-        if (!model.getCode().equals(200)) throw new InfoException("补全好友信息失败");
 
         // 注册成功
         UserInfo userSampleInfo = new UserInfo();
@@ -195,6 +203,7 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
     @Override
+    @Transactional
     public Boolean resetPassword(String phone, String password, String smsCode) {
         // 校验短信验证码是否正确或过期
             String dbSmsCode = (String) redisTemplate.opsForValue().get("sms-" + phone);
@@ -208,6 +217,7 @@ public class UserServiceImpl implements IUserService {
 
         // 更新云信数据库
         String response = NeteaseImUtil.post("nimserver/user/refreshToken.action", "accid=" + phone);
+        System.out.println("修改密码:" + response);
         NASignIn model = JsonUtil.getModel(response, NASignIn.class);
         if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
 

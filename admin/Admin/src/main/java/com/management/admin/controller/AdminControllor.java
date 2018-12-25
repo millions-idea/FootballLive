@@ -149,7 +149,7 @@ public class AdminControllor {
             jsonResult.setMsg("该账号已经存在");
         } else if (userService.insertAdminUsers(adminUsers)) {
             jsonResult.setCode(200);
-            jsonResult.setMsg("删除成功");
+            jsonResult.setMsg("添加成功");
         } else {
             jsonResult.setCode(500);
             jsonResult.setMsg("添加失败");

@@ -43,11 +43,29 @@ var liveService = {
 mui.plusReady(function(){
 	
 	var webview = plus.webview.currentWebview();
-
+	plus.navigator.setStatusBarStyle("dark");
+	plus.navigator.setStatusBarBackground("#F3F3F3");
+	
+	 
 	webview.addEventListener("show", function(){
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
+	
+		console.log("情报中心");
+		
+		
+		console.log("informations_show");
+		
+		var view = plus.webview.getWebviewById("index");
+		if(view != null){
+			view.evalJS("createNIM()");
+		}
+	 
 		initData();
 	})
-
+	
+	console.log("情报中心");
+	
 	initData();
 })
 
@@ -171,7 +189,7 @@ function getSchedules(param){
 			}
     		html += '			<img src="'  + item.targetTeam.teamIcon +'" alt="" />';
     		html += '			<span>'  + item.targetTeam.teamName +'</span>';
-    		html += '		</div>';
+    		html += '		</div>'; 
     		html += '	</div> ';
     		html += '</li>';
 		} 
@@ -179,7 +197,21 @@ function getSchedules(param){
 		
 		//打开直播间
 		$(".openLive").unbind("click").bind("click", function(){
+			//检测是否已经登录
 			var id = $(this).data("id");
+			
+			var cache = plus.storage.getItem("userInfo");
+			if(cache == null) {
+				app.utils.openNewWindow("login.html", "login");
+				plus.webview.getWebviewById("liveDetail-" + id).hide();
+				return false;
+			}
+
+			var view = plus.webview.getWebviewById("liveDetail-" + id);
+				
+			if(view != null) plus.webview.getWebviewById("liveDetail-" + id).close();
+			
+
 			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
 				liveId: id
 			})
@@ -193,7 +225,7 @@ function getSchedules(param){
 
 
 function initData(){
-			//获取赛程信息列表
+	//获取赛程信息列表
 	getSchedules({});
 
 	//加载直播分类列表
@@ -271,3 +303,9 @@ function initData(){
 		});
 	})
 }
+
+window.addEventListener("asyncInfo", function(){
+	console.log("informations父窗口接到回调")
+	var view = plus.webview.currentWebview();
+	view.show();
+})

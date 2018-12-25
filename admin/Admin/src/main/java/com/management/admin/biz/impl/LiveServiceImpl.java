@@ -6,6 +6,7 @@ import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.entity.resp.*;
 import com.management.admin.entity.template.Constant;
+import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.InfoException;
 import com.management.admin.exception.MsgException;
 import com.management.admin.repository.*;
@@ -15,6 +16,7 @@ import com.management.admin.utils.http.NeteaseImUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.script.ReactiveScriptExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -408,7 +410,44 @@ public class LiveServiceImpl implements ILiveService {
         String response = NeteaseImUtil.post("nimserver/team/add.action", "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId
                 + "&members=" + JsonUtil.getJson(new String[]{phone}) + "&magree=0" + "&msg=ADD");
         NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (!model.getCode().equals(200)) return "同步云端数据失败";
+        if (model == null){
+            return "同步云端数据失败";
+        }else {
+            logger.info(response);
+            return "SUCCESS";
+        }
+    }
+
+    /**
+     * 退出群组 DF 2018年12月24日20:22:25
+     *
+     * @param userId
+     * @param accid
+     * @param liveId
+     * @return
+     */
+    @Override
+    @Transactional
+    public String leaveGroup(Integer userId, String accid, Integer liveId) {
+        //解除聊天群组成员关系
+        ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
+        boolean result = chatRoomUserRelationMapper.deleteMember(userId, accid, chatRoom.getLiveId()) > 0;
+
+        //同步删除云端群组关系
+        String response = NeteaseImUtil.post("nimserver/team/kick.action",
+                "tid=" + chatRoom.getChatRoomId()
+                        + "&owner=" + Constant.HotAccId
+                        + "&member=" + accid);
+
+        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+        if (model == null) {
+            return response;
+        }
+
+        if(result) {
+            logger.info(response);
+            return "SUCCESS";
+        }
 
         return null;
     }

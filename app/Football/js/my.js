@@ -1,6 +1,5 @@
 mui.init();
 
-
 var profileService = {
 	getProfile: function(param, callback){
 		$.get(app.utils.toUrl(app.config.apiUrl + "api/profile/getProfile"), function(data){
@@ -17,44 +16,57 @@ mui.plusReady(function(){
 	plus.navigator.setStatusBarStyle("dark");
 	plus.navigator.setStatusBarBackground("#F3F3F3");
 	
-	 
 	webview.addEventListener("show", function(){
-		
+		console.log("my刷新响应")
 		plus.navigator.setStatusBarStyle("dark");
 		plus.navigator.setStatusBarBackground("#F3F3F3");
-	
-		//显示现在的信息
-		profileService.getProfile({}, function(res){
-			app.print(JSON.stringify(res));
-			if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("拉取个人信息超时");
-			var info = res.msg;
-			$(".user-face").attr("src", info.photo);
-			$(".user-code").text(info.nickName)
-		});
+
+		if(plus.storage.getItem("userInfo") != null){
+			//显示现在的信息
+			profileService.getProfile({}, function(res){
+				if(res == null || res.msg == null){
+					plus.storage.clear();
+					app.utils.openNewWindow("login.html", "login");
+					return false;
+				}
+				app.print(JSON.stringify(res));
+				if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("拉取个人信息超时");
+				var info = res.msg;
+				$(".user-face").attr("src", info.photo);
+				$(".user-code").text(info.nickName);
+				$(".logout").show();
+			});	
+		}
+		
 	})
 	
 	//系统设置
 	$(".setting").click(function(){
+		if(checkLogin())
 		app.utils.openNewWindow("systemSetting.html","systemSretting");
 	});
 	
 	//个人资料
 	$(".profile").click(function(){
+		if(checkLogin())
 		app.utils.openNewWindow("profile.html","profile");
 	});
 	
 	//观看历史
 	$(".history").click(function(){
+		if(checkLogin())
 		app.utils.openNewWindow("history.html","history");
 	});
 	
 	//个人收藏
 	$(".collect").click(function(){
+		if(checkLogin())
 		app.utils.openNewWindow("collect.html","collect");
 	});
 	
 	//推送消息
 	$(".pushMessage").click(function(){
+		if(checkLogin())
 		app.utils.openNewWindowParam("systemMessage.html", "systemMessage-", {})
 	});
 	
@@ -65,7 +77,7 @@ mui.plusReady(function(){
 	});
 	
 	//联系我们
-	$(".contact").click(function(){
+	$(".contact").click(function(){		
 		app.utils.openNewWindow("contact.html","contact");
 	});
 	
@@ -96,9 +108,53 @@ function updateUserInfo(photo, userCode, nickname, signature){
 }
 
 function logout(){
-	plus.storage.removeItem("userInfo");
+	plus.storage.clear();
+	
 	var webview = plus.webview.getWebviewById("index");
-	webview.evalJS("destroyNim()");
-	app.utils.openWindow("login.html", "login");
+	if(webview != null) webview.evalJS("destroyNim()");
+	
+	webview = plus.webview.getWebviewById("my");
+	if(webview != null) mui.fire(webview, "refreshInfo", {});
+	
+	app.utils.openNewWindow("login.html", "login");
 }
 
+
+
+function checkLogin(){
+	var cache = plus.storage.getItem("userInfo");
+	
+	if(cache == null) {
+		app.utils.openNewWindow("login.html", "login");
+		return false;
+	}
+
+	return cache != null;
+}
+
+
+window.addEventListener("refreshInfo", function(){
+	$(".user-face").attr("src", "images/head-default.png");
+	$(".user-code").text("请登录");
+	$(".logout").hide();
+	
+	profileService.getProfile({}, function(res){
+		if(res == null || res.msg == null){
+			app.utils.openNewWindow("login.html", "login");
+			return false;
+		}
+		app.print(JSON.stringify(res));
+		if(app.utils.ajax.isError(res)) return;
+		var info = res.msg;
+		$(".user-face").attr("src", info.photo);
+		$(".user-code").text(info.nickName);
+		$(".logout").show();
+	});	
+})
+
+
+window.addEventListener("asyncInfo", function(){
+	console.log("my父窗口接到回调")
+	var view = plus.webview.currentWebview();
+	view.show();
+})

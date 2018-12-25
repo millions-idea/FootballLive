@@ -7,6 +7,7 @@ import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.entity.resp.LiveCollectInfo;
 import com.management.admin.entity.resp.LiveHistoryInfo;
 import com.management.admin.entity.resp.LiveInfo;
+import com.management.admin.entity.template.SessionModel;
 
 import java.util.List;
 
@@ -166,5 +167,12 @@ public interface ILiveService {
     String addGroup(String phone, Integer userId, Integer liveId);
 
 
-
+    /**
+     * 退出群组 DF 2018年12月24日20:22:25
+     * @param userId
+     * @param accid
+     * @param liveId
+     * @return
+     */
+    String leaveGroup(Integer userId, String accid, Integer liveId);
 }

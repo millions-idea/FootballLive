@@ -23,7 +23,9 @@
       "home.html",
       "lives.html"
     ],
-    "resources": []
+    "resources": [
+      "js/login.js"
+    ]
   },
   "my.html": {
     "refer": [
@@ -58,13 +60,15 @@
   },
   "lives.html": {
     "refer": [
-      "liveDetail.html"
+      "liveDetail.html",
+      "login.html"
     ],
     "resources": []
   },
   "liveDetail.html": {
     "refer": [
-      "share.html"
+      "share.html",
+      "login.html"
     ],
     "resources": []
   },
@@ -118,13 +122,17 @@
   },
   "informations.html": {
     "refer": [
-      "liveDetail.html"
+      "liveDetail.html",
+      "login.html"
     ],
-    "resources": []
+    "resources": [
+      "js/informations.js"
+    ]
   },
   "home.html": {
     "refer": [
-      "liveDetail.html"
+      "liveDetail.html",
+      "login.html"
     ],
     "resources": []
   }

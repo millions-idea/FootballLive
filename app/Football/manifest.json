@@ -4,17 +4,17 @@
 		"iPhone",
 		"iPad"
 	],
-	"id": "H5D1C4336",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "H59CE6336",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "卫星体育",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0.0",/*应用版本名称*/
+		"name": "1.7.9",/*应用版本名称*/
 		"code": ""
 	},
 	"description": "在线高清观看体育赛事直播",/*应用描述信息*/
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "home.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "guide.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -117,7 +117,7 @@
 						"retina35": "D:/Resource/Football/启动页/640x960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
 						"retina40": "D:/Resource/Football/启动页/640x1136.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
 						"retina47": "D:/Resource/Football/启动页/750x1334.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
-						"retina55": "images/guide.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
+						"retina55": "D:/Resource/Football/启动页/1242_2208.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
 						"iphonex":"D:/Resource/Football/启动页/1125x2436.png"
 					},
 					"ipad": {
@@ -140,7 +140,7 @@
 				}
 			},"debug":false
 		},
-		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false},"adid":""
+		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false}
 	},
 	"dependencies": {
 		"pages": {
@@ -207,14 +207,16 @@
 			"lives.html": {
 				"resources": [],
 				"refer": [
-					"liveDetail.html"
+					"liveDetail.html",
+					"login.html"
 				],
 				"priority": 0
 			},
 			"liveDetail.html": {
 				"resources": [],
 				"refer": [
-					"share.html"
+					"share.html",
+					"login.html"
 				],
 				"priority": 0
 			},
@@ -273,16 +275,20 @@
 				"priority": 0
 			},
 			"informations.html": {
-				"resources": [],
+				"resources": [
+					"js/informations.js"
+				],
 				"refer": [
-					"liveDetail.html"
+					"liveDetail.html",
+					"login.html"
 				],
 				"priority": 0
 			},
 			"home.html": {
 				"resources": [],
 				"refer": [
-					"liveDetail.html"
+					"liveDetail.html",
+					"login.html"
 				],
 				"priority": 0
 			}

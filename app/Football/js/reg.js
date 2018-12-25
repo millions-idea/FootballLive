@@ -5,12 +5,14 @@ mui.init();
 mui.plusReady(function() {
 	// 自定义webview样式
 	var webview = plus.webview.currentWebview();
-	webview.setStyle({
+	/*webview.setStyle({
 		titleNView: {
 			autoBackButton: true,
 			backgroundColor: app.style.backgroundColor
 		}
-	})
+	})*/
+	plus.navigator.setStatusBarStyle("light");
+	plus.navigator.setStatusBarBackground(app.style.backgroundColor);
 	
 	// 展示注册协议 窗口
 	document.getElementById("regPact").addEventListener("tap", function(){
@@ -112,7 +114,7 @@ mui.plusReady(function() {
 				app.logger("Register", JSON.stringify(data));
 			
 				if(utils.ajax.isError(data)) {
-					if(data.code == 400){
+					if(data.code == 400 || data.code == 300){
 						if(data.msg == "已存在"){
 							data.msg = "该手机号已在平台注册!";
 						}

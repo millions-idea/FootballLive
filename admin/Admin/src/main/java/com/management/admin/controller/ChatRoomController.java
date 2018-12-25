@@ -81,7 +81,7 @@ public class ChatRoomController {
     public JsonResult sendMsg(String msgPassword,Integer liveId,String msg){
         String result = chatRoomService.sendMsg(msgPassword,liveId,msg);
         if(result!=null){
-            return JsonResult.failing();
+            return new JsonResult().failingAsString(result);
         }
         return JsonResult.successful();
     }

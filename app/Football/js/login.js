@@ -14,36 +14,55 @@ mui.init({
       url:'regPact.html',
       id:'regPact'
     }]
-	,keyEventBind: {
-			backbutton: false  //关闭back按键监听
-		}
 });
 
 mui.plusReady(function() {
 	// 自定义webview样式
 	var webview = plus.webview.currentWebview();
-	//plus.navigator.setStatusBarStyle("dark");
-	//plus.navigator.setStatusBarBackground(app.style.backgroundColor);
+	plus.navigator.setStatusBarStyle("light");
+	plus.navigator.setStatusBarBackground(app.style.backgroundColor);
 	
-	/*webview.setStyle({
-		bounce: 'all',//窗口回弹效果
-		bounceBackground: "##4598FF",
-		popGesture: true,//侧滑返回
-	})*/
-	//清空webSocket连接
+	plus.webview.currentWebview().addEventListener("show", function(){
+		plus.navigator.setStatusBarStyle("light");
+		plus.navigator.setStatusBarBackground(app.style.backgroundColor);
+	})
+	
+	//首页返回键处理,处理逻辑：1秒内,连续两次按返回键，则退出应用
+	var first = null;
+	mui.back = function() {
+		console.log("回退")
+			return false;
+	};
+	
+	$(".closeButton").click(function(){
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
+    plus.webview.currentWebview().close();
+	})
 	
 	var cacheString = plus.storage.getItem("userInfo"); 
 	if(cacheString != null) {
 		app.logger("index","已登录，自动跳转到首页");
+		app.utils.msgBox.msg("已为您自动登录……")
+
+
+		var parentWebview = plus.webview.currentWebview().opener();
+		if(parentWebview != null){
+				console.log("调用父窗口刷新函数")
+				mui.fire(parentWebview, "asyncInfo", {});
+		}
+
+
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
 		
-			
-		var webview = plus.webview.getWebviewById("index");
-		if(webview != null) webview.evalJS("newInstance()");
-		
-		
-		app.utils.openWindow("index.html", "index");
+		plus.webview.currentWebview().close();
 		return;
 	}
+	
+	
+	
+	
 	
 	//刷新标题
 	$("span[class='title']").text(app.config.brand);
@@ -64,7 +83,7 @@ mui.plusReady(function() {
 			password: $password.val()
 		}, function(data){
 			app.logger("Login", JSON.stringify(data));
-			
+			 
 			if(utils.ajax.isError(data)) {
 				if(data.code == 400 || data.code == 300){
 					return utils.msgBox.msg(data.msg);
@@ -76,10 +95,24 @@ mui.plusReady(function() {
 			plus.storage.setItem('userInfo', JSON.stringify(data.msg));
 			
 			
-			var webview = plus.webview.getWebviewById("index");
-			if(webview != null) webview.evalJS("newInstance()");
+			var parentWebview = plus.webview.currentWebview().opener();
+			if(parentWebview != null){
+					console.log("调用父窗口刷新函数")
+					mui.fire(parentWebview, "asyncInfo", {});
+			}
+ 
 			
-			mui.openWindow("index.html", "index"); 			
+			plus.navigator.setStatusBarStyle("dark");
+			plus.navigator.setStatusBarBackground("#F3F3F3");
+			
+			var subView = plus.webview.getWebviewById("reg");
+			if(subView != null) subView.close();
+			
+			subView = plus.webview.getWebviewById("findPassword");
+			if(subView != null) subView.close();
+			
+			plus.webview.currentWebview().close();
+				
 		});
 		
 	});

@@ -6,9 +6,9 @@ window.app = {
 	config: {
 		title: "卫星体育",
 		brand: "卫星体育",
-		apiUrl: "http://live.512ck.cn/",
-		shareUrl: "http://share.512ck.cn/",
-		version: "1.0.1"
+		apiUrl: "http://l.512ck.cn/",
+		shareUrl: "http://app.512ck.cn/",
+		version: "1.7.9"
 	},
 	
 	pages: [
@@ -155,9 +155,8 @@ window.app = {
 			    },
 			    extras: extras
 			});
-		},
-		
-		
+		}, 
+	
 		/**
 		 * 获取缓存令牌
 		 */
