@@ -1,86 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/annotaion/BindAdminDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NAMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/ad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/b1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/b2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/Football/images/default/b3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../docs/设计稿/卫星直播/卫星直播/启动页/1242_2208.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IDictionaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ChatRoomServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ChatRoomServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/AdminControllor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/AdminControllor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/BootstrapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/BootstrapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/ChatRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/DomainAuthenticationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/DomainAuthenticationInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/CosUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/CosUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/NeteaseImUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/NeteaseImUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/configuration/contactUs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/configuration/contactUs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/collect.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/collect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/home.index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/home.index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/liveDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/liveDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/reg.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/reg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/ui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/findPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/findPassword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/images/ad.image.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/ad.image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/images/guide.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/guide.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/images/runner.image.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/runner.image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/informations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/findPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/findPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/informations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/informations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/lives.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/lives.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/my.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/my.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/reg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/systemSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/systemSetting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/liveDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/liveDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/my.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/my.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/reg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/设计稿/resources/58pic_27133745_4ac0feedbc37f3b7be4b/125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/设计稿/resources/包图网_125317足球特训营招生海报/5915258520de6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/设计稿/包图网_917663流动抽象波形蓝色背景/5b8d0504afc26.png" beforeDir="false" />
-    </list>
+    <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +141,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="237">
               <caret line="262" column="19" selection-start-line="262" selection-start-column="19" selection-end-line="262" selection-end-column="19" />
               <folding>
                 <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" />
@@ -411,112 +332,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="apiController" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="biz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="biz" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="live" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="live" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -625,19 +440,19 @@
       <workItem from="1545630178968" duration="6183000" />
       <workItem from="1545660154158" duration="6921000" />
       <workItem from="1545738617269" duration="13946000" />
-      <workItem from="1545904460190" duration="6029000" />
+      <workItem from="1545904460190" duration="7975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41704000" />
+    <option name="totallyTimeSpent" value="43650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Capture Tool" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2288" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2288" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -646,7 +461,7 @@
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40411702" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17118093" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.16143012" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1303,7 +1118,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="237">
           <caret line="262" column="19" selection-start-line="262" selection-start-column="19" selection-end-line="262" selection-end-column="19" />
           <folding>
             <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" />
