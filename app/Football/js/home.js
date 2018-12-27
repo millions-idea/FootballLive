@@ -86,6 +86,13 @@ mui.plusReady(function(){
 		
 		plus.navigator.setStatusBarStyle("dark");
 		plus.navigator.setStatusBarBackground("#F3F3F3");
+		
+		console.log("home_show");
+		
+		var view = plus.webview.getWebviewById("index");
+		if(view != null){
+			view.evalJS("createNIM()");
+		}
 	
 		//获得slider插件对象
         mui('.mui-slider').slider();
@@ -98,8 +105,7 @@ mui.plusReady(function(){
     })
     
     mui('.mui-slider').slider();
-    
-    
+     
     initData();
     
     // 检测更新版本
@@ -121,57 +127,74 @@ function initData(){
 		
 		$(".runnerLink").click(function(){
 			var url = $(this).data("url");
-			plus.runtime.openURL(url);
+			//进入直播间
+			if(url != null && url.toString().indexOf("http") == -1){
+				var cache = plus.storage.getItem("userInfo");
+				if(cache == null) {
+					app.utils.openNewWindow("login.html", "login");
+				}else{
+					if(url != null){
+						app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + url, {
+							liveId: url
+						});
+					}	
+				}
+			}else if(url != null){
+				plus.runtime.openURL(url);
+			}
 		})
 		
 		//渲染今日头条 
 		var headLineMap = homeService.getTodayHeadLine(res.data);
 		if(headLineMap == null) headLineMap = { value : "加载今日头条失败"};
 		$("#topTextAd").text(headLineMap.value);
+		$(".mui-slider-indicator").show();
 	});
 	
 	//加载热门直播数据
 	homeService.getHotGameList(function(res){
 		app.logger("getHotGameList", JSON.stringify(res))
-		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
+		if(app.utils.ajax.isError(res)) return;
 		
 		//参赛球队信息设置
 		if(res.data[0] != null){
 			$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
-			$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
-			$(".left .teamName").text(res.data[0].team.teamName);
-			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
-			$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
+			$(".left .teamIcon").attr("src", res.data[0].masterTeamIcon);
+			$(".left .teamName").text(res.data[0].masterTeamName);
+			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeamIcon);
+			$(".left .targetTeamName").text(res.data[0].targetTeamName);
 			$(".left").data("id", res.data[0].liveId);
-				
 		}
 		
 		//对战球队信息设置
 		if(res.data[1] != null){
 			$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
-			$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
-			$(".right .teamName").text(res.data[1].team.teamName);
-			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
-			$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
+			$(".right .teamIcon").attr("src", res.data[1].masterTeamIcon);
+			$(".right .teamName").text(res.data[1].masterTeamName);
+			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeamIcon);
+			$(".right .targetTeamName").text(res.data[1].targetTeamName);
 			$(".right").data("id", res.data[1].liveId);
 		}
 		
 		
-		
-		
 		$(".headline .left, .headline .right").unbind("click").bind("click",function(){
-			var id = $(this).data("id");
-			console.log(id != null);
-			if(id != null){
-				app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
-					liveId: id
-				})
+			var cache = plus.storage.getItem("userInfo");
+			if(cache == null) {
+				app.utils.openNewWindow("login.html", "login");
+			}else{
+				var id = $(this).data("id");
+				if(id != null){
+					app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
+						liveId: id
+					})
+				}	
 			}
+			
+			
 		});
 	});
 	
 	//加载直播分类信息
-	
 	homeService.getLiveCategoryList(function(res){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载热门直播数据失败");
 		
@@ -203,8 +226,15 @@ function initData(){
 		
 		
 		$(".category").html(html);
-		
 		$(".category .item").unbind("click").bind("click", function(){
+			
+			var cache = plus.storage.getItem("userInfo");
+			if(cache == null) {
+				app.utils.openNewWindow("login.html", "login");
+				return false;
+			}
+
+			console.log("跳转分类");
 			var that = $(this);
 			var view = plus.webview.getWebviewById(app.pages[1].id);
 			mui.fire(view, "refreshIndex", {
@@ -314,8 +344,8 @@ function onStateChanged(download, status ) {
 }
 
 
-
-
-$(function(){
-	initData();
+window.addEventListener("asyncInfo", function(){
+	console.log("home父窗口接到回调")
+	var view = plus.webview.currentWebview();
+	view.show();
 })

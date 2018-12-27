@@ -108,7 +108,7 @@ public class CosUtil {
         PutObjectResult putObjectResult = ossClient.putObject(bucketName, key, inputStream);
 
         // 关闭OSSClient。
-        ossClient.shutdown();
+        //ossClient.shutdown();
 
 
 /*        PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);

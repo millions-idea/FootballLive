@@ -5,11 +5,6 @@ mui.init();
 mui.plusReady(function() {
 	// 自定义webview样式
 	var webview = plus.webview.currentWebview();
-	webview.setStyle({
-		titleNView: {
-			autoBackButton: true
-		}
-	})
 	
 	// 发送验证码倒计时器
 	var internalTimer = null,

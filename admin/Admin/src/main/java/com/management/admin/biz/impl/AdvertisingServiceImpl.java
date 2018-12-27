@@ -126,8 +126,14 @@ public class AdvertisingServiceImpl implements IAdvertisingService {
      * @return
      */
     @Override
+    @Transactional
     public Integer modifyAdvertising(AdvertisingDetail advertising) {
-        return advertisingMapper.modifyAdvertising(advertising);
+        Integer result = liveMapper.modifyAdvertisingByLiveId(advertising.getLiveId(),advertising.getAdId());
+        Integer result2 = advertisingMapper.modifyAdvertising(advertising);
+        if(result>0&&result2>0){
+            return 1;
+        }
+        return 0;
     }
 
     /**

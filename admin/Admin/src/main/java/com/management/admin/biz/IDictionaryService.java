@@ -54,4 +54,10 @@ public interface IDictionaryService extends IBaseService<Dictionary> {
      * @return
      */
     String getBootstrapRandomImage();
+
+    /**
+     * 获取联系方式 DF 2018年12月26日05:07:30
+     * @return
+     */
+    Dictionary getContact();
 }

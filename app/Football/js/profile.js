@@ -173,7 +173,7 @@ function uploadPhoto(data){
 		}
 		
 		console.log("uploadAvatar:" + res.msg);
-		$("#face").attr("src", reg.msg);
+		$("#face").attr("src", res.msg);
 		/*var webview = plus.webview.getWebviewById("index");
 		console.log(webview);
 		mui.fire(webview, "uploadAvatar", {

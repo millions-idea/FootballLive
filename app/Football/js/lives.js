@@ -40,58 +40,45 @@ var liveService = {
 window.addEventListener("refreshIndex", function(event){
 	$("#currentIndex").val(event.detail.currentIndex);
 	$("#liveCategoryId").val(event.detail.liveCategoryId);
-	initData();
-	loadLiveCategoryList();
+	//initData();
+	console.log("refreshIndex:initData")
+	//console.log("refreshIndex:loadLiveCategoryList")
+	//loadLiveCategoryList();
 	
 })
 
 mui.plusReady(function(){ 
 	var webview = plus.webview.currentWebview();
+	plus.navigator.setStatusBarStyle("dark");
+	plus.navigator.setStatusBarBackground("#F3F3F3");
 	
+	 
 	plus.webview.currentWebview().addEventListener("show", function(){
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
+	 	
+	 	console.log("直播大厅");
+	 
+	 
+		console.log("lives_show");
+		
+		var view = plus.webview.getWebviewById("index");
+		if(view != null){
+			view.evalJS("createNIM()");
+		}
+	 
 		$("#date").val("");
+		
+		console.log("show:initData");
+		
 		initData();
-	})
-
-	initData(); 
-	
-	
-	
-	//加载直播分类列表
-	loadLiveCategoryList();
-	
-	
-	//加载赛事列表
-	liveService.getGameList(function(res){
-		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
 		
-		var html = "";
-		for (var i = 0; i < res.data.length; i++) {
-			var partHtml = '';
-			if(i == 0){
-				partHtml = 'class="active"';
-			}
-			html += '<li '+ partHtml +' data-id="' + res.data[i].gameId + '">' + res.data[i].gameName + '</li>';
-		} 
-		$(".category ul").html(html);
-		$("#gameId").val("");
-		
-		$(".category ul li").unbind("click").bind("click", function(){
-			var that = $(this);
-			$("#gameId").val($(that).data("id"));
-			$(".category ul li").removeClass("active");
-			$(that).addClass("active");
-			
-			getSchedules({
-				gameId: $("#gameId").val(),
-				liveCategoryId: $("#liveCategoryId").val(),
-				date: $("#date").val()
-			});
-		});
 	})
- 
+	
+	console.log("直播大厅");
+	console.log("plusReday:initData");
+	initData();  
 })
-
 
 
 $(function(){
@@ -148,8 +135,6 @@ $(function(){
 	
 })
  
-
-
 /**
  * 获取赛程结果
  * @param {Object} param
@@ -212,15 +197,15 @@ function getSchedules(param){
     		html += '	</div>  ';
     		html += '	<div class="content">';
     		html += '		<div class="left">';
-    		html += '			<img src="'  + item.team.teamIcon +'" alt="" />';
-    		html += '			<span>'+ item.team.teamName +'</span>';
+    		html += '			<img src="'  + item.masterTeamIcon +'" alt="" />';
+    		html += '			<span>'+ item.masterTeamName +'</span>';
     		html += '		</div>';
     		html += '		<div class="info">';
     		html += '			<span>' + gameTitle + '</span>';
     		html += '		</div>';
     		html += '		<div class="right">';
-    		html += '			<img src="'  + item.targetTeam.teamIcon +'" alt="" />';
-    		html += '			<span>'+ item.targetTeam.teamName +'</span>';
+    		html += '			<img src="'  + item.targetTeamIcon +'" alt="" />';
+    		html += '			<span>'+ item.targetTeamName +'</span>';
     		html += '		</div>';
     		html += '	</div> 	';
     		html += '<div class="foot">';
@@ -232,7 +217,21 @@ function getSchedules(param){
 		
 		//打开直播间
 		$(".openLive").unbind("click").bind("click", function(){
+			//检测是否已经登录
 			var id = $(this).data("id");
+			
+			var cache = plus.storage.getItem("userInfo");
+			if(cache == null) {
+				app.utils.openNewWindow("login.html", "login");
+				plus.webview.getWebviewById("liveDetail-" + id).hide();
+				return false;
+			}
+
+			var view = plus.webview.getWebviewById("liveDetail-" + id);
+				
+			if(view != null) plus.webview.getWebviewById("liveDetail-" + id).close();
+			
+
 			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
 				liveId: id
 			})
@@ -242,7 +241,6 @@ function getSchedules(param){
 		
 	})
 }
-
 
 
 function initData(){
@@ -258,7 +256,50 @@ function initData(){
 		});
 	}
 
+	console.log("initData:loadLiveCategoryList")
 
+	//加载直播分类列表
+	loadLiveCategoryList();
+	
+	//加载赛事列表
+	liveService.getGameList(function(res){
+		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
+		
+		var html = "";
+			html += '<li class="active">' + "全部赛事" + '</li>';
+		for (var i = 0; i < res.data.length; i++) {
+			var partHtml = '';
+			html += '<li '+ partHtml +' data-id="' + res.data[i].gameId + '">' + res.data[i].gameName + '</li>';
+		} 
+		$(".category ul").html(html);
+		$("#gameId").val("");
+		
+		$(".category ul li").unbind("click").bind("click", function(){
+			var that = $(this),
+				title = $(that).text();
+			$("#gameId").val($(that).data("id"));
+			$(".category ul li").removeClass("active");
+			$(that).addClass("active");
+			
+			if(title.indexOf("全部赛事") != -1){
+				console.log("选中赛事" + $("#liveCategoryId").val())
+				$("#gameId").val("");
+				$("#date").val("");
+				getSchedules({
+					liveCategoryId: $("#liveCategoryId").val()
+					
+				});
+			}else{
+				getSchedules({
+					gameId: $("#gameId").val(),
+					liveCategoryId: $("#liveCategoryId").val(),
+					date: $("#date").val()
+				});
+			}
+			
+			
+		});
+	})
 	
 }
 
@@ -278,13 +319,16 @@ function loadLiveCategoryList(){
 		//选中当前直播分类
 		var currentIndex = $("#currentIndex").val();
 		var iconPart = '<i class="icon iconfont icon-webicon215"></i>';
+		
+		console.log("选中直播分类" + currentIndex);
+		
 		if(currentIndex == null || currentIndex.length == 0) {
 			$(".showCategory").html(res.data[0].categoryName + iconPart);
 		}else{
 			$(".showCategory").html(res.data[currentIndex].categoryName + iconPart);
 		}
 		$("#currentIndex").val("");
-		$("#liveCategoryId").val("");
+		//$("#liveCategoryId").val("");
 		$(".live-category").html(html); 
 		 
 		//设置滚动组件
@@ -312,3 +356,9 @@ function loadLiveCategoryList(){
 	})
 
 }
+
+window.addEventListener("asyncInfo", function(){
+	console.log("lives父窗口接到回调")
+	var view = plus.webview.currentWebview();
+	view.show();
+})

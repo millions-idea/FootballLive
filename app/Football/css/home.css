@@ -29,10 +29,12 @@
     position: relative;
     top: 0px;
     width: 90%;
-    height: 155px;
+    /* height: 100%; */
     border-radius: 12px;
     overflow: hidden;
     padding-top: 12px;
+    min-height: 155px;
+    height: 155px;
 }
 
 .headline{
@@ -174,7 +176,7 @@
 	float: left;
 	height: 90px;
 	width: 100%;
-	background-color: #d2d2d2;
+	background-color: #d8d8d8;
 	margin-bottom: 10px;
 	background-image: url(../images/runner.image.png);
 	background-size: 100% 100%;

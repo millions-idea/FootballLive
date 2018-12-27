@@ -75,7 +75,7 @@ public interface InformationMapper extends MyMapper<Information> {
      * @param liveId
      * @return
      */
-    @Select("SELECT * FROM tb_informations WHERE live_id=#{liveId}")
+    @Select("SELECT * FROM tb_informations WHERE live_id = #{liveId}")
     Information selectByLiveId(@Param("liveId") Integer liveId);
 
     /**
@@ -83,12 +83,17 @@ public interface InformationMapper extends MyMapper<Information> {
      * @param condition
      * @return
      */
-    @Select("SELECT *,t5.team_icon AS winTeamIcon, t5.team_name AS winTeamName FROM tb_informations t1 " +
+    @Select("SELECT *,t5.team_icon AS winTeamIcon, t5.team_name AS winTeamName, " +
+            " t6.team_name AS masterTeamName, t6.team_icon AS masterTeamIcon, " +
+            " t7.team_name AS targetTeamName, t7.team_icon AS targetTeamIcon " +
+            " FROM tb_informations t1 " +
             "LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
             "LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
             "LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
-            "WHERE t1.is_delete = 0 AND t2.status = 0 AND t3.is_delete = 0 AND t4.is_delete = 0  " +
+            "LEFT JOIN tb_teams t6 ON t6.team_id = t3.master_team_id " +
+            "LEFT JOIN tb_teams t7 ON t7.team_id = t3.target_team_id " +
+            "WHERE t1.is_delete = 0 AND t2.status = 0 AND t3.is_delete = 0 AND t4.is_delete = 0 " +
             "AND ${condition} AND (t3.schedule_result IS NOT NULL OR t3.schedule_grade IS NOT NULL) " +
             "ORDER BY t2.live_date ")
     List<LiveScheduleDetail> selectInformationDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,

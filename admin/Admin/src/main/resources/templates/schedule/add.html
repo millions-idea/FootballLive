@@ -11,15 +11,17 @@
     <div class="layui-form-item">
         <label class="layui-form-label">主队</label>
         <div class="layui-input-block">
-            <select id="primaryTeam"   lay-verify="required">
+            <select id="primaryTeam"   lay-verify="required" lay-search>
+                <option value="">支持模糊搜索</option>
                 <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
             </select>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">客队</label>
+        <label class="layui-form-label">客队</label >
         <div class="layui-input-block">
-            <select id="secondTeam"  lay-verify="required">
+            <select id="secondTeam"  lay-verify="required" lay-search>
+                <option value="">支持模糊搜索</option>
                 <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
             </select>
         </div>
@@ -72,11 +74,20 @@
         var gameDate=$("#gameDate").val();
 
 
+
         var schedule={}
         schedule.gameId=games;
         schedule.teamId=primaryTeam+","+secondTeam;
         schedule.gameDate=gameDate;
         schedule.gameDuration=duration;
+        if (primaryTeam==""||primaryTeam.length==0){
+            layer.msg("您还没有选择！")
+            return false;
+        }
+        if (secondTeam==""||secondTeam.length==0){
+            layer.msg("您还没有选择！")
+            return false;
+        }
 
         if (primaryTeam==secondTeam) {
             layer.msg("选择有误");

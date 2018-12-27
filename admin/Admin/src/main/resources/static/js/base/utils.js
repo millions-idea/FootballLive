@@ -37,6 +37,18 @@ window.utils = {
             }
         }
     },
+    liveStatus: {
+        liveStatusInfo: function (ts) {
+            switch (ts) {
+                case 0:
+                    return '未开始';
+                    break;
+                case 1:
+                    return '<span  style="color: red">正在直播</span> ';
+                    break;
+            }
+        }
+    },
     type: {
         typeInfo: function (ts) {
             switch (ts) {

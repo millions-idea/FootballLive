@@ -29,10 +29,11 @@ mui.plusReady(function(){
     plus.navigator.closeSplashscreen();
     
     plus.webview.currentWebview().addEventListener("show", function(){
-		// 拉取短消息列表
+    	console.log("show");
+    	// 拉取短消息列表
 		service.getMessageList({}, function(res){
 			if(app.utils.ajax.isError(res)) {
-				app.utils.msgBox.msg("加载消息列表失败");
+				//app.utils.msgBox.msg("加载消息列表失败");
 				return;
 			}
 	
@@ -64,7 +65,7 @@ mui.plusReady(function(){
      * 若存在，说明不是首次启动，直接进入首页；
      * 若不存在，说明是首次启动，进入引导页；
      */
-    var launchFlag = plus.storage.getItem("launchFlag");
+/*    var launchFlag = plus.storage.getItem("launchFlag");
     if(launchFlag) {
     	console.log("不是首次启动，直接进入首页")
 		//app.utils.call("asyncLoginNIM", {});
@@ -75,7 +76,7 @@ mui.plusReady(function(){
             id: "guide"
         });
     }
-    
+    */
     
 	// 禁止返回到登录注册页面
 	/*mui.back = function() {
@@ -122,6 +123,17 @@ mui.plusReady(function(){
 		// 批量绑定tap事件，展示不同的页面
 		mui(".mui-bar-tab").on("tap", "a", function() {
 			var tabindex = this.getAttribute("tabindex");
+			//判断是否需要登录
+
+			if(tabindex == 1 || tabindex == 2){
+				var cache = plus.storage.getItem("userInfo");
+				console.log("缓存" +cache)
+				if(cache == null) {					
+					selectDefaultIcon();
+					app.utils.openNewWindow("login.html", "login");
+					return false;
+				}
+			}
 			
 			// 显示点击的tab选项所对应的页面
 			plus.webview.show(app.pages[tabindex].id, "fade-in", 200);
@@ -141,7 +153,6 @@ mui.plusReady(function(){
 
 	newInstance();
 	
-	
 	// 延时加载
 	// setTimeout("initData()", "1000");
 	
@@ -152,7 +163,8 @@ window.addEventListener("asyncLoginNIM", function(){
 	if(nim == null){
 		newInstance();	
 	}else{
-		console.log("已登录云信服务器：" + nim);
+		console.log("已登录云信服务器，重新连接：" + nim);
+		//newInstance();
 	}
 
 	
@@ -162,6 +174,17 @@ window.addEventListener("asyncLoginNIM", function(){
 function newInstance(){
 	app.logger("index", "创建云信服务")
 	
+		// 获取缓存信息 
+	var cacheString = plus.storage.getItem("userInfo"); 
+	
+	if(cacheString == null) {
+		return;
+	}
+	
+	
+	var cache = JSON.parse(cacheString);
+
+	
 	// 设置激活图标
 	var items = document.getElementsByClassName("mui-tab-item");
 	for (var i = 0; i < items.length; i++) {
@@ -170,17 +193,20 @@ function newInstance(){
 	items[0].classList.add("mui-active");
 	plus.webview.show(app.pages[0].id);
 	
-	// 获取缓存信息 
+	createNIM();
+	
+}
+
+function createNIM(){
+	app.logger("index", "实例化云信服务")
+
 	var cacheString = plus.storage.getItem("userInfo"); 
+	
 	if(cacheString == null) {
-		app.logger("index","请先登录");
-		app.utils.msgBox.msg("请先登录");
-		app.utils.openWindow("login.html", "login");
 		return;
 	}
-	var cache = JSON.parse(cacheString);
 
-	app.logger("index", "实例化云信服务")
+	var cache = JSON.parse(cacheString);
 
 	// 实例化网易云信服务
 	nim = NIM.getInstance({
@@ -242,11 +268,10 @@ function newInstance(){
 	    // 同步完成
 	    onsyncdone: onSyncDone
 	});
-	
-	app.logger("index", "实例化云信服务成功" + nim)
-	
 
+	app.logger("index", "实例化云信服务成功" + nim)
 }
+
 
 function clickPushMessage(){
 	app.print("推送消息被单击");
@@ -334,34 +359,40 @@ function onDisconnect(error) {
     // 此时说明 `SDK` 处于断开状态, 开发者此时应该根据错误码提示相应的错误信息, 并且跳转到登录页面
     console.log('丢失连接');
     console.log(JSON.stringify(error));
+    console.log("退出并返回首页，错误码" + error == null ? "" : error.code)
     if (error) {
         switch (error.code) {
         // 账号或者密码错误, 请跳转到登录页面并提示错误
         case 302:
-        	destroyNim(false);
+        	console.log("302");
         	app.logger("IM_onDisconnect","账号或密码错误");
+        	plus.storage.clear();
         	app.utils.msgBox.msg("账号或密码错误");
         	app.utils.openNewWindow("login.html", "login");
         	return;
             break;
         // 被踢, 请提示错误后跳转到登录页面
         case 'kicked':
-        	destroyNim(false);
+        	console.log("kicked");
         	app.logger("IM_onDisconnect","您的账号在别处登录,被迫下线");
+        	plus.storage.clear();
         	app.utils.msgBox.msg("您的账号在别处登录,被迫下线");
         	app.utils.openNewWindow("login.html", "login");
         	return;
         	
             break;
         default:
-        	destroyNim(false);
+        	console.log("default");
+        	plus.storage.clear();
         	app.logger("IM_onDisconnect","服务器出现连接问题,被迫下线");
-        	app.utils.msgBox.msg("服务器出现连接问题,被迫下线");
+        	//app.utils.msgBox.msg("服务器出现连接问题,被迫下线");
         	app.utils.openNewWindow("login.html", "login");
         	return;
             break;
         }
     }
+	console.log("login");
+	app.utils.openNewWindow("login.html", "login");    
 	return;
 }
 function onError(error) {
@@ -1098,3 +1129,14 @@ window.addEventListener("leaveTeam", function(event){
 	  }
 	});
 })
+
+
+function selectDefaultIcon(){
+	var items = document.getElementsByClassName("mui-tab-item");
+	console.log("选择默认图标" + items.length);
+	for (var i = 0; i < items.length; i++) {
+		items[i].classList.remove("mui-active");
+	}
+	items[0].classList.add("mui-active");
+	plus.webview.show(app.pages[0].id);
+}

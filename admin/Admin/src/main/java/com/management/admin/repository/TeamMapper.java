@@ -41,7 +41,7 @@ public interface TeamMapper extends MyMapper<Team> {
      */
     List<TeamCompetition> selectLimit(@Param("page") Integer page, @Param("limit") String limit);
 
-    @Select("SELECT COUNT(team_id) FROM tb_teams ")
+    @Select("SELECT COUNT(team_id) FROM tb_teams where is_delete=0")
     /**
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return

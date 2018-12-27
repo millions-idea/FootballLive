@@ -90,15 +90,14 @@ a{
 
 
 .mui-slider {
-    /* height: 155px !important; */
+    /* height: 140px !important; */
     border-radius: 15px;
-    background-image: url(../images/runner.image.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    /* background-image: url(../images/runner.image.png); */
+    /* background-size: 100% 100%; */
+    height: 99%;
+    background-color: #e8e8e8;
+    /* background-repeat: no-repeat; */
     }
-
-.mui-slider {}
-    
 
 
 .mui-bar-tab .mui-tab-item.mui-active {

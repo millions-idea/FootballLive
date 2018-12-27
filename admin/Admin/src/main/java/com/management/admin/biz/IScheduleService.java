@@ -73,4 +73,17 @@ public interface IScheduleService {
      * @return
      */
     List<LiveScheduleDetail> getInformationDetailList(Integer gameId, Integer liveCategoryId, String date);
+
+    /**
+     * 修改赛程状态为正在直播  timor 2018年12月27日17:12:233
+     * @return
+     */
+    Integer beingSchedule(Integer scheduleId);
+
+    /**
+     * 修改赛程状态为已经结束  timor 2018年12月27日17:12:233
+     * @return
+     */
+    Integer endSchedule(Integer scheduleId);
+
 }

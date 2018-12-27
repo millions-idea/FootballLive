@@ -8,6 +8,7 @@
 package com.management.admin.controller;
 
 import com.google.common.collect.ImmutableMap;
+import com.management.admin.annotaion.BindAdminDomain;
 import com.management.admin.annotaion.BindDomain;
 import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IUserService;
@@ -41,6 +42,7 @@ public class BootstrapController {
     private RedisTemplate redisTemplate;
 
     @BindDomain
+    @BindAdminDomain
     @GetMapping(value = {"","management/bootstrap/signin"})
     public String signup(HttpServletRequest request){
         return "bootstrap/index";

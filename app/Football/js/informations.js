@@ -43,11 +43,29 @@ var liveService = {
 mui.plusReady(function(){
 	
 	var webview = plus.webview.currentWebview();
-
+	plus.navigator.setStatusBarStyle("dark");
+	plus.navigator.setStatusBarBackground("#F3F3F3");
+	
+	 
 	webview.addEventListener("show", function(){
+		plus.navigator.setStatusBarStyle("dark");
+		plus.navigator.setStatusBarBackground("#F3F3F3");
+	
+		console.log("情报中心");
+		
+		
+		console.log("informations_show");
+		
+		var view = plus.webview.getWebviewById("index");
+		if(view != null){
+			view.evalJS("createNIM()");
+		}
+	 
 		initData();
 	})
-
+	
+	console.log("情报中心");
+	
 	initData();
 })
 
@@ -124,6 +142,7 @@ function getSchedules(param){
 		}
 		
 		var html = "";
+			
 		for (var i = 0; i < res.data.length; i++) {
 			
 			var item = res.data[i];
@@ -150,28 +169,28 @@ function getSchedules(param){
     		html += '	</div> ';
     		html += '	<div class="content">';
     		//判断是否为胜利球队
-			if(item.team.teamId == item.winTeamId){
+			if(item.masterTeamId == item.winTeamId){
     			html += '		<div class="left left-hot">';
     			html += '			<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>';
 			}else{
     			html += '		<div class="left">';
 			}
-    		html += '			<img src="'  + item.team.teamIcon +'" alt="" />';
-    		html += '			<span>'  + item.team.teamName +'</span>';
+    		html += '			<img src="'  + item.masterTeamIcon +'" alt="" />';
+    		html += '			<span>'  + item.masterTeamName +'</span>';
     		html += '		</div>';
     		html += '		<div class="info">';
     		html += '			<span>' +scheduleResult+  '</span>';
     		html += '		</div>';
     		//判断是否为胜利球队
-			if(item.targetTeam.teamId == item.winTeamId){
+			if(item.targetTeamId == item.winTeamId){
     			html += '		<div class="right right-hot">';
     			html += '			<i class="icon iconfont icon-shoucangjiaobiao"></i>';
 			}else{
     			html += '		<div class="right">';
 			}
-    		html += '			<img src="'  + item.targetTeam.teamIcon +'" alt="" />';
-    		html += '			<span>'  + item.targetTeam.teamName +'</span>';
-    		html += '		</div>';
+    		html += '			<img src="'  + item.targetTeamIcon +'" alt="" />';
+    		html += '			<span>'  + item.targetTeamName +'</span>';
+    		html += '		</div>'; 
     		html += '	</div> ';
     		html += '</li>';
 		} 
@@ -179,7 +198,21 @@ function getSchedules(param){
 		
 		//打开直播间
 		$(".openLive").unbind("click").bind("click", function(){
+			//检测是否已经登录
 			var id = $(this).data("id");
+			
+			var cache = plus.storage.getItem("userInfo");
+			if(cache == null) {
+				app.utils.openNewWindow("login.html", "login");
+				plus.webview.getWebviewById("liveDetail-" + id).hide();
+				return false;
+			}
+
+			var view = plus.webview.getWebviewById("liveDetail-" + id);
+				
+			if(view != null) plus.webview.getWebviewById("liveDetail-" + id).close();
+			
+
 			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
 				liveId: id
 			})
@@ -193,7 +226,7 @@ function getSchedules(param){
 
 
 function initData(){
-			//获取赛程信息列表
+	//获取赛程信息列表
 	getSchedules({});
 
 	//加载直播分类列表
@@ -201,6 +234,7 @@ function initData(){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载直播分类列表失败");
 		
 		var html = "";
+			html += '<li class="active">' + "全部赛事" + '</li>';
 		
 		for (var i = 0; i < res.data.length; i++) {
 			html += '<li class="mui-table-view-cell">';
@@ -248,11 +282,10 @@ function initData(){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
 		
 		var html = "";
+			html += '<li class="active">' + "全部赛事" + '</li>';
+		
 		for (var i = 0; i < res.data.length; i++) {
 			var partHtml = '';
-			if(i == 0){
-				partHtml = 'class="active"';
-			}
 			html += '<li '+ partHtml +' data-id="' + res.data[i].gameId + '">' + res.data[i].gameName + '</li>';
 		} 
 		$(".category ul").html(html);
@@ -263,11 +296,30 @@ function initData(){
 			$(".category ul li").removeClass("active");
 			$(that).addClass("active");
 			
-			getSchedules({
-				gameId: $("#gameId").val(),
-				liveCategoryId: $("#liveCategoryId").val(),
-				date: $("#date").val()
-			});
+			
+			if(title.indexOf("全部赛事") != -1){
+				console.log("选中赛事" + $("#liveCategoryId").val())
+				$("#gameId").val("");
+				$("#date").val("");
+				getSchedules({
+					liveCategoryId: $("#liveCategoryId").val()				
+				});
+			
+			}else{
+				getSchedules({
+					gameId: $("#gameId").val(),
+					liveCategoryId: $("#liveCategoryId").val(),
+					date: $("#date").val()
+				});
+			}		
+			
+			
 		});
 	})
 }
+
+window.addEventListener("asyncInfo", function(){
+	console.log("informations父窗口接到回调")
+	var view = plus.webview.currentWebview();
+	view.show();
+})

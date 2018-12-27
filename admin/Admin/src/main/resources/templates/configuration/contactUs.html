@@ -28,7 +28,7 @@
     </div>
 
     <input type="hidden" id="photo"/><!--接收图片地址-->
-
+    <input type="hidden" id="content" th:value="${model.value}">
 
     <div id="div1">
     </div>
@@ -37,85 +37,85 @@
     <!--wangEditor 使用 E-->
 
     <script type="text/javascript" src="/js/configuration/wangEditor.js"></script>
-    <script src="/js/common/jquery-2.0.0.js"></script>
-    <script type="text/javascript">
-
-        //富文本使用
-        var E = window.wangEditor;
-        var editor = new E('#div1');
-        //重新设置富文本的内容
-        editor.customConfig.menus = [
-
-            'fontName',  // 字体
-            'strikeThrough',  // 删除线
-            'backColor',  // 背景颜色
-            'head',  // 标题
-            'bold',  // 粗体
-            'fontSize',  // 字号
-            'italic',  // 斜体
-            'underline',  // 下划线
-            'foreColor',  // 文字颜色
-            'link',  // 插入链接
-            'justify',  // 对齐方式
-            'image',  // 插入图片
-            'undo',  // 撤销
-            'redo'  // 重复
-        ];
-        // 隐藏“网络图片”tab
-        editor.customConfig.showLinkImg = false;
-        // 将图片大小限制为 3M
-        editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
-        // 限制一次最多上传 1 张图片
-        editor.customConfig.uploadImgMaxLength = 1;
-        //开启wangEditor的错误提示
-        editor.customConfig.debug=true;
-        // 关闭粘贴样式的过滤
-        editor.customConfig.pasteFilterStyle = false;
-        // 忽略粘贴内容中的图片
-        editor.customConfig.pasteIgnoreImg = true;
-
-        var photo="";
-
-        //上传图片 将图片以文件的形式传给后台进行操作返回图片 url
-        editor.customConfig.customUploadImg = function (files, insert) {
-            var date = new FormData();
-            date.append("file", files[0]);
-            $.ajax({
-                type: "POST",
-                url:"/management/file/cosUpload",
-                data: date,
-                dataType: 'json',
-                async: false,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (result) {
-                    photo=result.msg;
-                    console.log(result.msg);
-                    insert(result.msg);// insert 是获取图片 url 后，插入到编辑器的方法
-                }
-            })
-        };
-
-        editor.create();//创建富文
-
-        document.getElementById('add').addEventListener('click', function () {
-            var value=editor.txt.html();
-            if (value=="<p><br></p>") {
-                layer.msg("不能为空");
-                return false;
-            }
-            uploadConfig("contact",value);
-
-        }, false)
-
-
-
-    </script>
-
 </th:block>
 <th:block layout:fragment="free_footer">
     <script>
+        $(function(){
+            //富文本使用
+            var E = window.wangEditor;
+            var editor = new E('#div1');
+            //重新设置富文本的内容
+            editor.customConfig.menus = [
+
+                'fontName',  // 字体
+                'strikeThrough',  // 删除线
+                'backColor',  // 背景颜色
+                'head',  // 标题
+                'bold',  // 粗体
+                'fontSize',  // 字号
+                'italic',  // 斜体
+                'underline',  // 下划线
+                'foreColor',  // 文字颜色
+                'link',  // 插入链接
+                'justify',  // 对齐方式
+                'image',  // 插入图片
+                'undo',  // 撤销
+                'redo'  // 重复
+            ];
+            // 隐藏“网络图片”tab
+            editor.customConfig.showLinkImg = false;
+            // 将图片大小限制为 3M
+            editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+            // 限制一次最多上传 1 张图片
+            editor.customConfig.uploadImgMaxLength = 1;
+            //开启wangEditor的错误提示
+            editor.customConfig.debug=true;
+            // 关闭粘贴样式的过滤
+            editor.customConfig.pasteFilterStyle = false;
+            // 忽略粘贴内容中的图片
+            editor.customConfig.pasteIgnoreImg = true;
+
+            var photo="";
+
+            //上传图片 将图片以文件的形式传给后台进行操作返回图片 url
+            editor.customConfig.customUploadImg = function (files, insert) {
+                var date = new FormData();
+                date.append("file", files[0]);
+                $.ajax({
+                    type: "POST",
+                    url:"/management/file/cosUpload",
+                    data: date,
+                    dataType: 'json',
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        photo=result.msg;
+                        console.log(result.msg);
+                        insert(result.msg);// insert 是获取图片 url 后，插入到编辑器的方法
+                    }
+                })
+            };
+
+            editor.create();//创建富文
+
+            var content = $("#content").val();
+            console.log(content)
+            editor.txt.html(content);
+
+
+            document.getElementById('add').addEventListener('click', function () {
+                var value=editor.txt.html();
+                if (value=="<p><br></p>") {
+                    layer.msg("不能为空");
+                    return false;
+                }
+                uploadConfig("contact",value);
+
+            }, false)
+        })
+
            /* ?key="+key+"&value="+value*/
         function uploadConfig(key,value) {
             $.ajax({
@@ -130,10 +130,10 @@
                     if (data.code==200){
                         layui.use('layer', function(){
                             var layer = layui.layer;
-                            layer.msg('上传成功', {icon: 6,time: 2000});
+                            layer.msg('保存成功', {icon: 6,time: 2000});
                         });
                     }else {
-                        layer.msg('上传失败', {icon: 5,time: 2000});
+                        layer.msg('保存失败', {icon: 5,time: 2000});
                     }
 
                 }

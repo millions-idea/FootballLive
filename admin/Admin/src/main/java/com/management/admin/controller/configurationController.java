@@ -185,8 +185,8 @@ public class configurationController {
      */
     @GetMapping("/contactUs")
     public String contactUs(final Model model){
-        List<Dictionary> list=dictionaryService.getList();
-        model.addAttribute("banner",list);
+        Dictionary data = dictionaryService.getContact();
+        model.addAttribute("model", data);
         return "configuration/contactUs";
     }
 

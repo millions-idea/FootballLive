@@ -24,10 +24,10 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">赛事状态</label>
+        <label class="layui-form-label">直播状态</label>
         <div class="layui-input-block">
             <input type="text" id="scheduleStatus" autocomplete="off"
-                   disabled="disabled" class="layui-input" th:value="${live.scheduleStatus}">
+                   disabled="disabled" class="layui-input" th:value="${liveStatus}">
 
         </div>
     </div>
@@ -76,8 +76,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">情报内容</label>
         <div class="layui-input-block">
-            <input type="text" id="content" autocomplete="off"
-                   disabled="disabled" class="layui-input" th:value="${live.content}">
+            ${live.content}
         </div>
     </div>
     <!-- 情报内容结束 -->

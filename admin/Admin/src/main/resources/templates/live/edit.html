@@ -10,13 +10,12 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">赛事状态</label>
+        <label class="layui-form-label">直播状态</label>
         <div class="layui-input-block">
             <select name="city" lay-verify="" id="scheduleStatus">
                 <option value="-1">请选择</option>
                 <option value="0">未开始</option>
                 <option value="1">正在直播</option>
-                <option value="2">已结束</option>
             </select>
         </div>
     </div>
@@ -105,9 +104,9 @@
             if (liveDetail.liveDate == null) {
                 liveDetail.liveDate = $("#beginData").val();
             }
-            liveDetail.scheduleStatus = $("#scheduleStatus").val();
+            liveDetail.liveStatus = $("#scheduleStatus").val();
             if (liveDetail.scheduleStatus == '-1') {
-                layer.msg("请选择比赛状态");
+                layer.msg("请选择直播状态");
                 return false;
             }
             liveDetail.scheduleId = $("#scheduleId").val();
@@ -129,7 +128,7 @@
                             layer.msg(data.msg);
                             return;
                         } else {
-                            layer.msg("修改成功");
+                            layer.msg("修改失败");
                             return;
                         }
                     }

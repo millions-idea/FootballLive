@@ -159,4 +159,15 @@ public class DictionaryServiceImpl extends BaseServiceImpl<Dictionary> implement
         }
         return null;
     }
+
+    /**
+     * 获取联系方式 DF 2018年12月26日05:07:30
+     *
+     * @return
+     */
+    @Override
+    public Dictionary getContact() {
+        Dictionary dictionary = dictionaryMapper.selectOneKey("contact");
+        return dictionary;
+    }
 }

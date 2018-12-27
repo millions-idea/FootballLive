@@ -7,6 +7,7 @@
  */
 package com.management.admin.interceptor;
 
+import com.management.admin.annotaion.BindAdminDomain;
 import com.management.admin.annotaion.BindDomain;
 import com.management.admin.annotaion.Sign;
 import com.management.admin.entity.template.Constant;
@@ -38,6 +39,7 @@ public class DomainAuthenticationInterceptor implements HandlerInterceptor {
         Method method = handlerMethod.getMethod();
         // 判断接口是否需要验签
         BindDomain bindDomain = method.getAnnotation(BindDomain.class);
+        BindAdminDomain bindAdminDomain = method.getAnnotation(BindAdminDomain.class);
         if(bindDomain != null){
             String[] arr = Constant.BindDomain.split(",");
             int count = 0;
@@ -49,6 +51,14 @@ public class DomainAuthenticationInterceptor implements HandlerInterceptor {
             if(count <= 0){
                 if(!Constant.DebugMode){
                     throw new InfoException("来路错误" );
+                }
+            }
+        }
+
+        if(bindAdminDomain != null){
+            if(!url.contains(Constant.BindAdminDomain)) {
+                if(!Constant.DebugMode){
+                    throw new InfoException("控制来路错误" );
                 }
             }
         }

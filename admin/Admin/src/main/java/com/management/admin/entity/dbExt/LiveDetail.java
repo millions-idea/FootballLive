@@ -63,7 +63,7 @@ public class LiveDetail {
 
     private String gameDuration;
 
-    private Integer scheduleStatus;
+    private Integer liveStatus;
 
     private String gameName;
 

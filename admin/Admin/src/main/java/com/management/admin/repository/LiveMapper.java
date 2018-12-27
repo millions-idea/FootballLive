@@ -72,6 +72,14 @@ public interface LiveMapper extends MyMapper<Live>{
     Integer modifyLiveTitleById(@Param("liveId") Integer liveId,@Param("title") String title);
 
     /**
+     * 根据编号修改直播间状态
+     * @param liveId
+     * @param liveStatus
+     * @return
+     */
+    @Update("update tb_lives set live_status=#{liveStatus} where live_id=#{liveId}")
+    Integer modifyLiveStatusById(@Param("liveId") Integer liveId,@Param("liveStatus")Integer  liveStatus);
+    /**
      * 根据编号修改直播赛程
      * @param liveId
      * @param scheduleId
@@ -113,10 +121,15 @@ public interface LiveMapper extends MyMapper<Live>{
      * 查询热门直播信息 DF 2018年12月17日23:43:07
      * @return
      */
-    @Select("SELECT t1.*, t2.team_id, t3.game_name FROM tb_lives t1 " +
+    @Select("SELECT t1.*, t2.team_id, t3.game_name, " +
+            " t4.team_name AS masterTeamName, t4.team_icon AS masterTeamIcon, " +
+            " t5.team_name AS targetTeamName, t5.team_icon AS targetTeamIcon " +
+            " FROM tb_lives t1 " +
             "LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
+            "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.status = 1 " +
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectHotLives();
  /**
@@ -167,12 +180,37 @@ public interface LiveMapper extends MyMapper<Live>{
     int reduceCollectCount(@Param("liveId") Integer liveId);
 
     /**
-     * 更新直播状态 DF 2018年12月20日02:52:35
+     * 是否删除直播间（正常，删除） DF 2018年12月20日02:52:35
      * @param liveId
      * @param status
      * @return
      */
     @Update("UPDATE tb_schedules SET `status` = #{status} WHERE game_id = " +
-            "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId})")
+            "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId} LIMIT 1)")
     int updateStatus(@Param("liveId") Integer liveId, @Param("status") int status);
+
+    /**
+     * 更新直播间状态为 未开始 DF 2018年12月20日02:52:35
+     * @param liveId
+     * @return
+     */
+    @Update("UPDATE tb_lives SET `live_status` = 0 WHERE live_id = #{liveId}")
+    int beingLiveStatus(Integer liveId);
+
+    /**
+     * 更新直播间状态为 正在直播 DF 2018年12月20日02:52:35
+     * @param liveId
+     * @return
+     */
+    @Update("UPDATE tb_lives SET `live_status` = 1 WHERE live_id = #{liveId}")
+    int endLiveStatus(Integer liveId);
+
+    /**
+     * 修改直播间广告信息 狗蛋 2018年12月28日02:12:26
+     * @param liveId
+     * @param adId
+     * @return
+     */
+    @Update("update tb_lives set ad_id=#{adId} where live_id=#{liveId}")
+    int modifyAdvertisingByLiveId(@Param("liveId") Integer liveId,@Param("adId") Integer adId);
 }

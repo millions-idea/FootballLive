@@ -14,6 +14,12 @@ var liveService = {
 		});
 	},
 	
+	leaveTeam: function(param){
+		$.get(app.utils.toUrl(app.config.apiUrl + "api/live/leaveTeam"), param, function(data){
+			app.logger("离开群组", JSON.stringify(data));
+		});
+	},
+	
 	/**
 	 * 获取直播间情报信息 DF 2018年12月18日20:55:21
 	 * @param {Object} param
@@ -66,188 +72,207 @@ mui.plusReady(function(){
 		app.utils.msgBox.msg("已为您复制宣传网址，快发给朋友吧~");
 	})
 	
-	//获取直播间信息
-	liveService.getLiveInfo({
-		liveId: parseInt(id)	
-	}, function(res){
-		//进入直播间失败
-		if(app.utils.ajax.isError(res)) {
-			plus.nativeUI.closeWaiting();
-			app.utils.msgBox.msg("加载直播间时出错");
-			plus.webview.currentWebview().close();
-			return;
-		}
-
-		
-		//关闭等待加载弹窗00
-		plus.nativeUI.closeWaiting();
-		
-		var live = res.msg;
-	
-
-		if(live.chatRoomErrorMsg != null){
-			if(live.chatRoomErrorMsg == "您已被加入直播间黑名单"){
-				disableChat("您已被管理员设置禁止发言");				
-			}else{
-				disableChat("全员禁言");				
+	//检测登录
+	if(1==1){
+		//获取直播间信息
+		liveService.getLiveInfo({
+			liveId: parseInt(id)	
+		}, function(res){
+			//进入直播间失败
+			if(app.utils.ajax.isError(res)) {
+				plus.nativeUI.closeWaiting();
+				app.utils.msgBox.msg("加载直播间时出错");
+				plus.webview.currentWebview().close();
+				return;
 			}
-		}
-
-		//加入群组
-		if(live.chatRoomId != null){
-			app.utils.call("applyTeam", {
-				id: self.id,
-				teamId: live.chatRoomId,
-				ps: "hi"
-			});
-		}else{
-	    	disableChat("全员禁言");
-		}
-		
-		var old_back = mui.back;
-	    mui.back = function(event) {
-	    	console.log("back")
-	    	//退出群
-	    	if(live.chatRoomId != null){
-	    		app.utils.call("leaveTeam", {
-		    		teamId: live.chatRoomId
-		    	})
-	    	}
-	        old_back();
-	    }
+	
+			
+			//关闭等待加载弹窗00
+			plus.nativeUI.closeWaiting();
+			
+			var live = res.msg;
 		
 	
-		//更新直播间标题
-		$("#liveTitle").text(live.gameName + ": " + live.liveTitle);
-		 
-		//显示比赛状态
-		var status = "...";
-		if(live.status == 0) status = "未开始";
-		if(live.status == 1) status = "正在直播";
-		if(live.status == 2) status = "已结束";
-		$(".shade .info .status").text(status);
-		$(".shade .leftv img").attr("src", live.teamList[0].teamIcon);
-		$(".shade .rightv img").attr("src", live.teamList[1].teamIcon);
-		if(live.status == 2){
-	    	disableChat("全员禁言");
-		}
+			if(live.chatRoomErrorMsg != null){
+				if(live.chatRoomErrorMsg == "您已被加入直播间黑名单"){
+					disableChat("您已被管理员设置禁止发言");				
+				}else if(live.chatRoomErrorMsg != "SUCCESS"){
+					console.log("chatRoomErrorMsg != null" + ":" + "全员禁言")
+					console.log(live.chatRoomErrorMsg)
+					disableChat("全员禁言");
+				}
+			}
+	
+			//加入群组
+			if(live.chatRoomId != null){
+				console.log("从服务端直接拉入群组")
+				/*app.utils.call("applyTeam", {
+					id: self.id,
+					teamId: live.chatRoomId,
+					ps: "hi"
+				});*/
+			}else{
+					console.log("chatRoomId != null" + ":" + "全员禁言")
+				
+		    	disableChat("全员禁言");
+			}
+			
+			var old_back = mui.back;
+		    mui.back = function(event) {
+		    	console.log("back")
+		    	//退出群
+		    	if(live.chatRoomId != null){
+		    		liveService.leaveTeam({
+		    			liveId: live.liveId
+		    		});
+		    		/*app.utils.call("leaveTeam", {
+			    		teamId: live.chatRoomId
+			    	})*/
+		    	}
+		        old_back();
+		    }
+			
 		
-		//设置播放器相关信息
-		if(live.status == 1) $(".btnLive").show();
-		$(".btnLive").click(function(){
-			createPlayer(live.type, live.playerAdUrl, live.playerTargetUrl, live.sourceUrl);
-		});
-		$(".video .info .grade").text(live.scheduleGrade);
-		
-		//设置全站广告位
-		$(".advertising img").attr("src", live.adUrl);
-		$(".advertising img").click(function(){
-			plus.runtime.openURL(live.adTargetUrl);
-		});
-		
-		//切换选项卡
-		$(".live-tabs li").click(function(){
-			var tabindex= $(this).attr("tabindex");  
-			//判断是否切换到情报页
-			if(tabindex == 1){
-				plus.nativeUI.showWaiting("正在获取最新的情报信息");
-				liveService.getInformation({
-					liveId: live.liveId
-				}, function(information){
-					if(app.utils.ajax.isError(information)) {
+			//更新直播间标题
+			$("#liveTitle").text(live.gameName + ": " + live.liveTitle);
+			 
+			//显示比赛状态
+			var status = "...";
+			if(live.status == 0) status = "未开始";
+			if(live.status == 1) status = "正在直播";
+			if(live.status == 2) status = "已结束";
+			$(".shade .info .status").text(status);
+			$(".shade .leftv img").attr("src", live.teamList[0].teamIcon);
+			$(".shade .rightv img").attr("src", live.teamList[1].teamIcon);
+			if(live.status == 2){
+				console.log("status == 2" + ":" + "全员禁言")
+		    	disableChat("全员禁言");
+			}
+			
+			//设置播放器相关信息
+			if(live.status == 1) $(".btnLive").show();
+			$(".btnLive").click(function(){
+				createPlayer(live.type, live.playerAdUrl, live.playerTargetUrl, live.sourceUrl);
+			});
+			
+			if(live.scheduleGrade != null && live.scheduleGrade.toString().length > 0){
+				$(".video .info .grade").text(live.scheduleGrade);
+			}
+			
+			//设置全站广告位
+			$(".advertising").css("background-image", "url("+live.adUrl+")");
+			$(".advertising").click(function(){
+				plus.runtime.openURL(live.adTargetUrl);
+			});
+			
+			//切换选项卡
+			$(".live-tabs li").click(function(){
+				var tabindex= $(this).attr("tabindex");  
+				//判断是否切换到情报页
+				if(tabindex == 1){
+					plus.nativeUI.showWaiting("正在获取最新的情报信息");
+					liveService.getInformation({
+						liveId: live.liveId
+					}, function(information){
+						if(app.utils.ajax.isError(information)) {
+							plus.nativeUI.closeWaiting();
+							app.utils.msgBox.msg("加载最新情报信息失败");
+							return;
+						}
+						
+						var inf = information.msg;
+						
+						//球队信息设置
+						$(".live .lefte img").attr("src", live.teamList[0].teamIcon);
+						$(".live .lefte span").text(live.teamList[0].teamName);
+						//判断是否为胜利球队
+						if(live.teamList[0].teamId == live.winTeamId){
+							$(".live .lefte").removeClass("left-hot").addClass("left-hot");
+							if($(".live .lefte").html().indexOf("shoucangjiaobiao") == -1){
+								$(".live .lefte img").before('<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>');
+							}
+						}
+						
+						//比赛结果设置
+						if(live.scheduleGrade == null && live.scheduleGrade.toString().length > 0){
+							$(".live .infoe span").text("-/-");
+						}else{
+							var scheduleStatus = live.scheduleGrade;
+							if(live.scheduleResult != null){
+								scheduleStatus = live.scheduleResult + ":" + " " +  live.scheduleGrade;
+							}
+							$(".live .infoe span").text(scheduleStatus);
+						}
+						
+						$(".live .righte img").attr("src", live.teamList[1].teamIcon);
+						$(".live .righte span").text(live.teamList[1].teamName);
+						//判断是否为胜利球队
+						if(live.teamList[1].teamId == live.winTeamId){
+							$(".live .righte").removeClass("right-hot").addClass("right-hot");
+							if($(".live .righte").html().indexOf("shoucangjiaobiao") == -1){
+								$(".live .righte img").before('<i class="icon iconfont icon-shoucangjiaobiao"></i>');
+							}
+						}
+						
+						//推荐理由渲染
+						if(inf.information == null || inf.information.content == null){
+							$(".information-content").html("<span style='color:#BEBEBE'>暂无情报</span>");
+						}else{
+							$(".information-content").html(inf.information.content);
+						}
+	
+						
 						plus.nativeUI.closeWaiting();
-						app.utils.msgBox.msg("加载最新情报信息失败");
-						return;
-					}
-					
-					var inf = information.msg;
-					
-					//球队信息设置
-					$(".live .lefte img").attr("src", live.teamList[0].teamIcon);
-					$(".live .lefte span").text(live.teamList[0].teamName);
-					//判断是否为胜利球队
-					if(live.teamList[0].teamId == live.winTeamId){
-						$(".live .lefte").removeClass("left-hot").addClass("left-hot");
-						if($(".live .lefte").html().indexOf("shoucangjiaobiao") == -1){
-							$(".live .lefte img").before('<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>');
-						}
-					}
-					
-					//比赛结果设置
-					if(live.scheduleGrade == null){
-						$(".live .infoe span").text("-/-");
-					}else{
-						var scheduleStatus = live.scheduleGrade;
-						if(live.scheduleResult != null){
-							scheduleStatus = live.scheduleResult + ":" + " " +  live.scheduleGrade;
-						}
-						$(".live .infoe span").text(scheduleStatus);
-					}
-					
-					$(".live .righte img").attr("src", live.teamList[1].teamIcon);
-					$(".live .righte span").text(live.teamList[1].teamName);
-					//判断是否为胜利球队
-					if(live.teamList[1].teamId == live.winTeamId){
-						$(".live .righte").removeClass("right-hot").addClass("right-hot");
-						if($(".live .righte").html().indexOf("shoucangjiaobiao") == -1){
-							$(".live .righte img").before('<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>');
-						}
-					}
-					
-					//推荐理由渲染
-					if(inf.information == null || inf.information.content == null){
-						$(".information-content").html("<span style='color:#BEBEBE'>暂无情报</span>");
-					}else{
-						$(".information-content").html(inf.information.content);
-					}
-
-					
-					plus.nativeUI.closeWaiting();
+						$(".live-tabs li").removeClass("active");
+						$(".live-tabs li").eq(tabindex).addClass("active");
+						$("div[name='content']").hide();
+						$("div[name='content'][tabindex='" + tabindex + "']").show();
+					})
+				}else{
 					$(".live-tabs li").removeClass("active");
 					$(".live-tabs li").eq(tabindex).addClass("active");
 					$("div[name='content']").hide();
 					$("div[name='content'][tabindex='" + tabindex + "']").show();
-				})
-			}else{
-				$(".live-tabs li").removeClass("active");
-				$(".live-tabs li").eq(tabindex).addClass("active");
-				$("div[name='content']").hide();
-				$("div[name='content'][tabindex='" + tabindex + "']").show();
-			}
+				}
+				
+			});
+	 		
 			
-		});
- 		
-		
-		
-		// 发送消息
-	    $(".send").unbind("click").bind("click",function(){ 
-	    	sendMessage(live.chatRoomId); 
-	    });
-	    
-	    
-	    
-	    //收藏
-	    $(".collect").click(function(){
-	    	var that = $(this);
-	    	if($(that).hasClass("icon-shoucang1")){
-	    		liveService.addCollect({
-	    			liveId: live.liveId
-	    		}, function(collectRes){
-	    			app.print("收藏成功");
-		    		$(that).removeClass("icon-shoucang1").addClass("icon-shoucangxing2");	
-	    		});
-	    	}else{
-	    		liveService.cancelCollect({
-	    			liveId: live.liveId
-	    		}, function(collectRes){
-	    			app.print("取消收藏成功");
-		    		$(that).removeClass("icon-shoucangxing2").addClass("icon-shoucang1");	
-	    		});
-	    	}
-	    })
-	})
+			
+			// 发送消息
+		    $(".send").unbind("click").bind("click",function(){ 
+		    	sendMessage(live.chatRoomId); 
+		    });
+		    
+		    
+		    
+		    //收藏
+		    $(".collect").click(function(){
+		    	var that = $(this);
+		    	if($(that).hasClass("icon-shoucang1")){
+		    		liveService.addCollect({
+		    			liveId: live.liveId
+		    		}, function(collectRes){
+		    			app.print("收藏成功");
+			    		$(that).removeClass("icon-shoucang1").addClass("icon-shoucangxing2");	
+		    		});
+		    	}else{
+		    		liveService.cancelCollect({
+		    			liveId: live.liveId
+		    		}, function(collectRes){
+		    			app.print("取消收藏成功");
+			    		$(that).removeClass("icon-shoucangxing2").addClass("icon-shoucang1");	
+		    		});
+		    	}
+		    })
+		})
 	
 	
+	}else{
+		plus.nativeUI.closeWaiting();	
+	}
+	
+		
 })
 
 
@@ -393,6 +418,9 @@ function shareWebview() {
  * @param {Object} videoUrl 播放器直播视频链接
  */
 function createPlayer(type, adUrl, targetUrl, videoUrl){
+	if(type == null){
+		return;
+	}
 	//播前广告
 	if(type == 0){
 		playVideoAd(adUrl, targetUrl, function(){
@@ -507,7 +535,6 @@ function getMessagePartHtml(obj){
 	}else if(obj.type == "image"){
 		msgListHtml += '         ' + "<img class='diyImage' src='" + obj.file.url + "' data-preview-src='' data-preview-group='2'/>";
 	}else if(obj.type == "notification") {
-		
 		var currentUser = obj.attach.users[0].account.substr(6, obj.attach.users[0].account.length);
 		if(obj.attach.type == "addTeamMembers"){
 			msgListHtml += '         ' +  "用户" + currentUser +"进入了直播间";
@@ -683,3 +710,6 @@ function playVideo(url){
 	}, false);
 	video.play();
 }
+
+
+ 
