@@ -61,4 +61,8 @@ public class Live {
      * 添加时间
      */
     private Date addDate;
+    /**
+     * 直播间状态（0：未开始 1：正在直播）
+     */
+    private Integer liveStatus;
 }

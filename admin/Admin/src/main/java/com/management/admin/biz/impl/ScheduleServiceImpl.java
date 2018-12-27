@@ -171,4 +171,22 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         return liveScheduleDetails;
     }
+
+    /**
+     * 修改赛程状态为正在直播 timor 2018-12-27 17:39:562
+     * @return
+     */
+    @Override
+    public Integer beingSchedule() {
+        return  scheduleMapper.beingSchedule();
+    }
+
+    /**
+     * 修改赛程状态为已经结束 timor 2018-12-27 17:39:562
+     * @return
+     */
+    @Override
+    public Integer endSchedule() {
+        return  scheduleMapper.endSchedule();
+    }
 }

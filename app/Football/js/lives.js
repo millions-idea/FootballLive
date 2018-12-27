@@ -56,7 +56,6 @@ mui.plusReady(function(){
 	initData(); 
 	
 	
-	
 	//加载直播分类列表
 	loadLiveCategoryList();
 	

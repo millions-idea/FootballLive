@@ -5,7 +5,8 @@
         <label class="layui-form-label">赛事信息</label>
         <div class="layui-input-block">
             <select id="games"   lay-verify="required">
-                <option th:each="game:${games}" th:value="${game.gameId}" th:text="${game.gameName}"></option>
+                <option th:if="${scheduleGameTeam.gameName}==${game.gameName}" th:each="game:${games}" th:value="${game.gameId}" th:text="${game.gameName}" selected></option>
+                <option th:if="${scheduleGameTeam.gameName}!=${game.gameName}" th:each="game:${games}" th:value="${game.gameId}" th:text="${game.gameName}"></option>
             </select>
         </div>
     </div>
