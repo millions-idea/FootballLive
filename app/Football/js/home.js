@@ -159,20 +159,20 @@ function initData(){
 		//参赛球队信息设置
 		if(res.data[0] != null){
 			$(".left .title").text(res.data[0].gameName + " " + app.utils.getFormatMinute(res.data[0].liveDate));
-			$(".left .teamIcon").attr("src", res.data[0].team.teamIcon);
-			$(".left .teamName").text(res.data[0].team.teamName);
-			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeam.teamIcon);
-			$(".left .targetTeamName").text(res.data[0].targetTeam.teamName);
+			$(".left .teamIcon").attr("src", res.data[0].masterTeamIcon);
+			$(".left .teamName").text(res.data[0].masterTeamName);
+			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeamIcon);
+			$(".left .targetTeamName").text(res.data[0].targetTeamName);
 			$(".left").data("id", res.data[0].liveId);
 		}
 		
 		//对战球队信息设置
 		if(res.data[1] != null){
 			$(".right .title").text(res.data[1].gameName + " " + app.utils.getFormatMinute(res.data[1].liveDate));
-			$(".right .teamIcon").attr("src", res.data[1].team.teamIcon);
-			$(".right .teamName").text(res.data[1].team.teamName);
-			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeam.teamIcon);
-			$(".right .targetTeamName").text(res.data[1].targetTeam.teamName);
+			$(".right .teamIcon").attr("src", res.data[1].masterTeamIcon);
+			$(".right .teamName").text(res.data[1].masterTeamName);
+			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeamIcon);
+			$(".right .targetTeamName").text(res.data[1].targetTeamName);
 			$(".right").data("id", res.data[1].liveId);
 		}
 		

@@ -121,10 +121,15 @@ public interface LiveMapper extends MyMapper<Live>{
      * 查询热门直播信息 DF 2018年12月17日23:43:07
      * @return
      */
-    @Select("SELECT t1.*, t2.team_id, t3.game_name FROM tb_lives t1 " +
+    @Select("SELECT t1.*, t2.team_id, t3.game_name, " +
+            " t4.team_name AS masterTeamName, t4.team_icon AS masterTeamIcon, " +
+            " t5.team_name AS targetTeamName, t5.team_icon AS targetTeamIcon " +
+            " FROM tb_lives t1 " +
             "LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
+            "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.status = 1 " +
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectHotLives();
  /**
@@ -181,7 +186,7 @@ public interface LiveMapper extends MyMapper<Live>{
      * @return
      */
     @Update("UPDATE tb_schedules SET `status` = #{status} WHERE game_id = " +
-            "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId})")
+            "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId} LIMIT 1)")
     int updateStatus(@Param("liveId") Integer liveId, @Param("status") int status);
 
     /**

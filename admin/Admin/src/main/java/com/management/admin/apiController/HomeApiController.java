@@ -96,6 +96,15 @@ public class HomeApiController {
             hotGame.setTeam(team);
             hotGame.setTargetTeam(targetTeam);
 
+
+            hotGame.setMasterTeamId(item.getMasterTeamId());
+            hotGame.setMasterTeamName(item.getMasterTeamName());
+            hotGame.setMasterTeamIcon(item.getMasterTeamIcon());
+
+            hotGame.setTargetTeamId(item.getTargetTeamId());
+            hotGame.setTargetTeamName(item.getTargetTeamName());
+            hotGame.setTargetTeamIcon(item.getTargetTeamIcon());
+
             hotGames.add(hotGame);
         });
         return new JsonArrayResult<HotGame>(hotGames);

@@ -197,15 +197,15 @@ function getSchedules(param){
     		html += '	</div>  ';
     		html += '	<div class="content">';
     		html += '		<div class="left">';
-    		html += '			<img src="'  + item.team.teamIcon +'" alt="" />';
-    		html += '			<span>'+ item.team.teamName +'</span>';
+    		html += '			<img src="'  + item.masterTeamIcon +'" alt="" />';
+    		html += '			<span>'+ item.masterTeamName +'</span>';
     		html += '		</div>';
     		html += '		<div class="info">';
     		html += '			<span>' + gameTitle + '</span>';
     		html += '		</div>';
     		html += '		<div class="right">';
-    		html += '			<img src="'  + item.targetTeam.teamIcon +'" alt="" />';
-    		html += '			<span>'+ item.targetTeam.teamName +'</span>';
+    		html += '			<img src="'  + item.targetTeamIcon +'" alt="" />';
+    		html += '			<span>'+ item.targetTeamName +'</span>';
     		html += '		</div>';
     		html += '	</div> 	';
     		html += '<div class="foot">';
@@ -266,27 +266,38 @@ function initData(){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
 		
 		var html = "";
+			html += '<li class="active">' + "全部赛事" + '</li>';
 		for (var i = 0; i < res.data.length; i++) {
 			var partHtml = '';
-			if(i == 0){
-				partHtml = 'class="active"';
-			}
 			html += '<li '+ partHtml +' data-id="' + res.data[i].gameId + '">' + res.data[i].gameName + '</li>';
 		} 
 		$(".category ul").html(html);
 		$("#gameId").val("");
 		
 		$(".category ul li").unbind("click").bind("click", function(){
-			var that = $(this);
+			var that = $(this),
+				title = $(that).text();
 			$("#gameId").val($(that).data("id"));
 			$(".category ul li").removeClass("active");
 			$(that).addClass("active");
 			
-			getSchedules({
-				gameId: $("#gameId").val(),
-				liveCategoryId: $("#liveCategoryId").val(),
-				date: $("#date").val()
-			});
+			if(title.indexOf("全部赛事") != -1){
+				console.log("选中赛事" + $("#liveCategoryId").val())
+				$("#gameId").val("");
+				$("#date").val("");
+				getSchedules({
+					liveCategoryId: $("#liveCategoryId").val()
+					
+				});
+			}else{
+				getSchedules({
+					gameId: $("#gameId").val(),
+					liveCategoryId: $("#liveCategoryId").val(),
+					date: $("#date").val()
+				});
+			}
+			
+			
 		});
 	})
 	
@@ -317,7 +328,7 @@ function loadLiveCategoryList(){
 			$(".showCategory").html(res.data[currentIndex].categoryName + iconPart);
 		}
 		$("#currentIndex").val("");
-		$("#liveCategoryId").val("");
+		//$("#liveCategoryId").val("");
 		$(".live-category").html(html); 
 		 
 		//设置滚动组件

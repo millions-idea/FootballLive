@@ -53,4 +53,13 @@ public class ScheduleGame {
      * 胜利方球队名称
      */
     private String winTeamName;
+
+    private Integer masterTeamId;
+    private Integer targetTeamId;
+
+    private String masterTeamName;
+    private String targetTeamName;
+
+    private String masterTeamIcon;
+    private String targetTeamIcon;
 }

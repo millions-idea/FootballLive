@@ -96,6 +96,15 @@ public class LiveApiController {
             scheduleGame.setTeam(team);
             scheduleGame.setTargetTeam(targetTeam);
 
+
+            scheduleGame.setMasterTeamId(item.getMasterTeamId());
+            scheduleGame.setMasterTeamName(item.getMasterTeamName());
+            scheduleGame.setMasterTeamIcon(item.getMasterTeamIcon());
+
+            scheduleGame.setTargetTeamId(item.getTargetTeamId());
+            scheduleGame.setTargetTeamName(item.getTargetTeamName());
+            scheduleGame.setTargetTeamIcon(item.getTargetTeamIcon());
+
             scheduleGames.add(scheduleGame);
         });
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
@@ -113,11 +122,11 @@ public class LiveApiController {
         LiveInfo liveInfo = liveService.getLiveDetailInfo(liveId);
         if(liveInfo == null) return new JsonResult().failingAsString("加载直播间失败");
         //根据时间判断比赛是否已经开始,如果已经开始将直播状态改为 正在直播
-        Date beginDate = DateUtil.getDate(liveInfo.getGameDate(), "yyyy-MM-dd HH:mm:ss");
+        /*Date beginDate = DateUtil.getDate(liveInfo.getGameDate(), "yyyy-MM-dd HH:mm:ss");
         Date currentDate = new Date();
         if(currentDate.compareTo(beginDate) > 0){
             liveService.setBeginLive(liveId);
-        }
+        }*/
         //加入群组
         liveInfo.setChatRoomErrorMsg(liveService.addGroup(session.getPhone(), session.getUserId(), liveId));
         //添加观看历史
@@ -224,7 +233,16 @@ public class LiveApiController {
             scheduleGame.setTeam(team);
             scheduleGame.setTargetTeam(targetTeam);
 
-            scheduleGames.add(scheduleGame);
+
+            scheduleGame.setMasterTeamId(item.getMasterTeamId());
+            scheduleGame.setMasterTeamName(item.getMasterTeamName());
+            scheduleGame.setMasterTeamIcon(item.getMasterTeamIcon());
+
+            scheduleGame.setTargetTeamId(item.getTargetTeamId());
+            scheduleGame.setTargetTeamIcon(item.getTargetTeamIcon());
+            scheduleGame.setTargetTeamName(item.getTargetTeamName());
+
+        scheduleGames.add(scheduleGame);
         });
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
     }
