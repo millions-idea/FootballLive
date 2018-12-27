@@ -99,7 +99,9 @@ public interface Constant {
     String MsgPassword =  "25f9e794323b453885f5181f1b624d0b";
 
 
-    String BindDomain = "yabolive.512ck.cn,live.512ck.cn,localhost";
+    String BindDomain = "app.512ck.cn,yabolive.512ck.cn,l.512ck.cn,live.512ck.cn,localhost";
+
+    String BindAdminDomain = "yabolive.512ck.cn";
 
     Boolean DebugMode = false;
 }

@@ -72,6 +72,14 @@ public interface LiveMapper extends MyMapper<Live>{
     Integer modifyLiveTitleById(@Param("liveId") Integer liveId,@Param("title") String title);
 
     /**
+     * 根据编号修改直播间状态
+     * @param liveId
+     * @param liveStatus
+     * @return
+     */
+    @Update("update tb_lives set live_status=#{liveStatus} where live_id=#{liveId}")
+    Integer modifyLiveStatusById(@Param("liveId") Integer liveId,@Param("liveStatus")Integer  liveStatus);
+    /**
      * 根据编号修改直播赛程
      * @param liveId
      * @param scheduleId
@@ -167,7 +175,7 @@ public interface LiveMapper extends MyMapper<Live>{
     int reduceCollectCount(@Param("liveId") Integer liveId);
 
     /**
-     * 更新直播状态 DF 2018年12月20日02:52:35
+     * 是否删除直播间（正常，删除） DF 2018年12月20日02:52:35
      * @param liveId
      * @param status
      * @return
@@ -175,4 +183,20 @@ public interface LiveMapper extends MyMapper<Live>{
     @Update("UPDATE tb_schedules SET `status` = #{status} WHERE game_id = " +
             "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId})")
     int updateStatus(@Param("liveId") Integer liveId, @Param("status") int status);
+
+    /**
+     * 更新直播间状态为 未开始 DF 2018年12月20日02:52:35
+     * @param liveId
+     * @return
+     */
+    @Update("UPDATE tb_lives SET `live_status` = 0 WHERE live_id = #{liveId}")
+    int beingLiveStatus(Integer liveId);
+
+    /**
+     * 更新直播间状态为 正在直播 DF 2018年12月20日02:52:35
+     * @param liveId
+     * @return
+     */
+    @Update("UPDATE tb_lives SET `live_status` = 1 WHERE live_id = #{liveId}")
+    int endLiveStatus(Integer liveId);
 }

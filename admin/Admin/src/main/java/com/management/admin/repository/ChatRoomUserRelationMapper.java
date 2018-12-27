@@ -99,4 +99,14 @@ public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelatio
      */
     @Select("SELECT * FROM tb_chat_room_user_relations WHERE user_id=#{userId} AND live_id=#{liveId}")
     ChatRoomUserRelation selectRelation(@Param("userId") Integer userId, @Param("liveId") Integer liveId);
+
+    /**
+     * 删除群组成员关系 DF 2018年12月24日21:52:20
+     * @param userId
+     * @param roomId
+     * @param liveId
+     * @return
+     */
+    @Update("DELETE FROM SELECT * FROM tb_chat_room_user_relations  WHERE user_id = #{userId}  AND room_id = (SELECT room_id FROM tb_chat_rooms WHERE chat_room_id = #{roomId} LIMIT 1) AND live_id = #{liveId}")
+    int deleteMember(@Param("userId") Integer userId, @Param("roomId") String roomId, @Param("liveId") Integer liveId);
 }

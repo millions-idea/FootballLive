@@ -101,14 +101,14 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
      * 修改赛程状态为正在直播  提莫 2018年12月27日17:09:30
      * @return
      */
-    @Update("update tb_schedule status=1")
-    Integer beingSchedule();
+    @Update("update tb_schedule status=1 where schedule_id=#{scheduleId}")
+    Integer beingSchedule(Integer scheduleId);
 
     /**
      * 修改赛程状态为已经结束  提莫 2018年12月27日17:10:30
      * @return
      */
-    @Update("update tb_schedule status=2")
-    Integer endSchedule();
+    @Update("update tb_schedule status=2 where schedule_id=#{scheduleId}")
+    Integer endSchedule(Integer scheduleId);
 
 }

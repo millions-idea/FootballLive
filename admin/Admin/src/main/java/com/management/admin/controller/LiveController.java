@@ -99,11 +99,18 @@ public class LiveController {
     @GetMapping("/getLiveDetailByLiveId")
     public String getLiveDetailByLiveId(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
-        System.out.println(live.getSourceUrl()+"==============================================================");
+        Integer Status=live.getLiveStatus();
+        String liveStatus="";
+        if(Status==0){
+            liveStatus="未开始";
+        }else if(Status==1){
+            liveStatus="正在直播";
+        }
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));
         model.addAttribute("live", live);
+        model.addAttribute("liveStatus",liveStatus);
         return "live/details";
     }
 

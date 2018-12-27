@@ -4,10 +4,10 @@
 		"iPhone",
 		"iPad"
 	],
-	"id": "H5D1C4336",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "H59CE6336",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "卫星体育",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0.0",/*应用版本名称*/
+		"name": "1.7.9",/*应用版本名称*/
 		"code": ""
 	},
 	"description": "在线高清观看体育赛事直播",/*应用描述信息*/
@@ -48,7 +48,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true,"delay":"500"
+			"waiting": true,"delay":"0"
 		},
 		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
 		"runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -114,11 +114,11 @@
 				"ios": {
 					"iphone": {
 						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
-						"retina35": "D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/640x960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-						"retina40": "D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/640x1136.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
-						"retina47": "D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/750x1334.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
-						"retina55": "images/guide.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
-						"iphonex":"D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/1125x2436.png"
+						"retina35": "D:/Resource/Football/启动页/640x960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": "D:/Resource/Football/启动页/640x1136.png",/*4.0 英寸设备(iPhone5/iPhone5s)启动图片，分辨率：640x1136*/
+						"retina47": "D:/Resource/Football/启动页/750x1334.png",/*4.7 英寸设备(iPhone6)启动图片，分辨率：750x1334*/
+						"retina55": "D:/Resource/Football/启动页/1242_2208.png",/*5.5 英寸设备(iPhone6 Plus)启动图片，分辨率：1242x2208*/
+						"iphonex":"D:/Resource/Football/启动页/1125x2436.png"
 					},
 					"ipad": {
 						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
@@ -134,13 +134,13 @@
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
 					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/480x762.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/720x1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "D:/git/FootballLive/docs/设计稿/卫星直播/卫星直播/启动页/1080x1882.png"
+					"hdpi": "D:/Resource/Football/启动页/480x762.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "D:/Resource/Football/启动页/720x1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "D:/Resource/Football/启动页/1080x1882.png"
 				}
 			},"debug":false
 		},
-		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false},"adid":""
+		"allowsInlineMediaPlayback": true,"ads":{"rp":false,"splash":false,"push":false}
 	},
 	"dependencies": {
 		"pages": {
@@ -207,14 +207,16 @@
 			"lives.html": {
 				"resources": [],
 				"refer": [
-					"liveDetail.html"
+					"liveDetail.html",
+					"login.html"
 				],
 				"priority": 0
 			},
 			"liveDetail.html": {
 				"resources": [],
 				"refer": [
-					"share.html"
+					"share.html",
+					"login.html"
 				],
 				"priority": 0
 			},
@@ -273,16 +275,20 @@
 				"priority": 0
 			},
 			"informations.html": {
-				"resources": [],
+				"resources": [
+					"js/informations.js"
+				],
 				"refer": [
-					"liveDetail.html"
+					"liveDetail.html",
+					"login.html"
 				],
 				"priority": 0
 			},
 			"home.html": {
 				"resources": [],
 				"refer": [
-					"liveDetail.html"
+					"liveDetail.html",
+					"login.html"
 				],
 				"priority": 0
 			}

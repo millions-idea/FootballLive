@@ -222,7 +222,8 @@ footer a:hover{
     bottom: 8px;
     width: 100%;
     text-align: center;
-    background: 0 0
+    background: 0 0;
+    display: none;
 }
 
 .mui-slider-indicator.mui-segmented-control {

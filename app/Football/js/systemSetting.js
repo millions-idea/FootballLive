@@ -21,10 +21,8 @@ mui.plusReady(function() {
 	
 	// 清除缓存
 	$(".clean").click(function(){
-		plus.storage.clear();
-		var webview = plus.webview.getWebviewById("index");
-		webview.evalJS("destroyNim()");
-		app.utils.openWindow("login.html", "login");
+		app.utils.msgBox.msg("清空成功");
+		
 	});
 	
 }); 

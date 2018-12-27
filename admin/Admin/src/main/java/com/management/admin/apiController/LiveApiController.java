@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -228,4 +229,47 @@ public class LiveApiController {
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
     }
 
+
+    /**
+     * 退出群组 DF 2018年12月24日19:22:29
+     * @param req
+     * @param liveId
+     * @return
+     */
+    @GetMapping("leaveTeam")
+    public JsonResult leaveTeam(HttpServletRequest req, Integer liveId){
+        SessionModel session = SessionUtil.getSession(req);
+        String result = liveService.leaveGroup(session.getUserId(), session.getPhone(), liveId);
+        if(result != null && result.equals("SUCCESS")) return JsonResult.successful();
+        return new JsonResult().failingAsString(result);
+    }
+
+
+    /**
+     * 修改直播间状态为未开始 DF 2018年12月24日19:22:29
+     * @param liveId
+     * @return
+     */
+    @GetMapping("beingLiveStatus")
+    public JsonResult beingLiveStatus(Integer liveId){
+        Integer result=liveService.beingLiveStatus(liveId);
+        if(result>0){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
+    }
+
+    /**
+     * 修改直播间状态为已经结束 DF 2018年12月24日19:22:29
+     * @param liveId
+     * @return
+     */
+    @GetMapping("endLiveStatus")
+    public JsonResult endLiveStatus(Integer liveId){
+        Integer result=liveService.endLiveStatus(liveId);
+        if(result>0){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
+    }
 }

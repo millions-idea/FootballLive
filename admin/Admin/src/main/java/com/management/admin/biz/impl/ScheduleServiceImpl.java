@@ -177,8 +177,8 @@ public class ScheduleServiceImpl implements IScheduleService {
      * @return
      */
     @Override
-    public Integer beingSchedule() {
-        return  scheduleMapper.beingSchedule();
+    public Integer beingSchedule(Integer scheduleId) {
+        return  scheduleMapper.beingSchedule(scheduleId);
     }
 
     /**
@@ -186,7 +186,7 @@ public class ScheduleServiceImpl implements IScheduleService {
      * @return
      */
     @Override
-    public Integer endSchedule() {
-        return  scheduleMapper.endSchedule();
+    public Integer endSchedule(Integer scheduleId) {
+        return  scheduleMapper.endSchedule(scheduleId);
     }
 }

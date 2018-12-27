@@ -5,6 +5,7 @@ import com.management.admin.entity.db.ChatRoom;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.resp.NAGroup;
+import com.management.admin.entity.resp.NAMsg;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.repository.ChatRoomMapper;
 import com.management.admin.repository.utils.ConditionUtil;
@@ -134,14 +135,20 @@ public class ChatRoomServiceImpl implements IChatRoomService {
         if(!MsgPassword.equals(Constant.MsgPassword)){
             return "发送密码错误！";
         }
+        String body = "from=" +  Constant.HotAccId + "&ope=1"
+                + "&to=" + chatRoom.getChatRoomId() + "&type=0" + "&body=" + "{\"msg\":\"" + msg + "\"}";
 
-        String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", "from=" +  Constant.HotAccId + "&ope=1"
-                + "&to =" + chatRoom.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"\"}");
+        System.out.println("假人气参数:" + body);
+
+        String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", body);
+
+        System.out.println("假人气响应:" + response);
+
         NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (!model.getCode().equals(200)) return "同步云端数据失败";
+
+        if (!model.getCode().equals(200)) return response;
 
         return null;
-
     }
 
     /**
@@ -157,7 +164,7 @@ public class ChatRoomServiceImpl implements IChatRoomService {
         for (ChatRoom item:liveList) {
 
             String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", "from=" +  Constant.HotAccId + "&ope=1"
-                    + "&to =" + item.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"\"}");
+                    + "&to=" + item.getChatRoomId() + "&type=0" + "&body={\"msg\":\""+msg+"\"}");
             NAGroup model = JsonUtil.getModel(response, NAGroup.class);
             if (!model.getCode().equals(200)) return "同步云端数据失败";
         }
