@@ -9,6 +9,7 @@ package com.management.admin.apiController;
 
 import com.management.admin.biz.IGameService;
 import com.management.admin.entity.db.Game;
+import com.management.admin.entity.dbExt.GameDetail;
 import com.management.admin.entity.template.JsonArrayResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +29,8 @@ public class GameApiController {
      * @return
      */
     @GetMapping("getGameList")
-    public JsonArrayResult<Game> getGameList(){
-        List<Game> gameList = gameService.queryAll();
-        return new JsonArrayResult<Game>(gameList);
+    public JsonArrayResult<GameDetail> getGameList(){
+        List<GameDetail> gameList = gameService.queryAll();
+        return new JsonArrayResult<GameDetail>(gameList);
     }
 }
