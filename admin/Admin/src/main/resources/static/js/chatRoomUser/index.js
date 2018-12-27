@@ -175,7 +175,6 @@ function getTableColumns() {
         {type: "numbers", fixed: 'left'}
         , {field: 'userId', title: 'ID', width: 80, sort: true}
         , {field: 'nickName', title: '用户名', width: 150}
-        , {field: 'photo', title: '用户头像', width: 150}
         , {field: 'photo', title: '用户头像', width: 180, templet: function(d){
                 var part = 'data-id="' + d.photo + '" data-nick="' + d.nickName + '"';
                 return '<img ' + part + '  width="27px" class="gameIcon" src="' + d.photo + '"/>';

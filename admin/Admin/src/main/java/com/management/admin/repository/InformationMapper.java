@@ -3,6 +3,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
+import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import org.apache.ibatis.annotations.*;
 
@@ -77,6 +78,15 @@ public interface InformationMapper extends MyMapper<Information> {
      */
     @Select("SELECT * FROM tb_informations WHERE live_id = #{liveId}")
     Information selectByLiveId(@Param("liveId") Integer liveId);
+
+    /**
+     * 根据直播间Id查询赛事信息 DF 2018年12月18日20:50:17
+     * @param liveId
+     * @return
+     */
+    @Select("select * from tb_lives t1 left join tb_schedules t2 on t1.schedule_id=t2.schedule_id left join " +
+            "  tb_games t3 on t2.game_id=t3.game_id where t1.live_id=#{liveId} and t1.status=0")
+    LiveDetail selectGamesByLiveId(@Param("liveId") Integer liveId);
 
     /**
      * 查询赛程信息列表 DF 2018年12月18日02:26:40

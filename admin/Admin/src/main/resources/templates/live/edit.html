@@ -16,6 +16,7 @@
                 <option value="-1">请选择</option>
                 <option value="0">未开始</option>
                 <option value="1">正在直播</option>
+                <option value="2">已结束</option>
             </select>
         </div>
     </div>
@@ -104,7 +105,7 @@
             if (liveDetail.liveDate == null) {
                 liveDetail.liveDate = $("#beginData").val();
             }
-            liveDetail.liveStatus = $("#scheduleStatus").val();
+            liveDetail.scheduleStatus = $("#scheduleStatus").val();
             if (liveDetail.scheduleStatus == '-1') {
                 layer.msg("请选择直播状态");
                 return false;

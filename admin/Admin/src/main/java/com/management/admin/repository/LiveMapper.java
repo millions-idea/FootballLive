@@ -204,4 +204,13 @@ public interface LiveMapper extends MyMapper<Live>{
      */
     @Update("UPDATE tb_lives SET `live_status` = 1 WHERE live_id = #{liveId}")
     int endLiveStatus(Integer liveId);
+
+    /**
+     * 修改直播间广告信息 狗蛋 2018年12月28日02:12:26
+     * @param liveId
+     * @param adId
+     * @return
+     */
+    @Update("update tb_lives set ad_id=#{adId} where live_id=#{liveId}")
+    int modifyAdvertisingByLiveId(@Param("liveId") Integer liveId,@Param("adId") Integer adId);
 }

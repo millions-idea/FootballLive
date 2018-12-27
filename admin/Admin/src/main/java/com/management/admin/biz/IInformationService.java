@@ -4,6 +4,7 @@ import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
+import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.enums.UserRoleEnum;
 
 import java.util.List;
@@ -60,6 +61,12 @@ public interface IInformationService {
      * @return
      */
     Integer modifyInfromation(Information information);
+
+    /**
+     * 查询赛事BY直播间
+     * @return
+     */
+     LiveDetail selectGamesByLive(Integer liveId);
 
     /**
      * 删除情报内容

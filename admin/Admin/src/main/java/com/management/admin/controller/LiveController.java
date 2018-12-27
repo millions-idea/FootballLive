@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -99,18 +100,20 @@ public class LiveController {
     @GetMapping("/getLiveDetailByLiveId")
     public String getLiveDetailByLiveId(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
-        Integer Status=live.getLiveStatus();
-        String liveStatus="";
+        Integer Status=live.getScheduleStatus();
+        String scheduleStatus="";
         if(Status==0){
-            liveStatus="未开始";
+            scheduleStatus="未开始";
         }else if(Status==1){
-            liveStatus="正在直播";
+            scheduleStatus="正在直播";
+        }else if(Status==2){
+            scheduleStatus="已结束";
         }
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));
         model.addAttribute("live", live);
-        model.addAttribute("liveStatus",liveStatus);
+        model.addAttribute("scheduleStatus",scheduleStatus);
         return "live/details";
     }
 
@@ -119,7 +122,13 @@ public class LiveController {
      * @return
      */
     @GetMapping("/add")
-    public String add() {
+    public String add(final Model model) {
+        List<LiveDetail> lives=liveService.selectScheduleByLive();
+        List<Integer> scheduleIds=new ArrayList<>();
+        for (LiveDetail live:lives){
+            scheduleIds.add(live.getGameId());
+        }
+        model.addAttribute("schedules",scheduleIds);
         return "live/add";
     }
 

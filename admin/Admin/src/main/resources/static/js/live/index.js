@@ -199,8 +199,8 @@ function getTableColumns() {
         , {field: 'liveDate', title: '开始时间', width: 150, sort: true, templet: function (d) {
                 return d.liveDate == null ? '' : utils.date.timestampConvert(d.liveDate);
             }}
-        , {field: 'liveStatus', title: '直播间状态', width: 150 , sort: true, templet: function (d) {
-                return d.liveStatus == null ? '' : utils.liveStatus.liveStatusInfo(d.liveStatus);
+        , {field: 'scheduleStatus', title: '直播间状态', width: 150 , sort: true, templet: function (d) {
+                return d.scheduleStatus == null ? '' : utils.scheduleStatus.scheduleStatusInfo(d.scheduleStatus);
             }}
         , {field: 'teamName', title: '球队名称', width: 180}
         , {fixed: 'right',title: '操作', width: 160, align: 'center', templet: function(d){
