@@ -76,7 +76,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label">情报内容</label>
         <div class="layui-input-block">
-            ${live.content}
+            <input type="text" id="content" autocomplete="off"
+                   disabled="disabled" class="layui-input" th:value="${live.content}">
         </div>
     </div>
     <!-- 情报内容结束 -->
