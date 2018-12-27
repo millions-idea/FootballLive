@@ -20,7 +20,6 @@ mui.plusReady(function(){
 		console.log("my刷新响应")
 		plus.navigator.setStatusBarStyle("dark");
 		plus.navigator.setStatusBarBackground("#F3F3F3");
-
 		if(plus.storage.getItem("userInfo") != null){
 			//显示现在的信息
 			profileService.getProfile({}, function(res){

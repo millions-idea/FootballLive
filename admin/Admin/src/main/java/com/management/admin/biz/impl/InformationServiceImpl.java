@@ -5,6 +5,7 @@ import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
+import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.repository.GameMapper;
 import com.management.admin.repository.InformationMapper;
@@ -120,6 +121,14 @@ public class InformationServiceImpl implements IInformationService {
         return informationMapper.deleteInformationById(informationId);
     }
 
+    /**
+     * 查询所有赛事信息
+     * @return
+     */
+    @Override
+    public  LiveDetail selectGamesByLive(Integer liveId) {
+        return informationMapper.selectGamesByLiveId(liveId);
+    }
     /**
      * 获取直播间情报信息 DF 2018年12月18日20:49:22
      *

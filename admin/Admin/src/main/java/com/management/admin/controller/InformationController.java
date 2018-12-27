@@ -58,6 +58,20 @@ public class InformationController {
     }
 
     /**
+     * 根据直播间查询所属的赛事信息
+     * @return
+     */
+    @PostMapping("selectgames")
+    @ResponseBody
+    public JsonResult<LiveDetail> selectgames(Integer liveId){
+        LiveDetail liveDetail=informationService.selectGamesByLive(liveId);
+        if(liveDetail!=null){
+          return new JsonResult<LiveDetail>().successful(liveDetail);
+        }
+        return JsonResult.failing();
+    }
+
+    /**
      * 修改情报信息
      * @param information
      * @return

@@ -29,6 +29,12 @@ public class LiveScheduleDetail {
     /*schedules*/
     private String teamId;
     private Integer status;
+    private Integer masterTeamId;
+    private Integer targetTeamId;
+    private String masterTeamName;
+    private String masterTeamIcon;
+    private String targetTeamName;
+    private String targetTeamIcon;
 
     /*games*/
     private Integer gameId;

@@ -30,4 +30,12 @@ public class HotGame {
 
     private Team team;
     private Team targetTeam;
+
+
+    private Integer masterTeamId;
+    private Integer targetTeamId;
+    private String masterTeamName;
+    private String masterTeamIcon;
+    private String targetTeamName;
+    private String targetTeamIcon;
 }

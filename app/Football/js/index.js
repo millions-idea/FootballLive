@@ -124,8 +124,10 @@ mui.plusReady(function(){
 		mui(".mui-bar-tab").on("tap", "a", function() {
 			var tabindex = this.getAttribute("tabindex");
 			//判断是否需要登录
+
 			if(tabindex == 1 || tabindex == 2){
 				var cache = plus.storage.getItem("userInfo");
+				console.log("缓存" +cache)
 				if(cache == null) {					
 					selectDefaultIcon();
 					app.utils.openNewWindow("login.html", "login");

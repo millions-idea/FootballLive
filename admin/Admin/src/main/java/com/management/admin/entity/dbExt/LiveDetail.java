@@ -28,6 +28,8 @@ public class LiveDetail {
 
     private String liveDateStr;
 
+    private Integer scheduleStatus;
+
     /**
      * 直播状态
      */
@@ -62,8 +64,6 @@ public class LiveDetail {
     private String gameDateStr;
 
     private String gameDuration;
-
-    private Integer liveStatus;
 
     private String gameName;
 

@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml" />
+    <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveHotDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveHotDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/HotGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/HotGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/information/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/information/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/information/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/information/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/css/liveDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/liveDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/informations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/informations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/informations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/lives.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/lives.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/my.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/my.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/liveDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/liveDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/lives.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/lives.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,42 +99,45 @@
     <session id="1635336228">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
-          <entry key="html" value="2" />
-          <entry key="java" value="31" />
-          <entry key="js" value="2" />
-          <entry key="yml" value="2" />
+          <entry key="html" value="11" />
+          <entry key="java" value="53" />
+          <entry key="js" value="5" />
+          <entry key="yml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="HTML" value="2" />
-          <entry key="JAVA" value="31" />
-          <entry key="JavaScript" value="2" />
-          <entry key="YAML" value="2" />
+          <entry key="HTML" value="11" />
+          <entry key="JAVA" value="53" />
+          <entry key="JavaScript" value="5" />
+          <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="23" />
-          <entry key="java" value="767" />
-          <entry key="js" value="53" />
-          <entry key="yml" value="7" />
+          <entry key="html" value="715" />
+          <entry key="java" value="1600" />
+          <entry key="js" value="99" />
+          <entry key="yml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="23" />
-          <entry key="JAVA" value="767" />
-          <entry key="JavaScript" value="53" />
-          <entry key="YAML" value="7" />
+          <entry key="HTML" value="715" />
+          <entry key="JAVA" value="1599" />
+          <entry key="JavaScript" value="99" />
+          <entry key="SQL" value="1" />
+          <entry key="YAML" value="8" />
         </counts>
       </usages-collector>
     </session>
@@ -105,17 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="195" column="43" lean-forward="true" selection-start-line="195" selection-start-column="43" selection-end-line="195" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="134" column="43" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
+            <state relative-caret-position="4550">
+              <caret line="190" column="19" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -123,60 +156,57 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+            <state relative-caret-position="200">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="262" column="19" selection-start-line="262" selection-start-column="19" selection-end-line="262" selection-end-column="19" />
+            <state relative-caret-position="325">
+              <caret line="163" column="63" lean-forward="true" selection-start-line="163" selection-start-column="63" selection-end-line="163" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="47" column="78" lean-forward="true" selection-start-line="47" selection-end-line="47" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="68" column="59" lean-forward="true" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
               <folding>
-                <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" />
-                <element signature="method#getLiveGameDetailList#0;class#LiveApiController#0" />
-                <element signature="e#3017#3914#0" />
-                <element signature="docComment;method#getLiveInfo#0;class#LiveApiController#0" />
-                <element signature="method#getLiveInfo#0;class#LiveApiController#0" />
-                <element signature="docComment;method#getInformation#0;class#LiveApiController#0" />
-                <element signature="method#getInformation#0;class#LiveApiController#0" />
-                <element signature="docComment;method#addCollect#0;class#LiveApiController#0" />
-                <element signature="method#addCollect#0;class#LiveApiController#0" />
-                <element signature="docComment;method#cancelCollect#0;class#LiveApiController#0" />
-                <element signature="method#cancelCollect#0;class#LiveApiController#0" />
-                <element signature="docComment;method#getInformationDetailList#0;class#LiveApiController#0" />
-                <element signature="method#getInformationDetailList#0;class#LiveApiController#0" />
-                <element signature="e#8189#9412#0" />
+                <element signature="e#4766#4767#0" expanded="true" />
+                <element signature="e#4806#4807#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="192" column="15" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="135" column="37" lean-forward="true" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
+            <state relative-caret-position="2050">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
         </entry>
@@ -203,6 +233,12 @@
       <find>banner</find>
       <find>content</find>
       <find>成功</find>
+      <find>status</find>
+      <find>setBeginLive</find>
+      <find>getH</find>
+      <find>selectHotLives</find>
+      <find>getHot</find>
+      <find>selectgames</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -211,20 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/utils/SMS/ChuangLanSmsUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/utils/SMS/PaasSmsUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/ManagementApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/SmsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/information/add.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NAGroup.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IChatRoomService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/configuration/addCategory.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/team/index.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/advertising/index.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/member/deleteAdmin.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/competition/add.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveCategoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/configuration/editCategory.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/annotaion/BindDomain.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NAMsg.java" />
@@ -245,23 +267,37 @@
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/DictionaryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/configuration/contactUs.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/live/details.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/HotGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveHotDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/live/details.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/base/utils.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/live/index.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/live/add.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/information/details.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/information/edit.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/information/add.html" />
       </list>
     </option>
   </component>
@@ -298,7 +334,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,11 +367,157 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="biz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="biz" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="live" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="recharge" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="information" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="live" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,7 +531,7 @@
     <property name="SearchEverywhereHistoryKey" value="cons&#9;FILE&#9;file://G:/git/FootballLive/admin/Admin/src/main/java/com/management/admin/entity/template/Constant.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545592283404" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545951566193" />
     <property name="last_opened_file_path" value="D:/fastjson-1.2.28.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -440,81 +621,55 @@
       <workItem from="1545630178968" duration="6183000" />
       <workItem from="1545660154158" duration="6921000" />
       <workItem from="1545738617269" duration="13946000" />
-      <workItem from="1545904460190" duration="7975000" />
+      <workItem from="1545904460190" duration="6029000" />
+      <workItem from="1545915936455" duration="10407000" />
+      <workItem from="1545928779372" duration="13044000" />
+      <workItem from="1545944305988" duration="6927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43650000" />
+    <option name="totallyTimeSpent" value="72082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2288" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Web" order="2" side_tool="true" />
+      <window_info id="UI Designer" order="0" />
+      <window_info id="Web" order="1" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17118093" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.16143012" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="LuaCheck" order="7" />
-      <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4978678" weight="0.11050921" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5021322" side_tool="true" weight="0.32972974" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32936078" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Mybatis datasource" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Bean Validation" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.2528" />
+      <window_info id="Structure" order="5" weight="0.25" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="1" />
+      <window_info anchor="bottom" id="Java Enterprise" order="2" />
+      <window_info anchor="bottom" id="LuaCheck" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" order="5" />
+      <window_info anchor="bottom" id="Terminal" order="6" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.20476706" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.14409535" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="0" />
+      <window_info anchor="right" id="Palette&#9;" order="1" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Bean Validation" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Mybatis datasource" order="9" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15938166" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Web" order="4" side_tool="true" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021322" side_tool="true" weight="0.32972974" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Java Enterprise" order="9" />
-      <window_info anchor="bottom" id="LuaCheck" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Spring" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.4978678" weight="0.32972974" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.32995737" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Bean Validation" order="7" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -526,6 +681,18 @@
     <MESSAGE value="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java</url>
+          <line>108</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
@@ -536,159 +703,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IChatRoomService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ChatRoomServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3402">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/utils/http/CosUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2781">
-          <caret line="109" column="206" selection-start-line="109" selection-start-column="206" selection-end-line="109" selection-end-column="206" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ChatRoomController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
-          <folding>
-            <element signature="method#getLiveLimit#0;class#ChatRoomController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-pub.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/PublishMessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/annotaion/BindAdminDomain.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/BootstrapController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="223" column="7" selection-start-line="223" selection-start-column="7" selection-end-line="223" selection-end-column="7" />
-          <folding>
-            <element signature="e#1509#1524#0" />
-            <element signature="docComment;method#getMessageList#0;class#ProfileApiController#0" />
-            <element signature="method#getMessageList#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#signMessage#0;class#ProfileApiController#0" />
-            <element signature="method#signMessage#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#getLiveHistoryList#0;class#ProfileApiController#0" />
-            <element signature="method#getLiveHistoryList#0;class#ProfileApiController#0" />
-            <element signature="e#3826#4111#0" />
-            <element signature="docComment;method#cleanHistorys#0;class#ProfileApiController#0" />
-            <element signature="method#cleanHistorys#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#getLiveCollectList#0;class#ProfileApiController#0" />
-            <element signature="method#getLiveCollectList#0;class#ProfileApiController#0" />
-            <element signature="e#5394#5679#0" />
-            <element signature="docComment;method#cleanCollect#0;class#ProfileApiController#0" />
-            <element signature="method#cleanCollect#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#getProfile#0;class#ProfileApiController#0" />
-            <element signature="method#getProfile#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#addFeedback#0;class#ProfileApiController#0" />
-            <element signature="method#addFeedback#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#getContact#0;class#ProfileApiController#0" />
-            <element signature="method#getContact#0;class#ProfileApiController#0" />
-            <element signature="docComment;method#getGuide#0;class#ProfileApiController#0" />
-            <element signature="method#getGuide#0;class#ProfileApiController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/GameApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/DomainAuthenticationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/bootstrap/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/member/addBlackList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/MemberController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -703,98 +717,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/UserApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="148" column="41" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
-          <folding>
-            <element signature="e#1153#1168#0" />
-            <element signature="docComment;method#sendSmsCode#0;class#UserApiController#0" />
-            <element signature="method#sendSmsCode#0;class#UserApiController#0" />
-            <element signature="docComment;method#sendResetPwdSmsCode#0;class#UserApiController#0" />
-            <element signature="method#sendResetPwdSmsCode#0;class#UserApiController#0" />
-            <element signature="docComment;method#signUp#0;class#UserApiController#0" />
-            <element signature="docComment;method#initSettings#0;class#UserApiController#0" />
-            <element signature="method#initSettings#0;class#UserApiController#0" />
-            <element signature="docComment;method#signIn#0;class#UserApiController#0" />
-            <element signature="docComment;method#resetPassword#0;class#UserApiController#0" />
-            <element signature="docComment;method#uploadAvatar#0;class#UserApiController#0" />
-            <element signature="docComment;method#updateInfo#0;class#UserApiController#0" />
-            <element signature="method#updateInfo#0;class#UserApiController#0" />
-            <element signature="docComment;method#getUserInfo#0;class#UserApiController#0" />
-            <element signature="method#getUserInfo#0;class#UserApiController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
-          <folding>
-            <element signature="docComment;class#UserServiceImpl#0" />
-            <element signature="e#1606#1614#0" />
-            <element signature="method#UserServiceImpl#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#listBlack#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#addUser#0;class#UserServiceImpl#0" />
-            <element signature="e#2610#2619#0" />
-            <element signature="docComment;method#editProfile#0;class#UserServiceImpl#0" />
-            <element signature="method#editProfile#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#login#0;class#UserServiceImpl#0" />
-            <element signature="e#6252#6261#0" />
-            <element signature="method#login#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#resetPassword#0;class#UserServiceImpl#0" />
-            <element signature="e#7127#7136#0" />
-            <element signature="method#resetPassword#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#resetAdminPassword#0;class#UserServiceImpl#0" />
-            <element signature="method#resetAdminPassword#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#deleteAdmin#0;class#UserServiceImpl#0" />
-            <element signature="method#deleteAdmin#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#resetSupAdmin#0;class#UserServiceImpl#0" />
-            <element signature="method#resetSupAdmin#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#insertAdminUsers#0;class#UserServiceImpl#0" />
-            <element signature="method#insertAdminUsers#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#checkPhone#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#updateInfo#0;class#UserServiceImpl#0" />
-            <element signature="method#updateInfo#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#updatePhoto#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getUserInfo#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#staffLoginByUname#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#logout#0;class#UserServiceImpl#0" />
-            <element signature="method#logout#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#staffLogin#0;class#UserServiceImpl#0" />
-            <element signature="method#staffLogin#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getUser#0;class#UserServiceImpl#0" />
-            <element signature="method#getUser#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getLimit#0;class#UserServiceImpl#0" />
-            <element signature="method#getLimit#0;class#UserServiceImpl#0" />
-            <element signature="method#getAdminLimit#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getCount#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getLimitCount#0;class#UserServiceImpl#0" />
-            <element signature="method#getLimitCount#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getAdminLimitCount#0;class#UserServiceImpl#0" />
-            <element signature="method#getAdminLimitCount#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#selectType#0;class#UserServiceImpl#0" />
-            <element signature="method#selectType#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getUserInfoById#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getAdminCount#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getAdminUserInfoById#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#extractLimitWhere#0;class#UserServiceImpl#0" />
-            <element signature="method#extractLimitWhere#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#extractBetweenTime#0;class#UserServiceImpl#0" />
-            <element signature="method#extractBetweenTime#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#extractQueryAllOrOne#0;class#UserServiceImpl#0" />
-            <element signature="method#extractQueryAllOrOne#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getBackLimit#0;class#UserServiceImpl#0" />
-            <element signature="method#getBackLimit#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getBackCount#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#getBackLimitCount#0;class#UserServiceImpl#0" />
-            <element signature="method#getBackLimitCount#0;class#UserServiceImpl#0" />
-            <element signature="method#extractLimitWhere#1;class#UserServiceImpl#0" />
-            <element signature="docComment;method#queryBackUserById#0;class#UserServiceImpl#0" />
-            <element signature="docComment;method#queryLiveCollectByUserId#0;class#UserServiceImpl#0" />
-            <element signature="method#queryLiveCollectByUserId#0;class#UserServiceImpl#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,37 +775,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/configuration/contactUs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1118">
           <caret line="135" column="37" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#fieldset#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1491#1990#0" />
-            <element signature="e#2756#3318#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,23 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1325">
           <caret line="170" selection-start-line="170" selection-end-line="170" />
-          <folding>
-            <element signature="docComment;method#getList#0;class#DictionaryServiceImpl#0" />
-            <element signature="docComment;method#getHomeGroupInfo#0;class#DictionaryServiceImpl#0" />
-            <element signature="method#getHomeGroupInfo#0;class#DictionaryServiceImpl#0" />
-            <element signature="e#1932#2616#0" />
-            <element signature="docComment;method#getWebAppAdvertising#0;class#DictionaryServiceImpl#0" />
-            <element signature="method#getWebAppAdvertising#0;class#DictionaryServiceImpl#0" />
-            <element signature="docComment;method#updateById#0;class#DictionaryServiceImpl#0" />
-            <element signature="method#updateById#0;class#DictionaryServiceImpl#0" />
-            <element signature="docComment;method#upadteConfig#0;class#DictionaryServiceImpl#0" />
-            <element signature="docComment;method#get#0;class#DictionaryServiceImpl#0" />
-            <element signature="method#get#0;class#DictionaryServiceImpl#0" />
-            <element signature="docComment;method#getVersion#0;class#DictionaryServiceImpl#0" />
-            <element signature="method#getVersion#0;class#DictionaryServiceImpl#0" />
-            <element signature="docComment;method#getBootstrapRandomImage#0;class#DictionaryServiceImpl#0" />
-            <element signature="method#getBootstrapRandomImage#0;class#DictionaryServiceImpl#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -951,49 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/base/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/live/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="201" column="23" selection-start-line="201" selection-start-column="23" selection-end-line="201" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="134" column="43" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.8.RELEASE/spring-aop-5.0.8.RELEASE.jar!/org/springframework/aop/aspectj/AspectJAfterAdvice.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1008,13 +847,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
@@ -1022,110 +855,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="54">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="63" column="34" lean-forward="true" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/UserApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="148" column="41" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+          <folding>
+            <element signature="e#1153#1168#0" />
+            <element signature="docComment;method#sendSmsCode#0;class#UserApiController#0" />
+            <element signature="method#sendSmsCode#0;class#UserApiController#0" />
+            <element signature="docComment;method#sendResetPwdSmsCode#0;class#UserApiController#0" />
+            <element signature="method#sendResetPwdSmsCode#0;class#UserApiController#0" />
+            <element signature="docComment;method#signUp#0;class#UserApiController#0" />
+            <element signature="docComment;method#initSettings#0;class#UserApiController#0" />
+            <element signature="method#initSettings#0;class#UserApiController#0" />
+            <element signature="docComment;method#signIn#0;class#UserApiController#0" />
+            <element signature="docComment;method#resetPassword#0;class#UserApiController#0" />
+            <element signature="docComment;method#uploadAvatar#0;class#UserApiController#0" />
+            <element signature="docComment;method#updateInfo#0;class#UserApiController#0" />
+            <element signature="method#updateInfo#0;class#UserApiController#0" />
+            <element signature="docComment;method#getUserInfo#0;class#UserApiController#0" />
+            <element signature="method#getUserInfo#0;class#UserApiController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="36" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/HotGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="39" column="34" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveHotDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="70" column="66" lean-forward="true" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="180" column="38" lean-forward="true" selection-start-line="180" selection-start-column="38" selection-end-line="180" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="135" column="37" lean-forward="true" selection-start-line="135" selection-start-column="37" selection-end-line="135" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="195" column="43" lean-forward="true" selection-start-line="195" selection-start-column="43" selection-end-line="195" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="192" column="15" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="471" column="48" lean-forward="true" selection-start-line="471" selection-start-column="48" selection-end-line="471" selection-end-column="48" />
-          <folding>
-            <element signature="method#LiveServiceImpl#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getLimit#0;class#LiveServiceImpl#0" />
-            <element signature="method#getLimit#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getCount#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getLimitCount#0;class#LiveServiceImpl#0" />
-            <element signature="method#getLimitCount#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getLiveInfo#0;class#LiveServiceImpl#0" />
-            <element signature="e#3573#3582#0" />
-            <element signature="method#deleteLive#0;class#LiveServiceImpl#0" />
-            <element signature="e#3816#4375#0" />
-            <element signature="docComment;method#insertLive#0;class#LiveServiceImpl#0" />
-            <element signature="e#4652#4661#0" />
-            <element signature="docComment;method#modifyLive#0;class#LiveServiceImpl#0" />
-            <element signature="e#6756#6765#0" />
-            <element signature="docComment;method#getHotLives#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getLiveDetailInfo#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#addCollect#0;class#LiveServiceImpl#0" />
-            <element signature="e#8240#8249#0" />
-            <element signature="method#addCollect#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#cancelCollect#0;class#LiveServiceImpl#0" />
-            <element signature="e#8917#8926#0" />
-            <element signature="method#cancelCollect#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#extractLimitWhere#0;class#LiveServiceImpl#0" />
-            <element signature="method#extractLimitWhere#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#extractBetweenTime#0;class#LiveServiceImpl#0" />
-            <element signature="method#extractBetweenTime#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#setBeginLive#0;class#LiveServiceImpl#0" />
-            <element signature="method#setBeginLive#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#addHistory#0;class#LiveServiceImpl#0" />
-            <element signature="method#addHistory#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getLiveHistoryList#0;class#LiveServiceImpl#0" />
-            <element signature="method#getLiveHistoryList#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#cleanHistorys#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#getLiveCollectList#0;class#LiveServiceImpl#0" />
-            <element signature="method#getLiveCollectList#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#cleanCollect#0;class#LiveServiceImpl#0" />
-            <element signature="docComment;method#addGroup#0;class#LiveServiceImpl#0" />
-            <element signature="e#12742#12751#0" />
-            <element signature="method#addGroup#0;class#LiveServiceImpl#0" />
-            <element signature="e#14831#14832#0" expanded="true" />
-            <element signature="e#14858#14859#0" expanded="true" />
-            <element signature="e#15056#15057#0" expanded="true" />
-            <element signature="e#15113#15114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        <state relative-caret-position="216">
+          <caret line="61" column="89" selection-start-line="61" selection-start-column="89" selection-end-line="61" selection-end-column="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="262" column="19" selection-start-line="262" selection-start-column="19" selection-end-line="262" selection-end-column="19" />
+        <state relative-caret-position="670">
+          <caret line="263" selection-start-line="263" selection-end-line="263" />
           <folding>
+            <element signature="e#1359#1374#0" />
             <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" />
-            <element signature="method#getLiveGameDetailList#0;class#LiveApiController#0" />
-            <element signature="e#3017#3914#0" />
+            <element signature="e#3017#4329#0" />
             <element signature="docComment;method#getLiveInfo#0;class#LiveApiController#0" />
-            <element signature="method#getLiveInfo#0;class#LiveApiController#0" />
             <element signature="docComment;method#getInformation#0;class#LiveApiController#0" />
             <element signature="method#getInformation#0;class#LiveApiController#0" />
             <element signature="docComment;method#addCollect#0;class#LiveApiController#0" />
@@ -1133,9 +958,185 @@
             <element signature="docComment;method#cancelCollect#0;class#LiveApiController#0" />
             <element signature="method#cancelCollect#0;class#LiveApiController#0" />
             <element signature="docComment;method#getInformationDetailList#0;class#LiveApiController#0" />
-            <element signature="method#getInformationDetailList#0;class#LiveApiController#0" />
-            <element signature="e#8189#9412#0" />
+            <element signature="e#8608#10242#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="29" column="76" selection-start-line="29" selection-start-column="76" selection-end-line="29" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/base/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="39" column="4" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/live/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1792">
+          <caret line="199" column="89" lean-forward="true" selection-start-line="199" selection-start-column="89" selection-end-line="199" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
+          <folding>
+            <element signature="e#5197#5198#0" expanded="true" />
+            <element signature="e#5269#5270#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2070">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/recharge/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/ILiveService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="182" column="44" lean-forward="true" selection-start-line="178" selection-start-column="4" selection-end-line="182" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="461" column="5" lean-forward="true" selection-start-line="454" selection-start-column="3" selection-end-line="461" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="124" column="15" lean-forward="true" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4550">
+          <caret line="190" column="19" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2050">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.32/tomcat-embed-core-8.5.32-sources.jar!/javax/servlet/http/HttpServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="660" selection-start-line="660" selection-end-line="660" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Information.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="68" column="59" lean-forward="true" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
+          <folding>
+            <element signature="e#4766#4767#0" expanded="true" />
+            <element signature="e#4806#4807#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="47" column="78" lean-forward="true" selection-start-line="47" selection-end-line="47" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="163" column="63" lean-forward="true" selection-start-line="163" selection-start-column="63" selection-end-line="163" selection-end-column="63" />
         </state>
       </provider>
     </entry>

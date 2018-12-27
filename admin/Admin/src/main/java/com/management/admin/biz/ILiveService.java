@@ -177,18 +177,8 @@ public interface ILiveService {
     String leaveGroup(Integer userId, String accid, Integer liveId);
 
     /**
-     * 修改直播状态为未开始 DF 2018年12月20日04:45:25
-     *
-     * @param liveId
+     * 查询所有赛事BY直播间
      * @return
      */
-    Integer beingLiveStatus(Integer liveId);
-
-    /**
-     * 修改直播状态为正在直播 DF 2018年12月20日04:45:25
-     *
-     * @param liveId
-     * @return
-     */
-    Integer endLiveStatus(Integer liveId);
+    List<LiveDetail> selectScheduleByLive();
 }

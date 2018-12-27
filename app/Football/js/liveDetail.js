@@ -145,8 +145,7 @@ mui.plusReady(function(){
 			$(".shade .leftv img").attr("src", live.teamList[0].teamIcon);
 			$(".shade .rightv img").attr("src", live.teamList[1].teamIcon);
 			if(live.status == 2){
-					console.log("status == 2" + ":" + "全员禁言")
-				
+				console.log("status == 2" + ":" + "全员禁言")
 		    	disableChat("全员禁言");
 			}
 			
@@ -155,7 +154,10 @@ mui.plusReady(function(){
 			$(".btnLive").click(function(){
 				createPlayer(live.type, live.playerAdUrl, live.playerTargetUrl, live.sourceUrl);
 			});
-			$(".video .info .grade").text(live.scheduleGrade);
+			
+			if(live.scheduleGrade != null && live.scheduleGrade.toString().length > 0){
+				$(".video .info .grade").text(live.scheduleGrade);
+			}
 			
 			//设置全站广告位
 			$(".advertising").css("background-image", "url("+live.adUrl+")");
@@ -192,7 +194,7 @@ mui.plusReady(function(){
 						}
 						
 						//比赛结果设置
-						if(live.scheduleGrade == null){
+						if(live.scheduleGrade == null && live.scheduleGrade.toString().length > 0){
 							$(".live .infoe span").text("-/-");
 						}else{
 							var scheduleStatus = live.scheduleGrade;
@@ -208,7 +210,7 @@ mui.plusReady(function(){
 						if(live.teamList[1].teamId == live.winTeamId){
 							$(".live .righte").removeClass("right-hot").addClass("right-hot");
 							if($(".live .righte").html().indexOf("shoucangjiaobiao") == -1){
-								$(".live .righte img").before('<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>');
+								$(".live .righte img").before('<i class="icon iconfont icon-shoucangjiaobiao"></i>');
 							}
 						}
 						
@@ -416,6 +418,9 @@ function shareWebview() {
  * @param {Object} videoUrl 播放器直播视频链接
  */
 function createPlayer(type, adUrl, targetUrl, videoUrl){
+	if(type == null){
+		return;
+	}
 	//播前广告
 	if(type == 0){
 		playVideoAd(adUrl, targetUrl, function(){
