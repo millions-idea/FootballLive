@@ -2,6 +2,7 @@ package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IGameService;
 import com.management.admin.entity.db.Game;
+import com.management.admin.entity.dbExt.GameDetail;
 import com.management.admin.repository.GameMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class GameServiceImpl implements IGameService {
      * @return
      */
     @Override
-    public List<Game> queryAll() {
+    public List<GameDetail> queryAll() {
         return gameMapper.queryAllGame();
     }
 }
