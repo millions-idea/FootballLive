@@ -77,7 +77,9 @@ mui.plusReady(function() {
 			
 		if($phone == null || $phone.val().length != 11) return utils.msgBox.msg("请输入正确的手机号(11位)");
 		if($password == null || $password.val().length < 6) return utils.msgBox.msg("请输入密码(6位)");
-
+		
+		app.logger("Login", app.config.apiUrl + "api/user/signIn");
+			
 		$.post(app.config.apiUrl + "api/user/signIn", {
 			phone: $phone.val(),
 			password: $password.val()

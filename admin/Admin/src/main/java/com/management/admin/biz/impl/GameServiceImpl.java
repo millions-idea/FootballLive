@@ -28,4 +28,16 @@ public class GameServiceImpl implements IGameService {
     public List<GameDetail> queryAll() {
         return gameMapper.queryAllGame();
     }
+
+    /**
+     * 获取游戏赛事列表 DF 2018年12月28日19:45:11
+     *
+     * @param liveCategoryId
+     * @return
+     */
+    @Override
+    public List<GameDetail> getList(Integer liveCategoryId) {
+        if(liveCategoryId == null || liveCategoryId.equals(0)) return gameMapper.queryAllGame();
+        return gameMapper.selectList(liveCategoryId);
+    }
 }

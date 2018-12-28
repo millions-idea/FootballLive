@@ -157,7 +157,6 @@ public class ScheduleControllor {
     @ResponseBody
     @WebLog(section = "Schedule",content = "添加赛程信息")
    public JsonResult addSchedule(Schedule schedule){
-        System.err.println(schedule);
         if(scheduleService.addSchedule(schedule)){
             return JsonResult.successful();
         }
