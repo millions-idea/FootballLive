@@ -11,10 +11,12 @@ import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.PutObjectResult;
 import com.management.admin.utils.Base64Util;
 import com.management.admin.utils.JsonUtil;
+import com.sun.corba.se.impl.activation.ServerMain;
 import lombok.val;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
+import sun.applet.Main;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -40,7 +42,7 @@ public class CosUtil {
     private final static String accessKeyId = "LTAIR0oyIQND1tDJ";
     private final static String accessKeySecret = "Xqde9mlClOMyAVVjLPmr9pnaUUX8Wb";
 
-    public static String endpoint = "http://oss-cn-beijing.aliyuncs.com/";
+    public static String endpoint = "https://yabolive.oss-cn-beijing.aliyuncs.com/";
 
     /**
      * 上传文件
@@ -93,7 +95,6 @@ public class CosUtil {
 
         return endpoint + key;
     }
-
 
 
 }
