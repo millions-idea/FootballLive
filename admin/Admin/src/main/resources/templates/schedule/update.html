@@ -128,6 +128,8 @@
         schedule.scheduleResult=scheduleResult;
         schedule.scheduleGrade=scheduleGrade;
         schedule.winTeamId=winTeamId;
+        schedule.masterTeamId = primaryTeam;
+        schedule.targetTeamId = secondTeam;
 
         if (primaryTeam==secondTeam) {
             layer.msg("选择有误");

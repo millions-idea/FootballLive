@@ -67,4 +67,7 @@ public class Schedule {
      */
     private Integer winTeamId;
 
+    private Integer masterTeamId;
+    private Integer targetTeamId;
+
 }

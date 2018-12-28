@@ -17,8 +17,8 @@ var liveService = {
 	 * 获取赛事列表 DF 2018年12月18日02:15:11
 	 * @param {Object} callback
 	 */
-	getGameList: function(callback){
-		$.get(app.config.apiUrl + "api/game/getGameList", function(data){
+	getGameList: function(param, callback){
+		$.get(app.config.apiUrl + "api/game/getGameList", param,  function(data){
 			app.logger("lives", JSON.stringify(data));
 			callback(data);
 		});
@@ -58,8 +58,6 @@ mui.plusReady(function(){
 		plus.navigator.setStatusBarBackground("#F3F3F3");
 	 	
 	 	console.log("直播大厅");
-	 
-	 
 		console.log("lives_show");
 		
 		var view = plus.webview.getWebviewById("index");
@@ -262,7 +260,10 @@ function initData(){
 	loadLiveCategoryList();
 	
 	//加载赛事列表
-	liveService.getGameList(function(res){
+	app.logger("查询游戏赛事列表", $("#liveCategoryId").val())
+	liveService.getGameList({
+		liveCategoryId: $("#liveCategoryId").val()
+	},function(res){
 		if(app.utils.ajax.isError(res)) return app.utils.msgBox.msg("加载赛事列表失败");
 		
 		var html = "";
@@ -328,7 +329,8 @@ function loadLiveCategoryList(){
 			$(".showCategory").html(res.data[currentIndex].categoryName + iconPart);
 		}
 		$("#currentIndex").val("");
-		//$("#liveCategoryId").val("");
+		$("#gameId").val("");
+		$("#liveCategoryId").val("");
 		$(".live-category").html(html); 
 		 
 		//设置滚动组件

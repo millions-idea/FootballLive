@@ -80,6 +80,8 @@
         schedule.teamId=primaryTeam+","+secondTeam;
         schedule.gameDate=gameDate;
         schedule.gameDuration=duration;
+        schedule.masterTeamId = primaryTeam;
+        schedule.targetTeamId = secondTeam;
         if (primaryTeam==""||primaryTeam.length==0){
             layer.msg("您还没有选择！")
             return false;
