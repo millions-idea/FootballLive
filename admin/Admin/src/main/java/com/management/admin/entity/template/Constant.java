@@ -103,5 +103,5 @@ public interface Constant {
 
     String BindAdminDomain = "yabolive.512ck.cn";
 
-    Boolean DebugMode = true;
+    Boolean DebugMode = false;
 }

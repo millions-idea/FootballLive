@@ -38,7 +38,7 @@ public interface LiveCategoryMapper extends MyMapper<LiveCategory>{
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return
      */
-    @Select("SELECT COUNT(category_id) FROM tb_live_categorys ")
+    @Select("SELECT COUNT(category_id) FROM tb_live_categorys where is_delete=0")
     Integer selectLimitCount();
 
     /**
