@@ -262,32 +262,4 @@ public class LiveApiController {
         return new JsonResult().failingAsString(result);
     }
 
-
-    /**
-     * 修改直播间状态为未开始 DF 2018年12月24日19:22:29
-     * @param liveId
-     * @return
-     */
-    @GetMapping("beingLiveStatus")
-    public JsonResult beingLiveStatus(Integer liveId){
-        Integer result=liveService.beingLiveStatus(liveId);
-        if(result>0){
-            return JsonResult.successful();
-        }
-        return JsonResult.failing();
-    }
-
-    /**
-     * 修改直播间状态为已经结束 DF 2018年12月24日19:22:29
-     * @param liveId
-     * @return
-     */
-    @GetMapping("endLiveStatus")
-    public JsonResult endLiveStatus(Integer liveId){
-        Integer result=liveService.endLiveStatus(liveId);
-        if(result>0){
-            return JsonResult.successful();
-        }
-        return JsonResult.failing();
-    }
 }

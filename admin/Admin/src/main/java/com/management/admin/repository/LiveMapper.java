@@ -11,7 +11,7 @@ import org.apache.ibatis.mapping.FetchType;
 import java.util.List;
 
 /***
- * 直播信息mapper
+ * 直播信息mapper    
  */
 @Mapper
 public interface LiveMapper extends MyMapper<Live>{
@@ -72,14 +72,6 @@ public interface LiveMapper extends MyMapper<Live>{
     Integer modifyLiveTitleById(@Param("liveId") Integer liveId,@Param("title") String title);
 
     /**
-     * 根据编号修改直播间状态
-     * @param liveId
-     * @param liveStatus
-     * @return
-     */
-    @Update("update tb_lives set live_status=#{liveStatus} where live_id=#{liveId}")
-    Integer modifyLiveStatusById(@Param("liveId") Integer liveId,@Param("liveStatus")Integer  liveStatus);
-    /**
      * 根据编号修改直播赛程
      * @param liveId
      * @param scheduleId
@@ -101,7 +93,7 @@ public interface LiveMapper extends MyMapper<Live>{
      * @param liveId
      * @return
      */
-    @Select("SELECT t1.*,t2.game_date,t2.schedule_id ,t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content " +
+    @Select("SELECT t1.*,t2.game_date,t2.schedule_id ,t2.game_duration, t2.status AS scheduleStatus, t3.game_id, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content " +
             "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id " +
@@ -189,21 +181,14 @@ public interface LiveMapper extends MyMapper<Live>{
             "(SELECT game_id FROM tb_lives WHERE live_id = #{liveId} LIMIT 1)")
     int updateStatus(@Param("liveId") Integer liveId, @Param("status") int status);
 
-    /**
-     * 更新直播间状态为 未开始 DF 2018年12月20日02:52:35
-     * @param liveId
-     * @return
-     */
-    @Update("UPDATE tb_lives SET `live_status` = 0 WHERE live_id = #{liveId}")
-    int beingLiveStatus(Integer liveId);
 
     /**
-     * 更新直播间状态为 正在直播 DF 2018年12月20日02:52:35
-     * @param liveId
+     * 查询所有的赛事BY直播间 DF 2018年12月20日02:52:35
      * @return
      */
-    @Update("UPDATE tb_lives SET `live_status` = 1 WHERE live_id = #{liveId}")
-    int endLiveStatus(Integer liveId);
+    @Select("select * from tb_lives t1 left join tb_schedules t2 on t1.schedule_id=t2.schedule_id left join " +
+            "  tb_games t3 on t2.game_id=t3.game_id where t1.status=0")
+    List<LiveDetail> selectScheduleByLive();
 
     /**
      * 修改直播间广告信息 狗蛋 2018年12月28日02:12:26

@@ -2,6 +2,7 @@ package com.management.admin.controller;
 
 import com.management.admin.biz.IGameService;
 import com.management.admin.entity.db.Game;
+import com.management.admin.entity.dbExt.GameDetail;
 import com.management.admin.entity.template.JsonArrayResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class GameController {
      */
     @GetMapping("/getAll")
     @ResponseBody
-    public JsonArrayResult<Game> getAll(){
-        return new JsonArrayResult<Game>(gameService.queryAll());
+    public JsonArrayResult<GameDetail> getAll(){
+        return new JsonArrayResult<GameDetail>(gameService.queryAll());
     }
 }

@@ -5,7 +5,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">直播间</label>
         <div class="layui-input-block">
-            <select name="city" lay-verify="" id="live">
+            <select name="city" lay-verify="" id="live" lay-filter="test">
 
             </select>
         </div>
@@ -13,9 +13,9 @@
     <div class="layui-form-item">
         <label class="layui-form-label">赛事</label>
         <div class="layui-input-block">
-            <select name="city" lay-verify="" id="game">
-
-            </select>
+            <input type="hidden" id="gameId" value="">
+            <input  type="text" id="game" autocomplete="off"
+                   disabled="disabled" class="layui-input" value="">
         </div>
     </div>
     <div class="layui-form-item">
@@ -35,7 +35,7 @@
 
 <!--wangEditor 使用 E-->
 <script type="text/javascript" src="/js/configuration/wangEditor.js"></script>
-<script src="/js/common/jquery-2.0.0.js"></script>
+<script src="/js/common/jquery-2.0.0.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
@@ -107,8 +107,42 @@
                 var html='';
                 data.data.forEach(function (item,index) {
                     html+='<option value="'+item.liveId+'">'+item.liveTitle+'</option>'
+
                 })
                 $("#live").html(html);
+
+                $.ajax({
+                    url: "/management/information/selectgames",    //请求的url地址
+                    dataType: "json",   //返回格式为json
+                    data: {liveId:data.data[0].liveId},    //参数值
+                    type: "post",   //请求方式
+                    success: function (data) {
+
+                        if (data.code == 200) {
+                            debugger;
+                            $("#game").val(data.msg.gameName);
+                            $("#gameId").val(data.msg.gameId)
+                        }
+                    }
+                })
+
+                //动态获取赛事信息
+                form.on('select(test)', function(data){
+                    var liveId=data.value;
+                    $.ajax({
+                        url: "/management/information/selectgames",    //请求的url地址
+                        dataType: "json",   //返回格式为json
+                        data: {liveId:liveId},    //参数值
+                        type: "post",   //请求方式
+                        success: function (data) {
+                            if (data.code == 200) {
+                                debugger;
+                                $("#game").val(data.msg.gameName);
+                                $("#gameId").val(data.msg.gameId)
+                            }
+                        }
+                    })
+                });
                 form.render();
             });
             $.getJSON("/management/game/getAll",function (data) {
@@ -117,19 +151,21 @@
                     html+='<option value="'+item.gameId+'">'+item.gameName+'</option>';
                 })
                 $("#game").html(html);
+
                 form.render();
             });
+
             $("#save").click(function () {
                 // 添加情报需要：1直播间编号。2赛事编号，文本内容
                 // 创建情报信息对象
                 var information = {};
 
                 // 1获取直播间编号
-                information.liveId = $("#live").val();
+                information.liveId =parseInt($("#live").val());
 
                 // 2 获取赛事编号
 
-                information.gameId = $("#game").val();
+                information.gameId =parseInt($("#gameId").val());
 
                 // 3获取文本内容
                 information.content = editor.txt.html();

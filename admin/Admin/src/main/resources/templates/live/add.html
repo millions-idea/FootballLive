@@ -2,6 +2,7 @@
 <div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
      enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
 
+    <input type="hidden" id="schedules" th:value="${schedules}">
     <div class="layui-form-item">
         <label class="layui-form-label">直播标题</label>
         <div class="layui-input-block">
@@ -90,7 +91,14 @@
         });
         $("#save").click(function () {
             liveDetail.liveTitle = $("#live-title").val();
-            liveDetail.gameId = $("#required").val();
+            var gameId= $("#required").val();
+            var schedules=$("#schedules").val();
+            alert(schedules +"==="+gameId);
+            if (schedules.indexOf(gameId)!=-1){
+                layer.msg("您选择的赛程已有直播间在播放了");
+                return false;
+            }
+            liveDetail.gameId = gameId;
             liveDetail.gameDuration = $("#game-duration").val();
             liveDetail.sourceUrl = $("#source-url").val();
             liveDetail.adId = $("#target-url").val();

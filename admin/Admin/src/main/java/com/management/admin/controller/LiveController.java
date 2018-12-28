@@ -16,7 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/management/live")
@@ -67,10 +70,30 @@ public class LiveController {
     @GetMapping("/edit")
     public String edit(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
+        List<LiveDetail> liveDetails=liveService.selectScheduleByLive();
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));
+
+
+        //筛选选中项
+        Optional<LiveDetail> selectItem = liveDetails.stream().filter(item -> live.getGameId().equals(item.getGameId())).findFirst();
+        if(selectItem.isPresent()){
+            model.addAttribute("selectItem", selectItem.get());
+        }else{
+            model.addAttribute("selectItem", null);
+        }
+
+        //筛选未选中项
+        List<LiveDetail> unSelectItems = liveDetails.stream().filter(item -> !live.getGameId().equals(item.getGameId())).map(item -> item).collect(Collectors.toList());
+        if(unSelectItems != null){
+            model.addAttribute("unSelectItems", unSelectItems);
+        }else{
+            model.addAttribute("unSelectItems", null);
+        }
+
         model.addAttribute("live", live);
+        model.addAttribute("lives",liveDetails);
         return "live/edit";
     }
 
@@ -99,18 +122,20 @@ public class LiveController {
     @GetMapping("/getLiveDetailByLiveId")
     public String getLiveDetailByLiveId(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
-        Integer Status=live.getLiveStatus();
-        String liveStatus="";
+        Integer Status=live.getScheduleStatus();
+        String scheduleStatus="";
         if(Status==0){
-            liveStatus="未开始";
+            scheduleStatus="未开始";
         }else if(Status==1){
-            liveStatus="正在直播";
+            scheduleStatus="正在直播";
+        }else if(Status==2){
+            scheduleStatus="已结束";
         }
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));
         model.addAttribute("live", live);
-        model.addAttribute("liveStatus",liveStatus);
+        model.addAttribute("scheduleStatus",scheduleStatus);
         return "live/details";
     }
 
@@ -119,7 +144,13 @@ public class LiveController {
      * @return
      */
     @GetMapping("/add")
-    public String add() {
+    public String add(final Model model) {
+        List<LiveDetail> lives=liveService.selectScheduleByLive();
+        List<Integer> scheduleIds=new ArrayList<>();
+        for (LiveDetail live:lives){
+            scheduleIds.add(live.getGameId());
+        }
+        model.addAttribute("schedules",scheduleIds);
         return "live/add";
     }
 

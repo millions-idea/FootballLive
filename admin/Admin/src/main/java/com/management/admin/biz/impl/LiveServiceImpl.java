@@ -203,7 +203,7 @@ public class LiveServiceImpl implements ILiveService {
 
         //Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getS)
         if (result > 0) {
-            Integer reslut2 = liveMapper.modifyLiveStatusById(liveDetail.getLiveId(), liveDetail.getLiveStatus());
+            Integer reslut2 = scheduleMapper.modifyStatusById(liveDetail.getScheduleId(), liveDetail.getScheduleStatus());
             if (result > 0 && reslut2 > 0) {
                 return 1;
             }
@@ -453,22 +453,11 @@ public class LiveServiceImpl implements ILiveService {
     }
 
     /**
-     * 修改直播间状态为未开始 DF 2018年12月24日20:22:25
-     * @param liveId
+     * 查询所有赛事信息
      * @return
      */
     @Override
-    public Integer beingLiveStatus(Integer liveId) {
-        return liveMapper.beingLiveStatus(liveId);
-    }
-
-    /**
-     * 修改直播间状态为已经结束 DF 2018年12月24日20:22:25
-     * @param liveId
-     * @return
-     */
-    @Override
-    public Integer endLiveStatus(Integer liveId) {
-        return liveMapper.endLiveStatus(liveId);
+    public List<LiveDetail> selectScheduleByLive() {
+        return liveMapper.selectScheduleByLive();
     }
 }
