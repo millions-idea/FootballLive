@@ -61,7 +61,6 @@ public interface LiveMapper extends MyMapper<Live>{
      */
     @Select("select count(*) from tb_lives where status=0")
     Integer selectLiveCount();
-
     /**
      * 根据编号修改直播间标题
      * @param liveId
