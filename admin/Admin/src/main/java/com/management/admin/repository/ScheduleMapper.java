@@ -68,7 +68,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
      */
     List<ScheduleGameTeam> selectLimit(@Param("page") Integer page, @Param("limit") String limit);
 
-    @Select("SELECT COUNT(schedule_id) FROM tb_schedules ")
+    @Select("SELECT COUNT(schedule_id) FROM tb_schedules WHERE is_delete=0")
     /**
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return

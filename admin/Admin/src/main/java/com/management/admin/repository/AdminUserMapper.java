@@ -95,7 +95,7 @@ public interface AdminUserMapper extends MyMapper<AdminUser> {
             , @Param("condition") String condition);
 
     @Select("SELECT COUNT(t1.user_id) FROM tb_admin_users t1\n" +
-            "WHERE ${condition}")
+            "WHERE ${condition}  AND t1.status = 0")
     /**
      * 分页查询记录数 韦德 2018年8月30日11:33:30
      * @param state
