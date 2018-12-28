@@ -11,7 +11,7 @@ import org.apache.ibatis.mapping.FetchType;
 import java.util.List;
 
 /***
- * 直播信息mapper
+ * 直播信息mapper    
  */
 @Mapper
 public interface LiveMapper extends MyMapper<Live>{
