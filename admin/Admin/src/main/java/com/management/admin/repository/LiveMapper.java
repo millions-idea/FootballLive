@@ -93,7 +93,7 @@ public interface LiveMapper extends MyMapper<Live>{
      * @param liveId
      * @return
      */
-    @Select("SELECT t1.*,t2.game_date,t2.schedule_id ,t2.game_duration, t2.status AS scheduleStatus, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content " +
+    @Select("SELECT t1.*,t2.game_date,t2.schedule_id ,t2.game_duration, t2.status AS scheduleStatus, t3.game_id, t3.game_name, t3.game_icon,t4.*,t5.target_url,t6.content " +
             "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id " +

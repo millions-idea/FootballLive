@@ -14,6 +14,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">赛事</label>
         <div class="layui-input-block">
+            <input type="hidden" id="gameId" value="">
             <input type="text" id="game" autocomplete="off"
                    disabled="disabled" class="layui-input" value="">
         </div>
@@ -57,9 +58,9 @@
                     data: {liveId:data.data[0].liveId},    //参数值
                     type: "post",   //请求方式
                     success: function (data) {
-
                         if (data.code == 200) {
-                            $("#game").val(data.msg)
+                            $("#game").val(data.msg.gameName)
+                            $("#gameId").val(data.msg.gameId)
                         }
                     }
                 })
@@ -74,7 +75,8 @@
                         type: "post",   //请求方式
                         success: function (data) {
                             if (data.code == 200) {
-                                $("#game").val(data.msg)
+                                $("#game").val(data.msg.gameName)
+                                $("#gameId").val(data.msg.gameId)
                             }
                         }
                     })
@@ -159,7 +161,7 @@
 
                 // 2 获取赛事编号
 
-                information.gameId = $("#game").val();
+                information.gameId = $("#gameId").val();
 
                 // 3获取文本内容
                 information.content =  editor.txt.html();

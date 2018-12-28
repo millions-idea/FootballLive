@@ -44,9 +44,10 @@
     <div class="layui-form-item">
         <label class="layui-form-label">赛事名称</label>
         <input hidden th:value="${live.scheduleId}" id="scheduleId">
+        <input hidden th:value="${live.gameId}" id="gameId">
         <div class="layui-input-block">
             <select name="city" lay-verify="" id="required">
-                <option th:value="${live.gameId}" th:text="${live.gameName}" selected></option>
+
             </select>
         </div>
 
@@ -80,9 +81,14 @@
             form.render();
         });
         $.getJSON("/management/game/getAll", function (data) {
+            var gameId = $("#gameId").val();
             var html = '';
             data.data.forEach(function (item, index) {
-                html += '<option value="' + item.gameId + '">' + item.gameName + '</option>';
+                var stylePart = "";
+                if (item.gameId == gameId){
+                    stylePart = "selected";
+                }
+                html += '<option '+ stylePart  +' value="' + item.gameId + '">' + item.gameName + '</option>';
             })
             $("#required").html(html);
             form.render();

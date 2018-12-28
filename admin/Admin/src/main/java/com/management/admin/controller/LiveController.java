@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/management/live")
@@ -68,10 +70,30 @@ public class LiveController {
     @GetMapping("/edit")
     public String edit(Integer liveId, final Model model) {
         LiveDetail live = liveService.queryLiveDetails(liveId);
+        List<LiveDetail> liveDetails=liveService.selectScheduleByLive();
         live.setLiveDateStr(DateUtil.getFormatDateTime(live.getLiveDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setAddDateStr(DateUtil.getFormatDateTime(live.getAddDate(), "yyyy-MM-dd HH:mm:ss"));
         live.setGameDateStr(DateUtil.getFormatDateTime(live.getGameDate(), "yyyy-MM-dd HH:mm:ss"));
+
+
+        //筛选选中项
+        Optional<LiveDetail> selectItem = liveDetails.stream().filter(item -> live.getGameId().equals(item.getGameId())).findFirst();
+        if(selectItem.isPresent()){
+            model.addAttribute("selectItem", selectItem.get());
+        }else{
+            model.addAttribute("selectItem", null);
+        }
+
+        //筛选未选中项
+        List<LiveDetail> unSelectItems = liveDetails.stream().filter(item -> !live.getGameId().equals(item.getGameId())).map(item -> item).collect(Collectors.toList());
+        if(unSelectItems != null){
+            model.addAttribute("unSelectItems", unSelectItems);
+        }else{
+            model.addAttribute("unSelectItems", null);
+        }
+
         model.addAttribute("live", live);
+        model.addAttribute("lives",liveDetails);
         return "live/edit";
     }
 
