@@ -8,14 +8,17 @@
 package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IScheduleService;
+import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.Schedule;
+import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import com.management.admin.entity.dbExt.ScheduleGameTeam;
-import com.management.admin.repository.InformationMapper;
-import com.management.admin.repository.ScheduleMapper;
+import com.management.admin.exception.InfoException;
+import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,11 +26,15 @@ import java.util.List;
 public class ScheduleServiceImpl implements IScheduleService {
     private final ScheduleMapper scheduleMapper;
     private final InformationMapper informationMapper;
+    private final LiveMapper liveMapper;
+    private final TeamMapper teamMapper;
 
     @Autowired
-    public ScheduleServiceImpl(ScheduleMapper scheduleMapper, InformationMapper informationMapper) {
+    public ScheduleServiceImpl(ScheduleMapper scheduleMapper, InformationMapper informationMapper, LiveMapper liveMapper, TeamMapper teamMapper) {
         this.scheduleMapper = scheduleMapper;
         this.informationMapper = informationMapper;
+        this.liveMapper = liveMapper;
+        this.teamMapper = teamMapper;
     }
 
     /**
@@ -118,12 +125,26 @@ public class ScheduleServiceImpl implements IScheduleService {
      * @return
      */
     @Override
+    @Transactional
     public boolean addSchedule(Schedule schedule) {
-        Integer result=scheduleMapper.addSchedule(schedule);
-        if(result>0){
-            return true;
-        }
-        return false;
+        //添加赛事
+        boolean result = scheduleMapper.insertSelective(schedule) > 0;
+        if(!result) throw new InfoException("添加赛事失败");
+
+        //查询参赛球队
+        List<Team> teams = teamMapper.selectTeams(schedule.getMasterTeamId() + "," + schedule.getTargetTeamId());
+        if(teams == null || teams.size() != 2) throw new InfoException("参赛球队设置错误");
+        Team masterTeam = teams.get(0);
+        Team targetTeam = teams.get(1);
+
+        //添加直播间
+        Live live = new Live();
+        live.setLiveTitle(masterTeam.getTeamName() + " VS " + targetTeam.getTeamName());
+        live.setLiveDate(schedule.getGameDate());
+        live.setScheduleId(schedule.getScheduleId());
+        live.setSourceUrl("#");
+        result = liveMapper.addLive(live) > 0;
+        return result;
     }
 
     /**

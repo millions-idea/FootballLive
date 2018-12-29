@@ -114,7 +114,7 @@ public class LiveServiceImpl implements ILiveService {
             String response = NeteaseImUtil.post("nimserver/team/remove.action", "tid=" + item.getChatRoomId()
                     + "&owner=" + Constant.HotAccId);
             NASignIn model = JsonUtil.getModel(response, NASignIn.class);
-            if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+            if (!model.getCode().equals(200)) logger.info("同步云端数据失败");
 /*            // 删除数据库聊天室
             Integer result = chatRoomUserRelationMapper.deleteChatRoomByLiveId(item.getRoomId());
             if(result<0) throw new InfoException("同步数据库数据失败");*/

@@ -93,7 +93,6 @@
             liveDetail.liveTitle = $("#live-title").val();
             var gameId= $("#required").val();
             var schedules=$("#schedules").val();
-            alert(schedules +"==="+gameId);
             if (schedules.indexOf(gameId)!=-1){
                 layer.msg("您选择的赛程已有直播间在播放了");
                 return false;

@@ -174,7 +174,7 @@ function initDataTable(url, callback, loadDone) {
 function getTableColumns() {
     return [[
         {type: "numbers", fixed: 'left'}
-        , {field: 'scheduleId', title: '赛程ID', width: 180, sort: true}
+        , {field: 'scheduleId', title: '赛程ID', width: 110, sort: true}
         , {field: 'gameName', title: '赛事', width: 180}
         , {field: 'teamId', title: '球队', width: 180,templet:function (d) {
                 var html = "";

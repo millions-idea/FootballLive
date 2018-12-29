@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.code.IdentityDialect;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,6 +20,7 @@ import java.util.Date;
 @Setter
 public class Schedule {
     @Id
+    @KeySql(useGeneratedKeys = true,dialect = IdentityDialect.MYSQL)
     private Integer scheduleId;
 
     /**

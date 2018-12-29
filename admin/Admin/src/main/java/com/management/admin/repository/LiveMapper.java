@@ -197,4 +197,13 @@ public interface LiveMapper extends MyMapper<Live>{
      */
     @Update("update tb_lives set ad_id=#{adId} where live_id=#{liveId}")
     int modifyAdvertisingByLiveId(@Param("liveId") Integer liveId,@Param("adId") Integer adId);
+
+    /**
+     * 添加直播间 DF 2018年12月29日01:35:40
+     * @param live
+     * @return
+     */
+    @Insert("INSERT INTO tb_lives (live_title, live_date, schedule_id, `status`, share_count, collect_count, source_url, ad_id, add_date) " +
+            "VALUES(" + "#{liveTitle}," + "#{liveDate}," + "#{scheduleId}," + "0,0,0," + "#{sourceUrl}," + "0," + "NOW()" + ")")
+    int addLive(Live live);
 }
