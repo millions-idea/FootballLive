@@ -111,6 +111,9 @@ public interface ChatRoomUserRelationMapper extends MyMapper<ChatRoomUserRelatio
     int deleteMember(@Param("userId") Integer userId, @Param("roomId") String roomId, @Param("liveId") Integer liveId);
 
     @Insert("INSERT INTO tb_chat_room_user_relations (live_id, room_id, user_id, is_black_list, edit_date) " +
-            "VALUES(#{liveId}, #{roomId}, #{userId}, #{isBlackList}, NOW()) ON DUPLICATE KEY UPDATE room_id = #{roomId}, edit_date=NOW()")
+            "VALUES(#{liveId}, #{roomId}, #{userId}, #{isBlackList}, NOW()) ON DUPLICATE KEY UPDATE room_id = #{roomId},  live_id = #{liveId}, edit_date=NOW()")
     int insertOrUpdate(ChatRoomUserRelation chatRoomUserRelation);
+
+    @Delete("DELETE FROM tb_chat_room_user_relations WHERE live_id=#{liveId}")
+    int deleteLive(@Param("liveId") Integer liveId);
 }

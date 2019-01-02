@@ -134,11 +134,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ScheduleServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="231" column="0" lean-forward="false" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+              <folding>
+                <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getScheduleLimitCount#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#5015#5024#0" expanded="false" />
+                <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#6204#6213#0" expanded="false" />
+                <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#9489#9498#0" expanded="false" />
+                <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#10451#10458#0" expanded="false" />
+                <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#beingSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#endSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#13836#13845#0" expanded="false" />
+                <element signature="method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#14759#14766#0" expanded="false" />
+                <element signature="docComment;method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#16079#16088#0" expanded="false" />
+                <element signature="method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
+                <element signature="e#16399#18597#0" expanded="false" />
+                <element signature="e#17171#17178#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ScheduleControllor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="241" column="30" lean-forward="false" selection-start-line="241" selection-start-column="30" selection-end-line="241" selection-end-column="30" />
+            <state relative-caret-position="378">
+              <caret line="179" column="36" lean-forward="false" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
               <folding>
                 <element signature="docComment;class#ScheduleControllor#0" expanded="false" />
                 <element signature="e#1403#1414#0" expanded="false" />
@@ -151,17 +193,14 @@
                 <element signature="method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="e#3199#3229#0" expanded="false" />
-                <element signature="method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#updateSchedule#0;class#ScheduleControllor#0" expanded="false" />
-                <element signature="method#updateSchedule#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
                 <element signature="e#5065#5091#0" expanded="false" />
                 <element signature="method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#updateSchedule#1;class#ScheduleControllor#0" expanded="false" />
                 <element signature="e#5435#5464#0" expanded="false" />
-                <element signature="method#updateSchedule#1;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#getGames#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="e#5819#5842#0" expanded="false" />
                 <element signature="method#getGames#0;class#ScheduleControllor#0" expanded="false" />
@@ -170,116 +209,29 @@
                 <element signature="method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="docComment;method#openLive#0;class#ScheduleControllor#0" expanded="false" />
                 <element signature="e#6749#6772#0" expanded="false" />
+                <element signature="method#openLive#0;class#ScheduleControllor#0" expanded="false" />
+                <element signature="e#7156#7180#0" expanded="false" />
+                <element signature="method#openLives#0;class#ScheduleControllor#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js">
+      <file leaf-file-name="ChatRoomMapper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="161" column="37" lean-forward="true" selection-start-line="161" selection-start-column="37" selection-end-line="161" selection-end-column="37" />
+            <state relative-caret-position="297">
+              <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/index.html">
+      <file leaf-file-name="ChatRoomUserRelationMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IScheduleService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="103" column="35" lean-forward="false" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScheduleServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="417" column="64" lean-forward="false" selection-start-line="417" selection-start-column="64" selection-end-line="417" selection-end-column="64" />
-              <folding>
-                <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getScheduleLimitCount#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#5015#5024#0" expanded="false" />
-                <element signature="method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#5924#5933#0" expanded="false" />
-                <element signature="method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#8868#8877#0" expanded="false" />
-                <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#9830#9837#0" expanded="false" />
-                <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#beingSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#endSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#13215#13224#0" expanded="false" />
-                <element signature="e#14138#14145#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScheduleMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="141" column="29" lean-forward="false" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScheduleLiveDetail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/ScheduleLiveDetail.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Live.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Schedule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="95" selection-end-column="0" />
+            <state relative-caret-position="283">
+              <caret line="116" column="25" lean-forward="false" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -297,7 +249,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>detail</find>
       <find>service.</find>
       <find>getLiveCategoryList</find>
       <find>gameList</find>
@@ -327,6 +278,7 @@
       <find>live</find>
       <find>required</find>
       <find>confi</find>
+      <find>DELETE</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -343,8 +295,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/GameMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/live/add.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" />
@@ -394,6 +344,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/ScheduleLiveDetail.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/schedule/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomMapper.java" />
       </list>
     </option>
   </component>
@@ -483,15 +435,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="apiController" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -499,98 +442,7 @@
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="dbExt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="competition" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="live" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -720,15 +572,16 @@
       <workItem from="1546013858088" duration="10801000" />
       <workItem from="1546057594366" duration="56689000" />
       <workItem from="1546231308750" duration="7398000" />
-      <workItem from="1546256323169" duration="44388000" />
+      <workItem from="1546256323169" duration="47517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190385000" />
+    <option name="totallyTimeSpent" value="193514000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -743,7 +596,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -807,7 +660,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java</url>
-          <line>280</line>
+          <line>295</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
@@ -825,36 +678,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java</url>
-          <line>207</line>
+          <line>434</line>
           <properties />
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java</url>
-          <line>210</line>
+          <line>464</line>
           <properties />
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java</url>
-          <line>425</line>
-          <properties />
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java</url>
-          <line>419</line>
-          <properties />
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java</url>
-          <line>415</line>
-          <properties />
-          <option name="timeStamp" value="81" />
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="82" />
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -913,30 +748,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-base/1.0.1/mapper-base-1.0.1-sources.jar!/tk/mybatis/mapper/common/base/select/SelectCountMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsSelectProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1317,45 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="241" column="30" lean-forward="false" selection-start-line="241" selection-start-column="30" selection-end-line="241" selection-end-column="30" />
-          <folding>
-            <element signature="docComment;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#1403#1414#0" expanded="false" />
-            <element signature="docComment;method#index#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#getMemberLimit#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#1934#1966#0" expanded="false" />
-            <element signature="method#getMemberLimit#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#2520#2545#0" expanded="false" />
-            <element signature="method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#3199#3229#0" expanded="false" />
-            <element signature="method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#updateSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="method#updateSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#5065#5091#0" expanded="false" />
-            <element signature="method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#updateSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#5435#5464#0" expanded="false" />
-            <element signature="method#updateSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#getGames#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#5819#5842#0" expanded="false" />
-            <element signature="method#getGames#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#6124#6147#0" expanded="false" />
-            <element signature="method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#openLive#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#6749#6772#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1398,18 +1170,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/ChatRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        <state relative-caret-position="189">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="179" column="36" lean-forward="false" selection-start-line="179" selection-start-column="36" selection-end-line="179" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#1403#1414#0" expanded="false" />
+            <element signature="docComment;method#index#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#getMemberLimit#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#1934#1966#0" expanded="false" />
+            <element signature="method#getMemberLimit#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#2520#2545#0" expanded="false" />
+            <element signature="method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#3199#3229#0" expanded="false" />
+            <element signature="docComment;method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#updateSchedule#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#5065#5091#0" expanded="false" />
+            <element signature="method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#updateSchedule#1;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#5435#5464#0" expanded="false" />
+            <element signature="docComment;method#getGames#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#5819#5842#0" expanded="false" />
+            <element signature="method#getGames#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#6124#6147#0" expanded="false" />
+            <element signature="method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;method#openLive#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#6749#6772#0" expanded="false" />
+            <element signature="method#openLive#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="e#7156#7180#0" expanded="false" />
+            <element signature="method#openLives#0;class#ScheduleControllor#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="417" column="64" lean-forward="false" selection-start-line="417" selection-start-column="64" selection-end-line="417" selection-end-column="64" />
+        <state relative-caret-position="486">
+          <caret line="231" column="0" lean-forward="false" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
           <folding>
             <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
@@ -1419,14 +1238,12 @@
             <element signature="method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="e#5015#5024#0" expanded="false" />
-            <element signature="method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#5924#5933#0" expanded="false" />
-            <element signature="method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
+            <element signature="e#6204#6213#0" expanded="false" />
             <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#8868#8877#0" expanded="false" />
+            <element signature="e#9489#9498#0" expanded="false" />
             <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#9830#9837#0" expanded="false" />
+            <element signature="e#10451#10458#0" expanded="false" />
             <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
@@ -1436,9 +1253,31 @@
             <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#13215#13224#0" expanded="false" />
-            <element signature="e#14138#14145#0" expanded="false" />
+            <element signature="e#13836#13845#0" expanded="false" />
+            <element signature="method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
+            <element signature="e#14759#14766#0" expanded="false" />
+            <element signature="docComment;method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
+            <element signature="e#16079#16088#0" expanded="false" />
+            <element signature="method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
+            <element signature="e#16399#18597#0" expanded="false" />
+            <element signature="e#17171#17178#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="116" column="25" lean-forward="false" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
