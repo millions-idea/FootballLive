@@ -1,0 +1,37 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <!--<input type="hidden" id="userId" th:value="${user.getUserId()}">-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">赛事分类</label>
+        <div class="layui-input-block">
+            <select id="category" name="category"  lay-verify="required">
+                <option th:each="category:${categorys}" th:value="${category.categoryId}" th:text="${category.categoryName}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">同步远端数据</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        form.render();
+    });
+
+    $("#save").click(function () {
+        var categoryId= $("#category").val();
+        $.get("/competition/syncCloudData", {
+            categoryId: parseInt(categoryId)
+        },function(res){
+            if(utils.response.isErrorByCode(res)){
+                if(res.code == 300 || res.code == 400){
+                    return layer.msg(res.msg);
+                }
+                return layer.msg("同步失败");
+            }
+            location.reload();
+        })
+    })
+</script>

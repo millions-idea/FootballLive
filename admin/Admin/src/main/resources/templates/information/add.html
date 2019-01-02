@@ -26,6 +26,7 @@
         </div>
 
     </div>
+
     <!--广告内容结束-->
     <div class="layui-form-item">
         <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
@@ -57,8 +58,6 @@
             'link',  // 插入链接
             'justify',  // 对齐方式
             'image',  // 插入图片
-            'undo',  // 撤销
-            'redo'  // 重复
         ];
         // 隐藏“网络图片”tab
         editor.customConfig.showLinkImg = false;
@@ -117,9 +116,7 @@
                     data: {liveId:data.data[0].liveId},    //参数值
                     type: "post",   //请求方式
                     success: function (data) {
-
                         if (data.code == 200) {
-                            debugger;
                             $("#game").val(data.msg.gameName);
                             $("#gameId").val(data.msg.gameId)
                         }

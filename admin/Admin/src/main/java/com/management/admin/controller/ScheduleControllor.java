@@ -2,16 +2,20 @@ package com.management.admin.controller;
 
 import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.ICompetitionService;
+import com.management.admin.biz.IGameService;
 import com.management.admin.biz.IScheduleService;
 import com.management.admin.biz.ITeamService;
 import com.management.admin.entity.db.Game;
 import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.Schedule;
 import com.management.admin.entity.db.Team;
+import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.ScheduleGameTeam;
 import com.management.admin.entity.dbExt.TeamCompetition;
+import com.management.admin.entity.dbExt.TeamDetail;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
+import com.management.admin.exception.InfoException;
 import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +24,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * @ClassName TeamControllor
@@ -41,7 +44,8 @@ public class ScheduleControllor {
     private ITeamService teamService;
     @Autowired
     private ICompetitionService competitionService;
-
+    @Autowired
+    private IGameService gameService;
 
     /**
      * 跳转到赛程管理界面
@@ -124,19 +128,21 @@ public class ScheduleControllor {
     public String updateSchedule(final Model model,Integer scheduleId){
 
         List<Game> games=competitionService.getGames();
-        List<Team> teams=teamService.getAllTeams();
 
-        ScheduleGameTeam scheduleGameTeam=scheduleService.selectScheduleById(scheduleId);
-
+        ScheduleGameTeam scheduleGameTeam = scheduleService.selectScheduleById(scheduleId);
 
 
-        String tameIds=scheduleGameTeam.getTeamId();
-        String[] split = tameIds.split(",");
+        String teamIds = scheduleGameTeam.getTeamId();
+        String[] split = teamIds.split(",");
+
+        List<Team> teams = teamService.getTeams(teamIds);
 
         Map<String,Integer> statuses = new HashMap<>();
         statuses.put("未开始", 0);
         statuses.put("正在直播", 1);
         statuses.put("已结束", 2);
+        statuses.put("延迟", 3);
+        statuses.put("未知", 4);
 
         String primaryId=split[0];
         String secondId=split[1];
@@ -177,4 +183,63 @@ public class ScheduleControllor {
         return JsonResult.failing();
     }
 
+    /**
+     * 获取所有赛事信息列表 DF 2018年12月29日12:57:21
+     * @return
+     */
+    @GetMapping("getGames")
+    @ResponseBody
+    public JsonArrayResult<Game> getGames(){
+        List<Game> gameList = competitionService.getGames();
+        return new JsonArrayResult<>(0, gameList);
+    }
+
+    /**
+     * 获取球队信息列表 DF 2018年12月29日13:27:13
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("getTeams")
+    @ResponseBody
+    public JsonArrayResult<Team> getTeams(Integer categoryId, Integer gameId){
+        List<Team> teamList = new ArrayList<>();
+        if(categoryId != null){
+            teamList = gameService.getTeams(categoryId);
+        }
+        if(gameId != null){
+            TeamDetail team = teamService.getTeam(gameId);
+            if(team == null) throw new InfoException("暂无关联球队");
+            teamList = gameService.getTeams(team.getCategoryId());
+        }
+        return new JsonArrayResult<>(0, teamList);
+    }
+
+
+    /**
+     * 开通直播间 DF 2019年1月2日04:26:58
+     * @return
+     */
+    @GetMapping("openLive")
+    @ResponseBody
+    @WebLog(section = "OpenLive",content = "开通直播间")
+    public JsonResult openLive(Integer scheduleId){
+        if(scheduleService.openLive(scheduleId)){
+            return JsonResult.successful();
+        }
+        return JsonResult.failing();
+    }
+
+    @GetMapping("/live")
+    public String live(final Model model) {
+        return "schedule/live";
+    }
+
+
+    @GetMapping("openLives")
+    @ResponseBody
+    @WebLog(section = "OpenLives",content = "批量开通直播间")
+    public JsonResult openLives(){
+        scheduleService.openLives();
+        return JsonResult.successful();
+    }
 }

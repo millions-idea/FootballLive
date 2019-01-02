@@ -1,15 +1,15 @@
 package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IInformationService;
-import com.management.admin.entity.db.AdminUser;
 import com.management.admin.entity.db.Information;
-import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
-import com.management.admin.entity.enums.UserRoleEnum;
+import com.management.admin.entity.dbExt.LiveScheduleDetail;
+import com.management.admin.exception.InfoException;
 import com.management.admin.repository.GameMapper;
 import com.management.admin.repository.InformationMapper;
 import com.management.admin.repository.LiveMapper;
+import com.management.admin.repository.ScheduleMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,12 +24,14 @@ public class InformationServiceImpl implements IInformationService {
     private InformationMapper informationMapper;
     private LiveMapper liveMapper;
     private GameMapper gameMapper;
+    private final ScheduleMapper scheduleMapper;
 
     @Autowired
-    public InformationServiceImpl(InformationMapper informationMapper, LiveMapper liveMapper, GameMapper gameMapper) {
+    public InformationServiceImpl(InformationMapper informationMapper, LiveMapper liveMapper, GameMapper gameMapper, ScheduleMapper scheduleMapper) {
         this.informationMapper = informationMapper;
         this.liveMapper = liveMapper;
         this.gameMapper = gameMapper;
+        this.scheduleMapper = scheduleMapper;
     }
 
     /**
@@ -40,6 +42,7 @@ public class InformationServiceImpl implements IInformationService {
      */
     @Override
     public Integer insertInformation(Information information) {
+        if(information.getIsHot() == null) information.setIsHot(0);
         return informationMapper.insertInformation(information);
     }
 
@@ -106,8 +109,42 @@ public class InformationServiceImpl implements IInformationService {
      * @return
      */
     @Override
-    public Integer modifyInfromation(Information information) {
-        return informationMapper.modifyInformationById(information);
+    @Transactional
+    public boolean modifyInfromation(InformationDetail information) {
+        //编辑情报
+        if(information.getIsHot() == null) information.setIsHot(0);
+        boolean result = informationMapper.modifyInformationById(information) > 0;
+        if(!result) throw new InfoException("编辑情报失败");
+
+        //编辑预测结果
+        if((information.getScheduleGrade() != null && information.getScheduleGrade().length() > 0)
+                ||
+                (information.getScheduleResult() != null && information.getScheduleResult().length() > 0)
+                ||
+                information.getWinTeamId() != null){
+            StringBuffer buffer = new StringBuffer();
+            if(information.getScheduleGrade() != null && information.getScheduleGrade().length() > 0){
+                buffer.append(" schedule_grade=#{scheduleGrade},");
+            }
+            if(information.getScheduleResult() != null && information.getScheduleResult().length() > 0){
+                buffer.append(" schedule_result=#{scheduleResult},");
+            }
+            if(information.getWinTeamId() != null){
+                buffer.append(" win_team_id=#{winTeamId},");
+            }
+            String sql = buffer.toString();
+            if(sql.contains(",")){
+                String[] split = sql.split(",");
+                if(split.length > 1){
+                    sql = sql.substring(0, sql.length() - 1);
+                }
+            }
+            result = scheduleMapper.updateInformation(information.getScheduleGrade(), information.getScheduleResult()
+                    , information.getWinTeamId(), information.getLiveId(), sql + " ") > 0;
+            if(!result) throw new InfoException("编辑预测结果失败");
+        }
+
+        return result;
     }
 
     /**
@@ -202,5 +239,15 @@ public class InformationServiceImpl implements IInformationService {
             informationDetail.setScheduleStatusStr("已结束");
         }
         return informationDetail;
+    }
+
+    /**
+     * 获取热门赛事情报信息 DF 2018年12月30日23:39:45
+     *
+     * @return
+     */
+    @Override
+    public List<LiveScheduleDetail> getHotInformations() {
+        return informationMapper.selectHotInformations();
     }
 }

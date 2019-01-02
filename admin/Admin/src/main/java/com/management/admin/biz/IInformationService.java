@@ -5,6 +5,7 @@ import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.InformationDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import com.management.admin.entity.enums.UserRoleEnum;
 
 import java.util.List;
@@ -60,7 +61,7 @@ public interface IInformationService {
      * @param information
      * @return
      */
-    Integer modifyInfromation(Information information);
+    boolean modifyInfromation(InformationDetail information);
 
     /**
      * 查询赛事BY直播间
@@ -85,5 +86,9 @@ public interface IInformationService {
     InformationDetail queryInformationById(Integer isrId);
 
 
-
+    /**
+     * 获取热门赛事情报信息 DF 2018年12月30日23:39:45
+     * @return
+     */
+    List<LiveScheduleDetail> getHotInformations();
 }

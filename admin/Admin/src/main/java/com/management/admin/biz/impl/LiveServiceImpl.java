@@ -120,9 +120,6 @@ public class LiveServiceImpl implements ILiveService {
             if(result<0) throw new InfoException("同步数据库数据失败");*/
         });
 
-
-
-
         return liveMapper.deleteLive(liveId);
     }
 
@@ -145,6 +142,7 @@ public class LiveServiceImpl implements ILiveService {
         live.setLiveDate(liveDetail.getLiveDate());
         live.setLiveTitle(liveDetail.getLiveTitle());
         live.setSourceUrl(liveDetail.getSourceUrl());
+        if(liveDetail.getAdId() == null) liveDetail.setAdId(0);
         live.setAdId(liveDetail.getAdId());
         // 设置赛事
         live.setScheduleId(scheduleMapper.queryScheduleByGameId(liveDetail.getGameId()).getScheduleId());
@@ -195,6 +193,7 @@ public class LiveServiceImpl implements ILiveService {
         live.setLiveDate(liveDetail.getLiveDate());
         live.setLiveTitle(liveDetail.getLiveTitle());
         live.setSourceUrl(liveDetail.getSourceUrl());
+        if(liveDetail.getAdId() == null) liveDetail.setAdId(0);
         live.setAdId(liveDetail.getAdId());
         live.setStatus(0);
         // 设置赛事

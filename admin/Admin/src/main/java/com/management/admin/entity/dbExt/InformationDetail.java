@@ -42,4 +42,12 @@ public class InformationDetail {
     private String addDateStr;
 
     private String scheduleStatusStr;
+
+    private Integer isHot;
+
+
+    private String scheduleResult;
+    private String scheduleGrade;
+    private Integer winTeamId;
+    private String winTeamName;
 }

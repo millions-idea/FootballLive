@@ -120,7 +120,7 @@ public interface LiveMapper extends MyMapper<Live>{
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.status = 1 " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.is_hot = 1 " + // AND t2.status = 1
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectHotLives();
  /**
@@ -206,4 +206,12 @@ public interface LiveMapper extends MyMapper<Live>{
     @Insert("INSERT INTO tb_lives (live_title, live_date, schedule_id, `status`, share_count, collect_count, source_url, ad_id, add_date) " +
             "VALUES(" + "#{liveTitle}," + "#{liveDate}," + "#{scheduleId}," + "0,0,0," + "#{sourceUrl}," + "0," + "NOW()" + ")")
     int addLive(Live live);
+
+    /**
+     * 查询直播间 DF 2018年12月29日18:39:29
+     * @param scheduleId
+     * @return
+     */
+    @Select("SELECT * FROM tb_lives WHERE schedule_id=#{scheduleId} LIMIT 1")
+    Live selectBySchedule(@Param("scheduleId") Integer scheduleId);
 }

@@ -1,6 +1,7 @@
 package com.management.admin.entity.db;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,11 +27,13 @@ public class Schedule {
     /**
      * 赛事id
      */
+    @Ignore
     private Integer gameId;
 
     /**
      * 球队id(支持多个)
      */
+    @Ignore
     private String  teamId;
 
     /**
@@ -70,7 +73,25 @@ public class Schedule {
      */
     private Integer winTeamId;
 
+    @Ignore
     private Integer masterTeamId;
+
+    @Ignore
     private Integer targetTeamId;
+
+    private Integer isHot;
+
+    @Ignore
+    private Integer cloudId;
+    private Date editDate;
+
+
+    private Integer masterRedChess;
+    private Integer masterYellowChess;
+    private Integer masterCornerKick;
+
+    private Integer targetRedChess;
+    private Integer targetYellowChess;
+    private Integer targetCornerKick;
 
 }

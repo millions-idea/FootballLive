@@ -53,30 +53,16 @@
             </select>
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">比赛结果</label>
-        <div class="layui-input-block">
-            <input type="text" id="scheduleResult"   required  lay-verify="required" placeholder="赛事结果"
-                   th:value="${scheduleGameTeam.scheduleResult}"   autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">成绩</label>
-        <div class="layui-input-block">
-            <input type="text" id="scheduleGrade"   required  lay-verify="required" placeholder="请输入成绩"
-                   th:value="${scheduleGameTeam.scheduleGrade}"  autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">胜利方</label>
-        <div class="layui-input-block">
-            <select id="winTeamId"  lay-verify="required">
-                <option th:if="${scheduleGameTeam.winTeamId}!=${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
-                <option th:if="${scheduleGameTeam.winTeamId}==${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}" selected></option>
-            </select>
-        </div>
-    </div>
 
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">首页热推</label>
+        <div class="layui-input-block">
+            <input type="checkbox" id="pushHome" name="like[push]" title="推荐" th:if="${scheduleGameTeam.isHot==1}" checked>
+            <input type="checkbox" id="pushHome" name="like[push]" title="推荐" th:if="${scheduleGameTeam.isHot==0}">
+        </div>
+    </div>
 
     <script>
         layui.use('laydate', function(){
@@ -113,8 +99,7 @@
         var scheduleResult=$("#scheduleResult").val();
         var scheduleGrade=$("#scheduleGrade").val();
         var winTeamId=$("#winTeamId").val();
-
-
+        var isHot= $("input[name='like[push]']").next().hasClass("layui-form-checked") ? 1 : 0;
 
 
         var schedule={}
@@ -130,6 +115,7 @@
         schedule.winTeamId=winTeamId;
         schedule.masterTeamId = primaryTeam;
         schedule.targetTeamId = secondTeam;
+        schedule.isHot = isHot;
 
         if (primaryTeam==secondTeam) {
             layer.msg("选择有误");

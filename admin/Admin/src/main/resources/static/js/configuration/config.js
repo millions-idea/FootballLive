@@ -55,28 +55,28 @@ layui.use('upload', function () {
  //滚动图1地址上传
     $("#btnUrl1").click(function () {
         var bannerUrl1=$("#bannerUrl1").val();
-        if (bannerUrl1==""||bannerUrl1.length==0){
+        /*if (bannerUrl1==""||bannerUrl1.length==0){
             layer.msg("地址不能为空");
             return false;
-        }
+        }*/
         uploadConfig("banner.image1.targetUrl",bannerUrl1);
     })
     //滚动图2地址上传
     $("#btnUrl2").click(function () {
         var bannerUrl2=$("#bannerUrl2").val();
-        if (bannerUrl2==""||bannerUrl2.length==0){
+        /*if (bannerUrl2==""||bannerUrl2.length==0){
             layer.msg("地址不能为空");
             return false;
-        }
+        }*/
         uploadConfig("banner.image2.targetUrl",bannerUrl2);
     })
     //滚动图3地址上传
     $("#btnUrl3").click(function () {
         var bannerUrl3=$("#bannerUrl3").val();
-        if (bannerUrl3==""||bannerUrl3.length==0){
+        /*if (bannerUrl3==""||bannerUrl3.length==0){
             layer.msg("地址不能为空");
             return false;
-        }
+        }*/
         uploadConfig("banner.image3.targetUrl",bannerUrl3);
     })
     //全站广告图

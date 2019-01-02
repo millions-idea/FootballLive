@@ -136,7 +136,8 @@
 	display: block;
 	text-align: center;
 	margin:0 auto;
-	
+	max-width: 50px;
+	max-height: 50px;
 }
 
 .live .content .right{
@@ -157,11 +158,20 @@ padding-top: 9px;
 width:30%;
 	
 font-size: 15px;
+	
+overflow: hidden;
 }
 
 .live .content .left span, .live .content .right span{
 	line-height: 35px;
 	color: #616161;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	max-width: 100px;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
 }
 
 
@@ -228,4 +238,14 @@ font-size: 15px;
 	background-color: #ffffff;
 	border-top: 1px solid #f3f3f3;
 	font-size: 12px;
+}
+
+
+.notvs{
+	background-image: url("") !important;
+	background-position: center 95px  !important;
+}
+
+.notvs .info{
+	bottom: 0px !important;
 }

@@ -10,6 +10,7 @@ package com.management.admin.biz;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameCategory;
 import com.management.admin.entity.dbExt.TeamCompetition;
+import com.management.admin.entity.dbExt.TeamDetail;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
@@ -55,4 +56,12 @@ public interface ITeamService {
      * @return
      */
     boolean deleteTeam(Integer teamId);
+
+
+    /**
+     * 获取团队信息 DF 2018年12月30日17:51:33
+     * @param gameId
+     * @return
+     */
+    TeamDetail getTeam(Integer gameId);
 }

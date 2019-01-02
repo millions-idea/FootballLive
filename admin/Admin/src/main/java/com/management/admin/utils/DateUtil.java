@@ -1283,6 +1283,8 @@ public final class DateUtil implements Serializable {
 		return newValue;
 	}
 
+
+
 	/**
 	 * 时间戳转时间(10位时间戳)
 	 * @param time
@@ -1294,5 +1296,21 @@ public final class DateUtil implements Serializable {
 		long timeLong = Long.valueOf(time);
 		dateTime = simpleDateFormat.format(new Date(timeLong * 1000L));
 		return dateTime;
+	}
+
+	/**
+	 * 字符串转时间
+	 * @param time
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date stringToDate(String time) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			return sdf.parse(time);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

@@ -1,12 +1,12 @@
 window.nimService = null;
-
 window.nimData = null;
 
 window.app = {
 	config: {
 		title: "卫星体育",
 		brand: "卫星体育",
-		apiUrl: "http://8xuxhi.natappfree.cc/",
+//		apiUrl: "http://l.512ck.cn/",
+		apiUrl: "http://stack-app.natapp1.cc/",
 		shareUrl: "http://app.512ck.cn/",
 		version: "1.7.9"
 	},
@@ -279,6 +279,13 @@ window.app = {
 				list: list
 			})
 		},
+		
+		rawParam: function(list){
+			return template("runnerImageTemplate", {
+				list: list
+			})
+		},
+		
 		
 		
 		copyTo: function(copy_content){

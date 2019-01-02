@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="mdate/needcss/Mdate.css" rel="stylesheet" />
+		<link href="css/icon.fonts.css" rel="stylesheet" />
+		<link href="css/icon.football.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/ui.css" />
+		<link href="css/main.css" rel="stylesheet" />
+		<link href="css/reset.css" rel="stylesheet" />
+		<link href="css/mui.dtpicker.css" rel="stylesheet" /> 
+		<link href="css/lives.css" rel="stylesheet" /> 
+		<link href="css/score.css" rel="stylesheet" /> 
+		<style>
+			.content .left-hot .icon{
+				position: relative;
+				left: -1px;
+				top: -16px;
+				font-size: 35px;
+				color: #FE4541;
+				float: left;
+			}
+			
+			.content .left-hot img, .content .left-hot span{
+				position: relative;
+				left: -15px;
+			}
+			
+			
+			
+			.content .right-hot .icon{
+				position: relative;
+				right: -1px;
+				top: -18px;
+				font-size: 35px;
+				color: #FE4541;
+				float: right;
+			}
+			
+			.content .right-hot img, .content .right-hot span{
+				position: relative;
+				right: -15px;
+			}
+		</style>
+		<script src="js/template-web.js"></script>
+	</head>
+		<header class="mui-bar mui-bar-nav nav-default-backColor category-navgation">
+			<h1 class="mui-title nav-title showCategory">
+				...
+				<i class="icon iconfont icon-webicon215"></i>
+			</h1> 
+		</header> 
+	
+		<div class="mui-content" id="refreshContainer">
+			<input type="hidden" id="gameId" value="" />
+			<input type="hidden" id="liveCategoryId" value="" />
+			<input type="hidden" id="date" value="" />
+			<input type="hidden" id="currentIndex" value="" />
+
+
+			
+		    <!--category begin-->
+		    <div class="category">
+		    	<ul>
+
+		    	</ul>
+		    </div>
+		    <!--category end-->
+		    
+		    
+		    <!--date begin-->
+		    <div class="date" id="dateSelector"> 
+		    	<i class="icon iconfont icon-rili icon-color-gray left"></i>
+		    	<span>-/-/- -</span>
+		    </div>
+		    <!--date end-->
+		    
+		    <div class="padding-top-10"></div>
+		    
+		  
+		  	<!--score begin-->
+		  	<ul class="score-list">
+		  		<li>
+		  			<div>
+		  				<div class="score-left">
+		  					<span class="game">亚洲杯</span>
+		  				</div>
+		  				<div class="score-center">
+							<div class="score-status ease">
+								<span>18:00</span>
+								<span class="bold">未开</span>
+							</div>
+							<div class="score-teams">
+								<span class="team">阿尔维达特</span>
+								<span class="marking-vs">VS</span>
+								<span class="team">萨哈布</span>
+							</div>
+		  				</div>
+		  				<div class="score-right">
+		  					<a class="top-icon icon iconfont icon-shoucang1 mui-pull-right collect"></a>
+		  				</div>
+		  			</div>
+		  		</li>
+		  		
+		  		<li>
+		  			<div>
+		  				<div class="score-left">
+		  					<span class="game">亚洲杯</span>
+		  				</div>
+		  				<div class="score-center">
+							<div class="score-status ease">
+								<span>18:00</span>
+								<span class="bold">未开</span>
+								<span class="stress-green">视频</span>
+							</div>
+							<div class="score-teams">
+								<span class="team">阿尔维达特</span>
+								<span class="marking-grade">1:1</span>
+								<span class="team">萨哈布</span>
+							</div>
+		  				</div>
+		  				<div class="score-right">
+		  					<a class="top-icon icon iconfont icon-shoucang1 mui-pull-right collect"></a>
+		  				</div>
+		  			</div>
+		  		</li>
+		  		
+		  		<li>
+		  			<div>
+		  				<div class="score-left">
+		  					<span class="game">亚洲杯</span>
+		  				</div>
+		  				<div class="score-center">
+							<div class="score-status ease">
+								<span>18:00</span>
+								<span class="bold information">情报</span>
+								<span class="stress-green">视频</span>
+							</div>
+							<div class="score-teams">
+								<span class="team">阿尔维达特</span>
+								<span class="marking-grade">1:1</span>
+								<span class="team">萨哈布</span>
+							</div>
+		  				</div>
+		  				<div class="score-right">
+		  					<a class="top-icon icon iconfont icon-shoucang1 mui-pull-right collect"></a>
+		  				</div>
+		  			</div>
+		  		</li>
+		  		
+		  		
+		  		<li>
+		  			<div>
+		  				<div class="score-left">
+		  					<span class="game">亚洲杯</span>
+		  				</div>
+		  				<div class="score-center">
+							<div class="score-status ease">
+								<span>18:00</span>
+								<span class="bold start">开场</span>
+								<span class="stress-green">直播</span>
+							</div>
+							<div class="score-teams">
+								<span class="team">阿尔维达特</span>
+								<span class="marking-grade">1:1</span>
+								<span class="team">萨哈布</span>
+							</div>
+		  				</div>
+		  				<div class="score-right">
+		  					<a class="top-icon icon iconfont icon-shoucang1 mui-pull-right collect"></a>
+		  				</div>
+		  			</div>
+		  		</li>
+		  	</ul>
+		  	<!--score end-->
+		  
+		    
+			
+			<!--category begin-->
+			<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action " style="height: 300px;">
+				<!-- 可选择菜单 -->  
+				<div class="mui-scroll-wrapper">
+			        <div class="mui-scroll">
+						<ul class="mui-table-view live-category">
+							
+						</ul>
+			        </div>
+			    </div>
+			</div> 
+		    <!--category end-->
+		    
+		     
+		    
+		    <!--bottom navigation begin-->
+			<div class="bottom-navigation-style"></div>
+		    <!--bottom navigation end-->
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="js/mui.picker.min.js" ></script>
+		<script type="text/javascript" src="mdate/iScroll.js" ></script>
+		<script type="text/javascript" src="mdate/Mdate.js" ></script>
+		<script type="text/javascript" src="js/lives.js" ></script>
+	</body>
+
+</html>

@@ -62,4 +62,16 @@ public class ScheduleGame {
 
     private String masterTeamIcon;
     private String targetTeamIcon;
+
+
+
+    private Integer masterRedChess;
+    private Integer masterYellowChess;
+    private Integer masterCornerKick;
+
+    private Integer targetRedChess;
+    private Integer targetYellowChess;
+    private Integer targetCornerKick;
+
+    private Integer cloudId;
 }

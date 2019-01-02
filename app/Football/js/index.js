@@ -25,6 +25,8 @@ mui.plusReady(function(){
   	//plus.navigator.setStatusBarStyle("light");
 	//plus.navigator.setStatusBarBackground(app.style.barBackgroundColor);
     
+    plus.webview.currentWebview().setStyle({'popGesture':'none'});
+    
     //手动关闭启动页
     plus.navigator.closeSplashscreen();
     
@@ -123,18 +125,6 @@ mui.plusReady(function(){
 		// 批量绑定tap事件，展示不同的页面
 		mui(".mui-bar-tab").on("tap", "a", function() {
 			var tabindex = this.getAttribute("tabindex");
-			//判断是否需要登录
-
-			if(tabindex == 1 || tabindex == 2){
-				var cache = plus.storage.getItem("userInfo");
-				console.log("缓存" +cache)
-				if(cache == null) {					
-					selectDefaultIcon();
-					app.utils.openNewWindow("login.html", "login");
-					return false;
-				}
-			}
-			
 			// 显示点击的tab选项所对应的页面
 			plus.webview.show(app.pages[tabindex].id, "fade-in", 200);
 			
@@ -147,6 +137,7 @@ mui.plusReady(function(){
 			
 			// 播放动画点击效果
 			// code...
+			
 		})
 	 
 

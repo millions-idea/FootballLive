@@ -7,14 +7,12 @@
  */
 package com.management.admin.apiController;
 
-import com.management.admin.biz.IDictionaryService;
-import com.management.admin.biz.ILiveCategoryService;
-import com.management.admin.biz.ILiveService;
-import com.management.admin.biz.ITeamService;
+import com.management.admin.biz.*;
 import com.management.admin.entity.db.Dictionary;
 import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.LiveHotDetail;
+import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import com.management.admin.entity.resp.DictionaryInfo;
 import com.management.admin.entity.resp.HotGame;
 import com.management.admin.entity.resp.VersionInfo;
@@ -46,6 +44,9 @@ public class HomeApiController {
 
     @Autowired
     private ILiveCategoryService liveCategoryService;
+
+    @Autowired
+    private IInformationService informationService;
 
     /**
      * 查询首页板块聚合信息 DF 2018年12月13日17:02:55
@@ -130,5 +131,11 @@ public class HomeApiController {
         versionInfo.setUpdate(versionInfo.getVersion().contains("U") ? 1 : 0);
         versionInfo.setVersion(versionInfo.getVersion().replace("U","").trim());
         return new JsonResult().successful(versionInfo);
+    }
+
+    @GetMapping("getHotInformation")
+    public JsonArrayResult<LiveScheduleDetail> getHotInformation(){
+        List<LiveScheduleDetail> liveScheduleDetail = informationService.getHotInformations();
+        return new JsonArrayResult<LiveScheduleDetail>(liveScheduleDetail);
     }
 }

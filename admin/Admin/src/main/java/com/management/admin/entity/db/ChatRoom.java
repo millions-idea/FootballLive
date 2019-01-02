@@ -14,6 +14,8 @@ import lombok.Setter;
 import tk.mybatis.mapper.annotation.KeySql;
 import tk.mybatis.mapper.code.IdentityDialect;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -25,6 +27,9 @@ import javax.persistence.Table;
 public class ChatRoom {
     @Id
     @KeySql(dialect = IdentityDialect.MYSQL)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY,
+            generator = " SELECT LAST_INSERT_ID()")
     private Integer roomId;
 
     /**

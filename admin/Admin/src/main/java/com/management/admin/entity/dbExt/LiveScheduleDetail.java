@@ -63,4 +63,17 @@ public class LiveScheduleDetail {
      * 胜利方球队名称
      */
     private String winTeamName;
+
+
+
+
+    private Integer masterRedChess;
+    private Integer masterYellowChess;
+    private Integer masterCornerKick;
+
+    private Integer targetRedChess;
+    private Integer targetYellowChess;
+    private Integer targetCornerKick;
+
+    private Integer cloudId;
 }

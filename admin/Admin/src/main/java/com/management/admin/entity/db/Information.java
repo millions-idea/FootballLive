@@ -35,4 +35,6 @@ public class Information {
     private String content;
 
     private Date addDate;
+
+    private Integer isHot;
 }

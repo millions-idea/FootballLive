@@ -62,4 +62,10 @@ public interface ICompetitionService {
      */
     boolean  deleteCompetition(@Param("gameId") Integer gameId);
 
+    /**
+     * 同步云端赛事数据 DF 2019年1月1日18:41:42
+     * @param categoryId
+     * @return
+     */
+    boolean syncCloudData(Integer categoryId);
 }

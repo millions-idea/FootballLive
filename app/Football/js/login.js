@@ -99,10 +99,15 @@ mui.plusReady(function() {
 			
 			var parentWebview = plus.webview.currentWebview().opener();
 			if(parentWebview != null){
-					console.log("调用父窗口刷新函数")
-					mui.fire(parentWebview, "asyncInfo", {});
+				mui.fire(parentWebview, "asyncInfo", {});
 			}
  
+ 			var view = plus.webview.getWebviewById("my");
+			console.log("载入窗口" + view);
+			if(view != null){
+				mui.fire(view, "asyncInfo", {});
+			}
+				
 			
 			plus.navigator.setStatusBarStyle("dark");
 			plus.navigator.setStatusBarBackground("#F3F3F3");

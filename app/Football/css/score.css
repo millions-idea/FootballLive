@@ -1,0 +1,131 @@
+.score-list{
+	list-style: none;
+}
+
+.score-list{
+	display: block;
+	height: 70px;
+	background-color: #fff; 
+}
+
+.score-list li{
+	display: block;
+	border-bottom: 3px solid #F2F2F2;
+	height: 75px;
+	
+}
+
+.score-left, .score-center, .score-right{
+	line-height: 70px;
+}
+
+.score-left{
+	float: left;
+	clear: right;
+	width: 15%;
+}
+
+.score-center{
+	float: left;
+	clear: right;
+	width: 70%;
+
+}
+
+.score-right{
+	float: left;
+	clear: right;
+	width: 15%;
+}
+
+.score-center div{
+	display: block;
+}
+
+.score-center .score-status{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+
+}
+
+.score-center .score-status span{
+	display: inline-block;
+}
+
+
+.score-center .score-teams{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.ease{
+	color:#797979;
+	font-size: 12px;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.stress-green{
+	background-color: #6824B9;
+	border-radius: 5px;
+	width: 40px;
+	height: 18px;
+	line-height: 18px;
+	color: #fff;
+	font-size: 12px;
+}
+
+.score-teams .team{
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.score-teams .marking-vs{
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+}
+
+
+.score-right .collect{
+	color: #fc6b63;
+	font-size: 25px;
+	position: relative;
+	right: 15px;
+}
+
+.score-left .game{
+	text-align: center;
+	font-size: 12px;
+	display: inline-block;
+	width: 100%;
+	color: #989898;
+	height: 20px;
+	line-height: 20px;
+	font-weight: bold;
+	position: relative;
+	top: -20px;
+}
+
+
+.marking-grade{
+	color: #41990E;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+.information{
+	color: #0D6DC0;
+	font-weight: bold;
+}
+
+.start{
+	color: #FA0902;
+	font-weight: bold;
+}

@@ -61,4 +61,6 @@ public class Live {
      * 添加时间
      */
     private Date addDate;
+    private Date editDate;
+
 }

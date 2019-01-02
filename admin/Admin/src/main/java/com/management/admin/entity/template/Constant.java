@@ -42,7 +42,7 @@ public interface Constant {
      */
     String RECYCLE = "RECYCLE";
 
-    /**
+    /**-
      * 系统账户id
      */
     Integer SYSTEM_ACCOUNTS_ID = 1;
@@ -102,6 +102,10 @@ public interface Constant {
     String BindDomain = "app.512ck.cn,yabolive.512ck.cn,l.512ck.cn,live.512ck.cn,localhost";
 
     String BindAdminDomain = "yabolive.512ck.cn";
+
+    String NamiUser = "yeqing";
+
+    String NamiSecret = "ys57ytxt4h2hpkxx";
 
     Boolean DebugMode = true;
 }

@@ -77,6 +77,11 @@ function initService(r) {
             $.get("/competition/add", param, function (data) {
                 callback(data);
             });
+        },
+        syncData: function (callback) {
+            $.get("/competition/syncData", function (data) {
+                callback(data);
+            });
         }
     }
 }

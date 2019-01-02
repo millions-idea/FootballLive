@@ -194,7 +194,24 @@ function getTableColumns() {
         , {field: 'scheduleStatus', title: '赛事状态', width: 150 , sort: true, templet: function (d) {
                 return d.scheduleStatus == null ? '' : utils.scheduleStatus.scheduleStatusInfo(d.scheduleStatus);
             }}
-        , {field: 'content', title: '情报', width: 180}
+        , {field: 'scheduleResult', title: '预测结果', width: 150, templet: function (d) {
+                if (d.scheduleResult==null||d.scheduleResult.length==0){
+                    return '——'
+                }
+                return d.scheduleResult;
+            }}
+        , {field: 'scheduleGrade', title: '比赛成绩', width: 150, templet: function (d) {
+                if (d.scheduleGrade==null||d.scheduleGrade.length==0){
+                    return '——'
+                }
+                return d.scheduleGrade;
+            }}
+        , {field: 'winTeamName', title: '胜利方', width: 150, templet: function (d) {
+                if (d.winTeamName == null || d.winTeamName.length ==0){
+                    return '——'
+                }
+                return d.winTeamName;
+            }}
         , {fixed: 'right',title: '操作', width: 160, align: 'center', templet: function(d){
                 var html = "";
                 html+='<a name="item-view" class="layui-btn layui-btn layui-btn-xs" lay-event="details">详情</a>';

@@ -16,7 +16,7 @@ import java.util.List;
  * Version 1.0
  **/
 @Mapper
-public interface CompetitionMapper {
+public interface CompetitionMapper extends MyMapper<Game> {
 
     @Select("select * from tb_games where is_delete=0")
     /**

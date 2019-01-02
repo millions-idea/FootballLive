@@ -14,6 +14,7 @@ import lombok.Setter;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Table(name = "tb_teams")
 @AllArgsConstructor
@@ -21,9 +22,11 @@ import javax.persistence.Table;
 @Getter
 @Setter
 public class Team {
-    @Id
     private Integer teamId;
     private String teamName;
     private String teamIcon;
     private Integer gameId;
+    private Integer cloudId;
+    private Date editDate;
+
 }
