@@ -117,20 +117,20 @@ public class InformationServiceImpl implements IInformationService {
         if(!result) throw new InfoException("编辑情报失败");
 
         //编辑预测结果
-        if((information.getScheduleGrade() != null && information.getScheduleGrade().length() > 0)
+        if((information.getForecastGrade() != null && information.getForecastGrade().length() > 0)
                 ||
-                (information.getScheduleResult() != null && information.getScheduleResult().length() > 0)
+                (information.getForecastResult() != null && information.getForecastResult().length() > 0)
                 ||
-                information.getWinTeamId() != null){
+                information.getForecastTeamId() != null){
             StringBuffer buffer = new StringBuffer();
-            if(information.getScheduleGrade() != null && information.getScheduleGrade().length() > 0){
-                buffer.append(" schedule_grade=#{scheduleGrade},");
+            if(information.getForecastGrade() != null && information.getForecastGrade().length() > 0){
+                buffer.append(" forecast_grade=#{forecastGrade},");
             }
-            if(information.getScheduleResult() != null && information.getScheduleResult().length() > 0){
-                buffer.append(" schedule_result=#{scheduleResult},");
+            if(information.getForecastResult() != null && information.getForecastResult().length() > 0){
+                buffer.append(" forecast_result=#{forecastResult},");
             }
-            if(information.getWinTeamId() != null){
-                buffer.append(" win_team_id=#{winTeamId},");
+            if(information.getForecastTeamId() != null){
+                buffer.append(" forecast_team_id=#{forecastTeamId},");
             }
             String sql = buffer.toString();
             if(sql.contains(",")){
@@ -139,8 +139,8 @@ public class InformationServiceImpl implements IInformationService {
                     sql = sql.substring(0, sql.length() - 1);
                 }
             }
-            result = scheduleMapper.updateInformation(information.getScheduleGrade(), information.getScheduleResult()
-                    , information.getWinTeamId(), information.getLiveId(), sql + " ") > 0;
+            result = scheduleMapper.updateInformation(information.getForecastGrade(), information.getForecastResult()
+                    , information.getForecastTeamId(), information.getIsrId(), sql + " ") > 0;
             if(!result) throw new InfoException("编辑预测结果失败");
         }
 

@@ -242,11 +242,11 @@ public class LiveApiController {
             scheduleGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
             scheduleGame.setSourceUrl(item.getSourceUrl());
             scheduleGame.setCategoryId(item.getCategoryId());
-            scheduleGame.setScheduleResult(item.getScheduleResult());
-            scheduleGame.setScheduleGrade(item.getScheduleGrade());
+            scheduleGame.setScheduleResult(item.getForecastResult());
+            scheduleGame.setScheduleGrade(item.getForecastGrade());
             scheduleGame.setWinTeamIcon(item.getWinTeamIcon());
             scheduleGame.setWinTeamName(item.getWinTeamName());
-            scheduleGame.setWinTeamId(item.getWinTeamId());
+            scheduleGame.setWinTeamId(item.getForecastTeamId());
 
             scheduleGame.setGameId(item.getGameId());
             scheduleGame.setGameName(item.getGameName());

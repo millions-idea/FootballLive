@@ -152,9 +152,11 @@ public class LiveServiceImpl implements ILiveService {
         Integer result = liveMapper.insert(live);
         if(result > 0){
             //创建云信聊天室(群组)
-            String response = NeteaseImUtil.post("nimserver/team/create.action",
-                    "owner=" + Constant.HotAccId + "&tname=" + liveDetail.getLiveTitle() + "&members=" + JsonUtil.getJson(new String[]{Constant.HotAccId})
-                            + "&msg=live&magree=0&joinmode=0");
+
+            String json = "owner=" + Constant.HotAccId + "&tname=" + liveDetail.getLiveTitle() + "&members=" + JsonUtil.getJson(new String[]{Constant.HotAccId})
+                    + "&msg=live&magree=0&joinmode=0";
+
+            String response = NeteaseImUtil.post("nimserver/team/create.action",json);
             NAGroup model = JsonUtil.getModel(response, NAGroup.class);
             if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
 

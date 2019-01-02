@@ -2,7 +2,123 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="183d7e51-af01-49ca-979f-f135bf1000af" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.tgitconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/ScheduleApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/ScheduleLiveDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/TeamDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMOdds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMOddsEvents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMOddsTeams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMSeason.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMSeasonAreas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMSeasonCompetitions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMSeasonCountries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/NMSeasonItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateScheduleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/http/NamiUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/competition/syncData.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/live.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/Football/css/score.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/Football/images/hot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/Football/score.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../admin/Admin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/Admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/GameApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/GameApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/HomeApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/HomeApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/LiveApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/apiController/LiveApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/ICompetitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/ICompetitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/IGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/IGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/IInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/IInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/IScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/IScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/ITeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/ITeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/GameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/GameServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/AdminControllor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/AdminControllor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/CompetitionControllor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/CompetitionControllor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/InformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/InformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/LiveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/LiveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/ScheduleControllor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/controller/ScheduleControllor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/ChatRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Live.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Live.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/db/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/InformationDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/InformationDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/ScheduleGameTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/dbExt/ScheduleGameTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/template/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/entity/template/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/AdminUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/AdminUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/ChatRoomMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/ChatRoomMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/CompetitionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/CompetitionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/GameMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/GameMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/InformationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/InformationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/LiveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/LiveMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/MyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/MyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/TeamMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/TeamMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/repository/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/IdWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/IdWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/http/CosUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/http/CosUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/web/SessionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/java/com/management/admin/utils/web/SessionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/base/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/base/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/competition/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/competition/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/configuration/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/configuration/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/information/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/information/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/live/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/live/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/schedule/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/static/js/schedule/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/competition/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/competition/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/information/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/information/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/information/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/information/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/information/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/information/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/live/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/live/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/live/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/live/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/live/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/live/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../admin/Admin/src/main/resources/templates/schedule/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/css/icon.football.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/icon.football.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/css/lives.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/lives.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/findPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/findPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/default/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/default/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/default/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/default/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/default/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/default/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/default/b1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/default/b1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/default/b2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/default/b2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/default/b3.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/default/b3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/images/runner.image.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/images/runner.image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/informations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/findPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/findPassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/informations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/informations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/lives.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/lives.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/js/reg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/reg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/liveDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/liveDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/lives.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/lives.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/reg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,33 +142,41 @@
     <session id="-705951485">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="475">
+              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/utility/http/HttpUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+            <state relative-caret-position="41">
+              <caret line="32" column="67" selection-start-line="32" selection-start-column="61" selection-end-line="32" selection-end-column="67" />
               <folding>
                 <element signature="docComment;class#HttpUtil#0" />
-                <element signature="docComment;method#get#0;class#HttpUtil#0" />
-                <element signature="method#get#0;class#HttpUtil#0" />
                 <element signature="docComment;method#post#0;class#HttpUtil#0" />
                 <element signature="method#post#0;class#HttpUtil#0" />
                 <element signature="docComment;method#postForm#0;class#HttpUtil#0" />
@@ -90,9 +214,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/utility/http/HttpUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utility/http/NeteaseUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utility/http/NeteaseHttpUtil.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/utility/http/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/utility/http/HttpUtil.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -121,6 +245,11 @@
           <item name="http" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="http" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
       </expand>
       <select />
     </treeState>
@@ -137,7 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -163,10 +291,38 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="http" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="http" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="utility" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="http" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="utility" type="462c0819:PsiDirectoryNode" />
+              <item name="http" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -264,16 +420,18 @@
       <workItem from="1545013613786" duration="58000" />
       <workItem from="1545014034144" duration="92000" />
       <workItem from="1545034576438" duration="16000" />
+      <workItem from="1546422911163" duration="131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5492000" />
+    <option name="totallyTimeSpent" value="5623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26652452" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26918977" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -315,25 +473,8 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/utility/http/NeteaseHttpUtil.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/utility/http/HttpUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
-          <folding>
-            <element signature="docComment;class#HttpUtil#0" />
-            <element signature="docComment;method#get#0;class#HttpUtil#0" />
-            <element signature="method#get#0;class#HttpUtil#0" />
-            <element signature="docComment;method#post#0;class#HttpUtil#0" />
-            <element signature="method#post#0;class#HttpUtil#0" />
-            <element signature="docComment;method#postForm#0;class#HttpUtil#0" />
-            <element signature="method#postForm#0;class#HttpUtil#0" />
-            <element signature="method#post#1;class#HttpUtil#0" />
-          </folding>
+        <state relative-caret-position="475">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -341,6 +482,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/utility/http/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="32" column="67" selection-start-line="32" selection-start-column="61" selection-end-line="32" selection-end-column="67" />
+          <folding>
+            <element signature="docComment;class#HttpUtil#0" />
+            <element signature="docComment;method#post#0;class#HttpUtil#0" />
+            <element signature="method#post#0;class#HttpUtil#0" />
+            <element signature="docComment;method#postForm#0;class#HttpUtil#0" />
+            <element signature="method#postForm#0;class#HttpUtil#0" />
+            <element signature="method#post#1;class#HttpUtil#0" />
+          </folding>
         </state>
       </provider>
     </entry>

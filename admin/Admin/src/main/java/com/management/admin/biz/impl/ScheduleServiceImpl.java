@@ -126,9 +126,10 @@ public class ScheduleServiceImpl implements IScheduleService {
      * @return
      */
     @Override
-    public List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit) {
+    public List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         page = ConditionUtil.extractPageIndex(page, limit);
-        List<ScheduleGameTeam> list = scheduleMapper.selectLimit(page, limit);
+        String where = extractLimitWhere(condition,state,beginTime,endTime);
+        List<ScheduleGameTeam> list = scheduleMapper.selectLimit(page, limit, state, beginTime, endTime, where);
         return list;
     }
 
@@ -480,6 +481,49 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         });
     }
+
+/**
+     * 提取分页条件
+     * @return
+     */
+    private String extractLimitWhere(String condition, Integer isEnable,  String beginTime, String endTime) {
+        // 查询模糊条件
+        String where = " 1=1";
+        if(condition != null) {
+            condition = condition.trim();
+            where += " AND (" + ConditionUtil.like("live_id", condition, true, "t4");
+            if (condition.split("-").length == 2){
+                where += " OR " + ConditionUtil.like("game_date", condition, true, "t1");
+            }
+            where += " OR " + ConditionUtil.like("game_name", condition, true, "t2");
+            where += " OR " + ConditionUtil.like("game_id", condition, true, "t2");
+            where += " OR " + ConditionUtil.like("team_id", condition, true, "t3");
+            where += " OR " + ConditionUtil.like("schedule_id", condition, true, "t1");
+
+            where += " OR " + ConditionUtil.like("team_name", condition, true, "t3");
+            where += " OR " + ConditionUtil.like("live_title", condition, true, "t4")+ ")";
+        }
+        // 取两个日期之间或查询指定日期
+        where = extractBetweenTime(beginTime, endTime, where);
+        return where.trim();
+    }
+    /**
+     * 提取两个日期之间的条件
+     * @return
+     */
+    private String extractBetweenTime(String beginTime, String endTime, String where) {
+        if ((beginTime != null && beginTime.contains("-")) &&
+                endTime != null && endTime.contains("-")){
+            where += " AND t1.game_date BETWEEN #{beginTime} AND #{endTime}";
+        }else if (beginTime != null && beginTime.contains("-")){
+            where += " AND t1.game_date BETWEEN #{beginTime} AND #{endTime}";
+        }else if (endTime != null && endTime.contains("-")){
+            where += " AND t1.game_date BETWEEN #{beginTime} AND #{endTime}";
+        }
+        return where;
+    }
+
+
 
     /**
      * 同步赛程列表 DF 2019年1月2日20:43:23

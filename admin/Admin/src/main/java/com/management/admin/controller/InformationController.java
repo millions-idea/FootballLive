@@ -148,8 +148,8 @@ public class InformationController {
 
         ScheduleGameTeam scheduleGameTeam = scheduleService.selectScheduleByInfoId(isrId);
 
-        model.addAttribute("scheduleGameTeam", scheduleGameTeam);
-        model.addAttribute("statuses",statuses);
+/*        model.addAttribute("scheduleGameTeam", scheduleGameTeam);
+        model.addAttribute("statuses",statuses);*/
 
         String teamIds = scheduleGameTeam.getTeamId();
         String[] split = teamIds.split(",");

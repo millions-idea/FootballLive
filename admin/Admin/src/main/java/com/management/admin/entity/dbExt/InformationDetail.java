@@ -45,9 +45,17 @@ public class InformationDetail {
 
     private Integer isHot;
 
-
-    private String scheduleResult;
-    private String scheduleGrade;
-    private Integer winTeamId;
+    /**
+     * 预测结果
+     */
+    private String forecastResult;
+    /**
+     * 预测比分
+     */
+    private String forecastGrade;
+    /**
+     * 预测胜利球队
+     */
+    private Integer forecastTeamId;
     private String winTeamName;
 }

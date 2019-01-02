@@ -32,7 +32,7 @@ public interface IScheduleService {
      * @param limit
      * @return
      */
-    List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit);
+    List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
 
     /**
      * 加载赛程信息列表分页记录数 DF 2018年12月17日14:40:233

@@ -194,19 +194,19 @@ function getTableColumns() {
         , {field: 'scheduleStatus', title: '赛事状态', width: 150 , sort: true, templet: function (d) {
                 return d.scheduleStatus == null ? '' : utils.scheduleStatus.scheduleStatusInfo(d.scheduleStatus);
             }}
-        , {field: 'scheduleResult', title: '预测结果', width: 150, templet: function (d) {
-                if (d.scheduleResult==null||d.scheduleResult.length==0){
+        , {field: 'forecastResult', title: '预测结果', width: 150, templet: function (d) {
+                if (d.forecastResult==null||d.forecastResult.length==0){
                     return '——'
                 }
-                return d.scheduleResult;
+                return d.forecastResult;
             }}
-        , {field: 'scheduleGrade', title: '比赛成绩', width: 150, templet: function (d) {
-                if (d.scheduleGrade==null||d.scheduleGrade.length==0){
+        , {field: 'forecastGrade', title: '预测比赛成绩', width: 150, templet: function (d) {
+                if (d.forecastGrade==null||d.forecastGrade.length==0){
                     return '——'
                 }
-                return d.scheduleGrade;
+                return d.forecastGrade;
             }}
-        , {field: 'winTeamName', title: '胜利方', width: 150, templet: function (d) {
+        , {field: 'winTeamName', title: '预测胜利方', width: 150, templet: function (d) {
                 if (d.winTeamName == null || d.winTeamName.length ==0){
                     return '——'
                 }

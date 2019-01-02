@@ -40,9 +40,31 @@
         </div>
     </div>
     <!-- 情报内容结束 -->
-   <!-- <div class="layui-form-item">
-        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
-    </div>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">预测结果</label>
+        <div class="layui-input-block">
+            <input type="text" id="scheduleResult"  placeholder="预测结果"
+                   disabled="disabled"  th:value="${informationDetail.forecastResult}"   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">预测成绩</label>
+        <div class="layui-input-block">
+            <input type="text" id="scheduleGrade" placeholder="请输入成绩"
+                   disabled="disabled"  th:value="${informationDetail.forecastGrade}"  autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">预测胜利方</label>
+        <div class="layui-input-block">
+                <input type="text" id="winTeamId" placeholder=""
+                       disabled="disabled"  th:value="${informationDetail.winTeamName}"  autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <!-- <div class="layui-form-item">
+         <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
+     </div>-->
 </div>
 
 <script type="text/javascript" src="/js/configuration/wangEditor.js"></script>

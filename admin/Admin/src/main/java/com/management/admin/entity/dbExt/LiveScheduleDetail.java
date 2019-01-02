@@ -64,6 +64,23 @@ public class LiveScheduleDetail {
      */
     private String winTeamName;
 
+    /**
+     * 查询赛程信息列表 DF 2018年12月18日02:26:40
+     * @param condition
+     * @return
+     */
+    /**
+     * 预测结果
+     */
+    private String forecastResult;
+    /**
+     * 预测比分
+     */
+    private String forecastGrade;
+    /**
+     * 预测胜利球队
+     */
+    private Integer forecastTeamId;
 
 
 

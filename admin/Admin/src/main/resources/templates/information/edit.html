@@ -32,23 +32,23 @@
         <label class="layui-form-label">预测结果</label>
         <div class="layui-input-block">
             <input type="text" id="scheduleResult"  placeholder="预测结果"
-                   th:value="${scheduleGameTeam.scheduleResult}"   autocomplete="off" class="layui-input">
+                   th:value="${informationDetail.forecastResult}"   autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">成绩</label>
+        <label class="layui-form-label">预测成绩</label>
         <div class="layui-input-block">
             <input type="text" id="scheduleGrade" placeholder="请输入成绩"
-                   th:value="${scheduleGameTeam.scheduleGrade}"  autocomplete="off" class="layui-input">
+                   th:value="${informationDetail.forecastGrade}"  autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">胜利方</label>
+        <label class="layui-form-label">预测胜利方</label>
         <div class="layui-input-block">
             <select id="winTeamId">
                 <option value="">未产生</option>
-                <option th:if="${scheduleGameTeam.winTeamId}!=${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
-                <option th:if="${scheduleGameTeam.winTeamId}==${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}" selected></option>
+                <option th:if="${informationDetail.forecastTeamId}!=${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+                <option th:if="${informationDetail.forecastTeamId}==${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}" selected></option>
             </select>
         </div>
     </div>
@@ -202,12 +202,10 @@
                 // 3获取文本内容
                 information.content =  editor.txt.html();
 
-                information.scheduleGrade = $("#scheduleGrade").val();
-                information.scheduleResult = $("#scheduleResult").val();
-                information.winTeamId = $("#winTeamId").val();
+                information.forecastGrade = $("#scheduleGrade").val();
+                information.forecastResult = $("#scheduleResult").val();
+                information.forecastTeamId = $("#winTeamId").val();
                 information.isHot = $("input[name='like[push]']").next().hasClass("layui-form-checked") ? 1 : 0;
-
-                debugger;
 
                 $.ajax({
                     url:"/management/information/setInformationContent",    //请求的url地址
