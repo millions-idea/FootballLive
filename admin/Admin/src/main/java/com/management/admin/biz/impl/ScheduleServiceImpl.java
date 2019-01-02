@@ -142,6 +142,13 @@ public class ScheduleServiceImpl implements IScheduleService {
         boolean result = liveMapper.deleteLive(live.getLiveId()) > 0;
         if(!result) throw new InfoException("删除直播间关系失败");
 
+        //删除房间与成员关系
+        result = chatRoomUserRelationMapper.deleteLive(live.getLiveId()) > 0;
+        if(!result) throw new InfoException("删除房间成员关系失败");
+
+        result = chatRoomMapper.deleteLive(live.getLiveId()) > 0;
+        if(!result) throw new InfoException("删除房间失败");
+
         //删除赛程
         result = scheduleMapper.deleteSchedule(scheduleId) > 0;
         if(!result) throw new InfoException("删除赛程关系失败");
@@ -207,6 +214,14 @@ public class ScheduleServiceImpl implements IScheduleService {
                 if(live == null) throw new InfoException("直播间不存在");
                 ChatRoom chatRoom = chatRoomMapper.selectByLive(live.getLiveId());
                 if(chatRoom != null) {
+
+                    //删除房间与成员关系
+                    result = chatRoomUserRelationMapper.deleteLive(live.getLiveId()) > 0;
+                    if(!result) throw new InfoException("删除房间成员关系失败");
+
+                    result = chatRoomMapper.deleteLive(live.getLiveId()) > 0;
+                    if(!result) throw new InfoException("删除房间失败");
+
                     String response = NeteaseImUtil.post("nimserver/team/remove.action",
                             "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId);
                     NAGroup model = JsonUtil.getModel(response, NAGroup.class);
@@ -445,7 +460,7 @@ public class ScheduleServiceImpl implements IScheduleService {
                     chatRoom.setLiveId(live.getLiveId());
                     chatRoom.setChatRoomId(model.getTid());
                     chatRoom.setFrequency(10D);//10s
-                    result = chatRoomMapper.insert(chatRoom) > 0;
+                    result = chatRoomMapper.insertOrUpdate(chatRoom) > 0;
                     if(result) {
                         //建立默认的成员关系
                         ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
@@ -453,7 +468,7 @@ public class ScheduleServiceImpl implements IScheduleService {
                         chatRoomUserRelation.setRoomId(chatRoom.getRoomId());
                         chatRoomUserRelation.setUserId(Constant.HotUserId);
                         chatRoomUserRelation.setIsBlackList(0);
-                        result = chatRoomUserRelationMapper.insert(chatRoomUserRelation) > 0;
+                        result = chatRoomUserRelationMapper.insertOrUpdate(chatRoomUserRelation) > 0;
                     }
                 }
             }
