@@ -94,4 +94,6 @@ public class Schedule {
     private Integer targetYellowChess;
     private Integer targetCornerKick;
 
+    private Integer namiScheduleId;
+
 }

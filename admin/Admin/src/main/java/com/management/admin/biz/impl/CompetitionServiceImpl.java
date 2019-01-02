@@ -166,14 +166,16 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                 team.setTeamId(id);
                 team.setTeamName(v.getName_zh());
                 team.setTeamIcon("https://cdn.leisu.com/teamflag_s/" + v.getLogo());
+                team.setCloudId(v.getId());
                 Optional<Integer> first = gameList.stream().filter(item -> item.getCloudId().equals(v.getMatchevent_id()))
                         .map(item -> item.getGameId())
                         .findFirst();
                 if (first.isPresent()){
                     team.setGameId(first.get());
-                    team.setCloudId(v.getId());
-                    teamList.add(team);
+                }else{
+                    team.setGameId(-1);
                 }
+                teamList.add(team);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -226,12 +228,16 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             Integer localMasterTeamId = 0;
             if(masterTeam.isPresent()){
                 localMasterTeamId = masterTeam.get().getTeamId();
+            }else{
+                localMasterTeamId = -1;
             }
 
             Optional<Team> targetTeam = teamList.stream().filter(item -> item.getCloudId().equals(targetTeamId)).findFirst();
             Integer localTargetTeamId = 0;
             if(targetTeam.isPresent()){
                 localTargetTeamId = targetTeam.get().getTeamId();
+            }else {
+                localTargetTeamId = -1;
             }
 
             Schedule schedule = new Schedule();
@@ -253,19 +259,21 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             schedule.setTargetRedChess(targetRedChess);
             schedule.setTargetYellowChess(targetYellowChess);
             schedule.setTargetCornerKick(targetCornerKick);
+            schedule.setNamiScheduleId(namiScheduleId);
 
             Optional<Integer> first = gameList.stream().filter(item -> item.getCloudId().equals(scheduleId))
                     .map(item -> item.getGameId())
                     .findFirst();
             if(first.isPresent() && localMasterTeamId >0 && localTargetTeamId > 0){
                 schedule.setGameId(first.get());
-                schedules.add(schedule);
+            }else{
+                schedule.setGameId(-1);
             }
+            schedules.add(schedule);
         });
         if (schedules.size() > 0){
             scheduleMapper.inserUpdatetScheduleList(schedules);
         }
-
         //除非接口调用失败, 否则永远返回成功
         return true;
     }

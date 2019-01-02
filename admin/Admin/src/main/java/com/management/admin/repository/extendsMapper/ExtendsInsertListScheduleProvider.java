@@ -51,6 +51,7 @@ public class ExtendsInsertListScheduleProvider extends MapperTemplate {
         //当某个列有主键策略时，不需要考虑他的属性是否为空，因为如果为空，一定会根据主键策略给他生成一个值
         for (EntityColumn column : columnList) {
             if(!column.getColumn().equals("game_id") && !column.getColumn().equals("team_id")
+                    && !column.getColumn().equals("schedule_id")
                     && !column.getColumn().equals("master_team_id")
                     && !column.getColumn().equals("target_team_id")
                     && !column.getColumn().equals("cloud_id") )

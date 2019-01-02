@@ -173,7 +173,7 @@ function getSchedules(param){
 			var dateStr = "";
 			var dateTime = item.liveDate;
 			dateStr = app.utils.getFormatYear(dateTime);
-			dateStr += " " + app.utils.getWeek(dateTime);
+			dateStr += " " + app.utils.getWeek(dateTime) + " ";
 			
 			var gameTitle = item.gameName;
 			
@@ -181,7 +181,9 @@ function getSchedules(param){
 				leftHotIcon = "",
 				rightHot = "",
 				rightHotIcon = "";
-			
+
+    		var liveTitle = gameTitle + item.liveTitle;
+
 			if(statusStyle == "over"){
 				//直播大厅，已结束的比赛显示成绩和胜利方(角标)
 				
@@ -210,9 +212,10 @@ function getSchedules(param){
 			
 			var liStyle = "";
 			if(item.cloudId != null){
-				liStyle = "notvs";
+				liStyle = "notvs openLive";
 			}
-			
+
+ 
 			html += '<li class="'+liStyle+'" data-status="' + item.status + '" data-videourl="'+ item.sourceUrl +'" data-id="' + item.liveId + '" data-gamename="'+ item.gameName +'" data-liveTitle="'+ item.liveTitle +'" class="openLive">';
     		html += '	<div class="top">';
     		html += '		<span class="status ' + statusStyle + '">' + status + '</span>';
@@ -229,6 +232,9 @@ function getSchedules(param){
     		html += '		</div>';
     		html += '		<div class="info">';
     		html += '			<span>' + gameTitle + '</span>';
+    		if(item.cloudId != null){
+    			html += '<span class="red-grade">' + item.scheduleGrade + '</span>';
+    		}
     		html += '		</div>';
     		html += '		<div class="right '+ rightHot +'">';
     		html += rightHotIcon;
@@ -238,10 +244,10 @@ function getSchedules(param){
     		html += '	</div> 	';
     		html += '<div class="foot">';
     		
-    		var liveTitle = item.liveTitle;
+
     		
     		if(item.cloudId != null){
-    		liveTitle =  "主队角球:"+ item.masterCornerKick +" 主队黄牌:"+ item.masterYellowChess +" | 客队角球:"+ item.targetCornerKick +" 客队黄牌:"+ item.targetYellowChess +"";
+    			liveTitle =  "主队角球:"+ item.masterCornerKick +" 主队黄牌:"+ item.masterYellowChess +" | 客队角球:"+ item.targetCornerKick +" 客队黄牌:"+ item.targetYellowChess +"";
     		}
 
     		
@@ -253,11 +259,17 @@ function getSchedules(param){
 		
 		//打开直播间
 		$(".openLive").unbind("click").bind("click", function(){
+			console.log("click")
 			//检测是否已经登录
 			var id = $(this).data("id");
+
+			if(id == null) {
+				app.utils.msgBox.msg("直播尚未开始");
+				return;
+			}
+
 			var view = plus.webview.getWebviewById("liveDetail-" + id);
-				
-			if(view != null) plus.webview.getWebviewById("liveDetail-" + id).close();
+			if(view != null) view.close();
 			
 
 			app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {

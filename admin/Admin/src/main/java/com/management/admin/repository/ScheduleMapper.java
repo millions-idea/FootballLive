@@ -61,7 +61,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
     @Select("SELECT *, t3.team_name AS winTeamName FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
             "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id  " +
             "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id  " +
-            " WHERE t1.is_delete=0  ORDER BY t1.schedule_id DESC LIMIT #{page},${limit}")
+            " WHERE t1.is_delete=0 AND t2.game_id != -1 ORDER BY t1.schedule_id DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 Timor 2018年8月30日11:33:22
      * @param page
@@ -70,7 +70,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
      */
     List<ScheduleGameTeam> selectLimit(@Param("page") Integer page, @Param("limit") String limit);
 
-    @Select("SELECT COUNT(schedule_id) FROM tb_schedules WHERE is_delete=0")
+    @Select("SELECT COUNT(t1.schedule_id) FROM tb_schedules t1 LEFT JOIN tb_teams t2 ON t2.team_id = t1.win_team_id WHERE t1.is_delete=0 AND t2.game_id != -1")
     /**
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return
@@ -140,4 +140,8 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             "LEFT JOIN tb_lives t2 ON t2.schedule_id = t1.schedule_id\n" +
             "WHERE t1.is_delete = 0")
     List<ScheduleLiveDetail> selectScheduleList();
+
+
+    @Update("${sql}")
+    void execUpdate(@Param("sql") String sql);
 }
