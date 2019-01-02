@@ -73,6 +73,19 @@ var tableIndex;
                         }
                     });
                 })
+            } else if (layEvent == "live"){
+                service.openLive({
+                    scheduleId: data.scheduleId
+                }, function(data){
+                    if (data.code == 200) {
+                        location.reload();
+                    }else if(data.code == 300 || data.code == 400){
+                        layer.msg(data.msg);
+                    }else {
+                        layer.msg("开通失败");
+                    }
+                });
+
             }
         });
     });
@@ -92,6 +105,16 @@ function initService(r) {
         },
         edit:function (param,callback) {
             $.get(route+"/schedule/edit", param, function (data) {
+                callback(data);
+            });
+        },
+        openLive: function(param, callback){
+            $.get(route+"/schedule/openLive", param, function (data) {
+                callback(data);
+            });
+        },
+        openLives: function(callback){
+            $.get(route+"/schedule/openLives", function (data) {
                 callback(data);
             });
         }
@@ -174,8 +197,9 @@ function initDataTable(url, callback, loadDone) {
 function getTableColumns() {
     return [[
         {type: "numbers", fixed: 'left'}
-        , {field: 'scheduleId', title: '赛程ID', width: 180, sort: true}
+        , {field: 'scheduleId', title: '赛程ID', width: 110, sort: true}
         , {field: 'gameName', title: '赛事', width: 180}
+        , {field: 'liveTitle', title: '直播间', width: 180}
         , {field: 'teamId', title: '球队', width: 180,templet:function (d) {
                 var html = "";
                 html += '<a name="check"  class="layui-btn layui-btn layui-btn-xs" lay-event="team">查看球队</a>';
@@ -200,14 +224,17 @@ function getTableColumns() {
                 }
                 return d.scheduleGrade;
             }}
-        , {field: 'teamName', title: '胜利方', width: 150, templet: function (d) {
-                if (d.teamName==null||d.teamName.length==0){
+        , {field: 'winTeamName', title: '胜利方', width: 150, templet: function (d) {
+                if (d.winTeamName==null||d.winTeamName.length==0){
                     return '——'
                 }
                 return d.teamName;
             }}
         , {fixed: 'right',title: '操作', width: 200, align: 'center', templet: function(d){
                 var html = "";
+                if(d.liveTitle == null){
+                    html += '<a name="live"  class="layui-btn layui-btn layui-btn-xs" lay-event="live">开通直播间</a>';
+                }
                 html += '<a name="edit"  class="layui-btn layui-btn layui-btn-xs" lay-event="edit">编辑</a>';
                 html += '<a name="delete"  class="layui-btn layui-btn layui-btn-xs" lay-event="delete">删除</a>';
                 return html;

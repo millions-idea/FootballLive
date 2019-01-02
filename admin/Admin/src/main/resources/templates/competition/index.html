@@ -24,6 +24,7 @@
                 <div class="layui-form">
                     <!--days begin-->
                     <a id="my-data-table-add" lay-event="add" class="layui-btn mgl-20" >添加赛事</a>
+                    <a id="syncData" lay-event="syncData" class="layui-btn mgl-20" >同步数据</a>
                 </div>
 
             </div>
@@ -61,6 +62,18 @@
                     content:html
                 });
             });
+        })
+
+        $("#syncData").click(function(){
+            service.syncData(function(html){
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['420px', 'auto'], //宽高
+                    shadeClose: true,
+                    content:html
+                });
+            })
         })
     </script>
 </th:block>

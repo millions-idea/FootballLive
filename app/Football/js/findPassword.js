@@ -59,7 +59,7 @@ mui.plusReady(function() {
 			app.logger("FindPassword", JSON.stringify(data));
 			
 			if(utils.ajax.isError(data)) {
-				return utils.msgBox.msg("重置失败，可联系客服处理！");
+				return utils.msgBox.msg("手机号未注册");
 			}
 			
 			utils.msgBox.msg("重置密码成功，请妥善保管您的新密码！");

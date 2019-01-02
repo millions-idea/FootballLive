@@ -1,35 +1,28 @@
-<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+<form class="layui-form layui-form-pane my-view" method="post" action="#"
      enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
     <div class="layui-form-item">
         <label class="layui-form-label">赛事信息</label>
         <div class="layui-input-block">
-            <select id="games"   lay-verify="required">
-                <option th:each="game:${games}" th:value="${game.gameId}" th:text="${game.gameName}"></option>
+            <select id="games" lay-filter="gameList" lay-verify="required">
             </select>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">主队</label>
         <div class="layui-input-block">
-            <select id="primaryTeam"   lay-verify="required" lay-search>
-                <option value="">支持模糊搜索</option>
-                <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
-            </select>
+            <select id="primaryTeam" lay-filter="masterTeamList" lay-verify="required" lay-search></select>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">客队</label >
+        <label class="layui-form-label">客队</label>
         <div class="layui-input-block">
-            <select id="secondTeam"  lay-verify="required" lay-search>
-                <option value="">支持模糊搜索</option>
-                <option th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
-            </select>
+            <select id="secondTeam" lay-filter="targetTeamList" lay-verify="required" lay-search></select>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">比赛时长</label>
         <div class="layui-input-block">
-            <input type="number" id="duration" name="compName" required  lay-verify="required" placeholder="请输入比赛时长"
+            <input type="number" id="duration" name="compName" required lay-verify="required" placeholder="请输入比赛时长"
                    autocomplete="off" class="layui-input">
         </div>
     </div>
@@ -37,86 +30,154 @@
     <div class="layui-form-item">
         <label class="layui-form-label">比赛时间</label>
         <div class="layui-inline">
-            <input type="text" id="gameDate"   required  lay-verify="required" placeholder="请选择比赛时间"
+            <input type="text" id="gameDate" required lay-verify="required" placeholder="请选择比赛时间"
                    autocomplete="off" class="layui-input">
         </div>
-
+        <div class="layui-form-item">
+            <button lay-submit lay-filter="myForm" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">
+                保存
+            </button>
+        </div>
     </div>
-        <script>
-             layui.use('laydate', function(){
-                  var laydate = layui.laydate;
-
-                    //执行一个laydate实例
-                     laydate.render({
-                         elem: '#gameDate' //指定元素
-                         ,type:'datetime'
-                         ,format:'yyyy-MM-dd HH:mm'
-                   });
-              });
-        </script>
-    </div>
-
-    <div class="layui-form-item">
-        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">保存</button>
-    </div>
-</div>
+</form>
 
 <script>
-    layui.use(['form'], function(){
-        var form = layui.form;
-        form.render();
-    });
-    $("#save").click(function () {
-        var games=$("#games").val();
-        var primaryTeam=$("#primaryTeam").val();
-        var secondTeam=$("#secondTeam").val()
-        var duration=$("#duration").val();
-        var gameDate=$("#gameDate").val();
+    $(function(){
+        layui.use(['form', 'laydate'], function(){
+            var form = layui.form,
+                laydate = layui.laydate;
+
+            $.get("./getGames", function(res){
+                if(utils.response.isErrorByCode(res)) return layer.msg("加载赛事列表失败");
+               setGameList(res, function () {
+                   //加载默认球队列表
+                   if(res.data != null && res.data.length > 0){
+                       $.get("./getTeams", {
+                           categoryId: res.data[0].categoryId
+                       }, function(teamResult){
+                           if(utils.response.isErrorByCode(teamResult)) return layer.msg("加载默认球队信息失败");
+                           setTeamList(teamResult, function(){
+                               form.render();
+                           });
+                       });
+                   }
 
 
-
-        var schedule={}
-        schedule.gameId=games;
-        schedule.teamId=primaryTeam+","+secondTeam;
-        schedule.gameDate=gameDate;
-        schedule.gameDuration=duration;
-        if (primaryTeam==""||primaryTeam.length==0){
-            layer.msg("您还没有选择！")
-            return false;
-        }
-        if (secondTeam==""||secondTeam.length==0){
-            layer.msg("您还没有选择！")
-            return false;
-        }
-
-        if (primaryTeam==secondTeam) {
-            layer.msg("选择有误");
-            return false;
-        }
-        if((duration!=null&&duration>0) && (gameDate!=null&&gameDate.length>0)){
-            $.ajax({
-                url:"/management/schedule/addSchedule",
-                data:schedule,
-                type:"GET",
-                contentType:"application/x-www-form-urlencoded;charset=UTF-8",
-                success:function (data) {
-                    if (data.code==200){
-                        location.reload();
-                    } else {
-                        layui.use('layer', function(){
-                            var layer = layui.layer;
-                            layer.msg('添加失败', {icon: 5,time: 2000});
-                        });
-                    }
-                }
+                   form.on("select(gameList)", function(data){
+                       var elem = data.elem;
+                       var value = data.value;
+                       var othis = data.othis;
+                       $.get("./getTeams", {
+                           gameId: value
+                       }, function(teamResult){
+                           if(utils.response.isErrorByCode(teamResult)) {
+                               if(teamResult.code == 300 || teamResult.code == 400){
+                                   return layer.msg(teamResult.msg);
+                               }
+                               return layer.msg("加载关联球队信息失败");
+                           }
+                           setTeamList(teamResult, function(){
+                               form.render();
+                           });
+                       });
+                       form.render();
+                   });
+                   form.render();
+               });
             })
 
-        }else{
-            layui.use('layer', function(){
-                var layer = layui.layer;
-                layer.msg('添加有误！', {icon: 5,time: 2000});
-            });
-        }
+            //监听提交
+            form.on('submit(myForm)', function(data){
+                var games=$("#games").val();
+                var primaryTeam=$("#primaryTeam").val();
+                var secondTeam=$("#secondTeam").val()
+                var duration=$("#duration").val();
+                var gameDate=$("#gameDate").val();
 
+
+
+                var schedule={}
+                schedule.gameId=games;
+                schedule.teamId=primaryTeam+","+secondTeam;
+                schedule.gameDate=gameDate;
+                schedule.gameDuration=duration;
+                schedule.masterTeamId = primaryTeam;
+                schedule.targetTeamId = secondTeam;
+                if (primaryTeam==""||primaryTeam.length==0){
+                    layer.msg("您还没有选择！")
+                    return false;
+                }
+                if (secondTeam==""||secondTeam.length==0){
+                    layer.msg("您还没有选择！")
+                    return false;
+                }
+
+                if (primaryTeam==secondTeam) {
+                    layer.msg("选择有误");
+                    return false;
+                }
+                if((duration!=null&&duration>0) && (gameDate!=null&&gameDate.length>0)){
+                    $.ajax({
+                        url:"/management/schedule/addSchedule",
+                        data:schedule,
+                        type:"GET",
+                        contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                        success:function (data) {
+                            if (data.code==200){
+                                location.reload();
+                            } else {
+                                layui.use('layer', function(){
+                                    var layer = layui.layer;
+                                    layer.msg('添加失败', {icon: 5,time: 2000});
+                                });
+                            }
+                        }
+                    })
+
+                }else{
+                    layui.use('layer', function(){
+                        var layer = layui.layer;
+                        layer.msg('添加有误！', {icon: 5,time: 2000});
+                    });
+                }
+                return false;
+            });
+
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#gameDate' //指定元素
+                ,type:'datetime'
+                ,format:'yyyy-MM-dd HH:mm'
+            });
+            form.render();
+            return false;
+        });
     })
+
+
+    function setTeamList(res, callback){
+        var html = "";
+        html += '<option value="">支持模糊搜索</option>';
+        for(var i=0; i < res.data.length; i++){
+            var item = res.data[i];
+            if(item.teamId == null) continue;
+            html += '<option value="' + item.teamId + '">' + item.teamName + '</option>';
+        }
+        $("#primaryTeam").html(html);
+        $("#secondTeam").html(html);
+        callback();
+    }
+
+    function setGameList(res, callback){
+        var html = "";
+        for(var i=0; i < res.data.length; i++){
+            var item = res.data[i];
+            if(item.gameId == null) continue;
+            html += '<option value="' + item.gameId + '" data-categoryid="' + item.categoryId + '">' + item.gameName + '</option>';
+        }
+        $("#games").html(html);
+        callback();
+    }
+
 </script>

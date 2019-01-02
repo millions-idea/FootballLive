@@ -25,6 +25,7 @@ import com.management.admin.utils.DateUtil;
 import com.management.admin.utils.PropertyUtil;
 import com.management.admin.utils.web.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -105,11 +106,23 @@ public class LiveApiController {
             scheduleGame.setTargetTeamName(item.getTargetTeamName());
             scheduleGame.setTargetTeamIcon(item.getTargetTeamIcon());
 
+            scheduleGame.setScheduleGrade(item.getScheduleGrade());
+            scheduleGame.setScheduleResult(item.getScheduleResult());
+            scheduleGame.setWinTeamId(item.getWinTeamId());
+
+            scheduleGame.setMasterRedChess(item.getMasterRedChess());
+            scheduleGame.setMasterYellowChess(item.getMasterYellowChess());
+            scheduleGame.setMasterCornerKick(item.getMasterCornerKick());
+
+            scheduleGame.setTargetRedChess(item.getTargetRedChess());
+            scheduleGame.setTargetYellowChess(item.getTargetYellowChess());
+            scheduleGame.setTargetCornerKick(item.getTargetCornerKick());
+
+            scheduleGame.setCloudId(item.getCloudId());
             scheduleGames.add(scheduleGame);
         });
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
     }
-
     /**
      * 获取直播间详情信息 DF 2018年12月18日14:34:16
      * @param liveId
@@ -127,10 +140,13 @@ public class LiveApiController {
         if(currentDate.compareTo(beginDate) > 0){
             liveService.setBeginLive(liveId);
         }*/
-        //加入群组
-        liveInfo.setChatRoomErrorMsg(liveService.addGroup(session.getPhone(), session.getUserId(), liveId));
-        //添加观看历史
-        liveService.addHistory(session.getUserId(), liveId);
+
+        if(session != null){
+            //加入群组
+            liveInfo.setChatRoomErrorMsg(liveService.addGroup(session.getPhone(), session.getUserId(), liveId));
+            //添加观看历史
+            liveService.addHistory(session.getUserId(), liveId);
+        }
         //查询球队信息
         List<Team> teamList = teamService.getTeams(liveInfo.getTeamId());
         if(teamList == null || teamList.size() == 0) return new JsonResult<>().failingAsString("加载球队数据失败");
@@ -144,6 +160,20 @@ public class LiveApiController {
     }
 
     /**
+     * 加入聊天室 DF 2018年12月29日14:26:03
+     * @param req
+     * @param liveId
+     * @return
+     */
+    @GetMapping("joinRoom")
+    public JsonResult joinRoom(HttpServletRequest req, Integer liveId){
+        SessionModel session = SessionUtil.getSession(req);
+        //加入群组
+        liveService.addGroup(session.getPhone(), session.getUserId(), liveId);
+        return JsonResult.successful();
+    }
+
+    /**
      * 获取直播间情报信息 DF 2018年12月18日20:51:40
      * @param liveId
      * @return
@@ -151,7 +181,6 @@ public class LiveApiController {
     @GetMapping("getInformation")
     public JsonResult<LiveInformation> getInformation(Integer liveId){
         LiveInformation liveInformation = new LiveInformation();
-
         //查询情报信息
         Information information = informationService.getLiveInformation(liveId);
         liveInformation.setInformation(information);
@@ -184,7 +213,6 @@ public class LiveApiController {
         return JsonResult.failing();
     }
 
-
     /**
      * 获取情报信息列表 DF 2018年12月18日02:20:52
      * @param gameId            赛事id 选填
@@ -214,11 +242,11 @@ public class LiveApiController {
             scheduleGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
             scheduleGame.setSourceUrl(item.getSourceUrl());
             scheduleGame.setCategoryId(item.getCategoryId());
-            scheduleGame.setScheduleResult(item.getScheduleResult());
-            scheduleGame.setScheduleGrade(item.getScheduleGrade());
+            scheduleGame.setScheduleResult(item.getForecastResult());
+            scheduleGame.setScheduleGrade(item.getForecastGrade());
             scheduleGame.setWinTeamIcon(item.getWinTeamIcon());
             scheduleGame.setWinTeamName(item.getWinTeamName());
-            scheduleGame.setWinTeamId(item.getWinTeamId());
+            scheduleGame.setWinTeamId(item.getForecastTeamId());
 
             scheduleGame.setGameId(item.getGameId());
             scheduleGame.setGameName(item.getGameName());
@@ -246,7 +274,6 @@ public class LiveApiController {
         });
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
     }
-
 
     /**
      * 退出群组 DF 2018年12月24日19:22:29

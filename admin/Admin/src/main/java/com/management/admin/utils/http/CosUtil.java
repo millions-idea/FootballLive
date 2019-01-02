@@ -7,19 +7,21 @@
  */
 package com.management.admin.utils.http;
 
+import com.alibaba.fastjson.JSON;
+import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSClient;
+import com.aliyun.oss.OSSException;
 import com.aliyun.oss.model.PutObjectResult;
 import com.management.admin.utils.Base64Util;
 import com.management.admin.utils.JsonUtil;
+import com.sun.corba.se.impl.activation.ServerMain;
 import lombok.val;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
+import sun.applet.Main;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.security.Key;
 import java.util.UUID;
 
@@ -41,6 +43,7 @@ public class CosUtil {
     private final static String accessKeySecret = "Xqde9mlClOMyAVVjLPmr9pnaUUX8Wb";
 
     public static String endpoint = "http://oss-cn-beijing.aliyuncs.com/";
+    public static String accessUrl = "http://yabolive.oss-cn-beijing.aliyuncs.com/";
 
     /**
      * 上传文件
@@ -49,23 +52,37 @@ public class CosUtil {
      * @throws Exception
      */
     public static String upload(MultipartFile multipartFile) throws Exception {
-        File localFile = new File("C:\\bucket.png");
+        try {
+            File localFile = new File("C:\\bucket.png");
 
-        multipartFile.transferTo(localFile);
+            multipartFile.transferTo(localFile);
 
-        String key =  "upload/" + UUID.randomUUID().toString() + ".png";
+            String key =  "upload/" + UUID.randomUUID().toString() + ".png";
 
-        // 创建OSSClient实例。
-        OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+            // 创建OSSClient实例。
+            OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
 
-        // 上传内容到指定的存储空间（bucketName）并保存为指定的文件名称（objectName）。
-        InputStream inputStream = new FileInputStream(localFile);
-        ossClient.putObject(bucketName, key, inputStream);
+            // 上传内容到指定的存储空间（bucketName）并保存为指定的文件名称（objectName）。
+            InputStream inputStream = new FileInputStream(localFile);
+            ossClient.putObject(bucketName, key, inputStream);
 
-        // 关闭OSSClient。
-        ossClient.shutdown();
+            // 关闭OSSClient。
+            ossClient.shutdown();
 
-        return endpoint + key;
+            return accessUrl + key;
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return "IOException";
+        } catch (IllegalStateException e) {
+            System.out.println(e.getMessage());
+            return "IllegalStateException";
+        } catch (OSSException e) {
+            System.out.println(e.getMessage());
+            return "OSSException";
+        } catch (ClientException e) {
+            System.out.println(e.getMessage());
+           return "ClientException";
+        }
     }
 
     /**
@@ -91,9 +108,8 @@ public class CosUtil {
         // 关闭OSSClient。
         ossClient.shutdown();
 
-        return endpoint + key;
+        return accessUrl + key;
     }
-
 
 
 }

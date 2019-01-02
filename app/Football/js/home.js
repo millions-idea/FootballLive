@@ -74,6 +74,14 @@ var homeService = {
 			}
 		}
 		return null;
+	},
+	
+	
+	getHotInformation: function(callback){
+		$.get(app.config.apiUrl + "api/home/getHotInformation", function(data){
+			app.logger("home", JSON.stringify(data));
+			callback(data);
+		});
 	}
 }
 
@@ -93,9 +101,6 @@ mui.plusReady(function(){
 		if(view != null){
 			view.evalJS("createNIM()");
 		}
-	
-		//获得slider插件对象
-        mui('.mui-slider').slider();
 	    
 	    // 检测更新版本
 		//checkVersion(plus);
@@ -103,14 +108,12 @@ mui.plusReady(function(){
 	    // 加载初始化数据
     	initData();
     })
-    
-    mui('.mui-slider').slider();
+     
      
     initData();
     
     // 检测更新版本
 	checkVersion(plus);
-    
 })
  
  
@@ -128,7 +131,7 @@ function initData(){
 		$(".runnerLink").click(function(){
 			var url = $(this).data("url");
 			//进入直播间
-			if(url != null && url.toString().indexOf("http") == -1){
+			if(url != null && url.length > 0 &&  url.toString().indexOf("http") == -1){
 				var cache = plus.storage.getItem("userInfo");
 				if(cache == null) {
 					app.utils.openNewWindow("login.html", "login");
@@ -139,7 +142,7 @@ function initData(){
 						});
 					}	
 				}
-			}else if(url != null){
+			}else if(url != null && url.length > 0){
 				plus.runtime.openURL(url);
 			}
 		})
@@ -149,12 +152,31 @@ function initData(){
 		if(headLineMap == null) headLineMap = { value : "加载今日头条失败"};
 		$("#topTextAd").text(headLineMap.value);
 		$(".mui-slider-indicator").show();
+        mui('.mui-slider').slider({interval: 3000});
+		
 	});
 	
 	//加载热门直播数据
 	homeService.getHotGameList(function(res){
 		app.logger("getHotGameList", JSON.stringify(res))
-		if(app.utils.ajax.isError(res)) return;
+		if(app.utils.ajax.isError(res)) {
+			
+			$(".left .title").text("...");
+			$(".left .teamIcon").attr("src", "#");
+			$(".left .teamName").text("...");
+			$(".left .targetTeamIcon").attr("src", "#");
+			$(".left .targetTeamName").text("...");
+			$(".left").data("id", null);
+			
+			$(".right .title").text("...");
+			$(".right .teamIcon").attr("src", "#");
+			$(".right .teamName").text("...");
+			$(".right .targetTeamIcon").attr("src", "#");
+			$(".right .targetTeamName").text("...");
+			$(".right").data("id", null);
+			
+			return;
+		}
 		
 		//参赛球队信息设置
 		if(res.data[0] != null){
@@ -164,6 +186,13 @@ function initData(){
 			$(".left .targetTeamIcon").attr("src", res.data[0].targetTeamIcon);
 			$(".left .targetTeamName").text(res.data[0].targetTeamName);
 			$(".left").data("id", res.data[0].liveId);
+		}else{
+			$(".left .title").text("...");
+			$(".left .teamIcon").attr("src", "#");
+			$(".left .teamName").text("...");
+			$(".left .targetTeamIcon").attr("src", "#");
+			$(".left .targetTeamName").text("...");
+			$(".left").data("id", null);
 		}
 		
 		//对战球队信息设置
@@ -174,24 +203,95 @@ function initData(){
 			$(".right .targetTeamIcon").attr("src", res.data[1].targetTeamIcon);
 			$(".right .targetTeamName").text(res.data[1].targetTeamName);
 			$(".right").data("id", res.data[1].liveId);
+		}else{
+			$(".right .title").text("...");
+			$(".right .teamIcon").attr("src", "#");
+			$(".right .teamName").text("...");
+			$(".right .targetTeamIcon").attr("src", "#");
+			$(".right .targetTeamName").text("...");
+			$(".right").data("id", null);
+
 		}
 		
 		
 		$(".headline .left, .headline .right").unbind("click").bind("click",function(){
-			var cache = plus.storage.getItem("userInfo");
-			if(cache == null) {
-				app.utils.openNewWindow("login.html", "login");
+			var id = $(this).data("id");
+			if(id != null){
+				app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
+					liveId: id
+				})
+			}	
+		});
+	});
+	
+	//加载热门情报数据
+	homeService.getHotInformation(function(res){
+		app.logger("getHotInformation", JSON.stringify(res))
+		if(app.utils.ajax.isError(res)) return;
+		
+		if(res.data == null || res.data.length == 0) return;
+
+		var html = "";
+		console.log("热门情报数量" + res.data.length)
+		for (var i = 0; i < res.data.length; i++) {
+			var item = res.data[i];
+			
+			var scheduleResult = item.scheduleGrade;
+			if(item.scheduleResult != null && item.scheduleResult.length > 0){
+				scheduleResult = item.scheduleResult;
 			}else{
-				var id = $(this).data("id");
-				if(id != null){
-					app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
-						liveId: id
-					})
+				scheduleResult = "-"
+			}
+			
+			var param = {
+				liveId: item.liveId,
+				liveTitle:item.gameName,
+				liveDate: app.utils.timestampToDate(item.liveDate),
+				result: scheduleResult,
+				masterTeamIcon: item.masterTeamIcon,
+				masterTeamName: item.masterTeamName,
+				targetTeamIcon: item.targetTeamIcon,
+				targetTeamName: item.targetTeamName
+			};
+			
+		console.log("热门情报胜利球队" + res.winTeamId)
+			
+			if(item.winTeamId == null){
+				console.log("热门情报default");
+				html += getHotInformation(param);
+				html += '<div class="padding-top-10"></div>';
+			}else{
+			
+				if(item.winTeamId == item.masterTeamId){
+					console.log("热门情报left")
+					html += getLeftHotInformation(param);
+					html += '<div class="padding-top-10"></div>';
+				}
+				
+				if(item.winTeamId == item.targetTeamId){
+					console.log("热门情报right");
+					html += getRightHotInformation(param);
+					html += '<div class="padding-top-10"></div>';
 				}	
 			}
 			
+		} 
+
+		$("#hotInformation").html(html);
+		
+		$("#hotInformation .full-headline").unbind("click").bind("click",function(){
+			console.log("进入直播间")
+			var id = $(this).data("id");
+			console.log(id)
 			
+			if(id != null){
+				app.utils.openNewWindowParam("liveDetail.html", "liveDetail-" + id, {
+					liveId: id
+				})
+			}	
 		});
+		
+		
 	});
 	
 	//加载直播分类信息
@@ -227,13 +327,6 @@ function initData(){
 		
 		$(".category").html(html);
 		$(".category .item").unbind("click").bind("click", function(){
-			
-			var cache = plus.storage.getItem("userInfo");
-			if(cache == null) {
-				app.utils.openNewWindow("login.html", "login");
-				return false;
-			}
-
 			console.log("跳转分类");
 			var that = $(this);
 			var view = plus.webview.getWebviewById(app.pages[1].id);
@@ -349,3 +442,74 @@ window.addEventListener("asyncInfo", function(){
 	var view = plus.webview.currentWebview();
 	view.show();
 })
+
+
+function getRightHotInformation(obj){
+	var html = '<div class="full-headline" data-id="'+ obj.liveId +'" style="height: 110px;"><div class="center">';
+	html += '<div class="title title-color-red">推荐情报：'+ obj.liveTitle +' '+ obj.liveDate +'</div>';
+	html += '<div class="content">';
+	html += '	<div class="team team-left" >';
+	html += '		';
+	html += '		<img class="teamIcon" src="'+ obj.masterTeamIcon +'" alt="" />';
+	html += '		<span class="teamName" style="color:#c0c0c0">'+ obj.masterTeamName +'</span>';
+	html += '	</div>';
+	html += '	<div class="info" style="text-align:center">';
+	html += '		<span>'+ obj.result +'</span>';
+	html += '	</div>';
+	html += '	<div class="team team-right hot" >';
+	//html += '		<i class="icon iconfont icon-shoucangjiaobiao" style="position: relative;right: 1px;"></i>';
+	html += '		<img class="targetTeamIcon" src="'+ obj.targetTeamIcon +'" alt="" />';
+	html += '		<span class="targetTeamName" style="color:#6a6a6a">'+ obj.targetTeamName +'</span>';
+	html += '	</div>';
+	html += '</div>';
+	html += '</div>';	
+	html += '</div>';	
+	return html;
+}
+
+
+function getLeftHotInformation(obj){
+	var html = '<div class="full-headline" data-id="'+ obj.liveId +'" style="height: 110px;"><div class="center">';
+	html += '<div class="title title-color-red">推荐情报：'+ obj.liveTitle +' '+ obj.liveDate +'</div>';
+	html += '<div class="content">';
+	html += '	<div class="team team-left hot">';
+	html += '		<img class="teamIcon" src="'+ obj.masterTeamIcon +'" alt="" />';
+	html += '		<span class="teamName"  style="color:#6a6a6a">'+ obj.masterTeamName +'</span>';
+	html += '	</div>';
+	html += '	<div class="info">';
+	html += '		<span>'+ obj.result +'</span>';
+	html += '	</div>';
+	html += '	<div class="team team-right"> ';
+	html += '		<img class="targetTeamIcon" src="'+ obj.targetTeamIcon +'" alt="" />';
+	html += '		<span class="targetTeamName" style="color:#c0c0c0">'+ obj.targetTeamName +'</span>';
+	html += '	</div>';
+	html += '</div>';
+	html += '</div>';
+	html += '</div>';
+	return html;
+}
+
+
+
+
+
+function getHotInformation(obj){
+	var html = '<div class="full-headline" data-id="'+ obj.liveId +'" style="height: 110px;"><div class="center">';
+	html += '<div class="title title-color-red">推荐情报：'+ obj.liveTitle +' '+ obj.liveDate +'</div>';
+	html += '<div class="content">';
+	html += '	<div class="team team-left">';
+	html += '		<img class="teamIcon" src="'+ obj.masterTeamIcon +'" alt="" />';
+	html += '		<span class="teamName"  style="color:#c0c0c0">'+ obj.masterTeamName +'</span>';
+	html += '	</div>';
+	html += '	<div class="info">';
+	html += '		<span>'+ obj.result +'</span>';
+	html += '	</div>';
+	html += '	<div class="team team-right"> ';
+	html += '		<img class="targetTeamIcon" src="'+ obj.targetTeamIcon +'" alt="" />';
+	html += '		<span class="targetTeamName" style="color:#c0c0c0">'+ obj.targetTeamName +'</span>';
+	html += '	</div>';
+	html += '</div>';
+	html += '</div>';
+	html += '</div>';
+	return html;
+}

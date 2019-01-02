@@ -56,8 +56,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label">广告链接</label>
         <div class="layui-input-block">
+            <input type="hidden" id="currentAdId" th:value="${live.getAdId()}">
             <select name="city" lay-verify="" id="target-url">
-                <option th:value="${live.adId}" th:text="${live.targetUrl}" selected></option>
             </select>
         </div>
     </div>
@@ -73,11 +73,17 @@
         var form = layui.form;
         $.getJSON("/management/advertising/getAll", function (data) {
             var html = '';
+            var currentAdId = parseInt($("#currentAdId").val());
+            html += '<option value="">无广告</option>';
             data.data.forEach(function (item, index) {
-                html += '<option value="' + item.adId + '">' + item.targetUrl + '</option>'
+                if(item.adId == currentAdId){
+                    html += '<option selected value="' + item.adId + '">' + "[" + item.adId + "]" + item.targetUrl + '</option>'
+                }else{
+                    html += '<option value="' + item.adId + '">' + "[" + item.adId + "]" + item.targetUrl + '</option>'
+                }
             })
             $("#target-url").html(html);
-            $("#target-url").selected(adId);
+            $("#target-url").selected();
             form.render();
         });
         $.getJSON("/management/game/getAll", function (data) {

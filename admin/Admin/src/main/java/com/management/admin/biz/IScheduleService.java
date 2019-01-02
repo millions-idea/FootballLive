@@ -32,7 +32,7 @@ public interface IScheduleService {
      * @param limit
      * @return
      */
-    List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit);
+    List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
 
     /**
      * 加载赛程信息列表分页记录数 DF 2018年12月17日14:40:233
@@ -86,4 +86,22 @@ public interface IScheduleService {
      */
     Integer endSchedule(Integer scheduleId);
 
+    /**
+     * 根据情报id查询赛程信息 DF 2018年12月31日01:01:56
+     * @param isrId
+     * @return
+     */
+    ScheduleGameTeam selectScheduleByInfoId(Integer isrId);
+
+    /**
+     * 开通直播间 DF 2019年1月2日04:46:08
+     * @param scheduleId
+     * @return
+     */
+    boolean openLive(Integer scheduleId);
+
+    /**
+     * 批量开通直播间 DF 2019年1月2日16:48:19
+     */
+    void openLives();
 }

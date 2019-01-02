@@ -11,6 +11,7 @@ import com.management.admin.entity.db.Game;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameCategory;
 import com.management.admin.entity.dbExt.TeamCompetition;
+import com.management.admin.entity.dbExt.TeamDetail;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -62,4 +63,14 @@ public interface TeamMapper extends MyMapper<Team> {
      * @return
      */
     Integer deleteTeam(@Param("teamId") Integer teamId);
+
+    /**
+     * 根据游戏id查询团队信息 DF 2018年12月30日17:55:07
+     * @param gameId
+     * @return
+     */
+    @Select("SELECT * FROM tb_teams t1 " +
+            "LEFT JOIN tb_games t2 ON t2.game_id = t1.game_id " +
+            "WHERE t1.game_id = #{gameId} LIMIT 1")
+    TeamDetail selectByGameId(@Param("gameId") Integer gameId);
 }

@@ -11,6 +11,7 @@ import com.management.admin.biz.ITeamService;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameCategory;
 import com.management.admin.entity.dbExt.TeamCompetition;
+import com.management.admin.entity.dbExt.TeamDetail;
 import com.management.admin.repository.TeamMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,5 +96,16 @@ public class TeamServiceImpl implements ITeamService {
             return true ;
         }
         return false ;
+    }
+
+    /**
+     * 获取团队信息 DF 2018年12月30日17:51:33
+     *
+     * @param gameId
+     * @return
+     */
+    @Override
+    public TeamDetail getTeam(Integer gameId) {
+        return teamMapper.selectByGameId(gameId);
     }
 }

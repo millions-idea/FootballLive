@@ -1,11 +1,14 @@
 package com.management.admin.entity.db;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.code.IdentityDialect;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,16 +21,19 @@ import java.util.Date;
 @Setter
 public class Schedule {
     @Id
+    @KeySql(useGeneratedKeys = true,dialect = IdentityDialect.MYSQL)
     private Integer scheduleId;
 
     /**
      * 赛事id
      */
+    @Ignore
     private Integer gameId;
 
     /**
      * 球队id(支持多个)
      */
+    @Ignore
     private String  teamId;
 
     /**
@@ -66,5 +72,26 @@ public class Schedule {
      * 胜利方球队id
      */
     private Integer winTeamId;
+
+    @Ignore
+    private Integer masterTeamId;
+
+    @Ignore
+    private Integer targetTeamId;
+
+    private Integer isHot;
+
+    @Ignore
+    private Integer cloudId;
+    private Date editDate;
+
+
+    private Integer masterRedChess;
+    private Integer masterYellowChess;
+    private Integer masterCornerKick;
+
+    private Integer targetRedChess;
+    private Integer targetYellowChess;
+    private Integer targetCornerKick;
 
 }

@@ -63,4 +63,34 @@ public class LiveScheduleDetail {
      * 胜利方球队名称
      */
     private String winTeamName;
+
+    /**
+     * 查询赛程信息列表 DF 2018年12月18日02:26:40
+     * @param condition
+     * @return
+     */
+    /**
+     * 预测结果
+     */
+    private String forecastResult;
+    /**
+     * 预测比分
+     */
+    private String forecastGrade;
+    /**
+     * 预测胜利球队
+     */
+    private Integer forecastTeamId;
+
+
+
+    private Integer masterRedChess;
+    private Integer masterYellowChess;
+    private Integer masterCornerKick;
+
+    private Integer targetRedChess;
+    private Integer targetYellowChess;
+    private Integer targetCornerKick;
+
+    private Integer cloudId;
 }

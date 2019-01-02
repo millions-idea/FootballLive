@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * 赛事信息
@@ -27,5 +28,8 @@ public class Game {
 
     private Integer isDelete;
 
+    private Integer cloudId;
+
+    private Date editDate;
 
 }

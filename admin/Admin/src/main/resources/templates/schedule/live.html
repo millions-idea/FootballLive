@@ -1,0 +1,85 @@
+<div class="layui-form layui-form-pane my-view" method="post" action="./express-platform/edit"
+     enctype="application/x-www-form-urlencoded" xmlns:th="http://www.thymeleaf.org">
+    <div class="layui-form-item">
+        <label class="layui-form-label">直播链接</label>
+        <div class="layui-input-block">
+            <input type="text" id="source-url" autocomplete="off"
+                   lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <!-- 广告内容开始 -->
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告链接</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="" id="target-url">
+            </select>
+        </div>
+    </div>
+    <!--广告内容结束-->
+    <div class="layui-form-item">
+        <button lay-submit lay-filter="my-form" class="layui-btn layui-btn-warm layui-row layui-col-xs12" id="save">确定</button>
+    </div>
+</div>
+
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form;
+        $.getJSON("/management/advertising/getAll",function (data) {
+            var html='';
+            html += '<option value="">无广告</option>';
+            data.data.forEach(function (item,index) {
+                html += '<option value="' + item.adId + '">' + "[" + item.adId + "]" + item.targetUrl + '</option>'
+            })
+            $("#target-url").html(html);
+            form.render();
+        });
+        $.getJSON("/management/game/getAll",function (data) {
+            var html='';
+            data.data.forEach(function (item,index) {
+                html+='<option value="'+item.gameId+'">'+item.gameName+'</option>';
+            })
+            $("#required").html(html);
+            form.render();
+        })
+        form.render();
+
+        var liveDetail={};
+        layui.use(['laydate'], function(){
+            var laydate = layui.laydate;
+            //日期时间选择器
+            laydate.render({
+                elem: '#beginData'
+                ,type: 'datetime'
+                ,done: function(value, date, endDate){
+                    liveDetail.liveDate=value;
+                }
+            });
+        });
+        $("#save").click(function () {
+            liveDetail.scheduleId = $("#schedule-id").val();
+            liveDetail.sourceUrl = $("#source-url").val();
+            liveDetail.adId = $("#target-url").val();
+            $.ajax({
+                url:"/management/schedule/openLive",    //请求的url地址
+                dataType:"json",   //返回格式为json
+                data: liveDetail,    //参数值
+                type:"post",   //请求方式
+                success:function(data){
+                    //请求成功时处理
+                    if(data == null || data.code == null || data.code != 200) {
+                        if(data.code == 300){
+                            layer.msg(data.msg);
+                            return;
+                        }else{
+                            layer.msg("添加失败");
+                            return;
+                        }
+                    }
+                    layer.msg("添加成功");
+                    tableIndex.reload();
+                    layer.closeAll();
+                }
+            });
+        })
+    });
+</script>

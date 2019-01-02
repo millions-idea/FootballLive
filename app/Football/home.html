@@ -31,13 +31,16 @@
 					    		<img src="images/runner.image.png" />
 					    	</a>
 					    </div>-->
-						  <div class="mui-slider-group" id="runnerImage">
-							  	<div class="mui-slider-item">
-							    	<a href="javascript:void(0);" class="runnerLink">
-							    		<img src="images/runner.image.png" />
-							    	</a>
-							    </div>
-						  </div>
+					    
+					    
+				    	<div class="mui-slider-group" id="runnerImage">
+						  	<div class="mui-slider-item">
+						    	<a href="javascript:void(0);" class="runnerLink">
+						    		<img src="images/runner.image.png" />
+						    	</a>
+						    </div>
+					    </div>    
+						  
 						  <div class="mui-slider-indicator">
 			                <div class="mui-indicator mui-active"></div>
 			                <div class="mui-indicator"></div>
@@ -46,7 +49,8 @@
 						</div> 
 					</div>
 					<!--template code begin-->
-					<script id="runnerImageTemplate" type="text/html">
+					<script id="runnerImageTemplate" type="text/html">						
+						
 						{{each list as item index}}
 						    <div class="mui-slider-item">
 						    	<a href="javascript:void(0);" data-url="{{item.url}}" class="runnerLink">
@@ -54,6 +58,7 @@
 						    	</a>
 						    </div>
 						{{/each}}
+						
 					</script>
 					<!--template code end-->
 				<!--runner image end-->
@@ -109,14 +114,59 @@
 				<!-- category begin -->
 				<div class="category">
 					<div class="left">
-						<div class="item first" style="background-image: url(images/default/1.png)"></div>
+						<div class="item first" style="background-image: url(images/default/b1.png)"></div>
 					</div>
 					<div class="right">
-						<div class="item" style="background-image: url(images/default/2.png)"></div>
-						<div class="item" style="background-image: url(images/default/3.png)"></div>
+						<div class="item" style="background-image: url(images/default/b2.png)"></div>
+						<div class="item" style="background-image: url(images/default/b3.png)"></div>
 					</div>
 				</div>
 				<!-- category end --> 
+				
+				<!-- headline begin -->
+				<div  id="hotInformation">
+				<!--	<div class="full-headline" style="height: 110px;">
+						<div class="center">
+							<div class="title title-color-red">推荐情报： 日职联 2018-12-30 22:25</div>
+							<div class="content">
+								<div class="team team-left">
+			    					
+									<img class="teamIcon" src="images/luneng.png" alt="" />
+									<span class="teamName">山东鲁能</span>
+								</div>
+								<div class="info">
+			    					<span>让胜: 0-0</span>
+			    				</div>
+								<div class="team team-right hot">
+									<img class="targetTeamIcon" src="images/luneng.png" alt="" />
+									<span class="targetTeamName">北京国安</span>
+								</div>
+							</div>
+						</div>
+					</div>
+						
+					<div class="padding-top-10"></div>
+					
+					<div class="full-headline" style="height: 110px;">
+						<div class="center">
+							<div class="title title-color-red">推荐情报： 日职联 2018-12-30 22:25</div>
+							<div class="content">
+								<div class="team team-left hot"> 
+									<img class="teamIcon" src="images/luneng.png" alt="" />
+									<span class="teamName">山东鲁能</span>
+								</div>
+								<div class="info">
+			    					<span>让胜: 0-0</span>
+			    				</div>
+								<div class="team team-right">
+									<img class="targetTeamIcon" src="images/luneng.png" alt="" />
+									<span class="targetTeamName">北京国安</span>
+								</div>
+							</div>
+						</div>
+					</div>-->
+				</div> 
+				<!-- headline end -->
 			
 				
 			</div>

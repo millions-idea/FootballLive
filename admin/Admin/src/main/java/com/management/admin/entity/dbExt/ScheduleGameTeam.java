@@ -55,4 +55,7 @@ public class ScheduleGameTeam {
 
     private Integer isDelete;
 
+    private Integer isHot;
+
+    private String liveTitle;
 }

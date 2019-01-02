@@ -39,7 +39,7 @@ var tableIndex;
                     layer.open({
                         type: 1,
                         skin: 'layui-layer-rim', //加上边框
-                        area: ['420px', 'auto'], //宽高
+                        area: ['620px', '620px'], //宽高
                         shadeClose: true,
                         content:html
                     });
@@ -202,7 +202,6 @@ function getTableColumns() {
         , {field: 'scheduleStatus', title: '直播间状态', width: 150 , sort: true, templet: function (d) {
                 return d.scheduleStatus == null ? '' : utils.scheduleStatus.scheduleStatusInfo(d.scheduleStatus);
             }}
-        , {field: 'teamName', title: '球队名称', width: 180}
         , {fixed: 'right',title: '操作', width: 160, align: 'center', templet: function(d){
                 var html = "";
                 html+='<a name="item-view" class="layui-btn layui-btn layui-btn-xs" lay-event="details">详情</a>';

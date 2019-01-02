@@ -91,7 +91,6 @@ public class LiveController {
         }else{
             model.addAttribute("unSelectItems", null);
         }
-
         model.addAttribute("live", live);
         model.addAttribute("lives",liveDetails);
         return "live/edit";

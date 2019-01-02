@@ -16,6 +16,7 @@ import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.dbExt.GameCategory;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
+import com.management.admin.exception.InfoException;
 import com.management.admin.utils.StringUtil;
 import com.management.admin.utils.web.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,5 +105,22 @@ public class CompetitionControllor {
             return  JsonResult.successful();
         }
         return  JsonResult.failing();
+    }
+
+    @GetMapping("syncData")
+    public String syncData(final Model model){
+        List<LiveCategory> liveCategories=competitionService.selectLiveCategory();
+        model.addAttribute("categorys",liveCategories);
+        return "competition/syncData";
+    }
+
+
+    @GetMapping("syncCloudData")
+    @ResponseBody
+    public JsonResult syncCloudData(Integer categoryId){
+        if(categoryId == null) throw new InfoException("请选择要同步的分类");
+        boolean result = competitionService.syncCloudData(categoryId);
+        if(result) return JsonResult.successful();
+        return JsonResult.failing();
     }
 }

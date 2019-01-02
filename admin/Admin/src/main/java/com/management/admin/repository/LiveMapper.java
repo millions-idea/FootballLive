@@ -20,8 +20,7 @@ public interface LiveMapper extends MyMapper<Live>{
             "FROM tb_lives t1 LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id  " +
             "LEFT JOIN tb_games t3 ON t2.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.team_id  where" +
-            "  t1.status=0 and t3.is_delete=0 and t4.is_delete=0" +
-            " and t2.is_delete=0 and ${condition} GROUP BY t1.live_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+            "  t1.status=0 and ${condition} GROUP BY t1.live_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page
@@ -120,7 +119,7 @@ public interface LiveMapper extends MyMapper<Live>{
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.status = 1 " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.is_hot = 1 " + // AND t2.status = 1
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectHotLives();
  /**
@@ -197,4 +196,21 @@ public interface LiveMapper extends MyMapper<Live>{
      */
     @Update("update tb_lives set ad_id=#{adId} where live_id=#{liveId}")
     int modifyAdvertisingByLiveId(@Param("liveId") Integer liveId,@Param("adId") Integer adId);
+
+    /**
+     * 添加直播间 DF 2018年12月29日01:35:40
+     * @param live
+     * @return
+     */
+    @Insert("INSERT INTO tb_lives (live_title, live_date, schedule_id, `status`, share_count, collect_count, source_url, ad_id, add_date) " +
+            "VALUES(" + "#{liveTitle}," + "#{liveDate}," + "#{scheduleId}," + "0,0,0," + "#{sourceUrl}," + "0," + "NOW()" + ")")
+    int addLive(Live live);
+
+    /**
+     * 查询直播间 DF 2018年12月29日18:39:29
+     * @param scheduleId
+     * @return
+     */
+    @Select("SELECT * FROM tb_lives WHERE schedule_id=#{scheduleId} LIMIT 1")
+    Live selectBySchedule(@Param("scheduleId") Integer scheduleId);
 }

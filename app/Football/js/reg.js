@@ -127,6 +127,24 @@ mui.plusReady(function() {
 				
 				// 记录缓存信息
 				plus.storage.setItem('userInfo', JSON.stringify(data.msg));
+			
+							
+							
+				var parentWebview = plus.webview.currentWebview().opener();
+				if(parentWebview != null){
+						console.log("调用父窗口刷新函数" + parentWebview.id)
+						if(parentWebview.id == "login"){
+							var view = plus.webview.getWebviewById("my");
+							console.log("载入窗口" + view);
+							if(view != null){
+								mui.fire(view, "asyncInfo", {});
+							}
+						}else{
+							mui.fire(parentWebview, "asyncInfo", {});
+						}
+	
+				}
+				
 				
 				mui.openWindow("index.html", "index");
 			}

@@ -29,10 +29,16 @@ window.utils = {
                     return '未开始';
                     break;
                 case 1:
-                    return '<span  style="color: red">正在直播</span> ';
+                    return '<span  style="color: red">进行中</span> ';
                     break;
                 case 2:
                     return '<span  style="color: silver">已结束</span> ';
+                    break;
+                case 3:
+                    return '<span  style="color: silver">延迟</span> ';
+                    break;
+                case 4:
+                    return '<span  style="color: silver">未知</span> ';
                     break;
             }
         }

@@ -16,7 +16,7 @@ import java.util.List;
  * Version 1.0
  **/
 @Mapper
-public interface CompetitionMapper {
+public interface CompetitionMapper extends MyMapper<Game> {
 
     @Select("select * from tb_games where is_delete=0")
     /**
@@ -36,7 +36,7 @@ public interface CompetitionMapper {
      */
     List<GameCategory> selectLimit(@Param("page") Integer page, @Param("limit") String limit);
 
-    @Select("SELECT COUNT(game_id) FROM tb_games where is_delete=0")
+    @Select("SELECT COUNT(game_id) FROM tb_games WHERE is_delete = 0")
     /**
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return

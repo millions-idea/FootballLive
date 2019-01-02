@@ -2,10 +2,14 @@ package com.management.admin.controller;
 
 import com.management.admin.annotaion.WebLog;
 import com.management.admin.biz.IInformationService;
+import com.management.admin.biz.IScheduleService;
+import com.management.admin.biz.ITeamService;
 import com.management.admin.entity.db.Information;
 import com.management.admin.entity.db.Live;
+import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.InformationDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
+import com.management.admin.entity.dbExt.ScheduleGameTeam;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
 import com.management.admin.utils.DateUtil;
@@ -18,7 +22,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/management/information")
@@ -27,6 +33,12 @@ public class InformationController {
 
     @Autowired
     private IInformationService informationService;
+
+    @Autowired
+    private IScheduleService scheduleService;
+
+    @Autowired
+    private ITeamService teamService;
 
     @GetMapping("/index")
     public String index(){
@@ -41,7 +53,7 @@ public class InformationController {
     @GetMapping("/getInformationLimit")
     @ResponseBody
     @WebLog(section = "Information",content = "查看所有的情报信息")
-    public JsonArrayResult<Information> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
+    public JsonArrayResult<InformationDetail> getLiveLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime) {
         Integer count = 0;
         List<InformationDetail> list = informationService.getLimit(page, limit, condition, state, beginTime, endTime);
         JsonArrayResult jsonArrayResult = new JsonArrayResult(0, list);
@@ -79,9 +91,9 @@ public class InformationController {
     @PostMapping("/setInformationContent")
     @ResponseBody
     @WebLog(section = "Information",content = "修改情报信息")
-    public JsonResult setInformationContent(Information information){
-        Integer result = informationService.modifyInfromation(information);
-        if(result>0){
+    public JsonResult setInformationContent(InformationDetail information){
+        boolean result = informationService.modifyInfromation(information);
+        if(result){
             return JsonResult.successful();
         }
         return JsonResult.failing();
@@ -129,12 +141,30 @@ public class InformationController {
 
     @GetMapping("/edit")
     public String edit(Integer isrId,final Model model){
+        Map<String,Integer> statuses = new HashMap<>();
+        statuses.put("未开始", 0);
+        statuses.put("正在直播", 1);
+        statuses.put("已结束", 2);
+
+        ScheduleGameTeam scheduleGameTeam = scheduleService.selectScheduleByInfoId(isrId);
+
+/*        model.addAttribute("scheduleGameTeam", scheduleGameTeam);
+        model.addAttribute("statuses",statuses);*/
+
+        String teamIds = scheduleGameTeam.getTeamId();
+        String[] split = teamIds.split(",");
+
+        List<Team> teams = teamService.getTeams(teamIds);
+        model.addAttribute("teams",teams);
+
         InformationDetail informationDetail = informationService.queryInformationById(isrId);
         model.addAttribute("informationDetail",informationDetail);
         return "information/edit";
     }
+
     @GetMapping("/add")
-    public String add(){
+    public String add(final Model model){
+
         return "information/add";
     }
 }

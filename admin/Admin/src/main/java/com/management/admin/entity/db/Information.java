@@ -34,5 +34,22 @@ public class Information {
      */
     private String content;
 
+    /**
+     * 预测比分
+     */
+    private String forecastGrade;
+
+    /**
+     * 预测胜利球队
+     */
+    private Integer forecastTeamId;
+
+    /**
+     * 预测结果
+     */
+    private String forecastResult;
+
     private Date addDate;
+
+    private Integer isHot;
 }

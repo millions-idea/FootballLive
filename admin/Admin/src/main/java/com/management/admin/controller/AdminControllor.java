@@ -9,6 +9,7 @@ import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
 import com.management.admin.entity.template.SessionModel;
+import com.management.admin.exception.InfoException;
 import com.management.admin.utils.MD5Util;
 import com.management.admin.utils.StringUtil;
 import com.management.admin.utils.web.SessionUtil;
@@ -134,10 +135,13 @@ public class AdminControllor {
     @PostMapping(value = "insertAdmin")
     @ResponseBody
     @WebLog(section = "User", content = "添加管理员")
-    public JsonResult insertAdmin(String phone, String password, Integer type) {
+    public JsonResult insertAdmin(HttpServletRequest req, String phone, String password, Integer type) {
+        //验证权限
+        SessionModel session = SessionUtil.getSession(req);
+        AdminUser adminUserInfoById = userService.getAdminUserInfoById(session.getUserId());
+        if(!adminUserInfoById.getStatus().equals(1)) throw new InfoException("权限不足");
 
         JsonResult jsonResult = new JsonResult();
-
         RelationAdminUsers adminUsers = new RelationAdminUsers();
         adminUsers.setPhone(phone);
         String rpassword = MD5Util.encrypt32(MD5Util.encrypt32(phone + password));
@@ -145,6 +149,7 @@ public class AdminControllor {
         adminUsers.setType(type);
         adminUsers.setPermissionGroupId(type);
         String checkPhone = userService.checkPhone(adminUsers.getPhone());
+
         if (checkPhone != null) {
             jsonResult.setMsg("该账号已经存在");
         } else if (userService.insertAdminUsers(adminUsers)) {

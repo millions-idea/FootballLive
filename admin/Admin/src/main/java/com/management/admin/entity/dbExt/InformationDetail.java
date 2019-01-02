@@ -42,4 +42,20 @@ public class InformationDetail {
     private String addDateStr;
 
     private String scheduleStatusStr;
+
+    private Integer isHot;
+
+    /**
+     * 预测结果
+     */
+    private String forecastResult;
+    /**
+     * 预测比分
+     */
+    private String forecastGrade;
+    /**
+     * 预测胜利球队
+     */
+    private Integer forecastTeamId;
+    private String winTeamName;
 }

@@ -82,4 +82,5 @@ public class LiveDetail {
     private Integer scheduleId;
 
     private String content;
+
 }

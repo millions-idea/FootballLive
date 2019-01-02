@@ -2,16 +2,17 @@ package com.management.admin.repository;
 
 import com.management.admin.entity.db.Schedule;
 import com.management.admin.entity.db.Team;
-import com.management.admin.entity.dbExt.LiveScheduleDetail;
-import com.management.admin.entity.dbExt.ScheduleGameTeam;
-import com.management.admin.entity.dbExt.TeamCompetition;
+import com.management.admin.entity.dbExt.*;
+import com.management.admin.repository.extendsMapper.InsertListUpdateMapper;
+import com.management.admin.repository.extendsMapper.InsertListUpdateScheduleMapper;
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface ScheduleMapper extends MyMapper<Schedule>{
+public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateScheduleMapper<Schedule> {
 
     /**
      * 根据赛程查询相应赛事
@@ -37,7 +38,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.status = 1 " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
             "AND ${condition} " +
             "ORDER BY t1.live_date desc")
     List<LiveScheduleDetail> selectScheduleDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
@@ -57,18 +58,23 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
 
 
 
-    @Select("SELECT * FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
-            "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id" +
-            " WHERE t1.is_delete=0  LIMIT #{page},${limit}")
+    @Select("SELECT *, t3.team_name AS winTeamName FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
+            "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id  " +
+            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id  " +
+            " WHERE t1.is_delete=0 and ${condition} ORDER BY t1.schedule_id DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 Timor 2018年8月30日11:33:22
      * @param page
      * @param limit
      * @return
      */
-    List<ScheduleGameTeam> selectLimit(@Param("page") Integer page, @Param("limit") String limit);
+    List<ScheduleGameTeam> selectLimit(@Param("page") Integer page, @Param("limit") String limit
+            , @Param("isEnable") Integer isEnable
+            , @Param("beginTime") String beginTime
+            , @Param("endTime") String endTime
+            , @Param("condition") String condition);
 
-    @Select("SELECT COUNT(schedule_id) FROM tb_schedules ")
+    @Select("SELECT COUNT(schedule_id) FROM tb_schedules WHERE is_delete=0")
     /**
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return
@@ -84,9 +90,10 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
     Integer deleteSchedule(@Param("scheduleId") Integer scheduleId);
 
 
-    @Update("update tb_schedules set game_id=#{gameId},team_id=#{teamId}, game_date=#{gameDate}, game_duration=#{gameDuration}," +
-            "  status=#{status}, schedule_result=#{scheduleResult}, schedule_grade=#{scheduleGrade}," +
-            "  win_team_id=#{winTeamId} where schedule_id=#{scheduleId}")
+    @Update("update tb_schedules set game_id=#{gameId},team_id=#{teamId}, game_date=#{gameDate}, game_duration=#{gameDuration}, " +
+            "  status=#{status}, schedule_result=#{scheduleResult}, schedule_grade=#{scheduleGrade}, " +
+            " master_team_id=#{masterTeamId}, target_team_id=#{targetTeamId}, " +
+            "  win_team_id=#{winTeamId}, is_hot=#{isHot} where schedule_id=#{scheduleId}")
     /**
      * 修改赛程 提莫 2018年12月19日1:40:30
      * @return
@@ -94,7 +101,8 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
     Integer updateSchedule(Schedule schedule);
 
 
-    @Insert("insert into tb_schedules(game_id,team_id,game_date,game_duration) values (#{gameId},#{teamId},#{gameDate},#{gameDuration})")
+    @Insert("insert into tb_schedules(game_id,team_id,game_date,game_duration, master_team_id, target_team_id) " +
+            "values (#{gameId},#{teamId},#{gameDate},#{gameDuration},#{masterTeamId},#{targetTeamId})")
     /**
      * 添加赛程信息 提莫 2018年12月18日14:50:30
      * @return
@@ -116,4 +124,24 @@ public interface ScheduleMapper extends MyMapper<Schedule>{
     @Update("update tb_schedule status=2 where schedule_id=#{scheduleId}")
     Integer endSchedule(Integer scheduleId);
 
+    /**
+     * 根据情报id查询赛程信息 DF 2018年12月31日01:03:04
+     * @param isrId
+     * @return
+     */
+    @Select("SELECT * FROM `tb_informations` t1 " +
+            "LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id " +
+            "LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
+            "WHERE t1.isr_id = #{isrId}")
+    ScheduleGameTeam selectScheduleByInfoId(@Param("isrId") Integer isrId);
+
+    @Update("UPDATE tb_informations SET ${condition}" +
+            "WHERE isr_id = #{isrId}")
+    int updateInformation(@Param("forecastGrade") String scheduleGrade, @Param("forecastResult") String scheduleResult
+            , @Param("forecastTeamId") Integer winTeamId, @Param("isrId") Integer liveId , @Param("condition") String condition);
+
+    @Select("SELECT * FROM tb_schedules t1 " +
+            "LEFT JOIN tb_lives t2 ON t2.schedule_id = t1.schedule_id " +
+            "WHERE t1.is_delete = 0")
+    List<ScheduleLiveDetail> selectScheduleList();
 }

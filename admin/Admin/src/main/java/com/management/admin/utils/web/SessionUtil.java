@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableMap;
 import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.MsgException;
 import com.management.admin.utils.TokenUtil;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -25,16 +26,20 @@ public class SessionUtil {
      * @return
      */
     public static SessionModel getSession(HttpServletRequest request){
-        // 取出token信息
-        String token = getToken(request);
-        if(token.isEmpty()) throw new MsgException("缺少令牌");
+       try{
+           // 取出token信息
+           String token = getToken(request);
+           if(token.isEmpty()) throw new MsgException("缺少令牌");
 
-        // 按照token安全加密规则进行验证, 如果没有通过则抛出异常
-        Map<String, String> map = TokenUtil.validate(token);
-        if(map.isEmpty()) throw new MsgException("用户来路异常");
+           // 按照token安全加密规则进行验证, 如果没有通过则抛出异常
+           Map<String, String> map = TokenUtil.validate(token);
+           if(map.isEmpty()) throw new MsgException("用户来路异常");
 
-        // 安全验证通过后解析出来用户id并返回
-        return new SessionModel(Integer.valueOf(map.get("userId")), map.get("phone"), map.get("userCode"));
+           // 安全验证通过后解析出来用户id并返回
+           return new SessionModel(Integer.valueOf(map.get("userId")), map.get("phone"), map.get("userCode"));
+       }catch (Exception e){
+           return null;
+       }
     }
 
     /**

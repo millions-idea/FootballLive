@@ -3,9 +3,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.ChatRoom;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -44,4 +42,7 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
      */
     @Select("SELECT * FROM tb_chat_rooms WHERE live_id = #{liveId}")
     ChatRoom selectByLive(@Param("liveId") Integer liveId);
+
+    @Insert("INSERT INTO tb_chat_rooms (live_id, chat_room_id, frequency) VALUES(#{liveId}, #{chatRoomId}, 10) ON DUPLICATE KEY UPDATE chat_room_id = #{chatRoomId}")
+    int insertOrUpdate(ChatRoom chatRoom);
 }

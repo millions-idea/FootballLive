@@ -29,8 +29,8 @@ public class GameApiController {
      * @return
      */
     @GetMapping("getGameList")
-    public JsonArrayResult<GameDetail> getGameList(){
-        List<GameDetail> gameList = gameService.queryAll();
+    public JsonArrayResult<GameDetail> getGameList(Integer liveCategoryId){
+        List<GameDetail> gameList = gameService.getList(liveCategoryId);
         return new JsonArrayResult<GameDetail>(gameList);
     }
 }

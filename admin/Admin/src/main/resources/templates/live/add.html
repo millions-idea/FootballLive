@@ -61,8 +61,9 @@
         var form = layui.form;
         $.getJSON("/management/advertising/getAll",function (data) {
             var html='';
+            html += '<option value="">无广告</option>';
             data.data.forEach(function (item,index) {
-                html+='<option value="'+item.adId+'">'+item.targetUrl+'</option>'
+                html += '<option value="' + item.adId + '">' + "[" + item.adId + "]" + item.targetUrl + '</option>'
             })
             $("#target-url").html(html);
             form.render();
@@ -93,7 +94,6 @@
             liveDetail.liveTitle = $("#live-title").val();
             var gameId= $("#required").val();
             var schedules=$("#schedules").val();
-            alert(schedules +"==="+gameId);
             if (schedules.indexOf(gameId)!=-1){
                 layer.msg("您选择的赛程已有直播间在播放了");
                 return false;
