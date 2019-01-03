@@ -130,6 +130,7 @@ public class ChatRoomServiceImpl implements IChatRoomService {
      */
     public String sendMsg(String MsgPassword,Integer liveId,String msg){
         ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
+
         if(chatRoom == null) return "直播间不存在";
 
         if(!MsgPassword.equals(Constant.MsgPassword)){

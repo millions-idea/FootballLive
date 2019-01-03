@@ -183,4 +183,11 @@ public class LiveController {
     public JsonArrayResult<Live> getAll(){
         return new JsonArrayResult<Live>(liveService.queryAll());
     }
+
+    @GetMapping("/bulkDissolution")
+    @ResponseBody
+    public JsonResult<String> bulkDissolution(){
+        liveService.bulkDissolution();
+        return JsonResult.successful();
+    }
 }

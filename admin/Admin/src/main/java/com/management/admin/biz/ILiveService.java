@@ -181,4 +181,10 @@ public interface ILiveService {
      * @return
      */
     List<LiveDetail> selectScheduleByLive();
+
+    /**
+     * 批量解散群组直播间
+     * @return
+     */
+    Integer bulkDissolution();
 }
