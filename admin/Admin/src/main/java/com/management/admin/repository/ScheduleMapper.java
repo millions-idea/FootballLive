@@ -83,7 +83,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             , @Param("condition") String condition);
 
 
-    @Select("SELECT COUNT(t1.schedule_id) FROM tb_schedules t1 LEFT JOIN tb_teams t2 ON t2.team_id = t1.win_team_id WHERE t1.is_delete=0 AND t2.game_id != -1")
+    @Select("SELECT COUNT(t1.schedule_id) FROM tb_schedules t1 LEFT JOIN tb_teams t2 ON t2.team_id = t1. team_id WHERE t1.is_delete=0  ")
     /**
      * 分页查询记录数 提莫 2018年8月30日11:33:30
      * @return
