@@ -3,6 +3,7 @@ package com.management.admin.apiController;
 import com.alibaba.fastjson.JSON;
 import com.management.admin.biz.impl.ScheduleServiceImpl;
 import com.management.admin.entity.template.JsonResult;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,5 +48,17 @@ public class ScheduleApiController {
         }
         return JsonResult.failing();
     }
+
+
+    /**
+     * 同步赛程列表 DF 2019年1月2日20:42:54
+     * @return
+     */
+    @GetMapping("asyncScheduleList")
+    public JsonResult asyncScheduleList(){
+        scheduleService.asyncScheduleList();
+        return JsonResult.successful();
+    }
+
 
 }

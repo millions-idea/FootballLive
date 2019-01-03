@@ -247,5 +247,21 @@ overflow: hidden;
 }
 
 .notvs .info{
-	bottom: 0px !important;
+	top: 25px !important;
+}
+
+
+.notvs .info span{
+	display: block;
+	height: 22px;
+	line-height: 22px;
+}
+
+.notvs .red-grade{
+	display: block;
+	color: #FE4541;
+	font-size: 25px;
+	font-weight: bold;
+	position: relative;
+	top: 5px;
 }

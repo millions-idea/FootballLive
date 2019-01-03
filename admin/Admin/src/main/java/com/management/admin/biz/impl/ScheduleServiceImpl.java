@@ -7,17 +7,22 @@
  */
 package com.management.admin.biz.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.management.admin.biz.IScheduleService;
 import com.management.admin.entity.db.*;
 import com.management.admin.entity.dbExt.LiveScheduleDetail;
 import com.management.admin.entity.dbExt.ScheduleGameTeam;
 import com.management.admin.entity.dbExt.ScheduleLiveDetail;
 import com.management.admin.entity.resp.NAGroup;
+import com.management.admin.entity.resp.NMAsyncSchedule;
+import com.management.admin.entity.resp.NMOdds;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.exception.InfoException;
 import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.JsonUtil;
+import com.management.admin.utils.http.NamiUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -476,7 +481,8 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         });
     }
-    /**
+
+/**
      * 提取分页条件
      * @return
      */
@@ -515,5 +521,96 @@ public class ScheduleServiceImpl implements IScheduleService {
             where += " AND t1.game_date BETWEEN #{beginTime} AND #{endTime}";
         }
         return where;
+    }
+
+
+
+    /**
+     * 同步赛程列表 DF 2019年1月2日20:43:23
+     */
+    @Transactional
+    public void asyncScheduleList() {
+        String response = NamiUtil.get("sports/football/match/live", null);
+        if(response == null) throw new InfoException("同步接口数据失败");
+        List<List<Object>> list = new ArrayList<>();
+        list = JSON.parseObject(response, List.class);
+        List<NMAsyncSchedule> nmAsyncSchedules = new ArrayList<>();
+
+        list.stream().forEach(item -> {
+            Integer namiScheduleId = new Integer(item.get(0) + "");
+            Integer status = new Integer(item.get(1) + "");
+            String masterInlineArray = String.valueOf(item.get(2));
+            List masterProperty = JSON.parseObject(masterInlineArray, List.class);
+
+            String targetInlineArray = String.valueOf(item.get(3));
+            List targetProperty = JSON.parseObject(targetInlineArray, List.class);
+
+            Integer masterGrade = Integer.valueOf(masterProperty.get(0) + "");
+            Integer masterRedChess = Integer.valueOf(masterProperty.get(2)+ "");
+            Integer masterYellowChess = Integer.valueOf(masterProperty.get(3)+ "");
+            Integer masterCornerKick = Integer.valueOf(masterProperty.get(4)+ "");
+
+            Integer targetGrade = Integer.valueOf(targetProperty.get(0) + "");
+            Integer targetRedChess = Integer.valueOf(targetProperty.get(2) + "");
+            Integer targetYellowChess = Integer.valueOf(targetProperty.get(3) + "");
+            Integer targetCornerKick = Integer.valueOf(targetProperty.get(4) + "");
+
+            NMAsyncSchedule nmAsyncSchedule = new NMAsyncSchedule();
+            nmAsyncSchedule.setNamiScheduleId(namiScheduleId);
+            nmAsyncSchedule.setStatus(status);
+            nmAsyncSchedule.setMasterGrade(masterGrade);
+            nmAsyncSchedule.setMasterCornerKick(masterCornerKick);
+            nmAsyncSchedule.setMasterRedChess(masterRedChess);
+            nmAsyncSchedule.setMasterYellowChess(masterYellowChess);
+
+            nmAsyncSchedule.setTargetCornerKick(targetCornerKick);
+            nmAsyncSchedule.setTargetGrade(targetGrade);
+            nmAsyncSchedule.setTargetRedChess(targetRedChess);
+            nmAsyncSchedule.setTargetYellowChess(targetYellowChess);
+            nmAsyncSchedules.add(nmAsyncSchedule);
+        });
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("UPDATE tb_schedules SET ");
+        buffer.append("schedule_grade = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            String scheduleGrade = item.getMasterGrade() + "-" + item.getTargetGrade();
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + "'" + scheduleGrade + "'");
+        });
+        buffer.append(" END,");
+        buffer.append("master_red_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("master_yellow_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("master_corner_kick = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("target_red_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("target_yellow_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("target_corner_kick = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END ");
+        List<String> collect = nmAsyncSchedules.stream().map(item -> item.getNamiScheduleId() + "").collect(Collectors.toList());
+        buffer.append("WHERE nami_schedule_id IN(" + String.join(",",collect) + ")");
+        scheduleMapper.execUpdate(buffer.toString());
+        return;
     }
 }
