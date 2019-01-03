@@ -15,4 +15,6 @@ public class GroupAll {
     private Integer count;
 
     private List<Group> infos;
+
+      
 }

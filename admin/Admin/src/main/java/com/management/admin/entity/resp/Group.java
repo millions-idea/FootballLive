@@ -20,4 +20,6 @@ public class Group {
     private Integer size;
 
     private String custom;
+
+
 }
