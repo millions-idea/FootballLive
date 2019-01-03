@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMAsyncSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IInformationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/utils/ConditionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/utils/ConditionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/information/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/information/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/informations.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/informations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/liveDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/liveDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/css/lives.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/css/lives.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/informations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/informations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/informations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/liveDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/js/lives.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/js/lives.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/liveDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/liveDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Football/unpackage/.confirmed_dependencies" afterDir="false" />
-    </list>
+    <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -635,12 +609,12 @@
       <workItem from="1546057594366" duration="56689000" />
       <workItem from="1546231308750" duration="7398000" />
       <workItem from="1546256323169" duration="86771000" />
-      <workItem from="1546523349592" duration="112000" />
+      <workItem from="1546523349592" duration="536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232880000" />
+    <option name="totallyTimeSpent" value="233304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -648,7 +622,7 @@
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4940978" visible="true" weight="0.16311301" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4940978" visible="true" weight="0.16311301" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -658,7 +632,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4978678" visible="true" weight="0.0" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4978678" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
