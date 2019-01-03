@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42e9966f-2fc7-43dd-af3b-043fbff6785f" name="Default Changelist" comment="Merge branch 'master' of github.com:millions-idea/FootballLive&#10;&#10;# Conflicts:&#10;#&#9;admin/Admin/.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/live/add.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/live/add.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +54,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="360" />
-          <entry key="java" value="355" />
+          <entry key="java" value="356" />
           <entry key="js" value="1" />
           <entry key="yml" value="1" />
         </counts>
@@ -71,16 +62,17 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="360" />
-          <entry key="JAVA" value="355" />
+          <entry key="JAVA" value="356" />
           <entry key="JavaScript" value="1" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -134,157 +126,136 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScheduleApiController.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="56" column="34" lean-forward="false" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="1225">
+              <caret line="56" column="34" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompetitionControllor.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/CompetitionControllor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="121" column="50" lean-forward="true" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="2600">
+              <caret line="121" column="50" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompetitionServiceImpl.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="274" column="45" lean-forward="false" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="6200">
+              <caret line="274" column="9" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LiveController.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="164" column="44" lean-forward="true" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+            <state relative-caret-position="1350">
+              <caret line="164" column="44" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
               <folding>
-                <element signature="e#876#887#0" expanded="false" />
-                <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" expanded="false" />
-                <element signature="e#1283#1311#0" expanded="false" />
-                <element signature="docComment;method#edit#0;class#LiveController#0" expanded="false" />
-                <element signature="method#edit#0;class#LiveController#0" expanded="false" />
-                <element signature="docComment;method#delete#0;class#LiveController#0" expanded="false" />
-                <element signature="e#3650#3672#0" expanded="false" />
-                <element signature="method#delete#0;class#LiveController#0" expanded="false" />
-                <element signature="docComment;method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
-                <element signature="method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
-                <element signature="docComment;method#add#0;class#LiveController#0" expanded="false" />
-                <element signature="method#add#0;class#LiveController#0" expanded="false" />
-                <element signature="docComment;method#setLiveInfo#0;class#LiveController#0" expanded="false" />
-                <element signature="e#5438#5466#0" expanded="false" />
-                <element signature="e#5783#5811#0" expanded="false" />
-                <element signature="method#addLiveInfo#0;class#LiveController#0" expanded="false" />
-                <element signature="e#6098#6120#0" expanded="false" />
+                <element signature="e#876#887#0" />
+                <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" />
+                <element signature="e#1283#1311#0" />
+                <element signature="docComment;method#edit#0;class#LiveController#0" />
+                <element signature="method#edit#0;class#LiveController#0" />
+                <element signature="docComment;method#delete#0;class#LiveController#0" />
+                <element signature="e#3650#3672#0" />
+                <element signature="method#delete#0;class#LiveController#0" />
+                <element signature="docComment;method#getLiveDetailByLiveId#0;class#LiveController#0" />
+                <element signature="method#getLiveDetailByLiveId#0;class#LiveController#0" />
+                <element signature="docComment;method#add#0;class#LiveController#0" />
+                <element signature="method#add#0;class#LiveController#0" />
+                <element signature="docComment;method#setLiveInfo#0;class#LiveController#0" />
+                <element signature="e#5438#5466#0" />
+                <element signature="e#5783#5811#0" />
+                <element signature="method#addLiveInfo#0;class#LiveController#0" />
+                <element signature="e#6098#6120#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LiveServiceImpl.java" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="200" column="45" lean-forward="false" selection-start-line="200" selection-start-column="45" selection-end-line="200" selection-end-column="45" />
-              <folding>
-                <element signature="e#14905#14906#0" expanded="true" />
-                <element signature="e#14961#14962#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-6493">
+              <caret line="207" column="25" lean-forward="true" selection-start-line="207" selection-start-column="25" selection-end-line="207" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LiveMapper.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="405">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InsertListUpdateScheduleMapper.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateScheduleMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="225">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtendsInsertListScheduleProvider.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="53" column="62" lean-forward="false" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="1000">
+              <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScheduleServiceImpl.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="130" column="55" lean-forward="true" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
+            <state relative-caret-position="183">
+              <caret line="17" column="55" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="55" />
               <folding>
-                <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getScheduleLimitCount#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#5242#5251#0" expanded="false" />
-                <element signature="method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#6431#6440#0" expanded="false" />
-                <element signature="method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#9716#9725#0" expanded="false" />
-                <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#10678#10685#0" expanded="false" />
-                <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#beingSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#endSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#14063#14072#0" expanded="false" />
-                <element signature="method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#14986#14993#0" expanded="false" />
-                <element signature="docComment;method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#16306#16315#0" expanded="false" />
-                <element signature="method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
-                <element signature="e#16626#18824#0" expanded="false" />
-                <element signature="e#17398#17405#0" expanded="false" />
-                <element signature="e#19291#21144#0" expanded="false" />
+                <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#getScheduleLimitCount#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#getScheduleLimit#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#deleteSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#updateSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#getInformationDetailList#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#beingSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#endSchedule#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#openLive#0;class#ScheduleServiceImpl#0" />
+                <element signature="docComment;method#openLives#0;class#ScheduleServiceImpl#0" />
+                <element signature="method#openLives#0;class#ScheduleServiceImpl#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScheduleMapper.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="250">
+              <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -339,11 +310,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -394,10 +360,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMMatch.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMAsyncSchedule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -430,23 +396,10 @@
     <option name="height" value="696" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -478,6 +431,25 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -486,8 +458,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
@@ -500,6 +474,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -545,48 +521,40 @@
   </component>
   <component name="RunManager" selected="Spring Boot.ManagementApplication">
     <configuration name="SmsSendDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="com.chuanglan.demo.SmsSendDemo" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chuanglan.demo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.chuanglan.demo.SmsSendDemo" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="ManagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" runner="idea">
+      <module name="Admin" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.management.admin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.management.admin.ManagementApplication" />
-      <module name="Admin" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Spring Boot.ManagementApplication" />
-      <item index="1" class="java.lang.String" itemvalue="Application.SmsSendDemo" />
+    <list>
+      <item itemvalue="Spring Boot.ManagementApplication" />
+      <item itemvalue="Application.SmsSendDemo" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Spring Boot.ManagementApplication" />
-        <item index="1" class="java.lang.String" itemvalue="Application.SmsSendDemo" />
+      <list>
+        <item itemvalue="Spring Boot.ManagementApplication" />
+        <item itemvalue="Application.SmsSendDemo" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -625,76 +593,82 @@
       <workItem from="1546057594366" duration="56689000" />
       <workItem from="1546231308750" duration="7398000" />
       <workItem from="1546256323169" duration="64672000" />
+      <workItem from="1546521967712" duration="904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210669000" />
+    <option name="totallyTimeSpent" value="211573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3589189" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="LuaCheck" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3589189" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19296375" sideWeight="0.5059022" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4940978" visible="true" weight="0.19296375" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.5059022" side_tool="true" weight="0.19296375" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4978678" weight="0.3589189" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="LuaCheck" order="7" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32972974" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5021322" side_tool="true" weight="0.3589189" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32925472" />
+      <window_info anchor="bottom" id="Statistic" order="14" weight="0.32972974" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Bean Validation" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3589189" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="LuaCheck" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Web" order="4" side_tool="true" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3589189" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32972974" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" />
+      <window_info anchor="bottom" id="LuaCheck" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" visible="true" weight="0.32972974" />
+      <window_info anchor="bottom" id="Statistic" order="14" weight="0.32972974" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Bean Validation" order="7" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,9 +715,7 @@
           <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="93" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -799,23 +771,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-base/1.0.1/mapper-base-1.0.1-sources.jar!/tk/mybatis/mapper/common/special/InsertListMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-base/1.0.1/mapper-base-1.0.1-sources.jar!/tk/mybatis/mapper/common/special/InsertListMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-540">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -824,7 +787,7 @@
         <state relative-caret-position="294">
           <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="n#!!doc" />
           </folding>
         </state>
       </provider>
@@ -832,32 +795,28 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/annotations/Options.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Team.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-core/1.0.2/mapper-core-1.0.2.jar!/tk/mybatis/mapper/mapperhelper/SqlHelper.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="281" column="25" lean-forward="false" selection-start-line="281" selection-start-column="25" selection-end-line="281" selection-end-column="25" />
-          <folding />
+          <caret line="281" column="25" selection-start-line="281" selection-start-column="25" selection-end-line="281" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -865,51 +824,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="7" column="89" lean-forward="true" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-core/1.0.2/mapper-core-1.0.2.jar!/tk/mybatis/mapper/entity/EntityColumn.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="202" column="18" lean-forward="false" selection-start-line="202" selection-start-column="18" selection-end-line="202" selection-end-column="18" />
-          <folding>
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1398#1399#0" expanded="true" />
-            <element signature="e#6756#6757#0" expanded="true" />
-            <element signature="e#6790#6791#0" expanded="true" />
-            <element signature="e#8966#8967#0" expanded="true" />
-            <element signature="e#9004#9005#0" expanded="true" />
-          </folding>
+          <caret line="202" column="18" selection-start-line="202" selection-start-column="18" selection-end-line="202" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/base/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="31" column="57" lean-forward="false" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
-          <folding>
-            <marker date="1546367075368" expanded="true" signature="1102:1112" ph="..." />
-            <marker date="1546367075368" expanded="true" signature="1221:1234" ph="..." />
-            <marker date="1546367075368" expanded="true" signature="1343:1356" ph="..." />
-            <marker date="1546367075368" expanded="true" signature="1464:1477" ph="..." />
-          </folding>
+          <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="79" column="38" lean-forward="false" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
-          <folding />
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/TeamMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
-          <folding />
+          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -917,10 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="211" column="25" lean-forward="true" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
-          <folding>
-            <element signature="e#377#752#0" expanded="false" />
-            <element signature="e#779#896#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -928,116 +866,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1134">
           <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/live/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/live.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
-          <caret line="62" column="50" lean-forward="false" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
-          <folding />
+          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="e#1221#1232#0" expanded="false" />
-            <element signature="docComment;method#getLiveLimit#0;class#InformationController#0" expanded="false" />
-            <element signature="e#1673#1708#0" expanded="false" />
-            <element signature="docComment;method#selectgames#0;class#InformationController#0" expanded="false" />
-            <element signature="e#2657#2684#0" expanded="false" />
-            <element signature="method#selectgames#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#setInformationContent#0;class#InformationController#0" expanded="false" />
-            <element signature="e#3071#3109#0" expanded="false" />
-            <element signature="method#setInformationContent#0;class#InformationController#0" expanded="false" />
-            <element signature="e#3457#3490#0" expanded="false" />
-            <element signature="method#deleteInformation#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#insertInformation#0;class#InformationController#0" expanded="false" />
-            <element signature="e#3830#3864#0" expanded="false" />
-            <element signature="method#insertInformation#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#getInformationById#0;class#InformationController#0" expanded="false" />
-            <element signature="method#getInformationById#0;class#InformationController#0" expanded="false" />
-            <element signature="method#edit#0;class#InformationController#0" expanded="false" />
-            <element signature="method#add#0;class#InformationController#0" expanded="false" />
-          </folding>
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/CommonApiController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/ScheduleGameTeam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
-          <folding />
+          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1215">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="103" column="35" lean-forward="false" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
-          <folding />
+          <caret line="103" column="35" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/ScheduleLiveDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
@@ -1045,7 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,47 +949,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="161" column="37" lean-forward="true" selection-start-line="161" selection-start-column="37" selection-end-line="161" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/ChatRoom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomUserRelationMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
-          <caret line="116" column="25" lean-forward="false" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
-          <folding />
+          <caret line="116" column="25" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ChatRoomMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="96" column="35" lean-forward="false" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
-          <folding />
+          <caret line="96" column="35" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1101,232 +991,181 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="68" column="20" lean-forward="true" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMMatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMMatch.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.49/fastjson-1.2.49.jar!/com/alibaba/fastjson/JSONArray.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="40" column="11" lean-forward="false" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-          <folding>
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-          </folding>
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.8.RELEASE/spring-core-5.0.8.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/utils/JsonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
-          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="31" />
-          <folding />
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/java/1u8/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="543" column="6" lean-forward="false" selection-start-line="543" selection-start-column="6" selection-end-line="543" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMAsyncSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://E:/java/1u8/src.zip!/java/util/List.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/NMAsyncSchedule.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="67" column="62" lean-forward="false" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+          <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
           <folding>
-            <element signature="docComment;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#1403#1414#0" expanded="false" />
-            <element signature="docComment;method#index#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#getMemberLimit#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#1934#1966#0" expanded="false" />
-            <element signature="docComment;method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#2520#2545#0" expanded="false" />
-            <element signature="method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#3199#3229#0" expanded="false" />
-            <element signature="docComment;method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="method#addSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#updateSchedule#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#5065#5091#0" expanded="false" />
-            <element signature="method#addSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#updateSchedule#1;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#5435#5464#0" expanded="false" />
-            <element signature="docComment;method#getGames#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#5819#5842#0" expanded="false" />
-            <element signature="method#getGames#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#6124#6147#0" expanded="false" />
-            <element signature="method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="docComment;method#openLive#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#6749#6772#0" expanded="false" />
-            <element signature="method#openLive#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#7156#7180#0" expanded="false" />
-            <element signature="method#openLives#0;class#ScheduleControllor#0" expanded="false" />
+            <element signature="docComment;class#ScheduleControllor#0" />
+            <element signature="e#1403#1414#0" />
+            <element signature="docComment;method#index#0;class#ScheduleControllor#0" />
+            <element signature="docComment;method#getMemberLimit#0;class#ScheduleControllor#0" />
+            <element signature="e#1934#1966#0" />
+            <element signature="docComment;method#queryTeam#0;class#ScheduleControllor#0" />
+            <element signature="e#2520#2545#0" />
+            <element signature="method#queryTeam#0;class#ScheduleControllor#0" />
+            <element signature="docComment;method#deleteSchedule#0;class#ScheduleControllor#0" />
+            <element signature="e#3199#3229#0" />
+            <element signature="docComment;method#addSchedule#0;class#ScheduleControllor#0" />
+            <element signature="method#addSchedule#0;class#ScheduleControllor#0" />
+            <element signature="docComment;method#updateSchedule#0;class#ScheduleControllor#0" />
+            <element signature="docComment;method#addSchedule#1;class#ScheduleControllor#0" />
+            <element signature="e#5065#5091#0" />
+            <element signature="method#addSchedule#1;class#ScheduleControllor#0" />
+            <element signature="docComment;method#updateSchedule#1;class#ScheduleControllor#0" />
+            <element signature="e#5435#5464#0" />
+            <element signature="docComment;method#getGames#0;class#ScheduleControllor#0" />
+            <element signature="e#5819#5842#0" />
+            <element signature="method#getGames#0;class#ScheduleControllor#0" />
+            <element signature="docComment;method#getTeams#0;class#ScheduleControllor#0" />
+            <element signature="e#6124#6147#0" />
+            <element signature="method#getTeams#0;class#ScheduleControllor#0" />
+            <element signature="docComment;method#openLive#0;class#ScheduleControllor#0" />
+            <element signature="e#6749#6772#0" />
+            <element signature="method#openLive#0;class#ScheduleControllor#0" />
+            <element signature="e#7156#7180#0" />
+            <element signature="method#openLives#0;class#ScheduleControllor#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="130" column="55" lean-forward="true" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
-          <folding>
-            <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getScheduleLimitCount#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getScheduleLimit#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#5242#5251#0" expanded="false" />
-            <element signature="method#deleteSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#6431#6440#0" expanded="false" />
-            <element signature="method#updateSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#9716#9725#0" expanded="false" />
-            <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#10678#10685#0" expanded="false" />
-            <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="method#getInformationDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#beingSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#endSchedule#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#14063#14072#0" expanded="false" />
-            <element signature="method#openLive#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#14986#14993#0" expanded="false" />
-            <element signature="docComment;method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#16306#16315#0" expanded="false" />
-            <element signature="method#openLives#0;class#ScheduleServiceImpl#0" expanded="false" />
-            <element signature="e#16626#18824#0" expanded="false" />
-            <element signature="e#17398#17405#0" expanded="false" />
-            <element signature="e#19291#21144#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="72" column="29" lean-forward="false" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="56" column="34" lean-forward="false" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="1225">
+          <caret line="56" column="34" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/CompetitionControllor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="121" column="50" lean-forward="true" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
-          <folding />
+        <state relative-caret-position="2600">
+          <caret line="121" column="50" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="274" column="45" lean-forward="false" selection-start-line="274" selection-start-column="45" selection-end-line="274" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateScheduleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="53" column="62" lean-forward="false" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
-          <folding />
+        <state relative-caret-position="6200">
+          <caret line="274" column="9" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="164" column="44" lean-forward="true" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+        <state relative-caret-position="1350">
+          <caret line="164" column="44" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
           <folding>
-            <element signature="e#876#887#0" expanded="false" />
-            <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" expanded="false" />
-            <element signature="e#1283#1311#0" expanded="false" />
-            <element signature="docComment;method#edit#0;class#LiveController#0" expanded="false" />
-            <element signature="method#edit#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#delete#0;class#LiveController#0" expanded="false" />
-            <element signature="e#3650#3672#0" expanded="false" />
-            <element signature="method#delete#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
-            <element signature="method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#add#0;class#LiveController#0" expanded="false" />
-            <element signature="method#add#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#setLiveInfo#0;class#LiveController#0" expanded="false" />
-            <element signature="e#5438#5466#0" expanded="false" />
-            <element signature="e#5783#5811#0" expanded="false" />
-            <element signature="method#addLiveInfo#0;class#LiveController#0" expanded="false" />
-            <element signature="e#6098#6120#0" expanded="false" />
+            <element signature="e#876#887#0" />
+            <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" />
+            <element signature="e#1283#1311#0" />
+            <element signature="docComment;method#edit#0;class#LiveController#0" />
+            <element signature="method#edit#0;class#LiveController#0" />
+            <element signature="docComment;method#delete#0;class#LiveController#0" />
+            <element signature="e#3650#3672#0" />
+            <element signature="method#delete#0;class#LiveController#0" />
+            <element signature="docComment;method#getLiveDetailByLiveId#0;class#LiveController#0" />
+            <element signature="method#getLiveDetailByLiveId#0;class#LiveController#0" />
+            <element signature="docComment;method#add#0;class#LiveController#0" />
+            <element signature="method#add#0;class#LiveController#0" />
+            <element signature="docComment;method#setLiveInfo#0;class#LiveController#0" />
+            <element signature="e#5438#5466#0" />
+            <element signature="e#5783#5811#0" />
+            <element signature="method#addLiveInfo#0;class#LiveController#0" />
+            <element signature="e#6098#6120#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateScheduleMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="225">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="200" column="45" lean-forward="false" selection-start-line="200" selection-start-column="45" selection-end-line="200" selection-end-column="45" />
+        <state relative-caret-position="-6493">
+          <caret line="207" column="25" lean-forward="true" selection-start-line="207" selection-start-column="25" selection-end-line="207" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="55" />
           <folding>
-            <element signature="e#14905#14906#0" expanded="true" />
-            <element signature="e#14961#14962#0" expanded="true" />
+            <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#getScheduleLimitCount#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#getScheduleLimit#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#deleteSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#deleteSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#updateSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#updateSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#addSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#addSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#selectScheduleById#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#selectScheduleById#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#getInformationDetailList#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#getInformationDetailList#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#beingSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#endSchedule#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#selectScheduleByInfoId#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#openLive#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#openLive#0;class#ScheduleServiceImpl#0" />
+            <element signature="docComment;method#openLives#0;class#ScheduleServiceImpl#0" />
+            <element signature="method#openLives#0;class#ScheduleServiceImpl#0" />
           </folding>
         </state>
       </provider>
