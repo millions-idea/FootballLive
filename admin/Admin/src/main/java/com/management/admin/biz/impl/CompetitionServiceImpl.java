@@ -205,9 +205,8 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                 status = 4;
             }
 
-            Date scheduleDate = DateUtil.stringToDate(DateUtil.timestampToDate(Long.parseLong(matche.get(3))));
-            Date beginDate = DateUtil.stringToDate(DateUtil.timestampToDate(Long.parseLong(matche.get(4))));
-
+            Date scheduleDate = DateUtil.timeStamp2Date(matche.get(3),null);
+            Date beginDate = DateUtil.timeStamp2Date(matche.get(4),null);
             String[] masterInlineArray = matche.get(5).split(",");
             Integer masterTeamId = new Integer(masterInlineArray[0].replace("[",""));
             Integer masterGrade = Integer.valueOf(masterInlineArray[2]);

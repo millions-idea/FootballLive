@@ -58,10 +58,18 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
 
 
-    @Select("SELECT *, t3.team_name AS winTeamName FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
+    @Select("SELECT *,t3.team_name AS winTeamName FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
             "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id  " +
-            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id  " +
-            " WHERE t1.is_delete=0 and ${condition} ORDER BY t1.schedule_id DESC LIMIT #{page},${limit}")
+            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id and t4.status=0  " +
+            " WHERE t1.is_delete=0 and ${condition} order by  " +
+            " case t1.status  " +
+            " when 1 then 1  " +
+            " when 0 then 2   " +
+            " when 3 then 3 " +
+            "when 2 then 4  " +
+            "when 4 then 5  " +
+            " end asc,t4.schedule_id desc " +
+            " LIMIT #{page},${limit}")
     /**
      * 分页查询 Timor 2018年8月30日11:33:22
      * @param page

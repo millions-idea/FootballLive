@@ -13,6 +13,7 @@ import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
+import lombok.var;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,9 @@ public class LiveServiceImpl implements ILiveService {
     private final LiveCollectMapper liveCollectMapper;
     private final LiveHistoryMapper liveHistoryMapper;
 
+
     @Autowired
-    public  LiveServiceImpl(LiveMapper liveMapper, ScheduleMapper scheduleMapper, ChatRoomMapper chatRoomMapper, ChatRoomUserRelationMapper chatRoomUserRelationMapper, LiveCollectMapper liveCollectMapper, LiveHistoryMapper liveHistoryMapper){
+    public LiveServiceImpl(LiveMapper liveMapper, ScheduleMapper scheduleMapper, ChatRoomMapper chatRoomMapper, ChatRoomUserRelationMapper chatRoomUserRelationMapper, LiveCollectMapper liveCollectMapper, LiveHistoryMapper liveHistoryMapper) {
         this.liveMapper = liveMapper;
         this.scheduleMapper = scheduleMapper;
         this.chatRoomMapper = chatRoomMapper;
@@ -109,7 +111,7 @@ public class LiveServiceImpl implements ILiveService {
         List<ChatRoom> chatRooms = chatRoomUserRelationMapper.queryChatRoomByLiveId(liveId);
 
         // 遍历下的所有聊天室
-        chatRooms.forEach(item->{
+        chatRooms.forEach(item -> {
             // 同步云信（删除其下所有聊天室）
             String response = NeteaseImUtil.post("nimserver/team/remove.action", "tid=" + item.getChatRoomId()
                     + "&owner=" + Constant.HotAccId);
@@ -142,7 +144,7 @@ public class LiveServiceImpl implements ILiveService {
         live.setLiveDate(liveDetail.getLiveDate());
         live.setLiveTitle(liveDetail.getLiveTitle());
         live.setSourceUrl(liveDetail.getSourceUrl());
-        if(liveDetail.getAdId() == null) liveDetail.setAdId(0);
+        if (liveDetail.getAdId() == null) liveDetail.setAdId(0);
         live.setAdId(liveDetail.getAdId());
         // 设置赛事
         live.setScheduleId(scheduleMapper.queryScheduleByGameId(liveDetail.getGameId()).getScheduleId());
@@ -150,13 +152,13 @@ public class LiveServiceImpl implements ILiveService {
         live.setShareCount(0);
         live.setCollectCount(0);
         Integer result = liveMapper.insert(live);
-        if(result > 0){
+        if (result > 0) {
             //创建云信聊天室(群组)
 
             String json = "owner=" + Constant.HotAccId + "&tname=" + liveDetail.getLiveTitle() + "&members=" + JsonUtil.getJson(new String[]{Constant.HotAccId})
                     + "&msg=live&magree=0&joinmode=0";
 
-            String response = NeteaseImUtil.post("nimserver/team/create.action",json);
+            String response = NeteaseImUtil.post("nimserver/team/create.action", json);
             NAGroup model = JsonUtil.getModel(response, NAGroup.class);
             if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
 
@@ -166,7 +168,7 @@ public class LiveServiceImpl implements ILiveService {
             chatRoom.setChatRoomId(model.getTid());
             chatRoom.setFrequency(10D);//10s
             result = chatRoomMapper.insert(chatRoom);
-            if(result <= 0) throw new InfoException("备份云端数据失败");
+            if (result <= 0) throw new InfoException("备份云端数据失败");
 
             //建立默认的成员关系
             ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
@@ -175,7 +177,7 @@ public class LiveServiceImpl implements ILiveService {
             chatRoomUserRelation.setUserId(Constant.HotUserId);
             chatRoomUserRelation.setIsBlackList(0);
             result = chatRoomUserRelationMapper.insert(chatRoomUserRelation);
-            if(result <= 0) throw new InfoException("建立默认成员关系失败");
+            if (result <= 0) throw new InfoException("建立默认成员关系失败");
             return true;
         }
         return false;
@@ -195,7 +197,7 @@ public class LiveServiceImpl implements ILiveService {
         live.setLiveDate(liveDetail.getLiveDate());
         live.setLiveTitle(liveDetail.getLiveTitle());
         live.setSourceUrl(liveDetail.getSourceUrl());
-        if(liveDetail.getAdId() == null) liveDetail.setAdId(0);
+        if (liveDetail.getAdId() == null) liveDetail.setAdId(0);
         live.setAdId(liveDetail.getAdId());
         live.setStatus(0);
         // 设置赛事
@@ -251,7 +253,7 @@ public class LiveServiceImpl implements ILiveService {
         liveCollect.setAddDate(new Date());
         //更新我的收藏
         boolean result = liveCollectMapper.insertOrUpdate(liveCollect) > 0;
-        if(!result) throw new InfoException("收藏失败");
+        if (!result) throw new InfoException("收藏失败");
 
         //更新直播间收藏总数
         result = liveMapper.addCollectCount(liveId) > 0;
@@ -269,7 +271,7 @@ public class LiveServiceImpl implements ILiveService {
     @Transactional
     public Boolean cancelCollect(Integer liveId, Integer userId) {
         boolean result = liveCollectMapper.cancelCollect(liveId, userId) > 0;
-        if(result){
+        if (result) {
             result = liveMapper.reduceCollectCount(liveId) > 0;
         }
         return result;
@@ -277,15 +279,16 @@ public class LiveServiceImpl implements ILiveService {
 
     /**
      * 提取分页条件
+     *
      * @return
      */
-    private String extractLimitWhere(String condition, Integer isEnable,  String beginTime, String endTime) {
+    private String extractLimitWhere(String condition, Integer isEnable, String beginTime, String endTime) {
         // 查询模糊条件
         String where = " 1=1";
-        if(condition != null) {
+        if (condition != null) {
             condition = condition.trim();
             where += " AND (" + ConditionUtil.like("live_id", condition, true, "t1");
-            if (condition.split("-").length == 2){
+            if (condition.split("-").length == 2) {
                 where += " OR " + ConditionUtil.like("add_date", condition, true, "t1");
                 where += " OR " + ConditionUtil.like("schedule_id", condition, true, "t1");
             }
@@ -297,17 +300,19 @@ public class LiveServiceImpl implements ILiveService {
         where = extractBetweenTime(beginTime, endTime, where);
         return where.trim();
     }
+
     /**
      * 提取两个日期之间的条件
+     *
      * @return
      */
     private String extractBetweenTime(String beginTime, String endTime, String where) {
         if ((beginTime != null && beginTime.contains("-")) &&
-                endTime != null && endTime.contains("-")){
+                endTime != null && endTime.contains("-")) {
             where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
-        }else if (beginTime != null && beginTime.contains("-")){
+        } else if (beginTime != null && beginTime.contains("-")) {
             where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
-        }else if (endTime != null && endTime.contains("-")){
+        } else if (endTime != null && endTime.contains("-")) {
             where += " AND t1.add_date BETWEEN #{beginTime} AND #{endTime}";
         }
         return where;
@@ -326,7 +331,7 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     public void setBeginLive(Integer liveId) {
         boolean result = liveMapper.updateStatus(liveId, 1) > 0;
-        if(!result) logger.info("刷新直播状态失败");
+        if (!result) logger.info("刷新直播状态失败");
     }
 
     /**
@@ -341,7 +346,7 @@ public class LiveServiceImpl implements ILiveService {
         liveHistory.setLiveId(liveId);
         liveHistory.setUserId(userId);
         boolean result = liveHistoryMapper.insertOrUpdate(liveHistory) > 0;
-        if(!result) logger.info("添加观看历史失败");
+        if (!result) logger.info("添加观看历史失败");
     }
 
     /**
@@ -399,11 +404,11 @@ public class LiveServiceImpl implements ILiveService {
     @Transactional
     public String addGroup(String phone, Integer userId, Integer liveId) {
         ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
-        if(chatRoom == null) return "直播间不存在";
+        if (chatRoom == null) return "直播间不存在";
 
         ChatRoomUserRelation chatRoomUserRelation = chatRoomUserRelationMapper.selectRelation(userId, liveId);
 
-        if(chatRoomUserRelation != null && chatRoomUserRelation.getIsBlackList() == 1) return "您已被加入直播间黑名单";
+        if (chatRoomUserRelation != null && chatRoomUserRelation.getIsBlackList() == 1) return "您已被加入直播间黑名单";
 
         chatRoomUserRelationMapper.insertRelation(userId, liveId);
 
@@ -411,9 +416,9 @@ public class LiveServiceImpl implements ILiveService {
         String response = NeteaseImUtil.post("nimserver/team/add.action", "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId
                 + "&members=" + JsonUtil.getJson(new String[]{phone}) + "&magree=0" + "&msg=ADD");
         NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (model == null){
+        if (model == null) {
             return "同步云端数据失败";
-        }else {
+        } else {
             logger.info(response);
             return "SUCCESS";
         }
@@ -445,7 +450,7 @@ public class LiveServiceImpl implements ILiveService {
             return response;
         }
 
-        if(result) {
+        if (result) {
             logger.info(response);
             return "SUCCESS";
         }
@@ -455,10 +460,48 @@ public class LiveServiceImpl implements ILiveService {
 
     /**
      * 查询所有赛事信息
+     *
      * @return
      */
     @Override
     public List<LiveDetail> selectScheduleByLive() {
         return liveMapper.selectScheduleByLive();
     }
+
+    /**
+     * 批量解散群组直播间
+     *
+     * @return
+     */
+    @Override
+    @Transactional
+    public Integer bulkDissolution() {
+        int result = 0;
+        List<ChatRoomUserRelation> chatRoomUserRelations = chatRoomUserRelationMapper.selectAll();
+        List<ChatRoom> chatRooms = chatRoomMapper.selectAll();
+        List<Live> lives = liveMapper.selectAll();
+
+        lives.forEach(item -> {
+            chatRoomUserRelationMapper.deleteLive(item.getLiveId());
+            chatRoomMapper.deleteLive(item.getLiveId());
+            liveMapper.deleteLive(item.getLiveId());
+        });
+
+        String response = NeteaseImUtil.post("nimserver/team/joinTeams.action",
+                "accid=" + Constant.HotAccId);
+
+        GroupAll group = JsonUtil.getModel(response, GroupAll.class);
+
+        if (group.getInfos() != null && group.getInfos().size() > 0) {
+            group.getInfos().forEach(item -> {
+
+                String response1 = NeteaseImUtil.post("nimserver/team/remove.action",
+                        "tid=" + item.getTid() + "&owner=" + item.getOwner());
+                NAGroup model = JsonUtil.getModel(response1, NAGroup.class);
+                if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+            });
+        }
+        return 0;
+    }
+
 }
