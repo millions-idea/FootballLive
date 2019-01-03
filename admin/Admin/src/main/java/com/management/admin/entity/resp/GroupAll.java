@@ -16,5 +16,5 @@ public class GroupAll {
 
     private List<Group> infos;
 
-      
+
 }
