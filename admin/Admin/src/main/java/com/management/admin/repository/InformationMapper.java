@@ -21,7 +21,7 @@ public interface InformationMapper extends MyMapper<Information> {
     Integer insertInformation(Information information);
 
     @Update("update tb_informations set live_id=#{liveId},game_id=#{gameId}" +
-            ",content=#{content}, is_hot=#{isHot} where isr_id = #{isrId} and is_delete=0")
+            ",content=#{content}, is_hot=#{isHot}, forecast_result=#{forecastResult}, forecast_grade=#{forecastGrade}, forecast_team_id=#{forecastTeamId} where isr_id = #{isrId} and is_delete=0")
     Integer modifyInformationById(InformationDetail informationId);
 
     @Select("select * from tb_information where is_delete=0")
@@ -69,17 +69,18 @@ public interface InformationMapper extends MyMapper<Information> {
 
     @Select("SELECT t1.*,t2.live_date, t2.live_title, t4.status AS scheduleStatus, t3.game_name, t3.game_icon,t5.team_name as winTeamName " +
             "FROM tb_informations t1 LEFT JOIN tb_lives t2 ON t2.live_id = t1.live_id  " +
-            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 left join tb_schedules t4 on t4.schedule_id=t2.schedule_id" +
+            "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id and t3.is_delete=0 left join tb_schedules t4 on t4.schedule_id=t2.schedule_id " +
             "left join tb_teams t5 on t1.forecast_team_id = t5.team_id  where t2.status=0 and  isr_id=#{informationId} ")
     InformationDetail queryInformationById(Integer informationId);
 
     /**
      * 查询直播间情报信息 DF 2018年12月18日20:50:17
      * @param liveId
+     * @param gameId
      * @return
      */
-    @Select("SELECT * FROM tb_informations WHERE live_id = #{liveId}")
-    Information selectByLiveId(@Param("liveId") Integer liveId);
+    @Select("SELECT * FROM tb_informations WHERE live_id = #{liveId} AND game_id =#{gameId} LIMIT 1")
+    Information selectByLiveId(@Param("liveId") Integer liveId, @Param("gameId") Integer gameId);
 
     /**
      * 根据直播间Id查询赛事信息 DF 2018年12月18日20:50:17

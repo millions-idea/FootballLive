@@ -12,6 +12,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">直播状态</label>
         <div class="layui-input-block">
+            <input type="hidden" id="liveStatus" th:value="${live.getScheduleStatus()}">
             <select name="city" lay-verify="" id="scheduleStatus">
                 <option value="-1">请选择</option>
                 <option value="0">未开始</option>
@@ -71,6 +72,9 @@
 <script>
     layui.use(['form'], function () {
         var form = layui.form;
+        var liveStatus = $("#liveStatus").val();
+        $("#scheduleStatus").val(liveStatus);
+
         $.getJSON("/management/advertising/getAll", function (data) {
             var html = '';
             var currentAdId = parseInt($("#currentAdId").val());

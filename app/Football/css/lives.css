@@ -265,3 +265,16 @@ overflow: hidden;
 	position: relative;
 	top: 5px;
 }
+
+
+
+.left-hot .longText{
+	position: relative !important;
+	left: 0px !important;
+}
+
+
+.right-hot .longText{
+	position: relative !important;
+	right: 2px !important;
+}

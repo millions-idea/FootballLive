@@ -136,7 +136,10 @@ public class CompetitionServiceImpl implements  ICompetitionService {
     @Transactional
     public boolean syncCloudData(Integer categoryId) {
         //拉取远程接口返回的数据
-        String response = NamiUtil.get("sports/football/odds/list", null);
+        String day = (Integer.valueOf(DateUtil.getCurrentDay()) + 1) + "";
+        if(day.length() < 2) day = "0" + day;
+        String date = DateUtil.getCurrentYear() + DateUtil.getCurrentMonth() + day;
+        String response = NamiUtil.get("sports/football/odds/list", "date=" + date);
         NMOdds model = JsonUtil.getModel(response, NMOdds.class);
         if(model == null) throw new InfoException("同步接口数据失败");
 
@@ -245,6 +248,14 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             schedule.setMasterTeamId(localMasterTeamId);
             schedule.setTargetTeamId(localTargetTeamId);
             schedule.setStatus(status);
+            if(status.intValue() == 2){
+                //选出胜利方
+                if(masterGrade > targetGrade){
+                    schedule.setWinTeamId(masterTeamId);
+                }else if(targetGrade > masterGrade){
+                    schedule.setWinTeamId(targetTeamId);
+                }
+            }
             schedule.setScheduleGrade(masterGrade + "-" + targetGrade);
             schedule.setCloudId(scheduleId);
             schedule.setGameDate(scheduleDate);

@@ -80,7 +80,9 @@ public class LiveApiController {
             ScheduleGame scheduleGame = new ScheduleGame();
             scheduleGame.setLiveId(item.getLiveId());
             scheduleGame.setLiveTitle(item.getLiveTitle());
-            scheduleGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
+            if (item.getLiveDate() != null){
+                scheduleGame.setLiveDate(DateUtil.getFormatDateTime(item.getLiveDate()));
+            }
             scheduleGame.setSourceUrl(item.getSourceUrl());
             scheduleGame.setCategoryId(item.getCategoryId());
 
@@ -97,7 +99,6 @@ public class LiveApiController {
             scheduleGame.setTeam(team);
             scheduleGame.setTargetTeam(targetTeam);
 
-
             scheduleGame.setMasterTeamId(item.getMasterTeamId());
             scheduleGame.setMasterTeamName(item.getMasterTeamName());
             scheduleGame.setMasterTeamIcon(item.getMasterTeamIcon());
@@ -109,7 +110,17 @@ public class LiveApiController {
             scheduleGame.setScheduleGrade(item.getScheduleGrade());
             scheduleGame.setScheduleResult(item.getScheduleResult());
             scheduleGame.setWinTeamId(item.getWinTeamId());
-
+            if(item.getWinTeamId() == null){
+                String[] split = item.getScheduleGrade().split("-");
+                Integer masterGrade = new Integer(split[0]);
+                Integer targetGrade = new Integer(split[1]);
+                if(masterGrade > targetGrade){
+                    scheduleGame.setWinTeamId(item.getMasterTeamId());
+                }
+                if(masterGrade < targetGrade){
+                    scheduleGame.setWinTeamId(item.getTargetTeamId());
+                }
+            }
             scheduleGame.setMasterRedChess(item.getMasterRedChess());
             scheduleGame.setMasterYellowChess(item.getMasterYellowChess());
             scheduleGame.setMasterCornerKick(item.getMasterCornerKick());
@@ -119,6 +130,7 @@ public class LiveApiController {
             scheduleGame.setTargetCornerKick(item.getTargetCornerKick());
 
             scheduleGame.setCloudId(item.getCloudId());
+            scheduleGame.setGameDate(item.getGameDate());
             scheduleGames.add(scheduleGame);
         });
         return new JsonArrayResult<ScheduleGame>(scheduleGames);
@@ -179,10 +191,10 @@ public class LiveApiController {
      * @return
      */
     @GetMapping("getInformation")
-    public JsonResult<LiveInformation> getInformation(Integer liveId){
+    public JsonResult<LiveInformation> getInformation(Integer liveId, Integer gameId){
         LiveInformation liveInformation = new LiveInformation();
         //查询情报信息
-        Information information = informationService.getLiveInformation(liveId);
+        Information information = informationService.getLiveInformation(liveId, gameId);
         liveInformation.setInformation(information);
         return new JsonResult<>().successful(liveInformation);
     }
@@ -269,6 +281,10 @@ public class LiveApiController {
             scheduleGame.setTargetTeamId(item.getTargetTeamId());
             scheduleGame.setTargetTeamIcon(item.getTargetTeamIcon());
             scheduleGame.setTargetTeamName(item.getTargetTeamName());
+
+            scheduleGame.setForecastGrade(item.getForecastGrade());
+            scheduleGame.setForecastResult(item.getForecastResult());
+            scheduleGame.setForecastTeamId(item.getForecastTeamId());
 
         scheduleGames.add(scheduleGame);
         });

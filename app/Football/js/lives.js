@@ -50,6 +50,8 @@ mui.plusReady(function(){
 	
 	 
 	plus.webview.currentWebview().addEventListener("show", function(){
+		plus.nativeUI.closeWaiting();
+		
 		plus.navigator.setStatusBarStyle("dark");
 		plus.navigator.setStatusBarBackground("#F3F3F3");
 	 	
@@ -97,7 +99,7 @@ $(function(){
 		acceptId: "dateSelector",
 		beginYear: currentDate.year,
 		beginMonth: currentDate.month - 1,
-		beginDay: currentDate.day,
+		beginDay: currentDate.day.replace('0',""),
 		endYear: currentDate.year + 6,
 		endMonth: currentDate.month,
 	    endDay: currentDate.day,
@@ -108,6 +110,8 @@ $(function(){
 	    		month: $("#dateSelector").attr("data-month"),
 	    		day: $("#dateSelector").attr("data-day")
 	    	}
+	    	if(dateOpts.month.length < 2) dateOpts.month = "0" + dateOpts.month;
+	    	if(dateOpts.day.length < 2)  dateOpts.day = "0" + dateOpts.day;
 	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day;
 	    	$(".date span").text(dateFormat + " " + app.utils.getWeek(dateFormat));
 			$("#date").val(dateFormat);
@@ -134,7 +138,11 @@ $(function(){
  * @param {Object} param
  */
 function getSchedules(param){
+	plus.nativeUI.showWaiting("努力加载中");
+	
 	liveService.getLiveGameDetailList(param, function(res){
+		plus.nativeUI.closeWaiting();
+		
 		if(app.utils.ajax.isError(res)) {
 			if(res.code == 500 || res.code == 400){
 				return app.utils.msgBox.msg("加载赛事列表失败");
@@ -158,11 +166,19 @@ function getSchedules(param){
 					statusStyle = "off";
 					break;
 				case 1: 
-					status = "正在直播";
+					status = "进行中";
 					statusStyle = "on";
 					break;
 				case 2: 
 					status = "已结束";
+					statusStyle = "over";
+					break;
+				case 3: 
+					status = "推迟";
+					statusStyle = "over";
+					break;
+				case 4: 
+					status = "待定";
 					statusStyle = "over";
 					break;
 				default:
@@ -172,8 +188,15 @@ function getSchedules(param){
 			
 			var dateStr = "";
 			var dateTime = item.liveDate;
-			dateStr = app.utils.getFormatYear(dateTime);
-			dateStr += " " + app.utils.getWeek(dateTime) + " ";
+			if(dateTime != null){
+				dateStr = app.utils.getFormatYear(dateTime);
+				dateStr += " " + app.utils.getWeek(dateTime) + " ";	
+			}else if(item.gameDate != null){
+				dateTime = app.utils.timestampToDate(item.gameDate);
+				dateTime = dateTime.trim();
+				dateStr = app.utils.getFormatYear(dateTime);
+				dateStr += " " + app.utils.getWeek(dateTime) + " ";
+			}
 			
 			var gameTitle = item.gameName;
 			
@@ -188,10 +211,6 @@ function getSchedules(param){
 				//直播大厅，已结束的比赛显示成绩和胜利方(角标)
 				
 				if(item.scheduleGrade == null) item.scheduleGrade = "-/-";
-				gameTitle = item.scheduleResult + " : " + item.scheduleGrade;
-				if(item.scheduleResult == null || item.scheduleResult.length == 0){
-					gameTitle = item.scheduleGrade;
-				}
 				
 				//判断胜利方
 				if(item.winTeamId == item.masterTeamId){
@@ -204,17 +223,34 @@ function getSchedules(param){
 					rightHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao"></i>';
 				}
 				
+				
+				if(item.liveDate != null){
+					var minute = app.utils.getFormatMinute(item.liveDate);
+					gameTitle = gameTitle + " " + minute;	
+				}else if(item.gameDate != null){
+					var minute = app.utils.getFormatMinute(app.utils.timestampToDate(item.gameDate));
+					gameTitle = gameTitle + " " + minute;	
+				}
 			}else{
 				if(item.gameName.indexOf("赛事") != -1) gameTitle = item.gameName.replaceX("赛事", "");
-				var minute = app.utils.getFormatMinute(item.liveDate);
-				gameTitle = gameTitle + " " + minute;
+				if(item.liveDate != null){
+					var minute = app.utils.getFormatMinute(item.liveDate);
+					gameTitle = gameTitle + " " + minute;	
+				}else if(item.gameDate != null){
+					var minute = app.utils.getFormatMinute(app.utils.timestampToDate(item.gameDate));
+					gameTitle = gameTitle + " " + minute;	
+				}
 			}
 			
 			var liStyle = "";
+
 			if(item.cloudId != null){
 				liStyle = "notvs openLive";
 			}
-
+			
+			if(item.status == 0){
+				liStyle = "openLive";
+			}
  
 			html += '<li class="'+liStyle+'" data-status="' + item.status + '" data-videourl="'+ item.sourceUrl +'" data-id="' + item.liveId + '" data-gamename="'+ item.gameName +'" data-liveTitle="'+ item.liveTitle +'" class="openLive">';
     		html += '	<div class="top">';
@@ -228,25 +264,34 @@ function getSchedules(param){
     		html += '		<div class="left '+ leftHot +'">';
     		html += leftHotIcon;
     		html += '			<img src="'  + item.masterTeamIcon +'" alt="" />';
-    		html += '			<span>'+ item.masterTeamName +'</span>';
-    		html += '		</div>';
+    		if(item.masterTeamName != null && item.masterTeamName.length > 4){
+    			html += '			<span class="longText">'  + item.masterTeamName +'</span>';
+    		}else{
+    			html += '			<span>'  + item.masterTeamName +'</span>';	
+    		}
+			html += '		</div>';
     		html += '		<div class="info">';
     		html += '			<span>' + gameTitle + '</span>';
-    		if(item.cloudId != null){
+    		if(item.cloudId != null && item.status > 0){
     			html += '<span class="red-grade">' + item.scheduleGrade + '</span>';
     		}
     		html += '		</div>';
     		html += '		<div class="right '+ rightHot +'">';
     		html += rightHotIcon;
     		html += '			<img src="'  + item.targetTeamIcon +'" alt="" />';
-    		html += '			<span>'+ item.targetTeamName +'</span>';
+
+    		if(item.targetTeamName.length > 4){
+    			html += '			<span class="longText">'  + item.targetTeamName +'</span>';
+    		}else{
+    			html += '			<span>'  + item.targetTeamName +'</span>';	
+    		}
     		html += '		</div>';
     		html += '	</div> 	';
     		html += '<div class="foot">';
     		
-
-    		
     		if(item.cloudId != null){
+    			if(item.masterCornerKick == null || item.masterCornerKick == -1) item.masterCornerKick = 0;
+    			if(item.targetCornerKick == null || item.targetCornerKick == -1) item.targetCornerKick = 0;
     			liveTitle =  "主队角球:"+ item.masterCornerKick +" 主队黄牌:"+ item.masterYellowChess +" | 客队角球:"+ item.targetCornerKick +" 客队黄牌:"+ item.targetYellowChess +"";
     		}
 
@@ -259,12 +304,14 @@ function getSchedules(param){
 		
 		//打开直播间
 		$(".openLive").unbind("click").bind("click", function(){
-			console.log("click")
 			//检测是否已经登录
 			var id = $(this).data("id");
+			var videourl = $(this).data("videourl");
 
-			if(id == null) {
-				app.utils.msgBox.msg("直播尚未开始");
+			console.log(videourl)
+
+			if(id == null || (videourl == null || videourl == "#")) {
+				app.utils.msgBox.msg("暂无直播");
 				return;
 			}
 
@@ -283,7 +330,7 @@ function getSchedules(param){
 }
 
 
-function initData(){
+function initData(){	
 	//获取赛程信息列表
 	console.log("加载数据:" + $("#liveCategoryId").val())
 	

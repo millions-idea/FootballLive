@@ -148,4 +148,17 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
     @Update("${sql}")
     void execUpdate(@Param("sql") String sql);
+
+    @Select("SELECT t1.*, t3.game_name, t3.category_id,\n" +
+            "t4.team_name AS masterTeamName, t4.team_icon AS masterTeamIcon,\n" +
+            "t5.team_name AS targetTeamName, t5.team_icon AS targetTeamIcon\n" +
+            "FROM tb_schedules t1\n" +
+            "LEFT JOIN tb_games t3 ON t3.game_id = t1.game_id\n" +
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t1.master_team_id\n" +
+            "LEFT JOIN tb_teams t5 ON t5.team_id = t1.target_team_id\n" +
+            "WHERE t1.is_delete = 0 AND t3.is_delete = 0\n" +
+            "AND ${condition} " +
+            "ORDER BY t1.game_date desc")
+    List<LiveScheduleDetail> selectNoStartScheduleList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
+                                                       @Param("condition") String condition);
 }

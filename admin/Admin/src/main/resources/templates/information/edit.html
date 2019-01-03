@@ -6,8 +6,8 @@
         <label class="layui-form-label">直播间</label>
         <div class="layui-input-block">
             <input type="hidden" id="informationId" th:value="${informationDetail.isrId}">
+            <input type="hidden" id="currentLiveId" th:value="${informationDetail.liveId}">
             <select name="city" lay-verify="" id="live" lay-filter="test">
-
             </select>
         </div>
     </div>
@@ -83,8 +83,13 @@
             })
             $.getJSON("/management/live/getAll",function (data) {
                 var html='';
+                var currentLiveId = $("#currentLiveId").val();
                 data.data.forEach(function (item,index) {
-                    html+='<option value="'+item.liveId+'">'+item.liveTitle+'</option>'
+                    if(item.liveId == currentLiveId){
+                        html+='<option selected value="'+item.liveId+'">'+item.liveTitle+'</option>'
+                    }else{
+                        html+='<option value="'+item.liveId+'">'+item.liveTitle+'</option>'
+                    }
                 })
                 $("#live").html(html);
 

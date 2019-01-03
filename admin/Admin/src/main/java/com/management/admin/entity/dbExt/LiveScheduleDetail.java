@@ -42,6 +42,7 @@ public class LiveScheduleDetail {
 
     private String teamName;
     private String teamIcon;
+    private Date gameDate;
 
     /**
      * 比赛结果(让胜\让平\让负...)
