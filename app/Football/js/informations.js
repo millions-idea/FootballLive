@@ -136,7 +136,10 @@ $(function(){
  * @param {Object} param
  */
 function getSchedules(param){
+	plus.nativeUI.showWaiting("努力加载中");
+	
 	liveService.getInformationDetailList(param, function(res){ 
+		plus.nativeUI.closeWaiting();
 		
 		if(app.utils.ajax.isError(res)) {
 			if(res.code == 500 || res.code == 400){
