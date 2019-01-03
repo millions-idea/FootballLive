@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -74,4 +76,22 @@ public class ScheduleGame {
     private Integer targetCornerKick;
 
     private Integer cloudId;
+
+
+    /**
+     * 预测结果
+     */
+    private String forecastResult;
+    /**
+     * 预测比分
+     */
+    private String forecastGrade;
+    /**
+     * 预测胜利球队
+     */
+    private Integer forecastTeamId;
+
+
+    private Date gameDate;
+
 }

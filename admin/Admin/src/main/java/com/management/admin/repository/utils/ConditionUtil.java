@@ -58,7 +58,7 @@ public class ConditionUtil {
             alias += ".";
         }
         String tb = alias + "`" + column + "`";
-        condition += tb + " LIKE '%" + value + "' ";
+        condition += tb + " LIKE '" + value + "%' ";
         return condition;
     }
 

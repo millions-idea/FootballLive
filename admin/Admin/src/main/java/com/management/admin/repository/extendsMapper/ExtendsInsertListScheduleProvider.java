@@ -54,6 +54,7 @@ public class ExtendsInsertListScheduleProvider extends MapperTemplate {
                     && !column.getColumn().equals("schedule_id")
                     && !column.getColumn().equals("master_team_id")
                     && !column.getColumn().equals("target_team_id")
+                    && !column.getColumn().equals("is_hot")
                     && !column.getColumn().equals("cloud_id") )
             sql.append(column.getColumn() + "=" + "VALUES(" + column.getColumn() + ")" + ",");
         }

@@ -95,7 +95,7 @@ $(function(){
 		acceptId: "dateSelector",
 		beginYear: currentDate.year,
 		beginMonth: currentDate.month - 1,
-		beginDay: currentDate.day,
+		beginDay: currentDate.day.replace('0',""),
 		endYear: currentDate.year + 6,
 		endMonth: currentDate.month,
 	    endDay: currentDate.day,
@@ -106,6 +106,9 @@ $(function(){
 	    		month: $("#dateSelector").attr("data-month"),
 	    		day: $("#dateSelector").attr("data-day")
 	    	}
+	    	
+	    	if(dateOpts.month.length < 2) dateOpts.month = "0" + dateOpts.month;
+	    	if(dateOpts.day.length < 2)  dateOpts.day = "0" + dateOpts.day;
 	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day;
 	    	$(".date span").text(dateFormat + " " + app.utils.getWeek(dateFormat));
 			$("#date").val(dateFormat);
@@ -133,7 +136,8 @@ $(function(){
  * @param {Object} param
  */
 function getSchedules(param){
-	liveService.getInformationDetailList(param, function(res){
+	liveService.getInformationDetailList(param, function(res){ 
+		
 		if(app.utils.ajax.isError(res)) {
 			if(res.code == 500 || res.code == 400){
 				return app.utils.msgBox.msg("加载情报信息列表失败");
@@ -162,9 +166,9 @@ function getSchedules(param){
 			gameTitle = gameTitle + " " + minute;
 			
 
-			var scheduleResult = item.scheduleGrade;
-			if(item.scheduleResult != null && item.scheduleResult.length > 0){
-				scheduleResult = item.scheduleResult;
+			var scheduleResult = item.forecastGrade;
+			if(item.forecastResult != null && item.forecastResult.length > 0){
+				scheduleResult = item.forecastResult;
 			}else{
 				scheduleResult = "-";
 			}
@@ -178,27 +182,35 @@ function getSchedules(param){
     		html += '	</div> ';
     		html += '	<div class="content">';
     		//判断是否为胜利球队
-			if(item.masterTeamId == item.winTeamId){
+			if(item.masterTeamId == item.forecastTeamId){
     			html += '		<div class="left left-hot">';
     			html += '			<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>';
 			}else{
     			html += '		<div class="left">';
 			}
     		html += '			<img src="'  + item.masterTeamIcon +'" alt="" />';
-    		html += '			<span>'  + item.masterTeamName +'</span>';
+    		if(item.masterTeamName.length > 4){
+    			html += '			<span class="longText">'  + item.masterTeamName +'</span>';
+    		}else{
+    			html += '			<span>'  + item.masterTeamName +'</span>';	
+    		}
     		html += '		</div>';
     		html += '		<div class="info">';
     		html += '			<span>' +scheduleResult+  '</span>';
     		html += '		</div>';
     		//判断是否为胜利球队
-			if(item.targetTeamId == item.winTeamId){
+			if(item.targetTeamId == item.forecastTeamId){
     			html += '		<div class="right right-hot">';
     			html += '			<i class="icon iconfont icon-shoucangjiaobiao"></i>';
 			}else{
     			html += '		<div class="right">';
 			}
     		html += '			<img src="'  + item.targetTeamIcon +'" alt="" />';
-    		html += '			<span>'  + item.targetTeamName +'</span>';
+    		if(item.targetTeamName.length > 4){
+    			html += '			<span class="longText">'  + item.targetTeamName +'</span>';
+    		}else{
+    			html += '			<span>'  + item.targetTeamName +'</span>';	
+    		}
     		html += '		</div>'; 
     		html += '	</div> ';
     		html += '</li>';

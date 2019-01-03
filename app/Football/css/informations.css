@@ -32,7 +32,16 @@
 	left: -15px;
 }
 
+.left-hot .longText{
+	position: relative !important;
+	left: 0px !important;
+}
 
+
+.right-hot .longText{
+	position: relative !important;
+	right: 2px !important;
+}
 
 .content .right-hot .icon{
 	position: relative;

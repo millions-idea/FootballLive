@@ -21,6 +21,7 @@ import com.management.admin.entity.template.Constant;
 import com.management.admin.exception.InfoException;
 import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
+import com.management.admin.utils.DateUtil;
 import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.http.NamiUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
@@ -32,6 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class ScheduleServiceImpl implements IScheduleService {
@@ -78,22 +81,36 @@ public class ScheduleServiceImpl implements IScheduleService {
         }
 
         //按日期筛选
+        StringBuffer nBuffer = new StringBuffer();
+        nBuffer.append(buffer.toString());
         if(date != null && date.length() > 0) {
             buffer.append(" AND " + ConditionUtil.like2("live_date", date, true, "t1"));
+        }else{
+            buffer.append(" AND " + ConditionUtil.like2("live_date", DateUtil.getCurrentDate(), true, "t1"));
         }
 
-        List<LiveScheduleDetail> liveScheduleDetails = scheduleMapper.selectScheduleDetailList(gameId, liveCategoryId, buffer.toString());
+        List<LiveScheduleDetail> list1 = scheduleMapper.selectScheduleDetailList(gameId, liveCategoryId, buffer.toString());
 
-        if(liveScheduleDetails != null && liveScheduleDetails.size() > 0){
+
+        if(date != null && date.length() > 0) {
+            nBuffer.append(" AND " + ConditionUtil.like2("game_date", date, true, "t1"));
+        }else{
+            nBuffer.append(" AND " + ConditionUtil.like2("game_date", DateUtil.getCurrentDate(), true, "t1"));
+        }
+        List<LiveScheduleDetail> list2 = scheduleMapper.selectNoStartScheduleList(gameId, liveCategoryId, nBuffer.toString());
+        List<LiveScheduleDetail> reduceList = list2.stream().filter(item -> !list1.contains(item)).collect(toList());
+        list1.addAll(list2);
+
+        if(list1 != null && list1.size() > 0){
             List<LiveScheduleDetail> list = new ArrayList<>();
             //按直播状态区分，已开始、未开始、已结束、比赛时间、距离当前时间最近
-            List<LiveScheduleDetail> tempList = liveScheduleDetails.stream().filter(item -> item.getStatus().equals(1)).collect(Collectors.toList());
+            List<LiveScheduleDetail> tempList = list1.stream().filter(item -> item.getStatus().equals(1)).collect(toList());
             list.addAll(tempList);
 
-            tempList = liveScheduleDetails.stream().filter(item -> item.getStatus().equals(0)).collect(Collectors.toList());
+            tempList = list1.stream().filter(item -> item.getStatus().equals(0)).collect(toList());
             list.addAll(tempList);
 
-            tempList = liveScheduleDetails.stream().filter(item -> item.getStatus().equals(2)).collect(Collectors.toList());
+            tempList = list1.stream().filter(item -> item.getStatus().equals(2)).collect(toList());
             list.addAll(tempList);
 
             /*tempList = liveScheduleDetails.stream().filter(item -> list.stream().filter(nItem -> nItem.getLiveId().equals(item.getLiveId())).findFirst().isPresent())
@@ -101,13 +118,14 @@ public class ScheduleServiceImpl implements IScheduleService {
                     .sorted(Comparator.comparing(LiveScheduleDetail::getLiveDate).reversed())
                     .collect(Collectors.toList());*/
 
-            tempList = list.stream().filter(item -> !liveScheduleDetails.contains(item)).collect(Collectors.toList());
+            tempList = list.stream().filter(item -> !list1.contains(item)).collect(toList());
             list.addAll(tempList);
-
             return list;
         }
 
-        return liveScheduleDetails;
+        list1.addAll(reduceList);
+
+        return list1;
     }
 
     /**
@@ -567,6 +585,7 @@ public class ScheduleServiceImpl implements IScheduleService {
             nmAsyncSchedule.setTargetGrade(targetGrade);
             nmAsyncSchedule.setTargetRedChess(targetRedChess);
             nmAsyncSchedule.setTargetYellowChess(targetYellowChess);
+
             nmAsyncSchedules.add(nmAsyncSchedule);
         });
 
@@ -607,8 +626,13 @@ public class ScheduleServiceImpl implements IScheduleService {
         nmAsyncSchedules.forEach(item -> {
             buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
         });
+        buffer.append(" END,");
+        buffer.append("status = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getStatus());
+        });
         buffer.append(" END ");
-        List<String> collect = nmAsyncSchedules.stream().map(item -> item.getNamiScheduleId() + "").collect(Collectors.toList());
+        List<String> collect = nmAsyncSchedules.stream().map(item -> item.getNamiScheduleId() + "").collect(toList());
         buffer.append("WHERE nami_schedule_id IN(" + String.join(",",collect) + ")");
         scheduleMapper.execUpdate(buffer.toString());
         return;

@@ -78,9 +78,10 @@ public interface IInformationService {
     /**
      * 获取直播间情报信息 DF 2018年12月18日20:49:22
      * @param liveId
+     * @param gameId
      * @return
      */
-    Information getLiveInformation(Integer liveId);
+    Information getLiveInformation(Integer liveId, Integer gameId);
 
 
     InformationDetail queryInformationById(Integer isrId);

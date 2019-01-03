@@ -180,7 +180,13 @@
 			},
 			"my.html": {
 				"resources": [
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"css/my.css",
+					"css/index.fonts.css",
+					"js/my.js",
+					"css/mui.min.css",
+					"images/head-default.png",
+					"css/reset.css"
 				],
 				"refer": [
 					"login.html",
@@ -214,7 +220,11 @@
 				"priority": 0
 			},
 			"lives.html": {
-				"resources": [],
+				"resources": [
+					"css/mui.dtpicker.css",
+					"css/lives.css",
+					"css/reset.css"
+				],
 				"refer": [
 					"liveDetail.html",
 					"login.html"
@@ -285,7 +295,12 @@
 			},
 			"informations.html": {
 				"resources": [
-					"js/informations.js"
+					"js/informations.js",
+					"js/mui.picker.min.js",
+					"css/mui.dtpicker.css",
+					"css/lives.css",
+					"css/reset.css",
+					"css/informations.css"
 				],
 				"refer": [
 					"liveDetail.html",
@@ -294,7 +309,11 @@
 				"priority": 0
 			},
 			"home.html": {
-				"resources": [],
+				"resources": [
+					"images/default/b2.png",
+					"images/default/b1.png",
+					"images/default/b3.png"
+				],
 				"refer": [
 					"liveDetail.html",
 					"login.html"
@@ -405,7 +424,6 @@
 				"images/emoji/emoji/emoji_86.png",
 				"js/mui.zoom.js",
 				"images/emoji/emoji/emoji_78.png",
-				"js/my.js",
 				"css/chatList.css",
 				"images/emoji/ajmd/ajmd007.png",
 				"images/emoji/emoji/emoji_64.png",
@@ -415,7 +433,6 @@
 				"js/regSettings.js",
 				"images/emoji/emoji/emoji_35.png",
 				"images/emoji/emoji/emoji_05.png",
-				"css/my.css",
 				"images/members.png",
 				"images/emoji/ajmd/ajmd028.png",
 				"images/emoji/xxy/xxy038.png",
@@ -540,7 +557,6 @@
 				"images/emoji/ajmd/ajmd011.png",
 				"images/chatlist-empty.jpg",
 				"images/emoji/xxy/xxy030.png",
-				"images/head-default.png",
 				"images/emoji/emoji/emoji_53.png",
 				"images/emoji/xxy/xxy026.png",
 				"images/emoji/emoji/emoji_70.png",

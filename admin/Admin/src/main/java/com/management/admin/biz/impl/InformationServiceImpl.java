@@ -170,11 +170,12 @@ public class InformationServiceImpl implements IInformationService {
      * 获取直播间情报信息 DF 2018年12月18日20:49:22
      *
      * @param liveId
+     * @param gameId
      * @return
      */
     @Override
-    public Information getLiveInformation(Integer liveId) {
-        return informationMapper.selectByLiveId(liveId);
+    public Information getLiveInformation(Integer liveId, Integer gameId) {
+        return informationMapper.selectByLiveId(liveId, gameId);
     }
 
     /**

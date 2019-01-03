@@ -146,7 +146,9 @@ mui.plusReady(function(){
 		
 	
 		//更新直播间标题
-		$("#liveTitle").text(live.gameName + ": " + live.liveTitle);
+		var liveTitle = live.liveTitle; 
+		if(live.liveTitle.length > 14) liveTitle = live.liveTitle.substr(0, liveTitle.length - 4) + "...";
+		$("#liveTitle").text(live.gameName + ": " + liveTitle);
 		 
 		//显示比赛状态
 		var status = "...";
@@ -186,7 +188,8 @@ mui.plusReady(function(){
 			if(tabindex == 1){
 				plus.nativeUI.showWaiting("正在获取最新的情报信息");
 				liveService.getInformation({
-					liveId: live.liveId
+					liveId: live.liveId,
+					gameId: live.gameId
 				}, function(information){
 					if(app.utils.ajax.isError(information)) {
 						plus.nativeUI.closeWaiting();
@@ -213,7 +216,7 @@ mui.plusReady(function(){
 					}else{
 						var scheduleStatus = live.scheduleGrade;
 						if(live.scheduleResult != null && live.scheduleResult.toString().length > 0){
-							scheduleStatus = live.scheduleResult + ":" + " " +  live.scheduleGrade;
+							scheduleStatus = live.scheduleResult + " " +  live.scheduleGrade;
 						}
 						$(".live .infoe span").text(scheduleStatus);
 					}
