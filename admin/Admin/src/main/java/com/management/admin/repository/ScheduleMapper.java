@@ -16,6 +16,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
     /**
      * 根据赛程查询相应赛事
+     *
      * @param gameId
      * @return
      */
@@ -23,10 +24,11 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
     Schedule queryScheduleByGameId(Integer gameId);
 
     @Update("update tb_schedules set status=#{status} where schedule_id=#{scheduleId} and is_delete=0")
-    Integer modifyStatusById(@Param("scheduleId") Integer scheduleId,@Param("status") Integer status);
+    Integer modifyStatusById(@Param("scheduleId") Integer scheduleId, @Param("status") Integer status);
 
     /**
      * 查询赛程信息列表 DF 2018年12月18日02:26:40
+     *
      * @param condition
      * @return
      */
@@ -54,15 +56,12 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
      * @param limit
      * @return
      */
-     ScheduleGameTeam selectScheduleById(@Param("scheduleId") Integer scheduleId);
-
+    ScheduleGameTeam selectScheduleById(@Param("scheduleId") Integer scheduleId);
 
 
     @Select("SELECT *,t3.team_name AS winTeamName FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
             "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id  " +
-            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id  " +
-            " WHERE t1.is_delete=0 and ${condition} ORDER BY t1.schedule_id DESC LIMIT #{page},${limit}")
-            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id and t4.status=0  " +
+            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id and t4.status=0 " +
             " WHERE t1.is_delete=0 and ${condition} order by  " +
             " case t1.status  " +
             " when 1 then 1  " +
@@ -71,8 +70,8 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             "when 2 then 4  " +
             "when 4 then 5  " +
             " end asc,t4.schedule_id desc " +
-            " LIMIT #{page},${limit}")    /**
-     * 分页查询 Timor 2018年8月30日11:33:22
+            " LIMIT #{page},${limit}")
+    /*** 分页查询 Timor 2018年8月30日11:33:22
      * @param page
      * @param limit
      * @return
@@ -122,6 +121,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
     /**
      * 修改赛程状态为正在直播  提莫 2018年12月27日17:09:30
+     *
      * @return
      */
     @Update("update tb_schedule status=1 where schedule_id=#{scheduleId}")
@@ -129,6 +129,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
     /**
      * 修改赛程状态为已经结束  提莫 2018年12月27日17:10:30
+     *
      * @return
      */
     @Update("update tb_schedule status=2 where schedule_id=#{scheduleId}")
@@ -136,6 +137,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
     /**
      * 根据情报id查询赛程信息 DF 2018年12月31日01:03:04
+     *
      * @param isrId
      * @return
      */
@@ -148,7 +150,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
     @Update("UPDATE tb_informations SET ${condition}" +
             "WHERE isr_id = #{isrId}")
     int updateInformation(@Param("forecastGrade") String scheduleGrade, @Param("forecastResult") String scheduleResult
-            , @Param("forecastTeamId") Integer winTeamId, @Param("isrId") Integer liveId , @Param("condition") String condition);
+            , @Param("forecastTeamId") Integer winTeamId, @Param("isrId") Integer liveId, @Param("condition") String condition);
 
     @Select("SELECT * FROM tb_schedules t1 " +
             "LEFT JOIN tb_lives t2 ON t2.schedule_id = t1.schedule_id " +
