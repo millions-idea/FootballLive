@@ -72,7 +72,7 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         //按赛事id筛选
         if(gameId != null && gameId > 0){
-            buffer.append(" AND t2.game_id=#{gameId}");
+            buffer.append(" AND t3.game_id=#{gameId}");
         }
 
         //按直播分类id筛选
