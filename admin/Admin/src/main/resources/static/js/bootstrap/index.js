@@ -33,7 +33,7 @@ layui.use(['form', 'layer'], function () {
                 return;
             }
             if(data.role == "ADMIN") localStorage.setItem("dynamicNavigationUrl","/json/nav_main.json");
-            //if(data.role == "STAFF") localStorage.setItem("dynamicNavigationUrl","/json/nav_main_service.json");
+            if(data.role == "STAFF") localStorage.setItem("dynamicNavigationUrl","/json/nav_main_service.json");
             location.href = "/management/index";
         });
         return false;

@@ -66,17 +66,39 @@ public class LiveApiController {
                                                                @RequestParam(required = false) Integer liveCategoryId,
                                                                @RequestParam(required = false) String date){
         // 获取赛事信息列表
-        List<LiveScheduleDetail> scheduleDetailList = scheduleService.getScheduleDetailList(gameId, liveCategoryId, date);
-        if (scheduleDetailList == null || scheduleDetailList.size() == 0) throw new InfoException("空的集合");
+        List<LiveScheduleDetail> list1 = scheduleService.getScheduleDetailList(gameId, liveCategoryId, date);
+
+        if (list1 == null || list1.size() == 0) throw new InfoException("空的集合");
+
+        // 如果当前是凌晨时间段，将前一天的数据也查询出来并且合并显示
+        if(DateUtil.getCurrentDay() != "01" && (Integer.valueOf(DateUtil.getCurrentHour()) <= 6)){
+
+            date = DateUtil.getCurrentYear() + "-" + DateUtil.getCurrentMonth() + "-" + "0"+ (Integer.valueOf(DateUtil.getCurrentDay()) - 1);
+            List<LiveScheduleDetail> list = scheduleService.getScheduleDetailList(gameId, liveCategoryId, date);
+            List<LiveScheduleDetail> list2 = new ArrayList<>();
+            List<LiveScheduleDetail> finalList = list1;
+            list.stream().forEach(item -> {
+                boolean isExist = finalList.stream().anyMatch(nItem -> nItem.getGameId().equals(item.getGameId()) &&
+                        nItem.getMasterTeamId().equals(item.getMasterTeamId())
+                        &&
+                        nItem.getTargetTeamId().equals(item.getTargetTeamId()));
+                if(!isExist && item.getStatus().equals(1)){
+                    list2.add(item);
+                }
+            });
+            list2.addAll(list1);
+            list1 = list2;
+        }
+
 
         // 获取团队详细信息
-        String teamIdList = String.join(",", scheduleDetailList.stream().map(item -> item.getTeamId()).collect(Collectors.toList()));
+        String teamIdList = String.join(",", list1.stream().map(item -> item.getTeamId()).collect(Collectors.toList()));
         if(teamIdList == null || teamIdList.isEmpty()) throw new InfoException("获取团队关系失败");
         List<Team> teams = teamService.getTeams(teamIdList);
 
         // 封装返回信息
         List<ScheduleGame> scheduleGames = new ArrayList<>();
-        scheduleDetailList.stream().forEach(item -> {
+        list1.stream().forEach(item -> {
             ScheduleGame scheduleGame = new ScheduleGame();
             scheduleGame.setLiveId(item.getLiveId());
             scheduleGame.setLiveTitle(item.getLiveTitle());
@@ -315,6 +337,17 @@ public class LiveApiController {
     @GetMapping("openLive")
     public JsonResult openLive(Integer scheduleId, String sourceUrl){
         boolean result = scheduleService.openLive(scheduleId, sourceUrl);
+        if(result) return JsonResult.successful();
+        return JsonResult.failing();
+    }
+
+    /**
+     * 删除所有已结束状态但还有直播间的数据 DF 2019年1月4日21:25:24
+     * @return
+     */
+    @GetMapping("cleanLives")
+    public JsonResult cleanLives(){
+        boolean result = scheduleService.cleanLives();
         if(result) return JsonResult.successful();
         return JsonResult.failing();
     }

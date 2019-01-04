@@ -155,6 +155,27 @@ public class ScheduleServiceImpl implements IScheduleService {
         page = ConditionUtil.extractPageIndex(page, limit);
         String where = extractLimitWhere(condition,state,beginTime,endTime);
         List<ScheduleGameTeam> list = scheduleMapper.selectLimit(page, limit, state, beginTime, endTime, where);
+        if(list != null && list.size() > 0){
+            List<ScheduleGameTeam> list1 = new ArrayList<>();
+            //按直播状态区分， 已开始  、未开始、已结束、比赛时间、距离当前时间最近
+            List<ScheduleGameTeam> tempList = list.stream().filter(item -> item.getStatus().equals(1)).collect(toList());
+            list1.addAll(tempList);
+
+            tempList = list.stream().filter(item -> item.getStatus().equals(0)).collect(toList());
+            list1.addAll(tempList);
+
+            tempList = list.stream().filter(item -> item.getStatus().equals(2)).collect(toList());
+            list1.addAll(tempList);
+
+            /*tempList = liveScheduleDetails.stream().filter(item -> list.stream().filter(nItem -> nItem.getLiveId().equals(item.getLiveId())).findFirst().isPresent())
+                    .map(item -> item)
+                    .sorted(Comparator.comparing(LiveScheduleDetail::getLiveDate).reversed())
+                    .collect(Collectors.toList());*/
+
+            tempList = list.stream().filter(item -> !list1.contains(item)).collect(toList());
+            list1.addAll(tempList);
+            return list1;
+        }
         return list;
     }
 
@@ -201,6 +222,7 @@ public class ScheduleServiceImpl implements IScheduleService {
     @Override
     @Transactional
     public boolean updateSchedule(Schedule schedule) {
+        schedule.setEditDate(new Date());
         boolean result=scheduleMapper.updateSchedule(schedule) > 0;
         if(result){
             //判断本次是开始比赛还是结束比赛, 创建或解散聊天室
@@ -364,7 +386,6 @@ public class ScheduleServiceImpl implements IScheduleService {
         }
 
         List<LiveScheduleDetail> liveScheduleDetails = informationMapper.selectInformationDetailList(gameId, liveCategoryId, buffer.toString());
-
         return liveScheduleDetails;
     }
 
@@ -463,6 +484,9 @@ public class ScheduleServiceImpl implements IScheduleService {
     public boolean openLive(Integer scheduleId, String sourceUrl) {
         Schedule schedule = scheduleMapper.selectByPrimaryKey(scheduleId);
         if(schedule == null) throw new InfoException("赛程不存在");
+        schedule.setEditDate(new Date());
+        boolean result = scheduleMapper.updateSchedule(schedule) > 0;
+        if(!result) throw new InfoException("更新赛程失败");
 
         //查询参赛球队
         List<Team> teams = teamMapper.selectTeams(schedule.getMasterTeamId() + "," + schedule.getTargetTeamId());
@@ -478,7 +502,8 @@ public class ScheduleServiceImpl implements IScheduleService {
         live.setSourceUrl(sourceUrl);
         live.setAddDate(new Date());
         live.setStatus(0);
-        boolean result = liveMapper.insertSelective(live) > 0;
+        result = liveMapper.insertSelective(live) > 0;
+        if(!result)  throw new InfoException("添加直播间失败");
 
         //添加聊天室
         //创建云信聊天室(群组)
@@ -563,7 +588,41 @@ public class ScheduleServiceImpl implements IScheduleService {
         });
     }
 
-/**
+    /**
+     * 删除所有已结束状态但还有直播间的数据 DF 2019年1月4日21:25:24
+     *
+     * @return
+     */
+    @Override
+    @Transactional
+    public boolean cleanLives() {
+        List<ScheduleLiveDetail> list = scheduleMapper.selectCloseStatusList();
+
+        //删除云信数据库
+        list.forEach(item -> {
+            ChatRoom chatRoom = chatRoomMapper.selectByLive(item.getLiveId());
+            if(chatRoom != null){
+                String response1 = NeteaseImUtil.post("nimserver/team/remove.action",
+                        "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId);
+                NAGroup model = JsonUtil.getModel(response1, NAGroup.class);
+                //if (!model.getCode().equals(200)) throw new InfoException("删除云信数据库过程中失败" + item.getLiveId());
+            }
+        });
+
+        //删除本地数据库
+        list.forEach(item -> {
+            boolean result = chatRoomUserRelationMapper.deleteLive(item.getLiveId()) > 0;
+            //if(!result) throw new InfoException("删除房间成员关系过程中失败" + item.getLiveId());
+            result = chatRoomMapper.deleteLive(item.getLiveId()) > 0;
+            //if(!result) throw new InfoException("删除房间过程中失败" + item.getLiveId());
+            result = liveMapper.deleteLive(item.getLiveId()) > 0;
+            //if(!result) throw new InfoException("删除直播间过程中失败" + item.getLiveId());
+        });
+
+        return true;
+    }
+
+    /**
      * 提取分页条件
      * @return
      */
@@ -692,8 +751,21 @@ public class ScheduleServiceImpl implements IScheduleService {
         buffer.append(" END,");
         buffer.append("status = CASE nami_schedule_id ");
         nmAsyncSchedules.forEach(item -> {
-            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getStatus());
+            Integer status = item.getStatus();
+            if(status.equals(1)){
+                status = 0;//未开赛
+            }else if(status.intValue() >= 2 && status.intValue() <= 7){
+                status = 1;//进行中
+            }else if(status.equals(8)){
+                status = 2;//已结束
+            }else if(status.intValue() >= 9 && status.intValue() <= 13){
+                status = 3;//推迟
+            }else {
+                status = 4;//未知
+            }
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + status);
         });
+        buffer.append(" END,");
         buffer.append(" END ");
         List<String> collect = nmAsyncSchedules.stream().map(item -> item.getNamiScheduleId() + "").collect(toList());
         buffer.append("WHERE nami_schedule_id IN(" + String.join(",",collect) + ")");

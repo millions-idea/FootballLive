@@ -365,7 +365,7 @@ function reloadDate(){
 	
 	mdate = new Mdate("dateSelector", {
 		acceptId: "dateSelector",
-		beginYear: currentDate.year,
+		beginYear: currentDate.year - 1,
 		beginMonth: currentDate.month - 1,
 		beginDay: 1,//currentDate.day.replace('0',"")
 		endYear: currentDate.year + 10,

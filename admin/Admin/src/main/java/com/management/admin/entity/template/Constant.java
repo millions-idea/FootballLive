@@ -98,14 +98,16 @@ public interface Constant {
      */
     String MsgPassword =  "25f9e794323b453885f5181f1b624d0b";
 
+    String BindDomain = "appapi.yaboabc.com,appliveadmin.yaboabc.com,live.yaboabc.cn,localhost";
 
-    String BindDomain = "app.512ck.cn,yabolive.512ck.cn,l.512ck.cn,live.512ck.cn,localhost";
-
-    String BindAdminDomain = "yabolive.512ck.cn";
+    String BindAdminDomain = "appliveadmin.yaboabc.com";
 
     String NamiUser = "yeqing";
 
     String NamiSecret = "ys57ytxt4h2hpkxx";
 
-    Boolean DebugMode = true;
+    /**
+     * 操作云信时记得把appkey换到测试环境上，不要直接操作正式环境的app应用
+     */
+    Boolean DebugMode = false;
 }

@@ -112,4 +112,10 @@ public interface IScheduleService {
      * 批量开通直播间 DF 2019年1月2日16:48:19
      */
     void openLives();
+
+    /**
+     * 删除所有已结束状态但还有直播间的数据 DF 2019年1月4日21:25:24
+     * @return
+     */
+    boolean cleanLives();
 }

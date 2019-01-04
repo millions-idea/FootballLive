@@ -271,6 +271,15 @@ public final class DateUtil implements Serializable {
     }
 
     /**
+     * 取得当前日期的小时，以格式"HH"返回.
+     * @return
+     */
+    public static String getCurrentHour(){
+        return getFormatCurrentTime("HH");
+    }
+
+
+    /**
      * 返回当前时间字符串。
      * <p>
      * 格式：yyyy-MM-dd

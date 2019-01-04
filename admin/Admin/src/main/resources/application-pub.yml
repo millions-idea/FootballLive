@@ -10,10 +10,10 @@ spring:
     encoding: UTF-8
     cache: false
   datasource:
-    url: jdbc:mysql://localhost/football?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://172.17.198.108/football?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 1qQp53iydbJ709U2
+    password: 1qQp53iydbJ709Ue
     type: com.alibaba.druid.pool.DruidDataSource
     dbcp2:
       max-wait-millis: 60000

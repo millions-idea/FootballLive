@@ -63,13 +63,14 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id  " +
             "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id and t4.status=0 " +
             " WHERE t1.is_delete=0 and ${condition} order by  " +
-            " case t1.status  " +
-            " when 1 then 1  " +
-            " when 0 then 2   " +
-            " when 3 then 3 " +
-            "when 2 then 4  " +
-            "when 4 then 5  " +
-            " end asc,t4.schedule_id desc " +
+/*            " case t1.status  " +
+            " when 1 then 1    " +
+            " when 0 then 2     " +
+            " when 3 then 3   " +
+            "when 2 then 4    " +
+            "when 4 then 5    " +
+            " end asc," +*/
+            "t1.edit_date desc,t4.schedule_id desc " +
             " LIMIT #{page},${limit}")
     /*** 分页查询 Timor 2018年8月30日11:33:22
      * @param page
@@ -101,7 +102,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
 
     @Update("update tb_schedules set game_id=#{gameId},team_id=#{teamId}, game_date=#{gameDate}, game_duration=#{gameDuration}, " +
             "  status=#{status}, schedule_result=#{scheduleResult}, schedule_grade=#{scheduleGrade}, " +
-            " master_team_id=#{masterTeamId}, target_team_id=#{targetTeamId}, " +
+            " master_team_id=#{masterTeamId},edit_date=#{editDate}, target_team_id=#{targetTeamId}, " +
             "  win_team_id=#{winTeamId}, is_hot=#{isHot} where schedule_id=#{scheduleId}")
     /**
      * 修改赛程 提莫 2018年12月19日1:40:30
@@ -174,4 +175,8 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
     List<LiveScheduleDetail> selectNoStartScheduleList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
                                                        @Param("condition") String condition);
 
+    @Select("SELECT * FROM tb_lives t1 " +
+            "LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
+            "WHERE t2.`status` = 2; ")
+    List<ScheduleLiveDetail> selectCloseStatusList();
 }

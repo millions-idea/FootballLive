@@ -10,38 +10,88 @@
           "href": "/management/index"
         }
       ]
-    },
-  {
-    "text": "财务模块",
-    "icon": "&#xe65e;",
-    "subset": [
-      {
-        "text": "会计账簿",
-        "icon": "&#xe63c;",
-        "href": "/management/finance/accounts"
-      }
-    ]
-  },{
-      "text": "市场运营",
-      "icon": "&#xe632;",
+    }, {
+      "text": "用户管理",
+      "icon": "&#xe620;",
       "subset": [
         {
-          "text": "佣金结算",
+          "text": "用户列表",
           "icon": "&#xe63c;",
-          "href": "/management/room/close-accounts"
+          "href": "/management/member/index"
         },{
-          "text": "提现审批",
+          "text": "黑名单管理",
           "icon": "&#xe63c;",
-          "href": "/management/withdraw/index"
+          "href": "/management/member/backIndex"
+        }
+      ]
+    },{
+      "text": "管理员管理",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "修改密码",
+          "icon": "&#xe63c;",
+          "href": "/management/admin/updatePassword"
+        }
+      ]
+    },{
+      "text": "赛事管理",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "赛事管理",
+          "icon": "&#xe63c;",
+          "href": "/competition/index"
         },{
-          "text": "充值审批",
+          "text": "球队管理",
           "icon": "&#xe63c;",
-          "href": "/management/recharge/index"
+          "href": "/management/team/index"
         },{
-          "text": "充值房卡",
+          "text": "赛程管理",
           "icon": "&#xe63c;",
-          "href": "/management/room/room-card"
-        }]
+          "href": "/management/schedule/index"
+        }
+      ]
+    },{
+      "text": "直播管理",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "直播间列表",
+          "icon": "&#xe63c;",
+          "href": "/management/live/index"
+        },{
+          "text": "聊天室管理",
+          "icon": "&#xe63c;",
+          "href": "/management/chatRoom/index"
+        },{
+          "text": "情报管理",
+          "icon": "&#xe63c;",
+          "href": "/management/information/index"
+        },{
+          "text": "广告管理",
+          "icon": "&#xe63c;",
+          "href": "/management/advertising/index"
+        }
+      ]
+    }, {
+      "text": "系统配置",
+      "icon": "&#xe620;",
+      "subset": [
+        {
+          "text": "用户反馈",
+          "icon": "&#xe63c;",
+          "href": "/management/userFeedback/index"
+        }, {
+          "text": "推送消息",
+          "icon": "&#xe63c;",
+          "href": "/management/publishMessage/index"
+        }, {
+          "text": "系统日志",
+          "icon": "&#xe63c;",
+          "href": "/management/systemlog/index"
+        }
+      ]
     }
   ]
 }
