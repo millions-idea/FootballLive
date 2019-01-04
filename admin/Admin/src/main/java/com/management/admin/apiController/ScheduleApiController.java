@@ -2,12 +2,16 @@ package com.management.admin.apiController;
 
 import com.alibaba.fastjson.JSON;
 import com.management.admin.biz.impl.ScheduleServiceImpl;
+import com.management.admin.entity.dbExt.LiveScheduleDetail;
+import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @ClassName ScheduleApiController
@@ -58,6 +62,19 @@ public class ScheduleApiController {
     public JsonResult asyncScheduleList(){
         scheduleService.asyncScheduleList();
         return JsonResult.successful();
+    }
+
+
+    /**
+     * 根据时间查询赛事赛程列表 DF 2019年1月4日14:13:55
+     * @param date
+     * @return
+     */
+    @GetMapping("getSchedules")
+    public JsonArrayResult<LiveScheduleDetail> getSchedules(String date){
+        List<LiveScheduleDetail> scheduleDetailList = scheduleService.getScheduleDetailList(null, null, date);
+        scheduleDetailList.stream().forEach(item -> item.setLiveTitle(item.getMasterTeamName() + " VS " + item.getTargetTeamName()));
+        return new JsonArrayResult<>(scheduleDetailList);
     }
 
 

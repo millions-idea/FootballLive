@@ -201,7 +201,9 @@
             yearScroll.refresh();
             yearScroll.scrollTo(0, inputYear * 40, 300, true);
             monthScroll.scrollTo(0, inputMonth * 40, 300, true);
-            dayScroll.scrollTo(0, inputDay * 40, 300, true)
+            
+			var currentDate = app.utils.getCurrentDate();
+            dayScroll.scrollTo(0, (currentDate.day - 1) * 40, 300, true)
         },
         dateSure: function() {
             var that = this;

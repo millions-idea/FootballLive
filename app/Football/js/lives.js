@@ -33,6 +33,7 @@ var liveService = {
 			app.logger("lives", JSON.stringify(data));
 			callback(data);
 		});
+		
 	},
 	
 }
@@ -78,53 +79,7 @@ mui.plusReady(function(){
 
 
 $(function(){
-	var utility = {
-		getCurrentDateFormat: function(){
-			var currentDate = app.utils.getCurrentDate();
-			var dateOpts = {
-	    		year: currentDate.year,
-	    		month: currentDate.month,
-	    		day: currentDate.day
-	    	}
-	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day; 
-	    	return dateFormat += " " + app.utils.getWeek(dateFormat);
-		}
-	};
-	//选择时间范围
-	var currentDate = app.utils.getCurrentDate();
-	
-	$(".date span").text(utility.getCurrentDateFormat());
-	
-	mdate = new Mdate("dateSelector", {
-		acceptId: "dateSelector",
-		beginYear: currentDate.year,
-		beginMonth: currentDate.month - 1,
-		beginDay: currentDate.day.replace('0',""),
-		endYear: currentDate.year + 6,
-		endMonth: currentDate.month,
-	    endDay: currentDate.day,
-	    format: "-",
-	    yes: function(){
-	    	var dateOpts = {
-	    		year: $("#dateSelector").attr("data-year"),
-	    		month: $("#dateSelector").attr("data-month"),
-	    		day: $("#dateSelector").attr("data-day")
-	    	}
-	    	if(dateOpts.month.length < 2) dateOpts.month = "0" + dateOpts.month;
-	    	if(dateOpts.day.length < 2)  dateOpts.day = "0" + dateOpts.day;
-	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day;
-	    	$(".date span").text(dateFormat + " " + app.utils.getWeek(dateFormat));
-			$("#date").val(dateFormat);
-	    	
-	    	//筛选赛事结果
-	    	getSchedules({
-	    		gameId: $("#gameId").val(),
-	    		liveCategoryId: $("#liveCategoryId").val(),
-	    		date: $("#date").val()
-	    	});
-	    }
-	}); 
-	
+
 	//显示所有分类
 	$(".showCategory").click(function(){
 		mui("#sheet").popover("toggle");
@@ -138,7 +93,7 @@ $(function(){
  * @param {Object} param
  */
 function getSchedules(param){
-	plus.nativeUI.showWaiting("努力加载中");
+	plus.nativeUI.showWaiting("努力加载中", {padlock: true});
 	
 	liveService.getLiveGameDetailList(param, function(res){
 		plus.nativeUI.closeWaiting();
@@ -168,6 +123,9 @@ function getSchedules(param){
 				case 1: 
 					status = "进行中";
 					statusStyle = "on";
+					if(item.videoUrl != null && item.videoUrl != "#"){
+						status = "正在直播";
+					}
 					break;
 				case 2: 
 					status = "已结束";
@@ -308,8 +266,6 @@ function getSchedules(param){
 			var id = $(this).data("id");
 			var videourl = $(this).data("videourl");
 
-			console.log(videourl)
-
 			if(id == null || (videourl == null || videourl == "#")) {
 				app.utils.msgBox.msg("暂无直播");
 				return;
@@ -330,12 +286,31 @@ function getSchedules(param){
 }
 
 
+var utility = {
+	getCurrentDateFormat: function(){
+		var currentDate = app.utils.getCurrentDate();
+		var dateOpts = {
+    		year: currentDate.year,
+    		month: currentDate.month,
+    		day: currentDate.day
+    	}
+    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day; 
+    	return dateFormat += " " + app.utils.getWeek(dateFormat);
+	}
+};
+
+
 function initData(){	
 	//获取赛程信息列表
 	console.log("加载数据:" + $("#liveCategoryId").val())
 	
 	console.log("刷新分类id:" + $("#liveCategoryId").val())
 		
+		
+	//选择时间范围
+	reloadDate();
+
+ 	
 	getSchedules({
 		gameId: $("#gameId").val(),
 		liveCategoryId: $("#liveCategoryId").val(),
@@ -379,10 +354,12 @@ function initGameList(param){
 				console.log("选中赛事" + $("#liveCategoryId").val())
 				$("#gameId").val("");
 				$("#date").val("");
+				reloadDate();
 				getSchedules({
 					liveCategoryId: $("#liveCategoryId").val()
 					
 				});
+			
 			}else{
 				getSchedules({
 					gameId: $("#gameId").val(),
@@ -416,10 +393,7 @@ function loadLiveCategoryList(){
 		
 		console.log("选中直播分类" + currentIndex);
 
-
 		$("#liveCategoryId").val(res.data[0].categoryId);
-		
-		
 		
 		if(currentIndex == null || currentIndex.length == 0) {
 			$(".showCategory").html(res.data[0].categoryName + iconPart);
@@ -475,3 +449,42 @@ window.addEventListener("asyncInfo", function(){
 	var view = plus.webview.currentWebview();
 	view.show();
 })
+
+
+function reloadDate(){
+		var currentDate = app.utils.getCurrentDate();
+	
+	$(".date span").text(utility.getCurrentDateFormat());
+ 
+	
+	mdate = new Mdate("dateSelector", {
+		acceptId: "dateSelector",
+		beginYear: currentDate.year,
+		beginMonth: currentDate.month - 1,
+		beginDay: 1,//currentDate.day.replace('0',"")
+		endYear: currentDate.year + 10,
+		endMonth: 12,
+	    endDay: app.utils.getMonthDays(currentDate.year, currentDate.month),
+	    format: "-",
+	    yes: function(){
+	    	var dateOpts = {
+	    		year: $("#dateSelector").attr("data-year"),
+	    		month: $("#dateSelector").attr("data-month"),
+	    		day: $("#dateSelector").attr("data-day")
+	    	}
+	    	if(dateOpts.month.length < 2) dateOpts.month = "0" + dateOpts.month;
+	    	if(dateOpts.day.length < 2)  dateOpts.day = "0" + dateOpts.day;
+	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day;
+	    	$(".date span").text(dateFormat + " " + app.utils.getWeek(dateFormat));
+			$("#date").val(dateFormat);
+	    	
+	    	//筛选赛事结果
+	    	getSchedules({
+	    		gameId: $("#gameId").val(),
+	    		liveCategoryId: $("#liveCategoryId").val(),
+	    		date: $("#date").val()
+	    	});
+	    }
+	}); 
+	
+}

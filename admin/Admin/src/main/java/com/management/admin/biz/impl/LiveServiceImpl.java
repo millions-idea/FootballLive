@@ -222,7 +222,11 @@ public class LiveServiceImpl implements ILiveService {
      */
     @Override
     public List<LiveHotDetail> getHotLives() {
-        return liveMapper.selectHotLives();
+        List<LiveHotDetail> list = liveMapper.selectHotLives();
+        if(list == null || list.size() == 0){
+            list = liveMapper.selectTwoLives();
+        }
+        return list;
     }
 
     /**
@@ -503,5 +507,6 @@ public class LiveServiceImpl implements ILiveService {
         }
         return 0;
     }
+
 
 }

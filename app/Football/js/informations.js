@@ -74,54 +74,7 @@ mui.plusReady(function(){
 })
 
 $(function(){
-	var utility = {
-		getCurrentDateFormat: function(){
-			var currentDate = app.utils.getCurrentDate();
-			var dateOpts = {
-	    		year: currentDate.year,
-	    		month: currentDate.month,
-	    		day: currentDate.day
-	    	}
-	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day; 
-	    	return dateFormat += " " + app.utils.getWeek(dateFormat);
-		}
-	};
-	//选择时间范围
-	var currentDate = app.utils.getCurrentDate();
-	
-	$(".date span").text(utility.getCurrentDateFormat());
-	
-	mdate = new Mdate("dateSelector", {
-		acceptId: "dateSelector",
-		beginYear: currentDate.year,
-		beginMonth: currentDate.month - 1,
-		beginDay: currentDate.day.replace('0',""),
-		endYear: currentDate.year + 6,
-		endMonth: currentDate.month,
-	    endDay: currentDate.day,
-	    format: "-",
-	    yes: function(){
-	    	var dateOpts = {
-	    		year: $("#dateSelector").attr("data-year"),
-	    		month: $("#dateSelector").attr("data-month"),
-	    		day: $("#dateSelector").attr("data-day")
-	    	}
-	    	
-	    	if(dateOpts.month.length < 2) dateOpts.month = "0" + dateOpts.month;
-	    	if(dateOpts.day.length < 2)  dateOpts.day = "0" + dateOpts.day;
-	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day;
-	    	$(".date span").text(dateFormat + " " + app.utils.getWeek(dateFormat));
-			$("#date").val(dateFormat);
-	    	
-	    	//筛选赛事结果
-	    	getSchedules({
-	    		gameId: $("#gameId").val(),
-	    		liveCategoryId: $("#liveCategoryId").val(),
-	    		date: $("#date").val()
-	    	});
-	    }
-	}); 
-	
+		
 	//显示所有分类
 	$(".showCategory").click(function(){
 		mui("#sheet").popover("toggle");
@@ -136,7 +89,7 @@ $(function(){
  * @param {Object} param
  */
 function getSchedules(param){
-	plus.nativeUI.showWaiting("努力加载中");
+	plus.nativeUI.showWaiting("努力加载中", {padlock: true});
 	
 	liveService.getInformationDetailList(param, function(res){ 
 		plus.nativeUI.closeWaiting();
@@ -241,8 +194,26 @@ function getSchedules(param){
 }
 
 
+var utility = {
+	getCurrentDateFormat: function(){
+		var currentDate = app.utils.getCurrentDate();
+		var dateOpts = {
+    		year: currentDate.year,
+    		month: currentDate.month,
+    		day: currentDate.day
+    	}
+    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day; 
+    	return dateFormat += " " + app.utils.getWeek(dateFormat);
+	}
+};
+
+
 
 function initData(){
+	
+	//选择时间范围
+	reloadDate();
+	
 	console.log("情报加载数据:" + $("#liveCategoryId").val() + "," + $("#currentIndex").val())
 
 	console.log("情报刷新分类id:" + $("#liveCategoryId").val())
@@ -354,6 +325,7 @@ function initGameList(param){
 				console.log("选中赛事" + $("#liveCategoryId").val())
 				$("#gameId").val("");
 				$("#date").val("");
+				reloadDate();
 				getSchedules({
 					liveCategoryId: $("#liveCategoryId").val()				
 				});
@@ -385,3 +357,40 @@ window.addEventListener("refreshIndex", function(event){
 	console.log("refreshIndex:initData");
 })
 
+
+function reloadDate(){
+		var currentDate = app.utils.getCurrentDate();
+	
+	$(".date span").text(utility.getCurrentDateFormat());
+	
+	mdate = new Mdate("dateSelector", {
+		acceptId: "dateSelector",
+		beginYear: currentDate.year,
+		beginMonth: currentDate.month - 1,
+		beginDay: 1,//currentDate.day.replace('0',"")
+		endYear: currentDate.year + 10,
+		endMonth: 12,
+	    endDay: app.utils.getMonthDays(currentDate.year, currentDate.month),
+	    format: "-",
+	    yes: function(){
+	    	var dateOpts = {
+	    		year: $("#dateSelector").attr("data-year"),
+	    		month: $("#dateSelector").attr("data-month"),
+	    		day: $("#dateSelector").attr("data-day")
+	    	}
+	    	
+	    	if(dateOpts.month.length < 2) dateOpts.month = "0" + dateOpts.month;
+	    	if(dateOpts.day.length < 2)  dateOpts.day = "0" + dateOpts.day;
+	    	var dateFormat = dateOpts.year + "-" + dateOpts.month + "-" + dateOpts.day;
+	    	$(".date span").text(dateFormat + " " + app.utils.getWeek(dateFormat));
+			$("#date").val(dateFormat);
+	    	
+	    	//筛选赛事结果
+	    	getSchedules({
+	    		gameId: $("#gameId").val(),
+	    		liveCategoryId: $("#liveCategoryId").val(),
+	    		date: $("#date").val()
+	    	});
+	    }
+	}); 
+}

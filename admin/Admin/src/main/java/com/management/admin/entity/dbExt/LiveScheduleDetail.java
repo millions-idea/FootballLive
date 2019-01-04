@@ -27,6 +27,7 @@ public class LiveScheduleDetail {
     private Integer categoryId;
 
     /*schedules*/
+    private Integer scheduleId;
     private String teamId;
     private Integer status;
     private Integer masterTeamId;

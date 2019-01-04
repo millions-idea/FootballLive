@@ -101,6 +101,14 @@ public interface IScheduleService {
     boolean openLive(Integer scheduleId);
 
     /**
+     * 开通直播间并配置直播源 DF 2019年1月4日14:22:39
+     * @param scheduleId
+     * @param sourceUrl
+     * @return
+     */
+    boolean openLive(Integer scheduleId, String sourceUrl);
+
+    /**
      * 批量开通直播间 DF 2019年1月2日16:48:19
      */
     void openLives();

@@ -213,4 +213,17 @@ public interface LiveMapper extends MyMapper<Live>{
      */
     @Select("SELECT * FROM tb_lives WHERE schedule_id=#{scheduleId} LIMIT 1")
     Live selectBySchedule(@Param("scheduleId") Integer scheduleId);
+
+
+    @Select("SELECT t1.*, t2.team_id, t3.game_name, " +
+            " t4.team_name AS masterTeamName, t4.team_icon AS masterTeamIcon, " +
+            " t5.team_name AS targetTeamName, t5.team_icon AS targetTeamIcon " +
+            " FROM tb_lives t1 " +
+            "LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
+            "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
+            "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
+            "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " + // AND t2.status = 1
+            "ORDER BY t1.live_date ASC LIMIT 2")
+    List<LiveHotDetail> selectTwoLives();
 }

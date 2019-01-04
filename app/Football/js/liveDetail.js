@@ -103,7 +103,7 @@ mui.plusReady(function(){
 		}
 
 		
-		//关闭等待加载弹窗00
+		//关闭等待加载弹窗
 		plus.nativeUI.closeWaiting();
 		
 		var live = res.msg;
@@ -218,7 +218,12 @@ mui.plusReady(function(){
 						if(live.scheduleResult != null && live.scheduleResult.toString().length > 0){
 							scheduleStatus = live.scheduleResult + " " +  live.scheduleGrade;
 						}
-						$(".live .infoe span").text(scheduleStatus);
+						if(scheduleStatus = "0-0"){
+							$(".live .infoe span").text("-/-");
+						}else{
+							$(".live .infoe span").text(scheduleStatus);
+						}
+
 					}
 					
 					$(".live .righte img").attr("src", live.teamList[1].teamIcon);

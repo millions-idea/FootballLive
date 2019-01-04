@@ -125,8 +125,24 @@ function initData(){
 		//获取滚动图列表
 		var runnerImageList = homeService.getRunnerImageList(res.data);
 		
+
+		var html = "";
+		html += '<div class="mui-slider-item mui-slider-item-duplicate">' + 
+			'<a href="javascript:void(0);"  data-url="'+ runnerImageList[runnerImageList.length-1].url +'"  class="runnerLink"><img src="'+ runnerImageList[runnerImageList.length-1].value +'" /></a></div>';
+		console.log(html)
+		for (var i = 0; i < runnerImageList.length; i++) {
+			var item = runnerImageList[i];
+			html += '<div class="mui-slider-item" data-url="' + item.url + '">';
+		    html += '	<a href="javascript:void(0);" class="runnerLink">';
+		    html += '		<img src="' + item.value + '" />';
+		    html += '	</a>';
+		    html += '</div>';
+		}
+		html += '<div class="mui-slider-item mui-slider-item-duplicate">' + 
+			'<a href="javascript:void(0);"  data-url="'+ runnerImageList[0].url +'"  class="runnerLink"><img src="'+ runnerImageList[0].value +'" /></a></div>';
+
 		//渲染滚动图列表
-		$("#runnerImage").html(app.utils.raw(runnerImageList));
+		$("#runnerImage").html(html);
 		
 		$(".runnerLink").click(function(){
 			var url = $(this).data("url");

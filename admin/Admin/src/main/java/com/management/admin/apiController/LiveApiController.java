@@ -305,4 +305,18 @@ public class LiveApiController {
         return new JsonResult().failingAsString(result);
     }
 
+
+    /**
+     * 更改直播间状态配置直播源(自动开通直播间) DF 2019年1月4日14:19:24
+     * @param scheduleId
+     * @param sourceUrl
+     * @return
+     */
+    @GetMapping("openLive")
+    public JsonResult openLive(Integer scheduleId, String sourceUrl){
+        boolean result = scheduleService.openLive(scheduleId, sourceUrl);
+        if(result) return JsonResult.successful();
+        return JsonResult.failing();
+    }
+
 }

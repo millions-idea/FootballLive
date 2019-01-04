@@ -35,10 +35,10 @@ window.utils = {
                     return '<span  style="color: silver">已结束</span> ';
                     break;
                 case 3:
-                    return '<span  style="color: silver">延迟</span> ';
+                    return '<span  style="color: silver">推迟</span> ';
                     break;
                 case 4:
-                    return '<span  style="color: silver">未知</span> ';
+                    return '<span  style="color: silver">待定</span> ';
                     break;
             }
         }

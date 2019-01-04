@@ -287,6 +287,11 @@ window.app = {
 		},
 		
 		
+		getMonthDays: function(year, month){
+			var d = new Date(year, month, 0);
+    		return d.getDate();
+		},
+		
 		
 		copyTo: function(copy_content){
 			mui.plusReady(function(){

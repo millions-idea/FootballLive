@@ -155,7 +155,8 @@
     "resources": [
       "images/default/b2.png",
       "images/default/b1.png",
-      "images/default/b3.png"
+      "images/default/b3.png",
+      "js/home.js"
     ]
   }
 }

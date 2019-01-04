@@ -187,4 +187,5 @@ public interface ILiveService {
      * @return
      */
     Integer bulkDissolution();
+
 }

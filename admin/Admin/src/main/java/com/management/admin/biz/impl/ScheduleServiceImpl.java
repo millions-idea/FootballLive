@@ -91,15 +91,25 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         List<LiveScheduleDetail> list1 = scheduleMapper.selectScheduleDetailList(gameId, liveCategoryId, buffer.toString());
 
-
         if(date != null && date.length() > 0) {
             nBuffer.append(" AND " + ConditionUtil.like2("game_date", date, true, "t1"));
         }else{
             nBuffer.append(" AND " + ConditionUtil.like2("game_date", DateUtil.getCurrentDate(), true, "t1"));
         }
         List<LiveScheduleDetail> list2 = scheduleMapper.selectNoStartScheduleList(gameId, liveCategoryId, nBuffer.toString());
-        List<LiveScheduleDetail> reduceList = list2.stream().filter(item -> !list1.contains(item)).collect(toList());
-        list1.addAll(list2);
+
+        list2.stream().forEach(item -> {
+            boolean isExist = list1.stream().anyMatch(nItem -> nItem.getGameId().equals(item.getGameId()) &&
+                    nItem.getMasterTeamId().equals(item.getMasterTeamId())
+                    &&
+                    nItem.getTargetTeamId().equals(item.getTargetTeamId()));
+            if(!isExist){
+                list1.add(item);
+            }
+        });
+
+
+        list1.sort((g1, g2) -> g1.getGameDate().compareTo(g2.getGameDate()));
 
         if(list1 != null && list1.size() > 0){
             List<LiveScheduleDetail> list = new ArrayList<>();
@@ -122,9 +132,6 @@ public class ScheduleServiceImpl implements IScheduleService {
             list.addAll(tempList);
             return list;
         }
-
-        list1.addAll(reduceList);
-
         return list1;
     }
 
@@ -444,6 +451,62 @@ public class ScheduleServiceImpl implements IScheduleService {
         if(!result) throw new InfoException("建立默认成员关系失败");
         return result;
     }
+
+    /**
+     * 开通直播间并配置直播源 DF 2019年1月4日14:22:39
+     *
+     * @param scheduleId
+     * @return
+     */
+    @Override
+    @Transactional
+    public boolean openLive(Integer scheduleId, String sourceUrl) {
+        Schedule schedule = scheduleMapper.selectByPrimaryKey(scheduleId);
+        if(schedule == null) throw new InfoException("赛程不存在");
+
+        //查询参赛球队
+        List<Team> teams = teamMapper.selectTeams(schedule.getMasterTeamId() + "," + schedule.getTargetTeamId());
+        if(teams == null || teams.size() != 2) throw new InfoException("参赛球队设置错误");
+        Team masterTeam = teams.get(0);
+        Team targetTeam = teams.get(1);
+
+        //添加直播间
+        Live live = new Live();
+        live.setLiveTitle(masterTeam.getTeamName() + " VS " + targetTeam.getTeamName());
+        live.setLiveDate(schedule.getGameDate());
+        live.setScheduleId(schedule.getScheduleId());
+        live.setSourceUrl(sourceUrl);
+        live.setAddDate(new Date());
+        live.setStatus(0);
+        boolean result = liveMapper.insertSelective(live) > 0;
+
+        //添加聊天室
+        //创建云信聊天室(群组)
+        String response = NeteaseImUtil.post("nimserver/team/create.action",
+                "owner=" + Constant.HotAccId + "&tname=" + live.getLiveTitle() + "&members=" + JsonUtil.getJson(new String[]{Constant.HotAccId})
+                        + "&msg=live&magree=0&joinmode=0");
+        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+        if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+
+        //数据本地化备份
+        ChatRoom chatRoom = new ChatRoom();
+        chatRoom.setLiveId(live.getLiveId());
+        chatRoom.setChatRoomId(model.getTid());
+        chatRoom.setFrequency(10D);//10s
+        result = chatRoomMapper.insert(chatRoom) > 0;
+        if(!result) throw new InfoException("备份云端数据失败");
+
+        //建立默认的成员关系
+        ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
+        chatRoomUserRelation.setLiveId(live.getLiveId());
+        chatRoomUserRelation.setRoomId(chatRoom.getRoomId());
+        chatRoomUserRelation.setUserId(Constant.HotUserId);
+        chatRoomUserRelation.setIsBlackList(0);
+        result = chatRoomUserRelationMapper.insert(chatRoomUserRelation) > 0;
+        if(!result) throw new InfoException("建立默认成员关系失败");
+        return result;
+    }
+
 
     /**
      * 批量开通直播间 DF 2019年1月2日16:48:19
