@@ -150,7 +150,7 @@ public class ScheduleServiceImpl implements IScheduleService {
         List<ScheduleGameTeam> list = scheduleMapper.selectLimit(page, limit, state, beginTime, endTime, where);
         if(list != null && list.size() > 0){
             List<ScheduleGameTeam> list1 = new ArrayList<>();
-            //按直播状态区分，已开始、未开始、已结束、比赛时间、距离当前时间最近
+            //按直播状态区分， 已开始  、未开始、已结束、比赛时间、距离当前时间最近
             List<ScheduleGameTeam> tempList = list.stream().filter(item -> item.getStatus().equals(1)).collect(toList());
             list1.addAll(tempList);
 

@@ -55,7 +55,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="360" />
-          <entry key="java" value="449" />
+          <entry key="java" value="537" />
           <entry key="js" value="1" />
           <entry key="yml" value="1" />
         </counts>
@@ -63,7 +63,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="360" />
-          <entry key="JAVA" value="449" />
+          <entry key="JAVA" value="537" />
           <entry key="JavaScript" value="1" />
           <entry key="YAML" value="1" />
         </counts>
@@ -73,10 +73,10 @@
           <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -133,7 +133,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
+            <state relative-caret-position="850">
               <caret line="68" column="82" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="82" />
               <folding>
                 <element signature="e#1410#1425#0" />
@@ -148,20 +148,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="159" column="98" lean-forward="true" selection-start-line="159" selection-start-column="98" selection-end-line="159" selection-end-column="98" />
+            <state relative-caret-position="469">
+              <caret line="155" selection-start-line="155" selection-end-line="155" />
               <folding>
                 <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" />
                 <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" />
                 <element signature="e#5478#5479#0" expanded="true" />
                 <element signature="e#5534#5535#0" expanded="true" />
-                <element signature="e#14357#14358#0" expanded="true" />
-                <element signature="e#14421#14422#0" expanded="true" />
-                <element signature="e#14566#14567#0" expanded="true" />
-                <element signature="e#14628#14629#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,7 +166,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="725">
               <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
               <folding>
                 <element signature="docComment;class#ScheduleControllor#0" />
@@ -211,17 +207,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="375">
               <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="68" column="11" selection-start-line="68" selection-start-column="11" selection-end-line="68" selection-end-column="11" />
+            <state relative-caret-position="176">
+              <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -229,7 +225,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1125">
+            <state relative-caret-position="225">
               <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
@@ -355,8 +351,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/Group.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/GroupAll.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
       </list>
     </option>
   </component>
@@ -401,7 +397,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -588,6 +583,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -709,17 +705,18 @@
       <workItem from="1546565755281" duration="292000" />
       <workItem from="1546566628783" duration="82000" />
       <workItem from="1546569303245" duration="3758000" />
+      <workItem from="1546582545573" duration="82000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238802000" />
+    <option name="totallyTimeSpent" value="238884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4940978" visible="true" weight="0.1663113" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4940978" visible="true" weight="0.16791044" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -1175,30 +1172,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/Group.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/GroupAll.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1125">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="850">
+          <caret line="68" column="82" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="82" />
+          <folding>
+            <element signature="e#1410#1425#0" />
+            <element signature="method#getInformation#0;class#LiveApiController#0" />
+            <element signature="method#addCollect#0;class#LiveApiController#0" />
+            <element signature="method#cancelCollect#0;class#LiveApiController#0" />
+            <element signature="method#getInformationDetailList#0;class#LiveApiController#0" />
+            <element signature="e#10481#12329#0" />
+            <element signature="method#leaveTeam#0;class#LiveApiController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
+        <state relative-caret-position="725">
           <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
           <folding>
             <element signature="docComment;class#ScheduleControllor#0" />
@@ -1235,50 +1227,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="68" column="82" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="82" />
-          <folding>
-            <element signature="e#1410#1425#0" />
-            <element signature="method#getInformation#0;class#LiveApiController#0" />
-            <element signature="method#addCollect#0;class#LiveApiController#0" />
-            <element signature="method#cancelCollect#0;class#LiveApiController#0" />
-            <element signature="method#getInformationDetailList#0;class#LiveApiController#0" />
-            <element signature="e#10481#12329#0" />
-            <element signature="method#leaveTeam#0;class#LiveApiController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="375">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="68" column="11" selection-start-line="68" selection-start-column="11" selection-end-line="68" selection-end-column="11" />
+        <state relative-caret-position="225">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/GroupAll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="159" column="98" lean-forward="true" selection-start-line="159" selection-start-column="98" selection-end-line="159" selection-end-column="98" />
+        <state relative-caret-position="469">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
           <folding>
             <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" />
             <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" />
             <element signature="e#5478#5479#0" expanded="true" />
             <element signature="e#5534#5535#0" expanded="true" />
-            <element signature="e#14357#14358#0" expanded="true" />
-            <element signature="e#14421#14422#0" expanded="true" />
-            <element signature="e#14566#14567#0" expanded="true" />
-            <element signature="e#14628#14629#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
         </state>
       </provider>
     </entry>
