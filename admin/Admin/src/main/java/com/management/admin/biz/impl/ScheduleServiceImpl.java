@@ -148,6 +148,27 @@ public class ScheduleServiceImpl implements IScheduleService {
         page = ConditionUtil.extractPageIndex(page, limit);
         String where = extractLimitWhere(condition,state,beginTime,endTime);
         List<ScheduleGameTeam> list = scheduleMapper.selectLimit(page, limit, state, beginTime, endTime, where);
+        if(list != null && list.size() > 0){
+            List<ScheduleGameTeam> list1 = new ArrayList<>();
+            //按直播状态区分，已开始、未开始、已结束、比赛时间、距离当前时间最近
+            List<ScheduleGameTeam> tempList = list.stream().filter(item -> item.getStatus().equals(1)).collect(toList());
+            list1.addAll(tempList);
+
+            tempList = list.stream().filter(item -> item.getStatus().equals(0)).collect(toList());
+            list1.addAll(tempList);
+
+            tempList = list.stream().filter(item -> item.getStatus().equals(2)).collect(toList());
+            list1.addAll(tempList);
+
+            /*tempList = liveScheduleDetails.stream().filter(item -> list.stream().filter(nItem -> nItem.getLiveId().equals(item.getLiveId())).findFirst().isPresent())
+                    .map(item -> item)
+                    .sorted(Comparator.comparing(LiveScheduleDetail::getLiveDate).reversed())
+                    .collect(Collectors.toList());*/
+
+            tempList = list.stream().filter(item -> !list1.contains(item)).collect(toList());
+            list1.addAll(tempList);
+            return list1;
+        }
         return list;
     }
 
@@ -194,6 +215,7 @@ public class ScheduleServiceImpl implements IScheduleService {
     @Override
     @Transactional
     public boolean updateSchedule(Schedule schedule) {
+        schedule.setEditDate(new Date());
         boolean result=scheduleMapper.updateSchedule(schedule) > 0;
         if(result){
             //判断本次是开始比赛还是结束比赛, 创建或解散聊天室
