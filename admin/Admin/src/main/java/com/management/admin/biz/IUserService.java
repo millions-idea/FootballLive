@@ -278,4 +278,6 @@ public interface IUserService {
      * @return
      */
     Integer listBlack(Integer userId,String blackRemark);
+
+    List<User> getList();
 }

@@ -65,7 +65,23 @@ public interface ICompetitionService {
     /**
      * 同步云端赛事数据 DF 2019年1月1日18:41:42
      * @param categoryId
+     * @param isCurr
      * @return
      */
-    boolean syncCloudData(Integer categoryId);
+    boolean syncCloudData(Integer categoryId, Integer isCurr);
+
+    /**
+     * 同步飞鲸体育数据 DF 2019年1月5日16:19:51
+     * @param categoryId
+     * @return
+     */
+    boolean syncFeijingCloudData(Integer categoryId, String targetDate);
+
+    boolean asyncFeiJingGames(Integer categoryId);
+
+    boolean asyncFeiJingTeams(Integer categoryId);
+
+    boolean asyncFeiJingChange(Integer categoryId);
+
+    boolean asyncFeiJingToDayChange(Integer categoryId);
 }

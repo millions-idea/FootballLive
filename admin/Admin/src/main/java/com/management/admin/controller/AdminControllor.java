@@ -139,7 +139,9 @@ public class AdminControllor {
         //验证权限
         SessionModel session = SessionUtil.getSession(req);
         AdminUser adminUserInfoById = userService.getAdminUserInfoById(session.getUserId());
-        if(!adminUserInfoById.getStatus().equals(1)) throw new InfoException("权限不足");
+
+        //管理员不能添加管理员，超级管理员可以添加普通管理员、超级管理员
+        if(!adminUserInfoById.getType().equals(1)) throw new InfoException("权限不足");
 
         JsonResult jsonResult = new JsonResult();
         RelationAdminUsers adminUsers = new RelationAdminUsers();

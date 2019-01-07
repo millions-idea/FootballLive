@@ -138,6 +138,6 @@ public interface AdminUserMapper extends MyMapper<AdminUser> {
      * @param username
      * @return
      */
-    @Select("SELECT * FROM tb_admin_users WHERE phone=#{username}")
+    @Select("SELECT * FROM tb_admin_users WHERE phone=#{username} AND status = 0")
     AdminUser selectByUsername(@Param("username") String username);
 }

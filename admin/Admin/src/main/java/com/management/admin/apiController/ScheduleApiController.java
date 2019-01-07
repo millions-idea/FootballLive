@@ -65,6 +65,14 @@ public class ScheduleApiController {
     }
 
 
+    @GetMapping("asyncFeiJingScheduleList")
+    public JsonResult asyncFeiJingScheduleList(){
+        scheduleService.asyncFeiJingScheduleList();
+        return JsonResult.successful();
+    }
+
+
+
     /**
      * 根据时间查询赛事赛程列表 DF 2019年1月4日14:13:55
      * @param date

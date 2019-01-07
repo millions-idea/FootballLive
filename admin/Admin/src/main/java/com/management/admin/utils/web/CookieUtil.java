@@ -153,6 +153,9 @@ public final class CookieUtil {
                 cookie.setMaxAge(cookieMaxage);
             if (null != request) {// 设置域名的cookie
                 String domainName = getDomainName(request);
+                if(domainName.contains(":")){
+                    domainName =  domainName.split(":")[0];
+                }
                 System.out.println(domainName);
                 if (!"localhost".equals(domainName)) {
                     cookie.setDomain(domainName);

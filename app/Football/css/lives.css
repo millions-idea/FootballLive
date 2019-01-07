@@ -278,3 +278,10 @@ overflow: hidden;
 	position: relative !important;
 	right: 2px !important;
 }
+
+
+.gameTime{
+	color: #000;
+	font-weight: bold;
+	font-style: normal;
+}

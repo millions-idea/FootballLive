@@ -179,4 +179,10 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             "LEFT JOIN tb_schedules t2 ON t2.schedule_id = t1.schedule_id " +
             "WHERE t2.`status` = 2; ")
     List<ScheduleLiveDetail> selectCloseStatusList();
+
+    @Insert("${execSql}")
+    void insertOrUpdateList(@Param("execSql") String execSql);
+
+    @Select("SELECT * FROM tb_schedules WHERE status = 1")
+    List<Schedule> selectOnWay();
 }

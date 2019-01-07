@@ -94,4 +94,6 @@ public class ScheduleGame {
 
     private Date gameDate;
 
+    private String gameTime;
+
 }

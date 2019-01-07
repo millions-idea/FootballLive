@@ -63,7 +63,7 @@ public class ScheduleControllor {
     @GetMapping("/getScheduleLimit")
     @ResponseBody
     @WebLog(section = "Schedule",content = "查看球队列表")
-    public JsonArrayResult<ScheduleGameTeam> getMemberLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime){
+    public JsonArrayResult<ScheduleGameTeam> getScheduleLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime){
         Integer count = 0;
         List<ScheduleGameTeam> list = scheduleService.getScheduleLimit(page,limit,condition,state,beginTime,endTime);
         JsonArrayResult jsonArrayResult = new JsonArrayResult(0, list);

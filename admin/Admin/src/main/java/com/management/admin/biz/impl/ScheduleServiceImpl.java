@@ -114,7 +114,10 @@ public class ScheduleServiceImpl implements IScheduleService {
         if(list1 != null && list1.size() > 0){
             List<LiveScheduleDetail> list = new ArrayList<>();
             //按直播状态区分，已开始、未开始、已结束、比赛时间、距离当前时间最近
-            List<LiveScheduleDetail> tempList = list1.stream().filter(item -> item.getStatus().equals(1)).collect(toList());
+            List<LiveScheduleDetail> tempList = list1.stream().filter(item -> item.getStatus().equals(1) && (item.getSourceUrl() != null && item.getSourceUrl() != "#")).collect(toList());
+            list.addAll(tempList);
+
+            tempList = list1.stream().filter(item -> item.getStatus().equals(1) && !(item.getSourceUrl() != null && item.getSourceUrl() != "#")).collect(toList());
             list.addAll(tempList);
 
             tempList = list1.stream().filter(item -> item.getStatus().equals(0)).collect(toList());
@@ -166,11 +169,6 @@ public class ScheduleServiceImpl implements IScheduleService {
 
             tempList = list.stream().filter(item -> item.getStatus().equals(2)).collect(toList());
             list1.addAll(tempList);
-
-            /*tempList = liveScheduleDetails.stream().filter(item -> list.stream().filter(nItem -> nItem.getLiveId().equals(item.getLiveId())).findFirst().isPresent())
-                    .map(item -> item)
-                    .sorted(Comparator.comparing(LiveScheduleDetail::getLiveDate).reversed())
-                    .collect(Collectors.toList());*/
 
             tempList = list.stream().filter(item -> !list1.contains(item)).collect(toList());
             list1.addAll(tempList);
@@ -502,8 +500,10 @@ public class ScheduleServiceImpl implements IScheduleService {
         live.setSourceUrl(sourceUrl);
         live.setAddDate(new Date());
         live.setStatus(0);
-        result = liveMapper.insertSelective(live) > 0;
+        live.setEditDate(new Date());
+        result = liveMapper.insertOrUpdate(live) > 0;
         if(!result)  throw new InfoException("添加直播间失败");
+        Live liveDetail = liveMapper.selectBySchedule(schedule.getScheduleId());
 
         //添加聊天室
         //创建云信聊天室(群组)
@@ -515,19 +515,21 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         //数据本地化备份
         ChatRoom chatRoom = new ChatRoom();
-        chatRoom.setLiveId(live.getLiveId());
+        chatRoom.setLiveId(liveDetail.getLiveId());
         chatRoom.setChatRoomId(model.getTid());
         chatRoom.setFrequency(10D);//10s
-        result = chatRoomMapper.insert(chatRoom) > 0;
+        result = chatRoomMapper.insertOrUpdate(chatRoom) > 0;
         if(!result) throw new InfoException("备份云端数据失败");
+        ChatRoom chatRoomDetail = chatRoomMapper.selectByLive(liveDetail.getLiveId());
+
 
         //建立默认的成员关系
         ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
-        chatRoomUserRelation.setLiveId(live.getLiveId());
-        chatRoomUserRelation.setRoomId(chatRoom.getRoomId());
+        chatRoomUserRelation.setLiveId(liveDetail.getLiveId());
+        chatRoomUserRelation.setRoomId(chatRoomDetail.getRoomId());
         chatRoomUserRelation.setUserId(Constant.HotUserId);
         chatRoomUserRelation.setIsBlackList(0);
-        result = chatRoomUserRelationMapper.insert(chatRoomUserRelation) > 0;
+        result = chatRoomUserRelationMapper.insertOrUpdate(chatRoomUserRelation) > 0;
         if(!result) throw new InfoException("建立默认成员关系失败");
         return result;
     }
@@ -626,7 +628,7 @@ public class ScheduleServiceImpl implements IScheduleService {
      * 提取分页条件
      * @return
      */
-    private String extractLimitWhere(String condition, Integer isEnable,  String beginTime, String endTime) {
+    private String extractLimitWhere(String condition, Integer state,  String beginTime, String endTime) {
         // 查询模糊条件
         String where = " 1=1";
         if(condition != null) {
@@ -645,6 +647,10 @@ public class ScheduleServiceImpl implements IScheduleService {
         }
         // 取两个日期之间或查询指定日期
         where = extractBetweenTime(beginTime, endTime, where);
+        // 只获取一种状态的数据
+        if(state != null){
+            where += " AND t1.status = " + state;
+        }
         return where.trim();
     }
     /**
@@ -765,7 +771,110 @@ public class ScheduleServiceImpl implements IScheduleService {
             }
             buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + status);
         });
+        buffer.append(" END ");
+        List<String> collect = nmAsyncSchedules.stream().map(item -> item.getNamiScheduleId() + "").collect(toList());
+        buffer.append("WHERE nami_schedule_id IN(" + String.join(",",collect) + ")");
+        scheduleMapper.execUpdate(buffer.toString());
+        return;
+    }
+
+    @Transactional
+    public void asyncFeiJingScheduleList() {
+        String response = NamiUtil.get("sports/football/match/live", null);
+        if(response == null) throw new InfoException("同步接口数据失败");
+        List<List<Object>> list = new ArrayList<>();
+        list = JSON.parseObject(response, List.class);
+        List<NMAsyncSchedule> nmAsyncSchedules = new ArrayList<>();
+
+        list.stream().forEach(item -> {
+            Integer namiScheduleId = new Integer(item.get(0) + "");
+            Integer status = new Integer(item.get(1) + "");
+            String masterInlineArray = String.valueOf(item.get(2));
+            List masterProperty = JSON.parseObject(masterInlineArray, List.class);
+
+            String targetInlineArray = String.valueOf(item.get(3));
+            List targetProperty = JSON.parseObject(targetInlineArray, List.class);
+
+            Integer masterGrade = Integer.valueOf(masterProperty.get(0) + "");
+            Integer masterRedChess = Integer.valueOf(masterProperty.get(2)+ "");
+            Integer masterYellowChess = Integer.valueOf(masterProperty.get(3)+ "");
+            Integer masterCornerKick = Integer.valueOf(masterProperty.get(4)+ "");
+
+            Integer targetGrade = Integer.valueOf(targetProperty.get(0) + "");
+            Integer targetRedChess = Integer.valueOf(targetProperty.get(2) + "");
+            Integer targetYellowChess = Integer.valueOf(targetProperty.get(3) + "");
+            Integer targetCornerKick = Integer.valueOf(targetProperty.get(4) + "");
+
+            NMAsyncSchedule nmAsyncSchedule = new NMAsyncSchedule();
+            nmAsyncSchedule.setNamiScheduleId(namiScheduleId);
+            nmAsyncSchedule.setStatus(status);
+            nmAsyncSchedule.setMasterGrade(masterGrade);
+            nmAsyncSchedule.setMasterCornerKick(masterCornerKick);
+            nmAsyncSchedule.setMasterRedChess(masterRedChess);
+            nmAsyncSchedule.setMasterYellowChess(masterYellowChess);
+
+            nmAsyncSchedule.setTargetCornerKick(targetCornerKick);
+            nmAsyncSchedule.setTargetGrade(targetGrade);
+            nmAsyncSchedule.setTargetRedChess(targetRedChess);
+            nmAsyncSchedule.setTargetYellowChess(targetYellowChess);
+
+            nmAsyncSchedules.add(nmAsyncSchedule);
+        });
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("UPDATE tb_schedules SET ");
+        buffer.append("schedule_grade = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            String scheduleGrade = item.getMasterGrade() + "-" + item.getTargetGrade();
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + "'" + scheduleGrade + "'");
+        });
         buffer.append(" END,");
+        buffer.append("master_red_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("master_yellow_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("master_corner_kick = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("target_red_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("target_yellow_chess = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("target_corner_kick = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + item.getMasterRedChess());
+        });
+        buffer.append(" END,");
+        buffer.append("status = CASE nami_schedule_id ");
+        nmAsyncSchedules.forEach(item -> {
+            Integer status = item.getStatus();
+            if(status.equals(1)){
+                status = 0;//未开赛
+            }else if(status.intValue() >= 2 && status.intValue() <= 7){
+                status = 1;//进行中
+            }else if(status.equals(8)){
+                status = 2;//已结束
+            }else if(status.intValue() >= 9 && status.intValue() <= 13){
+                status = 3;//推迟
+            }else {
+                status = 4;//未知
+            }
+            buffer.append(" WHEN " + item.getNamiScheduleId() + " THEN " + status);
+        });
         buffer.append(" END ");
         List<String> collect = nmAsyncSchedules.stream().map(item -> item.getNamiScheduleId() + "").collect(toList());
         buffer.append("WHERE nami_schedule_id IN(" + String.join(",",collect) + ")");

@@ -141,6 +141,11 @@ mui.plusReady(function(){
 		    		teamId: live.chatRoomId
 		    	})*/
 	    	}
+	    	//关闭已有直播
+	    	var video = plus.video.getVideoPlayerById("video");
+	    	if(video != null){
+	    		video.stop();
+	    	}
 	        old_back();
 	    }
 		

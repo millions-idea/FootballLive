@@ -30,11 +30,24 @@ public interface InformationMapper extends MyMapper<Information> {
     @Update("update tb_informations set is_delete=1 where isr_id=#{informationId}")
     Integer deleteInformationById(Integer informationId);
 
-    @Select("SELECT t1.*,t2.live_date, t2.live_title, t4.status AS scheduleStatus, t4.*, t3.game_name, t3.game_icon,  t5.team_name AS winTeamName " +
+    /*@Select("SELECT t1.*,t2.live_date, t2.live_title, t4.status AS scheduleStatus, t4.*, t3.game_name, t3.game_icon,  t5.team_name AS winTeamName " +
             "FROM tb_lives t2 LEFT JOIN tb_informations t1  ON  t2.live_id = t1.live_id and t2.status=0 " +
             "LEFT JOIN tb_games t3 ON t1.game_id = t3.game_id left join tb_schedules t4 on t4.schedule_id=t2.schedule_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t1.forecast_team_id " +
-            "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
+            "WHERE ${condition} and t1.is_delete=0 GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")*/
+
+    @Select("SELECT *,t5.team_icon AS winTeamIcon, t5.team_name AS winTeamName, t3.status AS scheduleStatus, " +
+                    "            t6.team_name AS masterTeamName, t6.team_icon AS masterTeamIcon,  " +
+                    "            t7.team_name AS targetTeamName, t7.team_icon AS targetTeamIcon  " +
+                    "            FROM tb_informations t1 " +
+                    "            LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
+                    "            LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
+                    "            LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
+                    "            LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
+                    "            LEFT JOIN tb_teams t6 ON t6.team_id = t3.master_team_id  " +
+                    "            LEFT JOIN tb_teams t7 ON t7.team_id = t3.target_team_id  " +
+                    "            WHERE t1.is_delete = 0 " +
+                    "            GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
      * @param page

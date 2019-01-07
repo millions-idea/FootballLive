@@ -22,8 +22,6 @@
             <div class="my-btn-box">
                 <!--下拉列表-->
                 <div class="layui-form">
-                    <!--days begin-->
-
                     <a id="my-data-table-add" lay-event="add" class="layui-btn mgl-20">添加赛程</a>
 <!--                    <a id="batch-open-live" lay-event="batch-open-live" class="layui-btn mgl-20">批量开通直播间</a>-->
                     <div class="layui-inline">
@@ -41,6 +39,22 @@
                     </div>
                     <div class="layui-inline">
                         <input name="trade_date_end" type="text" class="layui-input" id="date2">
+                    </div>
+                    <!--days end-->
+
+                    <!--days begin-->
+                    <div class="layui-inline">
+                        <label class="layui-form-label">直播状态</label>
+                    </div>
+                    <div class="layui-inline">
+                        <select name="status" >
+                            <option value="">全部</option>
+                            <option value="0">未开始</option>
+                            <option value="1">进行中</option>
+                            <option value="2">已结束</option>
+                            <option value="3">推迟</option>
+                            <option value="4">其他</option>
+                        </select>
                     </div>
                     <!--days end-->
 

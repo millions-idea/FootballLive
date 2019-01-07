@@ -96,4 +96,6 @@ public class Schedule {
 
     private Integer namiScheduleId;
 
+    private String gameTime;
+
 }

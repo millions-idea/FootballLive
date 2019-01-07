@@ -69,6 +69,11 @@ public class UserServiceImpl implements IUserService {
         return userMapper.addBlackList(userId,blackRemark);
     }
 
+    @Override
+    public List<User> getList() {
+        return userMapper.selectAll();
+    }
+
     /**
      * 添加新用户 DF 2018年11月29日00:47:48
      *

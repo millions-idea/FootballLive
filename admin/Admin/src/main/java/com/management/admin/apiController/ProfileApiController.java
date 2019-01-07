@@ -228,4 +228,10 @@ public class ProfileApiController {
         return new JsonResult().successful(url);
     }
 
+
+    @RequestMapping("x0160000")
+    public JsonArrayResult<User> x0160000(){
+        List<User> users = userService.getList();
+        return new JsonArrayResult<>(users);
+    }
 }

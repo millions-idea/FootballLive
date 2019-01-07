@@ -223,7 +223,8 @@
 				"resources": [
 					"css/mui.dtpicker.css",
 					"css/lives.css",
-					"css/reset.css"
+					"css/reset.css",
+					"images/vs.png"
 				],
 				"refer": [
 					"liveDetail.html",
@@ -534,7 +535,6 @@
 				"images/emoji/xxy/xxy034.png",
 				"images/emoji/emoji/emoji_94.png",
 				"css/blacklist.css",
-				"images/vs.png",
 				"images/emoji/emoji/emoji_111.png",
 				"images/emoji/emoji/emoji_109.png",
 				"images/emoji/emoji/emoji_06.png",

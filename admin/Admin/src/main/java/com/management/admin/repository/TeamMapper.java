@@ -8,16 +8,19 @@
 package com.management.admin.repository;
 
 import com.management.admin.entity.db.Game;
+import com.management.admin.entity.db.Schedule;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameCategory;
 import com.management.admin.entity.dbExt.TeamCompetition;
 import com.management.admin.entity.dbExt.TeamDetail;
+import com.management.admin.repository.extendsMapper.InsertListUpdateScheduleMapper;
+import com.management.admin.repository.extendsMapper.InsertListUpdateTeamMapper;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
-public interface TeamMapper extends MyMapper<Team> {
+public interface TeamMapper extends MyMapper<Team>, InsertListUpdateTeamMapper<Team> {
     /**
      * 查询球队详细信息列表 DF 2018年12月17日23:27:00
      * @param teamIdList
@@ -73,4 +76,7 @@ public interface TeamMapper extends MyMapper<Team> {
             "LEFT JOIN tb_games t2 ON t2.game_id = t1.game_id " +
             "WHERE t1.game_id = #{gameId} LIMIT 1")
     TeamDetail selectByGameId(@Param("gameId") Integer gameId);
+
+    @Insert("${execSql}")
+    int insertOrUpdateList(@Param("execSql") String execSql);
 }

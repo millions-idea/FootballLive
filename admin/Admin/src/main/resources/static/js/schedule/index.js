@@ -146,6 +146,7 @@ function initDataTable(url, callback, loadDone) {
         /*param += "&state=" + $tradeTypeInput.val();*/
         param += "&beginTime=" + $tradeDateBeginInput.val();
         param += "&endTime=" + $tradeDateEndInput.val();
+        param += "&state=" + $("select[name='status']").val();
 
         loadTable(tableIndex,"my-data-table", "#my-data-table", cols, url + param, function (res, curr, count) {
             $queryButton.removeAttr("disabled");

@@ -155,6 +155,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.11" level="project" />
+    <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.49" level="project" />
     <orderEntry type="library" name="Maven: com.github.kevinsawicki:http-request:6.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:25.1-jre" level="project" />

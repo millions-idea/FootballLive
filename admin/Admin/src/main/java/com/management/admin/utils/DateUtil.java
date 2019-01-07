@@ -228,7 +228,6 @@ public final class DateUtil implements Serializable {
     public static Date getDate(String sDate, String dateFormat) {
         SimpleDateFormat fmt = new SimpleDateFormat(dateFormat);
         ParsePosition pos = new ParsePosition(0);
-
         return fmt.parse(sDate, pos);
     }
 
@@ -814,6 +813,27 @@ public final class DateUtil implements Serializable {
         return diff;
     }
 
+    public static long getDiffMinute(Date startTime) {
+        long nd = 1000 * 24 * 60 * 60;
+        long nh = 1000 * 60 * 60;
+        long nm = 1000 * 60;
+
+        Long currentTime = new Date().getTime();
+        Long addTime = startTime.getTime();
+        // 获得两个时间的毫秒时间差异
+        Long diff = currentTime - addTime;
+        // 计算差多少天
+        long day = diff / nd;
+        // 计算差多少小时
+        long hour = diff % nd / nh;
+        // 计算差多少分钟
+        long min = diff % nd % nh / nm;
+        if(hour > 0){
+            min += hour * 60;
+        }
+        return min;
+    }
+
     /**
      * 获取小时/分钟/秒
      *
@@ -1291,6 +1311,22 @@ public final class DateUtil implements Serializable {
         }
 
         return new Date(Long.valueOf(seconds + "000"));
+    }
+
+    public static String toDateString(Date s) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(s);
+    }
+
+    public static Date toDate(String s) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        s = s.replace("/", "-");
+        try {
+            return sdf.parse(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 /*    public static void main(String []args){
         System.out.println(timeStamp2Date("1546462140",null));

@@ -115,6 +115,7 @@ function getSchedules(param){
 			var item = res.data[i];
 			var status = "";
 			var statusStyle = "off";
+			
 			switch(item.status){
 				case 0: 
 					status = "未开始";
@@ -123,7 +124,7 @@ function getSchedules(param){
 				case 1: 
 					status = "进行中";
 					statusStyle = "on";
-					if(item.videoUrl != null && item.videoUrl != "#"){
+					if(item.sourceUrl != null && item.sourceUrl != "#"){
 						status = "正在直播";
 					}
 					break;
@@ -171,14 +172,24 @@ function getSchedules(param){
 				if(item.scheduleGrade == null) item.scheduleGrade = "-/-";
 				
 				//判断胜利方
+
 				if(item.winTeamId == item.masterTeamId){
 					leftHot = "left-hot";
 					leftHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>';
-				}
-				
-				if(item.winTeamId == item.targetTeamId){
+				} else if(item.winTeamId == item.targetTeamId){
 					rightHot = "right-hot";
 					rightHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao"></i>';
+				} else{
+					var grades = item.scheduleGrade.split("-");
+					if(parseInt(grades[0]) > parseInt(grades[1])){
+						leftHot = "left-hot";
+						leftHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>';
+					}else if(parseInt(grades[0]) < parseInt(grades[1])){
+						rightHot = "right-hot";
+						rightHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao"></i>';
+					}else{
+						
+					}
 				}
 				
 				
@@ -215,6 +226,10 @@ function getSchedules(param){
     		html += '		<span class="status ' + statusStyle + '">' + status + '</span>';
     		html += '		<span class="time">' + dateStr + '</span>';
     		html += '		<span class="operation">';
+
+    		if(item.gameTime != null && parseInt(item.gameTime) > 0){
+				html += '<i class="gameTime">'+ item.gameTime +'`</i>';
+    		}
     		html += '			<i class="icon iconfont icon-youhua"></i>';
     		html += '		</span>';
     		html += '	</div>  ';
@@ -238,7 +253,7 @@ function getSchedules(param){
     		html += rightHotIcon;
     		html += '			<img src="'  + item.targetTeamIcon +'" alt="" />';
 
-    		if(item.targetTeamName.length > 4){
+    		if(item.targetTeamName != null && item.targetTeamName.length > 4){
     			html += '			<span class="longText">'  + item.targetTeamName +'</span>';
     		}else{
     			html += '			<span>'  + item.targetTeamName +'</span>';	

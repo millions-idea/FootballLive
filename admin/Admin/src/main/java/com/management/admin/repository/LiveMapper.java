@@ -1,5 +1,6 @@
 package com.management.admin.repository;
 
+import com.management.admin.entity.db.ChatRoom;
 import com.management.admin.entity.db.Live;
 import com.management.admin.entity.db.User;
 import com.management.admin.entity.dbExt.LiveDetail;
@@ -119,7 +120,7 @@ public interface LiveMapper extends MyMapper<Live>{
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.is_hot = 1 " + // AND t2.status = 1
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.is_hot = 1 AND t2.status = 1 " + // AND t2.status = 1
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectHotLives();
  /**
@@ -223,7 +224,13 @@ public interface LiveMapper extends MyMapper<Live>{
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " + // AND t2.status = 1
+            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 AND t2.status = 1 " + // AND t2.status = 1
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectTwoLives();
+
+    @Insert("INSERT INTO tb_lives (live_title,live_date,schedule_id,status,share_count,collect_count,source_url,ad_id,add_date) " +
+            "VALUES(#{liveTitle}, #{liveDate}, #{scheduleId}, #{status}, 0,0, #{sourceUrl}, 0, #{addDate}) " +
+            "ON DUPLICATE KEY UPDATE " +
+            "source_url = #{sourceUrl}, edit_date=#{editDate}")
+    int insertOrUpdate(Live live);
 }

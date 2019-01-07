@@ -66,7 +66,8 @@ public class GlobalExceptionHandler {
             return  new JsonResult().normalExceptionAsString("已存在");
         }
 
-        return new JsonResult().failingAsString("环境错误");
+        //return new JsonResult().failingAsString("环境错误");
+        return new JsonResult().failingAsString(exception.getMessage() + ":" + exception.getCause());
     }
 
     @ExceptionHandler(value = Exception.class)

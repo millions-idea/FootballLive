@@ -153,6 +153,15 @@ public class LiveApiController {
 
             scheduleGame.setCloudId(item.getCloudId());
             scheduleGame.setGameDate(item.getGameDate());
+
+            scheduleGame.setSourceUrl(item.getSourceUrl());
+
+            //计算开场分钟数
+            if(scheduleGame.getStatus().equals(1)){
+                long diffMinute = DateUtil.getDiffMinute(item.getGameDate());
+                scheduleGame.setGameTime(diffMinute + "");
+            }
+
             scheduleGames.add(scheduleGame);
         });
         return new JsonArrayResult<ScheduleGame>(scheduleGames);

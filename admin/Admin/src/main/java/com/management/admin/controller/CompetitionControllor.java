@@ -117,9 +117,9 @@ public class CompetitionControllor {
 
     @GetMapping("syncCloudData")
     @ResponseBody
-    public JsonResult syncCloudData(Integer categoryId){
+    public JsonResult syncCloudData(Integer categoryId, @RequestParam(required = false) Integer isCurr){
         if(categoryId == null) throw new InfoException("请选择要同步的分类");
-        boolean result = competitionService.syncCloudData(categoryId);
+        boolean result = competitionService.syncCloudData(categoryId, isCurr);
         if(result) return JsonResult.successful();
         return JsonResult.failing();
     }
