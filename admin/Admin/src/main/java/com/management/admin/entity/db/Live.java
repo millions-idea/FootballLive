@@ -65,48 +65,5 @@ public class Live {
      */
     private Date addDate;
     private Date editDate;
-
-    public Integer getLiveId() {
-        return liveId;
-    }
-
-    public String getLiveTitle() {
-        return liveTitle;
-    }
-
-    public Date getLiveDate() {
-        return liveDate;
-    }
-
-    public Integer getScheduleId() {
-        return scheduleId;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public Integer getShareCount() {
-        return shareCount;
-    }
-
-    public Integer getCollectCount() {
-        return collectCount;
-    }
-
-    public String getSourceUrl() {
-        return sourceUrl;
-    }
-
-    public Integer getAdId() {
-        return adId;
-    }
-
-    public Date getAddDate() {
-        return addDate;
-    }
-
-    public Date getEditDate() {
-        return editDate;
-    }
+    private String teamIdList;
 }

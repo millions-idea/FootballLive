@@ -1,0 +1,12 @@
+{
+    "front": [
+        {
+            "file": "http://vjs.zencdn.net/v/oceans.mp4",
+            "type": "mp4",
+            "link":"https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=8hiawluh",
+            "time": 5,
+            "exhibitionMonitor": "exhibitionMonitor.php",
+            "clickMonitor": "clickMonitor.php"
+        }
+    ]
+}

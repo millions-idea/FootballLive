@@ -231,6 +231,6 @@ public interface LiveMapper extends MyMapper<Live>{
     @Insert("INSERT INTO tb_lives (live_title,live_date,schedule_id,status,share_count,collect_count,source_url,ad_id,add_date) " +
             "VALUES(#{liveTitle}, #{liveDate}, #{scheduleId}, #{status}, 0,0, #{sourceUrl}, 0, #{addDate}) " +
             "ON DUPLICATE KEY UPDATE " +
-            "source_url = #{sourceUrl}, edit_date=#{editDate}")
+            "live_title = #{liveTitle}, live_date=#{liveDate}, source_url = #{sourceUrl}, edit_date=#{editDate}")
     int insertOrUpdate(Live live);
 }

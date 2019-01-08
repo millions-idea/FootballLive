@@ -501,6 +501,7 @@ public class ScheduleServiceImpl implements IScheduleService {
         live.setAddDate(new Date());
         live.setStatus(0);
         live.setEditDate(new Date());
+        live.setTeamIdList(masterTeam.getTeamId() + "," + targetTeam.getTeamId());
         result = liveMapper.insertOrUpdate(live) > 0;
         if(!result)  throw new InfoException("添加直播间失败");
         Live liveDetail = liveMapper.selectBySchedule(schedule.getScheduleId());

@@ -2,6 +2,10 @@
     font: 12px/1.5 \5FAE\8F6F\96C5\9ED1,arial,sans-serif;
 }
 
+html,body{
+    height: auto;
+}
+
 .header-container{
     height: 60px;
     width: 100%;
@@ -46,6 +50,11 @@
     height: 60px;
     list-style: none;
     margin-left: 20px;
+}
+
+.navigation .active a{
+    background-color: #5626D3;
+    color: #fff !important;
 }
 
 .navigation .left .list li a{
@@ -112,6 +121,7 @@
     width: 150px;
     position: relative;
     left: 10px;
+    z-index: 10;
 }
 
 .navigation .login-or-download .list{
@@ -162,8 +172,8 @@
     width: 189px;
     height: 315px;
     padding-top: 10px;
-    left: -75px;
-    top: 60px;
+    left: -72px;
+    top: 50px;
     font-size: 12px;
     color: #333;
     text-align: center;
@@ -205,4 +215,207 @@
     width: 100%;
     margin-top: 28px;
     line-height: 20px
+}
+
+.hot-container{
+    width: 100%;
+    height: 612px;
+    position: relative;
+    background: url(../images/eef42af8303e9ea6718ed2fd2ce14cd4.jpg) center top no-repeat;
+}
+
+
+.hot-container .link-list{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.hot-container  .link-list .link-left, .hot-container  .link-list .link-right{
+    width: 350px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.hot-container  .link-list .link-left{
+    left: 0;
+}
+
+.hot-container  .link-list .link-right{
+    right: 0;
+}
+
+.hot-container  .link-list .link-left a, .hot-container  .link-list .link-right a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.hot-container .hot-game-list{
+    width: 1200px;
+    height: 570px;
+    padding-top: 21px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hot-container .hot-game-list .video-player{
+    width: 995px;
+    height: 570px;
+    background: #000;
+    float: left;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.hot-container .hot-game-list .video-list{
+    height: 570px;
+    float: right;
+    width: 205px;
+    background-color: #1b1b1b;
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.hot-container .hot-game-list .video-list li{
+    margin-bottom: 10px;
+    cursor: pointer;
+    height: 102px;
+    float: right;
+    width: 185px;
+}
+
+
+.c,.inline-block {
+    *zoom:1;font-size: 12px;
+    word-spacing: normal;
+    vertical-align: top
+}
+
+.c {
+    display: inline-block;
+    *display: inline;
+    letter-spacing: normal
+}
+
+.inline-block {
+    display: inline-block;
+    *display: inline;
+    letter-spacing: normal
+}
+
+.hot-container .hot-game-list .video-list  ul li .a {
+    position: relative;
+    display: block;
+    width: 185px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.hot-container .hot-game-list .video-list  ul li .pic {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hot-container .hot-game-list .video-list ul li.current .pic span.shadow, .hot-container .hot-game-list .video-list ul li:hover .pic span.shadow {
+    display: none;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .pic span.shadow {
+    opacity: .3;
+    filter: Alpha(Opacity="30");
+    background: #000;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.shadow {
+    cursor: default;
+    background: #000;
+    filter: Alpha(Opacity="80");
+}
+
+.hot-container .hot-game-list .video-list ul li .border {
+    position: absolute;
+    width: 190px;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: -5px;
+    display: none;
+    cursor: pointer;
+    background: url(../images/channel-item-active.png) center right;
+}
+
+
+.hot-container .hot-game-list .video-list ul li.current .border,
+.hot-container .hot-game-list .video-list ul li.current .text,
+.hot-container .hot-game-list .video-list ul li:hover .border,
+.hot-container .hot-game-list .video-list ul li:hover .text {
+    display: block;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .text {
+    position: absolute;
+    width: 181px;
+    height: 17px;
+    right: 2px;
+    bottom: 2px;
+    text-indent: 8px;
+    line-height: 17px;
+    display: none;
+    z-index: 2;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.hot-container .hot-game-list .video-list ul li .text span {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .text {
+    position: absolute;
+    width: 181px;
+    height: 17px;
+    right: 2px;
+    bottom: 2px;
+    text-indent: 8px;
+    line-height: 17px;
+    display: none;
+    z-index: 2;
+}
+
+.hot-container .hot-game-list .video-list ul {
+    width: 185px;
+    margin: 10px auto 0;
 }

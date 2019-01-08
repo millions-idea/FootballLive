@@ -15,17 +15,23 @@ $(function(){
     //download pop animation begin
     $(".navigation .login-or-download .list .download").hover(function(){
         $(".pop-qrcode").show();
+        $(".pop-qrcode").removeClass("bounceIn animated").addClass("bounceIn animated");
         $(".pop-qrcode").hover(function(){
             $(this).show();
+            $(this).removeClass("bounceIn animated");
         }, function(){
+            $(this).removeClass("bounceIn animated");
             $(this).hide();
         })
     }, function(){
+        $(".pop-qrcode").removeClass("bounceIn animated");
         $(".pop-qrcode").hide();
         $(".pop-qrcode").hover(function(){
             $(this).show();
+            $(this).removeClass("bounceIn animated");
         }, function(){
-            $(this).hide();
+            $(this).removeClass("bounceIn animated");
+            $(".pop-qrcode").hide();
         })
     })
     //download pop animation end
