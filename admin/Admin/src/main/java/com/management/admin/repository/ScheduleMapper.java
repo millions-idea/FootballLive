@@ -40,7 +40,7 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             "LEFT JOIN tb_games t3 ON t3.game_id = t2.game_id " +
             "LEFT JOIN tb_teams t4 ON t4.team_id = t2.master_team_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t2.target_team_id " +
-            "WHERE t1.status = 0 AND t2.is_delete = 0 AND t3.is_delete = 0 " +
+            "WHERE t2.is_delete = 0 AND t3.is_delete = 0 " +
             "AND ${condition} " +
             "ORDER BY t1.live_date ASC")
     List<LiveScheduleDetail> selectScheduleDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
