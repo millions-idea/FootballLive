@@ -1,0 +1,357 @@
+html,body,.container{
+    height: 100% !important;
+    overflow: hidden;
+    background-color: #F5F5F5;
+}
+
+.padding-top-10{
+    min-height: 10px;
+}
+
+.navigation{
+    background-color: #fff;
+}
+
+.left-navigation{
+    float: left;
+    background-color: #333333;
+    min-width: 245px !important;
+    min-height: 100%  !important;
+    z-index: 999;
+}
+
+.navigation{width: 100%;height: 60px;margin: 0 auto;}
+
+.navigation .logo {
+    display: inline-block;
+    width: 245px;
+    height: 59px;
+    vertical-align: middle;
+    float: left;
+    background-color: #333333;
+    border-bottom: 1px solid #252525;
+    text-align: center;
+}
+
+.hot-cate{
+    background-color: #333333;
+    min-height: 236px;
+    border-bottom: 1px solid #252525;
+}
+
+.hot-cate .header{
+    width: 90%;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    cursor: default;
+}
+
+.hot-cate .header .title{
+    line-height: 40px;
+    float: left;
+    font-size: 14px;
+    color: #999;
+}
+
+.hot-cate .header .today{
+    position: relative;
+    top: 8px;
+    line-height: 25px;
+    float: right;
+    /* width: 70px; */
+    height: 25px;
+    color: #c6c6c6;
+    background-color: #444444;
+    text-align: center;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.hot-cate .header .today .stress{
+    color: #F13B3A;
+}
+
+
+
+.recommend-game-container{
+    width: 100%;
+    height: 170px;
+    position: relative;
+    /* background: url(../images/bg2.jpg) center top no-repeat #111; */
+}
+
+.recommend-game-container .recommend-game-list {
+    /* width: 1200px; */
+    /* height: 100%; */
+    margin: 0 auto;
+}
+
+.recommend-game-container .recommend-game-list ul{
+    list-style: none;
+    position: relative;
+    top: 15px;
+    left: 5px;
+}
+
+.recommend-game-container .recommend-game-list ul li{
+    display: block;
+    /* width: 19%; */
+    height: 140px;
+    background-color: #383838;
+    cursor: pointer;
+    margin-right: 12px;
+    clear: right;
+    margin-bottom: 16px;
+}
+
+.recommend-game-container .recommend-game-list ul li:hover{
+    background-color: #444444;
+}
+
+.recommend-game-container .recommend-game-list ul li .title{
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #999999;
+    text-indent: 5px;
+    border-bottom: 1px solid #333333;
+}
+
+.recommend-game-container .recommend-game-list ul li .content{
+    width: 100%;
+    height: 110px;
+    line-height: 110px;
+}
+
+.recommend-game-container .recommend-game-list ul li .content .left{
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+
+.recommend-game-container .recommend-game-list ul li .content .right{
+    float: right;
+    width: 40%;
+    height: 100%;
+}
+
+.recommend-game-container .recommend-game-list .content .left .team{
+    height: 55px;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.recommend-game-container .recommend-game-list .content .left .team span{
+    display: inline-block;
+    width: 75px;
+    line-height: 55px;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.recommend-game-container .recommend-game-list .content .left .team img{
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    top: 10px;
+    left: 8px;
+}
+
+.recommend-game-container .recommend-game-list .content .right .time{
+    display: block;
+    height: 55px;
+    line-height: 55px;
+    color: #fff;
+    text-align: right;
+    position: relative;
+    right: 15px;
+}
+
+.recommend-game-container .recommend-game-list .content .right .live{
+    display: block;
+    text-align: center;
+    border: 1px solid #6A94EB;
+    color: #6A94EB;
+    width: 60px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.recommend-game-container .recommend-game-list .content .right .live:hover{
+    background-color: #4A83FB;
+    color: #fff;
+}
+
+.recommend-game-list .right{
+    position: relative;
+    right: 5px;
+}
+
+.center-container{
+    width: 1200px;
+    height: 715px;
+    background-color: #F5F5F5;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.center-container .stage{
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.right-navigation{
+    float: right;
+    background-color: #ffffff;
+    min-width: 435px !important;
+    min-height: 100%  !important;
+    z-index: 999;
+}
+
+.stage .top{
+    width: 100%;
+    height: 80px;
+    padding-left: 10px;
+}
+
+.stage .top .picture{
+    height: 80px;
+    line-height: 80px;
+}
+
+.stage .top .picture{
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.stage .top .picture, .stage .top .picture img{
+    width: 60px;
+    height: 60px;
+    line-height: 80px;
+    border-radius: 60px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.stage .top  .title{
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    left: 10px;
+    font-size: 22px;
+}
+
+.stage .top .bottom{
+    display: block;
+    padding-left: 75px;
+    position: relative;
+    bottom: 15px;
+    color: #8d93a1;
+}
+
+.stage .top .bottom .type{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.stage .top .bottom .persons{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.stage .top .bottom .item{
+    display: inline-block;
+    margin-right: 10px;
+    color: #ff4e00;
+    font-size: 12px;
+}
+
+.red{
+    color: red  !important;
+}
+
+.yellow{
+    color: #fb952c !important;
+}
+
+.purple{
+    color: #5626D3  !important;
+}
+
+.duration{
+    float: right;
+    position: relative;
+    right: 25px;
+}
+
+.stage .player{
+    width: 1150px;
+    min-height: 600px;
+    background-color: #000;
+    margin: 0 auto;
+}
+
+.right-navigation .chat-list-container{
+    width: 100%;
+    overflow-y: scroll;
+    min-height: 100px;
+}
+
+.right-navigation .chat-list-container .chat-list{
+    width: 100%;
+    padding: 20px;
+    background-color: #40AFFE;
+}
+
+.chat-editor-container{
+    position: fixed;
+    bottom: 0px;
+    height: 125px;
+    background-color: #FFFFFF;
+    width: 100%;
+    border-top: 1px solid #EFEFEF;
+}
+
+.chat-editor-container .header{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.chat-editor-container .editor-box{
+    width: 100%;
+    height: 65px;
+    background-color: red;
+    padding: 10px;
+}
+
+.chat-editor-container .editor-box .editor{
+    width: 417px;
+    height: 65px;
+    background-color: yellow;
+}

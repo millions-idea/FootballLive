@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/news.css">
+</head>
+<body>
+    <div class="container">
+        <!--header begin-->
+        <div class="header-container">
+            <div class="navigation">
+                <div class="left">
+                    <h1 class="logo">
+                        <img src="./images/logo.png" alt="卫星体育直播">
+                    </h1>
+                    <div class="list">
+                        <ul>
+                            <li class="active"><a>首页</a></li>
+                            <li><a>直播</a></li>
+                            <li><a>分类</a></li>
+                            <li><a>新闻</a></li>
+                            <li><a>赛程</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="search">
+                        <i class="iconfont icon-search"></i>
+                        <input type="text" name="search"  autocomplete="off" placeholder="搜索"/>
+                    </div>
+                    <div class="login-or-download">
+                        <ul class="list">
+                            <li>
+                                <div class="option-group download">
+                                    <a href="#"><i class="iconfont icon-download"></i>&nbsp;下载</a>
+                                </div>
+                                <div class="pop-qrcode" style="display: none;">
+                                    <div class="expository-box">
+                                        领取双倍奖励
+                                        <br /> 免费看全部高清直播
+                                        <br /> 最高领取10000鹅蛋奖励
+                                    </div>
+                                    <div class="qr-code-box">
+                                        <img src="//static.qiecdn.com/static/01041633/common/res/erweima.png" alt="下载APP" />
+                                    </div>
+                                    <div class="o-download-app-icon">
+                                    </div>
+                                    <a href="/client" target="_blank" class="o-download-app-btn">下载卫星体育APP</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="option-group">
+                                    <a href="#"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--header end-->
+
+        <!--center container begin-->
+        <div class="padding-top-10"></div>
+        <div class="padding-top-10"></div>
+        <div class="center-container">
+            <div class="title">测试标题</div>
+            <div class="content">
+                测试内容~~~
+            </div>
+            <div class="line">
+                <button class="close" onclick="javascript:window.opener=null;window.open('','_self');window.close();">关闭本页</button>
+            </div>
+        </div>
+        <!--center container end-->
+    </div>
+
+    <script type="text/javascript" src="/js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script type="text/javascript" src="/js/header.js"></script>
+    <script type="text/javascript" src="/js/schedule.js"></script>
+</body>
+</html>

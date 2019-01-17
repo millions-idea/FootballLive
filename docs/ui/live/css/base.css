@@ -1,0 +1,1003 @@
+*{
+    font: 12px/1.5 \5FAE\8F6F\96C5\9ED1,arial,sans-serif;
+}
+
+html,body{
+    height: auto;
+}
+
+.header-container{
+    height: 60px;
+    width: 100%;
+}
+
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.navigation{
+    width: 1500px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.navigation .left, .navigation .right{
+    height: 60px;
+}
+
+.navigation .logo img{
+    position: relative;
+    top: 10px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.navigation .logo{
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    vertical-align: middle;
+    float: left;
+}
+
+.navigation .left .list{
+    float: left;
+    height: 60px;
+    list-style: none;
+    margin-left: 20px;
+}
+
+.navigation .active a{
+    background-color: #5626D3;
+    color: #fff !important;
+}
+
+.navigation .left .list li a{
+    display: inline-block;
+    color: #444444;
+    width: 65px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.navigation .left .list li a:hover{
+    background-color: #5626D3;
+    color: #fff;
+}
+
+.navigation .left .list li{
+    float: left;
+    display: inline-block;
+    width: 65px;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 15px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.navigation .search{
+    height: 60px;
+    line-height: 60px;
+    width: 115px;
+    position: relative;
+    float: left;
+}
+
+.navigation .search .icon-search{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    z-index: 10;
+}
+
+.navigation .search input{
+    display: inline-block;
+    width: 80px;
+    font-size: 12px;
+    background-color: #F8F8F8;
+    border-radius: 15px;
+    border: none;
+    border: 1px solid #F1F1F1;
+    height: 30px;
+    outline: none;
+    float: right;
+    position: relative;
+    top: 15px;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.navigation .login-or-download{
+    float: left;
+    width: 150px;
+    position: relative;
+    left: 10px;
+    z-index: 10;
+}
+
+.navigation .login-or-download .list{
+    list-style: none;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list li{
+    float: left;
+    display: inline-block;
+    font-size: 12px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list{
+    float: left;
+    position: relative;
+    left: 5px;
+}
+
+.navigation .login-or-download .list .option-group{
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list .option-group a{
+    width: 45px;
+    outline: none;
+    text-decoration: none;
+    color: #555555;
+    cursor: pointer;
+}
+
+.navigation .login-or-download .list .option-group *:hover{
+    color: #5626D3 !important;
+}
+
+.navigation .login-or-download .list .option-group i, .navigation .login-or-download .list .option-group a{
+    display: inline-block;
+}
+
+
+.pop-qrcode{
+    background: url(../images/qrcode_background.png) no-repeat;
+    position: absolute;
+    width: 189px;
+    height: 315px;
+    padding-top: 10px;
+    left: -72px;
+    top: 50px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
+
+
+.pop-qrcode .o-download-app-btn {
+    display: block;
+    color: #fff;
+    width: 108px;
+    height: 27px;
+    background: url(../images/button.png) no-repeat;
+    margin: 6px auto 0;
+    line-height: 26px
+}
+
+.pop-qrcode .o-download-app-icon {
+    width: 24px;
+    height: 109px;
+    background: url(../images/drawing.png) no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    z-index: 3
+}
+
+.pop-qrcode .qr-code-box {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto
+}
+
+.pop-qrcode img {
+    width: 100%;
+    height: 100%
+}
+
+.pop-qrcode .expository-box {
+    width: 100%;
+    margin-top: 28px;
+    line-height: 20px
+}
+
+.hot-container{
+    width: 100%;
+    height: 612px;
+    position: relative;
+    background: url(../images/layoutBg1.jpg) center top no-repeat;
+}
+
+
+.hot-container .link-list{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.hot-container  .link-list .link-left, .hot-container  .link-list .link-right{
+    width: 350px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.hot-container  .link-list .link-left{
+    left: 0;
+}
+
+.hot-container  .link-list .link-right{
+    right: 0;
+}
+
+.hot-container  .link-list .link-left a, .hot-container  .link-list .link-right a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.hot-container .hot-game-list{
+    width: 1200px;
+    height: 570px;
+    padding-top: 21px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hot-container .hot-game-list .video-player{
+    width: 995px;
+    height: 570px;
+    background: #000;
+    float: left;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.hot-container .hot-game-list .video-full-player{
+    width: 1200px;
+    height: 570px;
+    background: #000;
+    float: left;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.hot-container .hot-game-list .video-list{
+    height: 570px;
+    float: right;
+    width: 205px;
+    background-color: #1b1b1b;
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.hot-container .hot-game-list .video-list li{
+    margin-bottom: 10px;
+    cursor: pointer;
+    height: 102px;
+    float: right;
+    width: 185px;
+}
+
+
+.c,.inline-block {
+    *zoom:1;font-size: 12px;
+    word-spacing: normal;
+    vertical-align: top
+}
+
+.c {
+    display: inline-block;
+    *display: inline;
+    letter-spacing: normal
+}
+
+.inline-block {
+    display: inline-block;
+    *display: inline;
+    letter-spacing: normal
+}
+
+.hot-container .hot-game-list .video-list  ul li .a {
+    position: relative;
+    display: block;
+    width: 185px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.hot-container .hot-game-list .video-list  ul li .pic {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hot-container .hot-game-list .video-list ul li.current .pic span.shadow, .hot-container .hot-game-list .video-list ul li:hover .pic span.shadow {
+    display: none;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .pic span.shadow {
+    opacity: .3;
+    filter: Alpha(Opacity="30");
+    background: #000;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.shadow {
+    cursor: default;
+    background: #000;
+    filter: Alpha(Opacity="80");
+}
+
+.hot-container .hot-game-list .video-list ul li .border {
+    position: absolute;
+    width: 190px;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: -5px;
+    display: none;
+    cursor: pointer;
+    background: url(../images/channel-item-active.png) center right;
+}
+
+
+.hot-container .hot-game-list .video-list ul li.current .border,
+.hot-container .hot-game-list .video-list ul li.current .text,
+.hot-container .hot-game-list .video-list ul li:hover .border,
+.hot-container .hot-game-list .video-list ul li:hover .text {
+    display: block;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .text {
+    position: absolute;
+    width: 181px;
+    height: 17px;
+    right: 2px;
+    bottom: 2px;
+    text-indent: 8px;
+    line-height: 17px;
+    display: none;
+    z-index: 2;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .pic img {
+    width: 100%;
+    height: 100%;
+}
+
+.hot-container .hot-game-list .video-list ul li .text span {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.hot-container .hot-game-list .video-list ul li .text {
+    position: absolute;
+    width: 181px;
+    height: 17px;
+    right: 2px;
+    bottom: 2px;
+    text-indent: 8px;
+    line-height: 17px;
+    display: none;
+    z-index: 2;
+}
+
+.hot-container .hot-game-list .video-list ul {
+    width: 185px;
+    margin: 10px auto 0;
+}
+
+.padding-top-10{
+    min-height: 10px;
+}
+
+.recommend-game-container{
+    width: 100%;
+    height: 170px;
+    position: relative;
+    background: url(../images/bg2.jpg) center top no-repeat #111;
+}
+
+.recommend-game-container .recommend-game-list {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.recommend-game-container .recommend-game-list ul{
+    list-style: none;
+    position: relative;
+    top: 15px;
+    left: 5px;
+}
+
+.recommend-game-container .recommend-game-list ul li{
+    display: inline-block;
+    width: 19%;
+    height: 140px;
+    background-color: #252525;
+    cursor: pointer;
+    margin-right: 12px;
+    float: left;
+    clear: right;
+}
+
+.recommend-game-container .recommend-game-list ul li:hover{
+    background-color: #333333;
+    border-bottom: 1px solid #222222;
+}
+
+.recommend-game-container .recommend-game-list ul li .title{
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #999999;
+    text-indent: 5px;
+    border-bottom: 1px solid #222222;
+}
+
+.recommend-game-container .recommend-game-list ul li .content{
+    width: 100%;
+    height: 110px;
+    line-height: 110px;
+}
+
+.recommend-game-container .recommend-game-list ul li .content .left{
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+
+.recommend-game-container .recommend-game-list ul li .content .right{
+    float: right;
+    width: 40%;
+    height: 100%;
+}
+
+.recommend-game-container .recommend-game-list .content .left .team{
+    height: 55px;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+}
+
+.recommend-game-container .recommend-game-list .content .left .team span{
+    display: block;
+    width: 100%;
+    line-height: 55px;
+    text-align: left;
+    color: #fff;
+}
+
+.recommend-game-container .recommend-game-list .content .left .team img{
+    width: 50px;
+    overflow: hidden;
+    float: left;
+}
+
+.recommend-game-container .recommend-game-list .content .right .time{
+    display: block;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: #fff;
+}
+
+.recommend-game-container .recommend-game-list .content .right .live{
+    display: block;
+    text-align: center;
+    border: 1px solid #6A94EB;
+    color: #6A94EB;
+    width: 60px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.recommend-game-container .recommend-game-list .content .right .live:hover{
+    background-color: #4A83FB;
+    color: #fff;
+}
+
+.category-container{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F5F5F5;
+    height: 275px;
+}
+
+.category-grid {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.today-game-list{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    height: 190px;
+    background: #fff;
+    -moz-user-select:  none;
+}
+
+.today-game-list .tips{
+    width: 127px;
+    z-index: 1;
+    height: 35px;
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    margin-left: -61.5px;
+    color: #fff;
+    line-height: 33px;
+    text-align: center;
+    font-size: 16px;
+    font-family: PingFangSC-Regular;
+    background: url(../images/index-icon.png) -97px -177px no-repeat;
+}
+
+.today-game-list .prev {
+    width: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.today-game-list  .prev .btn {
+    display: block;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    border: 1px solid #efefef;
+    position: absolute;
+    left: 20px;
+    top: 50.5px;
+    border-radius: 30px;
+    background: url(../images/index-icon.png) -7px -20px no-repeat #fff;
+}
+
+.today-game-list .main-anchors {
+    position: relative;
+    height: 121px;
+    top: 44px;
+}
+
+
+.today-game-list .main-anchors .next {
+    right: 0;
+    left: inherit !important;
+}
+
+.today-game-list .main-anchors .next, .today-game-list .main-anchors .prev {
+    width: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.today-game-list .main-anchors .next .btn {
+    left: inherit !important;
+    right: 20px !important;
+    background: url(../images/index-icon.png) -35px -20px no-repeat #fff !important;
+}
+
+.today-game-list .main-anchors .next .btn, .today-game-list .main-anchors .prev .btn {
+    display: block;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    border: 1px solid #efefef;
+    position: absolute;
+    left: 20px;
+    top: 50.5px;
+    border-radius: 30px;
+    background: url(../images/index-icon.png) -7px -20px no-repeat #fff;
+}
+
+.today-game-list .main-anchors .anchors {
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.today-game-list .main-anchors .anchors>ul {
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.today-game-list .anchors li img{
+    width: 80px;
+    height: 80px;
+    border-radius: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+.today-game-list .anchors li{
+    -moz-user-select:  none;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+}
+
+.today-game-list .anchors li a{
+    text-decoration: none;
+    line-height: 120px;
+}
+
+.today-game-list .anchors li span{
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    top: 14px;
+}
+
+.today-game-list .live {
+    position: absolute;
+    z-index: 3;
+    font-size: 12px;
+    height: 14px;
+    line-height: 14px;
+    width: 36px;
+    left: 50%;
+    margin-left: -18px;
+    bottom: 10px;
+    color: #fff;
+    background: url(../images/icon-live.png) center center no-repeat;
+}
+
+.today-game-list .prev .btn:hover{
+    background: url(../images/index-icon.png) -7px -20px no-repeat #EFEFEF !important;
+}
+
+.today-game-list .next .btn:hover{
+    background: url(../images/index-icon.png) -35px -20px no-repeat #EFEFEF !important;
+}
+
+.anchors ul{
+    position:relative;
+    height: 120px;
+    width: 1080px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y:hidden;
+}
+
+.live-list-container{
+    background-color: #fff;
+    min-height: 240px;
+}
+
+.live-list-container .title .logo{
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+.live-list-container .title{
+    width: 1200px;
+    height: 25px;
+    margin: 0 auto;
+}
+
+.live-list-container .title .name{
+    font-size: 20px;
+    color: #333;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.live-list-container .title .name:hover{
+    color: #5626D3;
+}
+
+.live-list-container .title .tips{
+    font-family: Impact;
+    color: #e2e2e2;
+    font-size: 18px;
+    line-height: 28px;
+    margin-left: 4px;
+}
+
+.live-list-container .program{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.live-list-container .program .snapshoot{
+    height: 165px;
+    max-height: 165px;
+    overflow: hidden;
+}
+.live-list-container .program .snapshoot img{
+    height: 165px;
+    max-height: 165px;
+    overflow: hidden;
+}
+
+.live-list-container .program .title{
+    font-size: 14px;
+    color: #505050;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.qie-num{
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 15px;
+    color: #8d93a1;
+    font-size: 12px;
+    background: url(../images/qie-ued-icon.png) -55px -457px;
+    margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: normal;
+    word-spacing: normal;
+    bottom: 10px;
+}
+
+.live-list-container .program .info{
+    width: 100%;
+    line-height: 40px;
+}
+
+
+.live-list-container .program ul{
+    white-space: nowrap;
+}
+
+.live-list-container .program li{
+    position: relative;
+    width: 282px;
+    display: inline-block;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+.live-list-container .program li:hover{
+    cursor: pointer;
+}
+
+.live-list-container .program .snapshoot:hover {
+    opacity: 0.8;
+}
+
+.floor{
+    display: block;
+}
+
+.footer{
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #212224;
+    bottom:0;
+    color: #8d93a1;
+}
+
+.footer a{
+    color: #8d93a1;
+}
+
+.container{
+    position: relative;
+    min-height:100%;
+}
+
+.recommend-game-list .title .left, .recommend-game-list .title .right{
+    line-height: 30px;
+}
+
+.recommend-game-list .title .right{
+    position: relative;
+    right: 5px;
+}
+
+.recommend-game-list .live .title *, .recommend-game-list .active .content .right .time{
+    color: #8d76ca;
+}
+
+
+.recommend-game-list .live .content .right .time{
+    text-align: right;
+    position: relative;
+    right: 15px;
+}
+
+.recommend-game-list .active{
+    background-color: #333333 !important;
+    border-bottom: 1px solid #222222  !important;
+}
+
+
+.footer .content{
+    display: block;
+}
+
+.footer .default{
+    display: block;
+}
+
+
+
+
+
+.program li{
+    min-width: 280px;
+    min-height: 150px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.program li .title{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f5f5f5;
+}
+
+.program li .title span{
+    display: inline-block;
+    line-height: 30px;
+}
+
+.program li .title .left{
+    position: relative;
+    left: 10px;
+    font-size: 12px;
+    color: #5d5d5d;
+}
+
+.program li .title .right{
+    position: relative;
+    right: 10px;
+    font-size: 12px;
+    color: #5d5d5d;
+}
+
+.program li .layui-row div{
+    height: 120px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+
+.program li .layui-row div .left-team img{
+    position: relative;
+    /* top: 8px; */
+    left: 16px;
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 60px;
+}
+
+.program li .layui-row div .right-team img{
+    position: relative;
+    /* top: 8px; */
+    right: 5px;
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 60px;
+}
+
+.program li .layui-row div .team .team-name{
+    position: relative;
+    top: 0px;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    color: #7b7b7b;
+}
+
+
+.program li .layui-row div .left-team .team-name{
+    position: relative;
+    top: 0px;
+    left: 13px;
+}
+
+.program li .layui-row div .right-team .team-name{
+    position: relative;
+    top: 0px;
+    right: 6px;
+}
+
+
+.program li .layui-row div .grade{
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Impact;
+    color: #ff5655;
+    font-size: 40px;
+    top: 12px;
+    position: relative;
+}
+
+
+.program li .layui-row div .result{
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    color: #afafaf;
+    font-size: 15px;
+    top: 10px;
+    position: relative;
+}
+
+.program li:hover{
+    opacity: 0.8;
+}
+
+.program .team .win{
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    background: url(../images/qie-ued-icon.png) -200px -365px no-repeat;
+}

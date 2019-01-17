@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1002790_dijveqqh49t.css">
+    <link rel="stylesheet" href="./css/base.css">
+</head>
+<body>
+    <!--header begin-->
+    <div class="header-container">
+        <div class="navigation">
+            <div class="left">
+                <h1 class="logo">
+                    <img src="./images/logo.png" alt="卫星体育直播">
+                </h1>
+                <div class="list">
+                    <ul>
+                        <li class="active"><a>首页</a></li>
+                        <li><a>直播</a></li>
+                        <li><a>分类</a></li>
+                        <li><a>新闻</a></li>
+                        <li><a>赛程</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="search">
+                    <i class="iconfont icon-search"></i>
+                    <input type="text" name="search"  autocomplete="off" placeholder="搜索"/>
+                </div>
+                <div class="login-or-download">
+                    <ul class="list">
+                        <li>
+                            <div class="option-group download">
+                                <a href="#"><i class="iconfont icon-download"></i>&nbsp;下载</a>
+                            </div>
+                            <div class="pop-qrcode" style="display: none;">
+                                <div class="expository-box">
+                                    领取双倍奖励
+                                    <br /> 免费看全部高清直播
+                                    <br /> 最高领取10000鹅蛋奖励
+                                </div>
+                                <div class="qr-code-box">
+                                    <img src="//static.qiecdn.com/static/01041633/common/res/erweima.png" alt="下载APP" />
+                                </div>
+                                <div class="o-download-app-icon">
+                                </div>
+                                <a href="/client" target="_blank" class="o-download-app-btn">下载卫星体育APP</a>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="option-group">
+                               <a href="#"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
+                           </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+
+
+    <!--hot list begin-->
+    <div class="hot-container">
+       <div class="link-list">
+           <div class="link-left">
+               <a href="#"></a>
+           </div>
+           <div class="link-right">
+               <a href="#"></a>
+           </div>
+       </div>
+       <div class="hot-game-list">
+            <div class="video-player">
+                <div id="video" style="width: 100%; height: 570px;max-width: 995px;"></div>
+            </div>
+           <div class="video-list">
+               <ul>
+                   <li>
+                       <div class="a">
+                           <div class="pic">
+                               <img src="//upstatic.qiecdn.com/upload/homeset/201901081104406368.jpg" alt="NBA直播尼克斯VS开拓者" />
+                               <span class="shadow"></span>
+                           </div>
+                           <div class="border"></div>
+                           <div class="text">
+                               <span class="shadow"></span>
+                               <span>NBA直播尼克斯VS开拓者</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li>
+                       <div class="a">
+                           <div class="pic">
+                               <img src="//upstatic.qiecdn.com/upload/homeset/201901081204384509.jpg" alt="美女记者海彦播尼克斯vs开拓者" />
+                               <span class="shadow"></span>
+                           </div>
+                           <div class="border"></div>
+                           <div class="text">
+                               <span class="shadow"></span>
+                               <span>美女记者海彦播尼克斯vs开拓者</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li>
+                       <div class="a">
+                           <div class="pic">
+                               <img src="//upstatic.qiecdn.com/upload/homeset/201901080835205591.jpg" alt="陈志刚vs王楠" />
+                               <span class="shadow"></span>
+                           </div>
+                           <div class="border"></div>
+                           <div class="text">
+                               <span class="shadow"></span>
+                               <span>陈志刚vs王楠</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li>
+                       <div class="a">
+                           <div class="pic">
+                               <img src="//upstatic.qiecdn.com/upload/homeset/201901080842168058.jpg" alt="神姐直播乔氏大师赛" />
+                               <span class="shadow"></span>
+                           </div>
+                           <div class="border"></div>
+                           <div class="text">
+                               <span class="shadow"></span>
+                               <span>神姐直播乔氏大师赛</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li>
+                       <div class="a">
+                           <div class="pic">
+                               <img src="//upstatic.qiecdn.com/upload/homeset/201901081306159988.jpg" alt="悦目有佳人" />
+                               <span class="shadow"></span>
+                           </div>
+                           <div class="border"></div>
+                           <div class="text">
+                               <span class="shadow"></span>
+                               <span>悦目有佳人</span>
+                           </div>
+                       </div>
+                   </li>
+                   <li>
+                       <div class="a">
+                           <div class="pic">
+                               <img src="//upstatic.qiecdn.com/upload/homeset/201901081306159988.jpg" alt="悦目有佳人" />
+                               <span class="shadow"></span>
+                           </div>
+                           <div class="border"></div>
+                           <div class="text">
+                               <span class="shadow"></span>
+                               <span>悦目有佳人</span>
+                           </div>
+                       </div>
+                   </li>
+               </ul>
+           </div>
+       </div>
+    </div>
+    <!--hot list end-->
+
+
+
+    <script type="text/javascript" src="./js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="./js/ckplayer/ckplayer.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+    <script type="text/javascript" src="./js/player.js"></script>
+</body>
+</html>

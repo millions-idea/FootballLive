@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1002790_dijveqqh49t.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/base.css">
+</head>
+<body>
+    <div class="container">
+        <!--header begin-->
+        <div class="header-container">
+            <div class="navigation">
+                <div class="left">
+                    <h1 class="logo">
+                        <img src="./images/logo.png" alt="卫星体育直播">
+                    </h1>
+                    <div class="list">
+                        <ul>
+                            <li class="active"><a>首页</a></li>
+                            <li><a>直播</a></li>
+                            <li><a>分类</a></li>
+                            <li><a>新闻</a></li>
+                            <li><a>赛程</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="search">
+                        <i class="iconfont icon-search"></i>
+                        <input type="text" name="search"  autocomplete="off" placeholder="搜索"/>
+                    </div>
+                    <div class="login-or-download">
+                        <ul class="list">
+                            <li>
+                                <div class="option-group download">
+                                    <a href="#"><i class="iconfont icon-download"></i>&nbsp;下载</a>
+                                </div>
+                                <div class="pop-qrcode" style="display: none;">
+                                    <div class="expository-box">
+                                        领取双倍奖励
+                                        <br /> 免费看全部高清直播
+                                        <br /> 最高领取10000鹅蛋奖励
+                                    </div>
+                                    <div class="qr-code-box">
+                                        <img src="//static.qiecdn.com/static/01041633/common/res/erweima.png" alt="下载APP" />
+                                    </div>
+                                    <div class="o-download-app-icon">
+                                    </div>
+                                    <a href="/client" target="_blank" class="o-download-app-btn">下载卫星体育APP</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="option-group">
+                                    <a href="#"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--header end-->
+
+
+        <!--hot list begin-->
+        <div class="hot-container">
+            <div class="link-list">
+                <div class="link-left">
+                    <a href="#"></a>
+                </div>
+                <div class="link-right">
+                    <a href="#"></a>
+                </div>
+            </div>
+            <div class="hot-game-list">
+                <div class="video-full-player">
+                    <div id="video" style="width: 100%; height: 570px;max-width: 1200px;"></div>
+                </div>
+            </div>
+        </div>
+        <!--hot list end-->
+
+
+        <!--recommend game list begin-->
+        <div class="recommend-game-container">
+            <div class="recommend-game-list">
+                <ul>
+                    <li class="live active">
+                        <span class="title">
+                            <span class="left">亚洲杯</span>
+                            <span class="right">观看中</span>
+                        </span>
+                        <div class="content">
+                            <div class="left">
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png">
+                                    <span>山东鲁能</span>
+                                </div>
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/3db7a950d27593210ec3f72ac6f8aaf6.png">
+                                    <span>北京国安</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <span class="time">65</span>
+                                <span class="time">78</span>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="live">
+                         <span class="title">
+                            <span class="left">亚洲杯</span>
+                            <span class="right">直播中</span>
+                        </span>
+                        <div class="content">
+                            <div class="left">
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png">
+                                    <span>山东鲁能</span>
+                                </div>
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/3db7a950d27593210ec3f72ac6f8aaf6.png">
+                                    <span>北京国安</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <span class="time">19:00</span>
+                                <div class="live">观看直播</div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <span class="title">亚洲杯</span>
+                        <div class="content">
+                            <div class="left">
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png">
+                                    <span>山东鲁能</span>
+                                </div>
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/3db7a950d27593210ec3f72ac6f8aaf6.png">
+                                    <span>北京国安</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <span class="time">19:00</span>
+                                <div class="live">进行中</div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <span class="title">亚洲杯</span>
+                        <div class="content">
+                            <div class="left">
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png">
+                                    <span>山东鲁能</span>
+                                </div>
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/3db7a950d27593210ec3f72ac6f8aaf6.png">
+                                    <span>北京国安</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <span class="time">19:00</span>
+                                <div class="live">进行中</div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <li>
+                        <span class="title">亚洲杯</span>
+                        <div class="content">
+                            <div class="left">
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png">
+                                    <span>山东鲁能</span>
+                                </div>
+                                <div class="team">
+                                    <img src="http://upstatic.qiecdn.com/upload/team_logo/3db7a950d27593210ec3f72ac6f8aaf6.png">
+                                    <span>北京国安</span>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <span class="time">19:00</span>
+                                <div class="live">进行中</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--recommend game list end-->
+
+        <!--floor begin-->
+       <div class="floor">
+           <div class="category-container">
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="today-game-list">
+                   <div class="tips">今日赛事</div>
+                   <div class="main-anchors">
+                       <!--btn disable-->
+                       <div class="prev"><span data-action="prev" class="btn"></span></div>
+                       <div class="next"><span data-action="next" class="btn"></span></div>
+                       <div class="anchors">
+                           <ul data-left="0">
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯1</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯2</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯3</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯4</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯5</span>
+                                   </a>
+                               </li>
+
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯6</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯7</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯8</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯9</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯10</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯11</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯12</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯13</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯14</span>
+                                   </a>
+                               </li>
+
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯15</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯16</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯17</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯18</span>
+                                   </a>
+                               </li>
+
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯19</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯20</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯21</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯22</span>
+                                   </a>
+                               </li>
+
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯23</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯24</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯25</span>
+                                   </a>
+                               </li>
+
+                               <li>
+                                   <a href="#">
+                                       <img src="./images/game.jpg" alt="">
+                                       <span>亚洲杯26</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <div class="live-list-container">
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="title">
+                   <img class="logo" src="http://upstatic.qiecdn.com/upload/signs/201803051156548559.png">
+                   <a class="name" href="#">热门情报</a>
+                   <span class="tips">INFORMATION</span>
+               </div>
+               <div class="padding-top-10"></div>
+               <div class="program">
+                   <ul>
+                       <li>
+                            <div class="title">
+                                <span class="left">英超</span>
+                                <span class="right">20:00</span>
+                            </div>
+                           <div class="layui-row">
+                               <div class="layui-col-xs4">
+                                   <div class="team left-team">
+                                       <span class="win"></span>
+                                       <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png" alt="">
+                                       <span class="team-name">山东鲁能</span>
+                                   </div>
+                               </div>
+                               <div class="layui-col-xs4">
+                                   <span class="grade">2-1</span>
+                                   <span class="result">让胜 0.25</span>
+                               </div>
+                               <div class="layui-col-xs4">
+                                   <div class="team right-team">
+                                       <img src="http://upstatic.qiecdn.com/upload/team_logo/4224230821aa76bb952b8d3f2861a4c8.png" alt="">
+                                       <span class="team-name">山东鲁能</span>
+                                   </div>
+                               </div>
+                           </div>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="live-list-container">
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="title">
+                   <img class="logo" src="./images/zq.png">
+                   <a class="name" href="#">足球</a>
+                   <span class="tips">Football</span>
+               </div>
+               <div class="padding-top-10"></div>
+               <div class="program">
+                   <ul>
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+
+           <div class="live-list-container">
+               <div class="padding-top-10"></div>
+               <div class="padding-top-10"></div>
+               <div class="title">
+                   <img class="logo" src="./images/lq.png">
+                   <a class="name" href="#">篮球</a>
+                   <span class="tips">Basketball</span>
+               </div>
+               <div class="padding-top-10"></div>
+               <div class="program">
+                   <ul>
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="snapshoot">
+                               <img src="//upstatic.qiecdn.com/upload/web_pic/201901/ede82dea5bb026b6eb8d2ecfd11289d6_thumb.jpeg" alt="">
+                           </div>
+                           <div class="info">
+                               <a class="title" href="#">
+                                   山东鲁能 VS 北京国安
+                               </a>
+                               <span class="qie-num">1617</span>
+                           </div>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+        <!--floor end-->
+
+        <!--footer begin-->
+        <div class="footer">
+            <div class="content"></div>
+            <div class="default">
+                <span>卫星体育</span><span>版权所有</span>
+            </div>
+        </div>
+        <!--footer end-->
+    </div>
+    <script type="text/javascript" src="./js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="./js/ckplayer/ckplayer.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./layui/layui.js"></script>
+    <script type="text/javascript" src="./js/header.js"></script>
+    <script type="text/javascript" src="./js/base.js"></script>
+    <script type="text/javascript" src="./js/player.js"></script>
+</body>
+</html>

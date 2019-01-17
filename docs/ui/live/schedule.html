@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/schedule.css">
+</head>
+<body>
+    <div class="container">
+        <!--header begin-->
+        <div class="header-container">
+            <div class="navigation">
+                <div class="left">
+                    <h1 class="logo">
+                        <img src="./images/logo.png" alt="卫星体育直播">
+                    </h1>
+                    <div class="list">
+                        <ul>
+                            <li class="active"><a>首页</a></li>
+                            <li><a>直播</a></li>
+                            <li><a>分类</a></li>
+                            <li><a>新闻</a></li>
+                            <li><a>赛程</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="search">
+                        <i class="iconfont icon-search"></i>
+                        <input type="text" name="search"  autocomplete="off" placeholder="搜索"/>
+                    </div>
+                    <div class="login-or-download">
+                        <ul class="list">
+                            <li>
+                                <div class="option-group download">
+                                    <a href="#"><i class="iconfont icon-download"></i>&nbsp;下载</a>
+                                </div>
+                                <div class="pop-qrcode" style="display: none;">
+                                    <div class="expository-box">
+                                        领取双倍奖励
+                                        <br /> 免费看全部高清直播
+                                        <br /> 最高领取10000鹅蛋奖励
+                                    </div>
+                                    <div class="qr-code-box">
+                                        <img src="//static.qiecdn.com/static/01041633/common/res/erweima.png" alt="下载APP" />
+                                    </div>
+                                    <div class="o-download-app-icon">
+                                    </div>
+                                    <a href="/client" target="_blank" class="o-download-app-btn">下载卫星体育APP</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="option-group">
+                                    <a href="#"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--header end-->
+
+        <!--center container begin-->
+        <div class="padding-top-10"></div>
+        <div class="padding-top-10"></div>
+        <div class="center-container">
+            <div class="left">
+                <div class="all-category">
+                    <div class="title">
+                        <span class="inline-block icon allof"></span>
+                        <span class="content">卫星赛事中心</span>
+                    </div>
+                    <div class="categroy-list">
+                        <ul>
+                            <li class="active">
+                                <a href="#">
+                                    <div class="icon all"></div>
+                                    <span class="name">全部</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon hot"></div>
+                                    <span class="name">热门</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon program"></div>
+                                    <span class="name">节目</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="categroy">
+                    <div class="title">
+                        <span class="inline-block icon football"></span>
+                        <span class="content">足球</span>
+                        <span class="sum">今日<span class="person">6</span>场比赛</span>
+                    </div>
+                    <div class="block-list">
+                        <ul>
+                            <li>NBA</li>
+                            <li>CBA</li>
+                            <li>CBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li class="showAllCategory">查看全部</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="categroy">
+                    <div class="title">
+                        <span class="inline-block icon basketball"></span>
+                        <span class="content">篮球</span>
+                        <span class="sum">今日<span class="person">6</span>场比赛</span>
+                    </div>
+                    <div class="block-list">
+                        <ul>
+                            <li>NBA</li>
+                            <li>CBA</li>
+                            <li>CBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li class="showAllCategory">查看全部</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="categroy">
+                    <div class="title">
+                        <span class="inline-block icon integrated"></span>
+                        <span class="content">斯诺克</span>
+                        <span class="sum">今日<span class="person">6</span>场比赛</span>
+                    </div>
+                    <div class="block-list">
+                        <ul>
+                            <li>NBA</li>
+                            <li>CBA</li>
+                            <li>CBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li>NBA</li>
+                            <li class="showAllCategory">查看全部</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="split-10"></div>
+            <div class="right">
+                <div class="title">
+                    <ul>
+                        <li class="active">
+                            <span>赛程</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="padding-top-10"></div>
+                <div class="select-date">
+                    <ul>
+                        <li>
+                            <span>昨天</span>
+                        </li>
+                        <li class="active">
+                            <span>今天</span>
+                        </li>
+                        <li>
+                            <span>明天</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="padding-top-10"></div>
+
+                <div class="schedule-scroll-container">
+                    <div class="schedule-scroll">
+                        <div class="schedule-list">
+                            <div class="title">
+                                <span>01月09日</span>
+                            </div>
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="off">已结束</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule-list">
+                            <div class="title">
+                                <span>01月09日</span>
+                            </div>
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="on">直播中</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+
+                            <div class="schedule">
+                                <div class="game">NCAA篮球</div>
+                                <div class="left-info">
+                                    <span class="date">08:00</span>
+                                    <div class="status">
+                                        <span class="wait">等待开场</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">企鹅</span>
+                                    </div>
+                                    <div class="team">
+                                        <img src="http://upstatic.qiecdn.com/upload/team_logo/9705f21f24ec6421cec5f47b5eced842.png" alt="">
+                                        <span class="team-name">岛人</span>
+                                    </div>
+                                </div>
+                                <div class="left-team">
+                                    <div class="team-grade">
+                                        <span class="grade">87</span>
+                                    </div>
+                                    <div class="team-grade">
+                                        <span class="grade">63</span>
+                                    </div>
+                                </div>
+                                <div class="left-video">
+                                    <div class="pic noVideo inline-block"></div>
+                                    <span class="desc inline-block">全程卫星信号传输，尽享高清实时赛事盛宴</span>
+                                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="padding-top-10"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--center container end-->
+    </div>
+
+    <script type="text/javascript" src="./js/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="./layui/layui.js"></script>
+    <script type="text/javascript" src="./js/header.js"></script>
+    <script type="text/javascript" src="./js/schedule.js"></script>
+</body>
+</html>

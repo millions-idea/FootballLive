@@ -1,0 +1,218 @@
+*{
+    font: 12px/1.5 \5FAE\8F6F\96C5\9ED1,arial,sans-serif;
+}
+
+html,body{
+    height: auto;
+}
+
+.header-container{
+    height: 60px;
+    width: 100%;
+}
+
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.navigation{
+    width: 1500px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.navigation .left, .navigation .right{
+    height: 60px;
+}
+
+.navigation .logo img{
+    position: relative;
+    top: 10px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.navigation .logo{
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    vertical-align: middle;
+    float: left;
+}
+
+.navigation .left .list{
+    float: left;
+    height: 60px;
+    list-style: none;
+    margin-left: 20px;
+}
+
+.navigation .active a{
+    background-color: #5626D3;
+    color: #fff !important;
+}
+
+.navigation .left .list li a{
+    display: inline-block;
+    color: #444444;
+    width: 65px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.navigation .left .list li a:hover{
+    background-color: #5626D3;
+    color: #fff;
+}
+
+.navigation .left .list li{
+    float: left;
+    display: inline-block;
+    width: 65px;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 15px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.navigation .search{
+    height: 60px;
+    line-height: 60px;
+    width: 115px;
+    position: relative;
+    float: left;
+}
+
+.navigation .search .icon-search{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    z-index: 10;
+}
+
+.navigation .search input{
+    display: inline-block;
+    width: 80px;
+    font-size: 12px;
+    background-color: #F8F8F8;
+    border-radius: 15px;
+    border: none;
+    border: 1px solid #F1F1F1;
+    height: 30px;
+    outline: none;
+    float: right;
+    position: relative;
+    top: 15px;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.navigation .login-or-download{
+    float: left;
+    width: 150px;
+    position: relative;
+    left: 10px;
+    z-index: 10;
+}
+
+.navigation .login-or-download .list{
+    list-style: none;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list li{
+    float: left;
+    display: inline-block;
+    font-size: 12px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list{
+    float: left;
+    position: relative;
+    left: 5px;
+}
+
+.navigation .login-or-download .list .option-group{
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list .option-group a{
+    width: 45px;
+    outline: none;
+    text-decoration: none;
+    color: #555555;
+    cursor: pointer;
+}
+
+.navigation .login-or-download .list .option-group *:hover{
+    color: #5626D3 !important;
+}
+
+.navigation .login-or-download .list .option-group i, .navigation .login-or-download .list .option-group a{
+    display: inline-block;
+}
+
+
+.pop-qrcode{
+    background: url(../images/qrcode_background.png) no-repeat;
+    position: absolute;
+    width: 189px;
+    height: 315px;
+    padding-top: 10px;
+    left: -72px;
+    top: 50px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
+
+
+.pop-qrcode .o-download-app-btn {
+    display: block;
+    color: #fff;
+    width: 108px;
+    height: 27px;
+    background: url(../images/button.png) no-repeat;
+    margin: 6px auto 0;
+    line-height: 26px
+}
+
+.pop-qrcode .o-download-app-icon {
+    width: 24px;
+    height: 109px;
+    background: url(../images/drawing.png) no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    z-index: 3
+}
+
+.pop-qrcode .qr-code-box {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto
+}
+
+.pop-qrcode img {
+    width: 100%;
+    height: 100%
+}
+
+.pop-qrcode .expository-box {
+    width: 100%;
+    margin-top: 28px;
+    line-height: 20px
+}
