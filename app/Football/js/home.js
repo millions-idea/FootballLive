@@ -129,25 +129,31 @@ function initData(){
 		var html = "";
 		html += '<div class="mui-slider-item mui-slider-item-duplicate">' + 
 			'<a href="javascript:void(0);"  data-url="'+ runnerImageList[runnerImageList.length-1].url +'"  class="runnerLink"><img src="'+ runnerImageList[runnerImageList.length-1].value +'" /></a></div>';
-		console.log(html)
+
 		for (var i = 0; i < runnerImageList.length; i++) {
 			var item = runnerImageList[i];
+
 			html += '<div class="mui-slider-item" data-url="' + item.url + '">';
 		    html += '	<a href="javascript:void(0);" class="runnerLink">';
 		    html += '		<img src="' + item.value + '" />';
 		    html += '	</a>';
 		    html += '</div>';
+			console.log(html)
+			
 		}
 		html += '<div class="mui-slider-item mui-slider-item-duplicate">' + 
 			'<a href="javascript:void(0);"  data-url="'+ runnerImageList[0].url +'"  class="runnerLink"><img src="'+ runnerImageList[0].value +'" /></a></div>';
 
+
 		//渲染滚动图列表
 		$("#runnerImage").html(html);
 		
-		$(".runnerLink").click(function(){
+		$(".mui-slider-item").click(function(){
 			var url = $(this).data("url");
+			console.log(url)			
 			//进入直播间
-			if(url != null && url.length > 0 &&  url.toString().indexOf("http") == -1){
+			if(url != null && url.length >0 && url.toString().indexOf("http") == -1){
+
 				var cache = plus.storage.getItem("userInfo");
 				if(cache == null) {
 					app.utils.openNewWindow("login.html", "login");
@@ -270,7 +276,7 @@ function initData(){
 				targetTeamName: item.targetTeamName
 			};
 			
-		console.log("热门情报胜利球队" + res.winTeamId)
+		console.log("热门情报胜利球队" + item.winTeamId);
 			
 			if(item.winTeamId == null){
 				console.log("热门情报default");

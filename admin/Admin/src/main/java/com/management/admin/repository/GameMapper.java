@@ -3,6 +3,7 @@ package com.management.admin.repository;
 import com.management.admin.entity.db.Game;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameDetail;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -43,4 +44,8 @@ public interface GameMapper extends MyMapper<Game> {
             "LEFT JOIN tb_teams t3 ON t3.game_id = t1.game_id " +
             "WHERE t1.category_id = #{categoryId}")
     List<Team> selectTeams(@Param("categoryId") Integer categoryId);
+
+
+    @Insert("${execSql}")
+    void insertOrUpdateList(@Param("execSql") String execSql);
 }

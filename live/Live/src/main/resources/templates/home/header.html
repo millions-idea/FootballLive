@@ -1,0 +1,56 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="header(index)">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1002790_tsjcmk5o83q.css">
+    <link rel="stylesheet" href="./css/header.css">
+
+    <!--header begin-->
+    <div class="header-container">
+        <div class="navigation">
+            <div class="left">
+                <h1 class="logo">
+                    <img th:src="@{/images/logo.png}" alt="卫星体育直播">
+                </h1>
+                <div class="list">
+                    <ul>
+                        <li data-url="/" th:class='${index == 0 ? "active" : ""}'><a href="/">首页</a></li>
+                        <li th:class='${index == 1 ? "active" : ""}' data-url="/schedule"><a  href="/schedule">分类</a></li>
+                        <li th:class='${index == 2 ? "active" : ""}' data-url="#"><a href="#schedule">赛程</a></li>
+                        <li th:class='${index == 3 ? "active" : ""}' data-url="#"><a href="#information">情报</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="search">
+                    <i class="iconfont icon-search"></i>
+                    <input type="text" name="search"  autocomplete="off" placeholder="搜索"/>
+                </div>
+                <div class="login-or-download">
+                    <ul class="list">
+                        <li>
+                            <div class="option-group download">
+                                <a href="#"><i class="iconfont icon-download"></i>&nbsp;下载</a>
+                            </div>
+                            <div class="pop-qrcode" style="display: none;">
+                                <div class="expository-box">
+                                    亚洲杯卫星信号同步
+                                    <br /> 免费看全部高清直播
+                                </div>
+                                <div class="qr-code-box">
+                                    <img src="/images/download.png" alt="下载APP" />
+                                </div>
+                                <div class="o-download-app-icon">
+                                </div>
+                                <a href="//www.pgyer.com/wx789" target="_blank" class="o-download-app-btn">下载卫星体育APP</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="option-group">
+                                <a href="javascript:void(0)"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+</th:block>

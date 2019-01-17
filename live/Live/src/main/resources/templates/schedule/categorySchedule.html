@@ -1,0 +1,7 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="categorySchedule">
+    <ul class="inner-show-categroy">
+        <li onselectstart="return false;" th:each="item:${list}"
+            th:text='${item.getGameName() + "(" + item.getShortGameDate() + ")"}'
+            th:id="${item.getGameId()}"></li>
+    </ul>
+</th:block>

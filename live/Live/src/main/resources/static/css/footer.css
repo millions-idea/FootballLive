@@ -1,0 +1,277 @@
+
+.footer{
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #212224;
+    bottom:0;
+    color: #8d93a1;
+}
+
+.footer a{
+    color: #8d93a1;
+}
+
+
+.footer .content{
+    display: block;
+}
+
+.footer .default{
+    display: block;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+
+
+#footer .foot {
+    width: 1200px;
+    height: 193px;
+    padding-bottom: 33px;
+    margin: 0 auto;
+    overflow: hidden
+}
+
+#footer .foot .friendly {
+    width: 440px;
+    padding-right: 20px;
+    position: relative
+}
+
+#footer .foot .anchor-help h3,#footer .foot .focusus h3,#footer .foot .friendly h3,#footer .foot .software h3 {
+    font-size: 14px;
+    line-height: 28px;
+    color: #545454;
+    margin-bottom: 8px;
+    font-weight: 700
+}
+
+#footer .foot .anchor-help ul,#footer .foot .friendly ul {
+    display: block;
+    margin-right: 6px;
+    float: left
+}
+
+#footer .foot .anchor-help ul a,#footer .foot .friendly ul a {
+    width: 140px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #868686;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+#footer .foot .focusus,#footer .foot .software {
+    margin-left: 60px
+}
+
+#footer .foot .focusus ul,#footer .foot .software ul {
+    overflow: hidden
+}
+
+#footer .foot .focusus ul a,#footer .foot .software ul a {
+    display: block;
+    color: #868686
+}
+
+#footer .foot .anchor-help ul a:hover,#footer .foot .friendly ul a:hover,#footer .foot .software ul a:hover span {
+    color: #ff6a1f
+}
+
+#footer .foot .focusus ul img,#footer .foot .software ul img {
+    width: 118px;
+    height: 118px
+}
+
+#footer .foot .focusus ul span,#footer .foot .software ul span {
+    display: block;
+    padding-left: 20px;
+    line-height: 22px;
+    color: #868686;
+    margin-bottom: 10px;
+    font-size: 14px
+}
+
+#footer .foot .contact {
+    height: 60px;
+    margin-top: 32px;
+    line-height: 28px;
+    color: #868686;
+    font-size: 14px
+}
+
+#footer .foot .contact>p {
+    display: block;
+    height: 32px;
+    cursor: pointer
+}
+
+#footer .foot .contact>p a {
+    color: #868686
+}
+
+#footer .outlink-bg {
+    height: 85px;
+    padding-top: 18px;
+    background: #212224
+}
+
+#footer .outlink {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center
+}
+
+#footer .outlink .about,#footer .outlink .about li,#footer .outlink .about li a,#footer .outlink .about li span {
+    display: inline-block;
+    *display: inline;
+    *zoom:1;vertical-align: middle
+}
+
+#footer .outlink .about {
+    line-height: 24px;
+    overflow: hidden
+}
+
+#footer .outlink .about li a,#footer .outlink .about li span {
+    padding: 0 11px;
+    color: #8d93a1
+}
+
+#footer .outlink .about li a:hover {
+    color: #fd3f17
+}
+
+#footer .outlink>p,#footer .outlink>p a {
+    line-height: 24px;
+    color: #8d93a1
+}
+
+#footer .outlink>p a:hover {
+    color: #ff3f16
+}
+
+#footer .footer-info {
+    padding-top: 25px;
+    background: #212224
+}
+
+#footer .footer-info .inner {
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 183px;
+    border-bottom: 1px solid #161617;
+    font-size: 0;
+    *word-spacing: -1px
+}
+
+#footer .footer-info .inner .td {
+    display: inline-block;
+    *display: inline;
+    *zoom:1;font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top
+}
+
+#footer .footer-info .inner .td h3 {
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0;
+    text-align: left;
+    margin-bottom: 10px
+}
+
+#footer .footer-info .inner .td .qrcode {
+    width: 92px;
+    height: 92px
+}
+
+#footer .footer-info .inner .td .qrcode img {
+    width: 100%;
+    height: 100%
+}
+
+#footer .footer-info .inner .flink {
+    width: 405px;
+    font-size: 0;
+    *word-spacing: -1px
+}
+
+#footer .footer-info .inner .anchor .td,#footer .footer-info .inner .app .td,#footer .footer-info .inner .contact .td,#footer .footer-info .inner .flink .td,#footer .footer-info .inner .follow .td {
+    font-size: 12px;
+    line-height: 34px;
+    color: #8d93a1;
+    letter-spacing: 0;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all .3s
+}
+
+#footer .footer-info .inner .anchor .td:hover,#footer .footer-info .inner .app .td:hover,#footer .footer-info .inner .flink .td:hover {
+    color: #ff3f16
+}
+
+#footer .footer-info .inner .flink .td {
+    width: 135px
+}
+
+#footer .footer-info .inner .anchor {
+    width: 200px;
+    margin-left: 45px
+}
+
+#footer .footer-info .inner .anchor .td {
+    width: 195px
+}
+
+#footer .footer-info .inner .app {
+    width: 105px;
+    margin-left: 25px
+}
+
+#footer .footer-info .inner .app .td {
+    width: 100px
+}
+
+#footer .footer-info .inner .follow {
+    width: 95px;
+    margin-left: 85px
+}
+
+#footer .footer-info .inner .contact {
+    width: 145px;
+    margin-left: 94px
+}
+
+#footer .footer-info .inner .contact .cl,#footer .footer-info .inner .contact .cr {
+    width: 47px;
+    height: 47px;
+    margin-top: 10px
+}
+
+#footer .footer-info .inner .contact .cr {
+    margin-left: 45px
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #footer .footer-info .inner,#footer .footer-info .inner .flink {
+        letter-spacing:-5px
+    }
+}
+
+#footer.copyright .outlink .about li a,#footer.copyright .outlink .about li span {
+    padding: 0 7px
+}
+
+#footer.copyright .outlink-bg {
+    background: rgba(0,0,0,.8)
+}

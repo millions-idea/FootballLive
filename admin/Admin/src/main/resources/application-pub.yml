@@ -45,5 +45,5 @@ server:
 #日志配置
 logging:
   level:
-    root: debug
-  #file: c:boot.log
+    root: info
+  file: c:boot.log

@@ -1,0 +1,35 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="hotSchedule">
+    <li th:data-date="${item.getGameDateString()}"
+        th:data-id="${item.getScheduleId()}"
+        th:data-url="${item.getSourceUrl()}"
+        th:class='${item.getShortStatus() == null ? "" : (item.getShortStatus().equals("进行中") ? "live" : "") + " " + (item.getShortStatus().equals("直播中") ? "live select active" : "")}'
+        th:each="item:${topList}">
+                    <span class="title">
+                            <span class="left" th:text='${item.getGameName() == null ? "暂无赛事" : item.getGameName()}'></span>
+                            <span class="left" style="color: #999;display: inline-block;text-align: center;" th:text='${item.getShortGameDate() == null ? "" : item.getShortGameDate()}'></span>
+                            <span class="right" th:text='${item.getShortStatus() == null ? "" : item.getShortStatus()}'></span>
+                    </span>
+        <div class="content">
+            <div class="left">
+                <div class="team">
+                    <img th:src='${item.getMasterTeamIcon() == null ? "/images/default-team-icon.png" : item.getMasterTeamIcon()}'>
+                    <span th:text='${item.getMasterTeamName() == null ? "暂无参赛球队" : item.getMasterTeamName()}'></span>
+                </div>
+                <div class="team">
+                    <img th:src='${item.getTargetTeamIcon() == null ? "/images/default-team-icon.png" : item.getTargetTeamIcon()}'>
+                    <span th:text='${item.getTargetTeamName() == null ? "暂无参赛球队" : item.getTargetTeamName()}'></span>
+                </div>
+            </div>
+            <div class="right" th:if='${item.getShortStatus() != null ? !item.getShortStatus().equals("直播中") : false}'>
+                <!--<span class="time" th:alt="${item.getGameDateString()}" th:text="${item.getShortGameDate()}"></span>
+                <div class="live" th:text="${item.getShortButtonName()}"></div>-->
+                <span class="time" th:text='${item.getScheduleGrade().split("-")[0]}'></span>
+                <div class="time" th:text='${item.getScheduleGrade().split("-")[1]}'></div>
+            </div>
+            <div class="right" th:if='${item.getShortStatus() != null ? item.getShortStatus().equals("直播中") : "暂无比赛"}'>
+                <span class="time" th:text='${item.getScheduleGrade() == null ? "" : item.getScheduleGrade().split("-")[0]}'></span>
+                <div class="time" th:text='${item.getScheduleGrade() == null ? "" :item.getScheduleGrade().split("-")[1]}'></div>
+            </div>
+        </div>
+    </li>
+</th:block>

@@ -42,11 +42,11 @@ public interface InformationMapper extends MyMapper<Information> {
                     "            FROM tb_informations t1 " +
                     "            LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
                     "            LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
-                    "            LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
+                    "            LEFT JOIN tb_games t4 ON t4.game_id = t3.game_id " +
                     "            LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
                     "            LEFT JOIN tb_teams t6 ON t6.team_id = t3.master_team_id  " +
                     "            LEFT JOIN tb_teams t7 ON t7.team_id = t3.target_team_id  " +
-                    "            WHERE t1.is_delete = 0 " +
+                    "            WHERE t1.is_delete = 0 AND t2.status = 0 " +
                     "            GROUP BY t1.isr_id ORDER BY t1.add_date DESC LIMIT #{page},${limit}")
     /**
      * 分页查询 韦德 2018年8月30日11:33:22
@@ -136,7 +136,7 @@ public interface InformationMapper extends MyMapper<Information> {
             "LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
             "LEFT JOIN tb_teams t6 ON t6.team_id = t3.master_team_id " +
             "LEFT JOIN tb_teams t7 ON t7.team_id = t3.target_team_id " +
-            "WHERE t1.is_delete = 0 AND t1.is_hot = 1 " +
+            "WHERE t1.is_delete = 0 AND t1.is_hot = 1  AND t3.status != 2 " +
             "ORDER BY t2.live_date")
     List<LiveScheduleDetail> selectHotInformations();
 }

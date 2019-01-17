@@ -172,7 +172,6 @@ function getSchedules(param){
 				if(item.scheduleGrade == null) item.scheduleGrade = "-/-";
 				
 				//判断胜利方
-
 				if(item.winTeamId == item.masterTeamId){
 					leftHot = "left-hot";
 					leftHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao-copy"></i>';
@@ -187,8 +186,6 @@ function getSchedules(param){
 					}else if(parseInt(grades[0]) < parseInt(grades[1])){
 						rightHot = "right-hot";
 						rightHotIcon = '<i class="icon iconfont icon-shoucangjiaobiao"></i>';
-					}else{
-						
 					}
 				}
 				

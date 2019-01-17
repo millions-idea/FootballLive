@@ -14,9 +14,9 @@
     <div class="layui-form-item">
         <label class="layui-form-label">赛事</label>
         <div class="layui-input-block">
-            <input type="hidden" id="gameId" value="">
+            <input type="hidden" id="gameId" th:value="${informationDetail.getGameId()}">
             <input type="text" id="game" autocomplete="off"
-                   disabled="disabled" class="layui-input" value="">
+                   disabled="disabled" class="layui-input" th:value="${informationDetail.getGameName()}">
         </div>
     </div>
     <div class="layui-form-item">
@@ -75,8 +75,13 @@
             var form = layui.form;
             $.getJSON("/management/game/getAll",function (data) {
                 var html='';
+                var gameId = $("#gameId").val();
                 data.data.forEach(function (item,index) {
-                    html+='<option value="'+item.gameId+'">'+item.gameName+'</option>';
+                    if(item.gameId == gameId){
+                        html+='<option value="'+item.gameId+'" selected>'+item.gameName+'</option>';
+                    }else{
+                        html+='<option value="'+item.gameId+'">'+item.gameName+'</option>';
+                    }
                 })
                 $("#game").html(html);
                 form.render();
@@ -93,7 +98,7 @@
                 })
                 $("#live").html(html);
 
-                $.ajax({
+                /*$.ajax({
                     url: "/management/information/selectgames",    //请求的url地址
                     dataType: "json",   //返回格式为json
                     data: {liveId:data.data[0].liveId},    //参数值
@@ -104,7 +109,7 @@
                             $("#gameId").val(data.msg.gameId)
                         }
                     }
-                })
+                })*/
 
                 //动态获取赛事信息
                 form.on('select(test)', function(data){

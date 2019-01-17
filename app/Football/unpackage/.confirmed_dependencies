@@ -1,163 +1,163 @@
 {
-	"index.html": {
-		"resources": [
-			"my.html",
-			"home.html"
-		],
-		"refer": [
-			"my.html",
-			"home.html",
-			"informations.html",
-			"lives.html",
-			"systemMessage.html",
-			"guide.html",
-			"login.html",
-			"score.html"
-		]
-	},
-	"login.html": {
-		"refer": [
-			"findPassword.html",
-			"index.html",
-			"regPact.html",
-			"reg.html",
-			"home.html",
-			"lives.html"
-		],
-		"resources": [
-			"js/login.js"
-		]
-	},
-	"my.html": {
-		"refer": [
-			"login.html",
-			"feedback.html",
-			"system-settings.html",
-			"systemSetting.html",
-			"systemMessage.html",
-			"history.html",
-			"collect.html",
-			"profile.html",
-			"contact.html"
-		],
-		"resources": [
-			"fonts/mui.ttf",
-			"css/my.css",
-			"css/index.fonts.css",
-			"js/my.js",
-			"css/mui.min.css",
-			"images/head-default.png",
-			"css/reset.css"
-		]
-	},
-	"reg.html": {
-		"refer": [
-			"regPact.html",
-			"index.html"
-		],
-		"resources": [
-			"images/check-box_outline.png",
-			"css/index.fonts.css",
-			"css/main.css",
-			"js/jquery-ajax.js",
-			"css/reg.css",
-			"css/mui.min.css",
-			"css/reset.css",
-			"images/check-box.png",
-			"js/reg.js"
-		]
-	},
-	"lives.html": {
-		"refer": [
-			"liveDetail.html",
-			"login.html"
-		],
-		"resources": [
-			"css/mui.dtpicker.css",
-			"css/lives.css",
-			"css/reset.css",
-			"images/vs.png"
-		]
-	},
-	"liveDetail.html": {
-		"refer": [
-			"share.html",
-			"login.html"
-		],
-		"resources": []
-	},
-	"systemMessage.html": {
-		"refer": [
-			"previewMessage.html"
-		],
-		"resources": []
-	},
-	"profile.html": {
-		"refer": [
-			"setData.html"
-		],
-		"resources": []
-	},
-	"guide.html": {
-		"refer": [
-			"home.html",
-			"index.html",
-			"login.html"
-		],
-		"resources": []
-	},
-	"findPassword.html": {
-		"resources": [
-			"css/findPassword.css",
-			"css/index.fonts.css",
-			"css/main.css",
-			"css/reg.css",
-			"css/mui.min.css",
-			"js/findPassword.js",
-			"css/reset.css"
-		],
-		"refer": []
-	},
-	"regPact.html": {
-		"resources": [
-			"css/main.css",
-			"css/mui.min.css",
-			"css/icon.fonts.css",
-			"css/reset.css"
-		],
-		"refer": []
-	},
-	"systemSetting.html": {
-		"refer": [
-			"feedback.html",
-			"login.html"
-		],
-		"resources": []
-	},
-	"informations.html": {
-		"refer": [
-			"liveDetail.html",
-			"login.html"
-		],
-		"resources": [
-			"js/informations.js",
-			"js/mui.picker.min.js",
-			"css/mui.dtpicker.css",
-			"css/lives.css",
-			"css/reset.css",
-			"css/informations.css"
-		]
-	},
-	"home.html": {
-		"refer": [
-			"liveDetail.html",
-			"login.html"
-		],
-		"resources": [
-			"images/default/b2.png",
-			"images/default/b1.png",
-			"images/default/b3.png",
-			"js/home.js"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "my.html",
+      "home.html"
+    ],
+    "refer": [
+      "my.html",
+      "home.html",
+      "informations.html",
+      "lives.html",
+      "systemMessage.html",
+      "guide.html",
+      "login.html",
+      "score.html"
+    ]
+  },
+  "login.html": {
+    "refer": [
+      "findPassword.html",
+      "index.html",
+      "regPact.html",
+      "reg.html",
+      "home.html",
+      "lives.html"
+    ],
+    "resources": [
+      "js/login.js"
+    ]
+  },
+  "my.html": {
+    "refer": [
+      "login.html",
+      "feedback.html",
+      "system-settings.html",
+      "systemSetting.html",
+      "systemMessage.html",
+      "history.html",
+      "collect.html",
+      "profile.html",
+      "contact.html"
+    ],
+    "resources": [
+      "fonts/mui.ttf",
+      "css/my.css",
+      "css/index.fonts.css",
+      "js/my.js",
+      "css/mui.min.css",
+      "images/head-default.png",
+      "css/reset.css"
+    ]
+  },
+  "reg.html": {
+    "refer": [
+      "regPact.html",
+      "index.html"
+    ],
+    "resources": [
+      "images/check-box_outline.png",
+      "css/index.fonts.css",
+      "css/main.css",
+      "js/jquery-ajax.js",
+      "css/reg.css",
+      "css/mui.min.css",
+      "css/reset.css",
+      "images/check-box.png",
+      "js/reg.js"
+    ]
+  },
+  "lives.html": {
+    "refer": [
+      "liveDetail.html",
+      "login.html"
+    ],
+    "resources": [
+      "css/mui.dtpicker.css",
+      "css/lives.css",
+      "css/reset.css",
+      "images/vs.png"
+    ]
+  },
+  "liveDetail.html": {
+    "refer": [
+      "share.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "systemMessage.html": {
+    "refer": [
+      "previewMessage.html"
+    ],
+    "resources": []
+  },
+  "profile.html": {
+    "refer": [
+      "setData.html"
+    ],
+    "resources": []
+  },
+  "guide.html": {
+    "refer": [
+      "home.html",
+      "index.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "findPassword.html": {
+    "resources": [
+      "css/findPassword.css",
+      "css/index.fonts.css",
+      "css/main.css",
+      "css/reg.css",
+      "css/mui.min.css",
+      "js/findPassword.js",
+      "css/reset.css"
+    ],
+    "refer": []
+  },
+  "regPact.html": {
+    "resources": [
+      "css/main.css",
+      "css/mui.min.css",
+      "css/icon.fonts.css",
+      "css/reset.css"
+    ],
+    "refer": []
+  },
+  "systemSetting.html": {
+    "refer": [
+      "feedback.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "informations.html": {
+    "refer": [
+      "liveDetail.html",
+      "login.html"
+    ],
+    "resources": [
+      "js/informations.js",
+      "js/mui.picker.min.js",
+      "css/mui.dtpicker.css",
+      "css/lives.css",
+      "css/reset.css",
+      "css/informations.css"
+    ]
+  },
+  "home.html": {
+    "refer": [
+      "liveDetail.html",
+      "login.html"
+    ],
+    "resources": [
+      "images/default/b2.png",
+      "images/default/b1.png",
+      "images/default/b3.png",
+      "js/home.js"
+    ]
+  }
 }

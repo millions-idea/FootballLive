@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" th:content="${keywords}" />
+    <meta name="description" th:content="${description}" />
+    <title th:text='${"关于我们 - " + title}'></title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/news.css">
+</head>
+<body>
+<div class="container">
+    <th:block th:replace="home/header :: header(-1)" />
+
+    <!--center container begin-->
+    <div class="padding-top-10"></div>
+    <div class="padding-top-10"></div>
+    <div class="center-container">
+        <div class="title">关于我们</div>
+        <div class="content">
+            <p>
+                卫星体育是一个专注体育直播的平台，目前支持安卓、IOS、WEB，卫星体育是广州冶庆科技有限公司版权所有，为满足球迷观看亚洲杯需求，专门开发的体育平台，该平台采用几乎全卫星信号直播，保证了用户观看的清晰度、流畅度、及时性，增强了用户的体验度。卫星体育目前是一个未成熟的版本，技术团队目前还处于紧张的开发阶段，后续会出现更完善和更优质的版本提供给大家。
+            </p>
+        </div>
+        <div class="line">
+            <button class="close" onclick="javascript:window.opener=null;window.open('','_self');window.close();">关闭本页</button>
+        </div>
+    </div>
+    <!--center container end-->
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery-1.10.0.min.js}"></script>
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/layui/header.js}"></script>
+</body>
+</html>

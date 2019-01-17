@@ -1,0 +1,9 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+    <link rel="stylesheet" href="./css/footer.css">
+    <!--footer begin-->
+    <div id="footer">
+        <div class="footer-info" th:utext="${footerHtml}"></div>
+        <div class="outlink-bg" th:utext="${footerAbout}"></div>
+    </div>
+    <!--footer end-->
+</th:block>

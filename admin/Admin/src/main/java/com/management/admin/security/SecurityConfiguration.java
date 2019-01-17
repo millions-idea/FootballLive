@@ -101,8 +101,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/api/**"
-                ).permitAll().and();
+                .antMatchers( "/**", "/api/**")
+                .permitAll().and();
 
 
         List<PermissionMap> permissionMaps = permissionMapService.getAllList();

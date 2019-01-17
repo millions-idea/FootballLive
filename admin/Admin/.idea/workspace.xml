@@ -141,15 +141,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CompetitionServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="554" column="51" lean-forward="false" selection-start-line="554" selection-start-column="51" selection-end-line="554" selection-end-column="51" />
+              <folding>
+                <element signature="docComment;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#1370#1378#0" expanded="false" />
+                <element signature="method#CompetitionServiceImpl#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getCompetitionLimitCount#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#3917#3926#0" expanded="false" />
+                <element signature="method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#4688#5235#0" expanded="false" />
+                <element signature="e#5375#6301#0" expanded="false" />
+                <element signature="e#6548#11022#0" expanded="false" />
+                <element signature="docComment;method#syncFeijingCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#11295#11304#0" expanded="false" />
+                <element signature="e#11413#11421#0" expanded="false" />
+                <element signature="e#20301#20406#0" expanded="false" />
+                <element signature="e#21012#21117#0" expanded="false" />
+                <element signature="method#insertOrUpdateLocalSchedule#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#21987#22104#0" expanded="false" />
+                <element signature="e#23024#23141#0" expanded="false" />
+                <element signature="method#doScheduleGC#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#25363#31567#0" expanded="false" />
+                <element signature="e#25421#31543#0" expanded="false" />
+                <element signature="e#31757#31766#0" expanded="false" />
+                <element signature="method#asyncFeiJingGames#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#32370#33489#0" expanded="false" />
+                <element signature="e#32424#33469#0" expanded="false" />
+                <element signature="e#33944#33953#0" expanded="false" />
+                <element signature="method#asyncFeiJingTeams#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#34756#35852#0" expanded="false" />
+                <element signature="e#34802#35836#0" expanded="false" />
+                <element signature="e#36393#36509#0" expanded="false" />
+                <element signature="method#asyncFeiJingChange#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#37574#41781#0" expanded="false" />
+                <element signature="e#41921#42844#0" expanded="false" />
+                <element signature="e#43078#43087#0" expanded="false" />
+                <element signature="class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#extractTeamValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#extractLocalTeamValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#extractLocalGameValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="method#extractScheduleValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#54448#54461#0" expanded="false" />
+                <element signature="method#extractLocalScheduleValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#57818#57831#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LiveApiController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="347" column="43" lean-forward="false" selection-start-line="347" selection-start-column="43" selection-end-line="347" selection-end-column="43" />
+            <state relative-caret-position="274">
+              <caret line="76" column="69" lean-forward="false" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
               <folding>
                 <element signature="e#1410#1425#0" expanded="false" />
                 <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
-                <element signature="method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
                 <element signature="e#3148#3590#0" expanded="false" />
                 <element signature="e#4071#7009#0" expanded="false" />
                 <element signature="docComment;method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
@@ -168,6 +230,7 @@
                 <element signature="docComment;method#leaveTeam#0;class#LiveApiController#0" expanded="false" />
                 <element signature="method#leaveTeam#0;class#LiveApiController#0" expanded="false" />
                 <element signature="docComment;method#openLive#0;class#LiveApiController#0" expanded="false" />
+                <element signature="method#openLive#0;class#LiveApiController#0" expanded="false" />
                 <element signature="docComment;method#cleanLives#0;class#LiveApiController#0" expanded="false" />
                 <element signature="method#cleanLives#0;class#LiveApiController#0" expanded="false" />
               </folding>
@@ -178,8 +241,8 @@
       <file leaf-file-name="ScheduleServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="503" column="80" lean-forward="false" selection-start-line="503" selection-start-column="80" selection-end-line="503" selection-end-column="80" />
+            <state relative-caret-position="181">
+              <caret line="68" column="36" lean-forward="false" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
               <folding>
                 <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
                 <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
@@ -247,7 +310,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
@@ -257,21 +320,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Live.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java">
+      <file leaf-file-name="FToDayMatch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FToDayMatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="67" column="29" lean-forward="false" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+              <folding>
+                <element signature="e#178#185#0" expanded="false" />
+                <element signature="docComment;field#ID#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#color#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#leagueID#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#kind#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#league#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#subLeague#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#subLeagueId#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#time#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#time2#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#home#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#away#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#state#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#homeScore#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#awayScore#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#bc1#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#bc2#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#red1#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#red2#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#yellow1#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#yellow2#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#order1#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#order2#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#explain#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#zl#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#tv#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#lineup#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#explain2#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#Corner1#0;class#FToDayMatch#0" expanded="false" />
+                <element signature="docComment;field#Corner2#0;class#FToDayMatch#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LiveMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <file leaf-file-name="Constant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="234" column="8" lean-forward="false" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="8" />
+            <state relative-caret-position="314">
+              <caret line="110" column="29" lean-forward="false" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -280,52 +374,19 @@
       <file leaf-file-name="GameApiController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/GameApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="56" column="54" lean-forward="false" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompetitionServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="625" column="18" lean-forward="false" selection-start-line="625" selection-start-column="18" selection-end-line="625" selection-end-column="18" />
+            <state relative-caret-position="252">
+              <caret line="56" column="60" lean-forward="true" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
               <folding>
-                <element signature="docComment;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="e#1416#1424#0" expanded="false" />
-                <element signature="method#CompetitionServiceImpl#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getCompetitionLimitCount#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="docComment;method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="e#3773#3782#0" expanded="false" />
-                <element signature="method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="e#4544#5091#0" expanded="false" />
-                <element signature="e#5231#6157#0" expanded="false" />
-                <element signature="e#6404#10878#0" expanded="false" />
-                <element signature="docComment;method#syncFeijingCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="e#11151#11160#0" expanded="false" />
-                <element signature="e#11269#11277#0" expanded="false" />
-                <element signature="e#28322#28331#0" expanded="false" />
-                <element signature="method#asyncFeiJingGames#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="e#28935#30054#0" expanded="false" />
-                <element signature="e#28989#30034#0" expanded="false" />
-                <element signature="e#30509#30518#0" expanded="false" />
-                <element signature="method#asyncFeiJingTeams#0;class#CompetitionServiceImpl#0" expanded="false" />
-                <element signature="e#31080#32176#0" expanded="false" />
-                <element signature="e#31126#32160#0" expanded="false" />
-                <element signature="e#32717#32833#0" expanded="false" />
-                <element signature="method#extractTeamValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+                <element signature="e#843#858#0" expanded="false" />
+                <element signature="docComment;method#getGameList#0;class#GameApiController#0" expanded="false" />
+                <element signature="method#getGameList#0;class#GameApiController#0" expanded="false" />
+                <element signature="method#asyncGameList#0;class#GameApiController#0" expanded="false" />
+                <element signature="docComment;method#asyncFeiJingGames#0;class#GameApiController#0" expanded="false" />
+                <element signature="docComment;method#asyncFeiJingTeams#0;class#GameApiController#0" expanded="false" />
+                <element signature="method#asyncFeiJingTeams#0;class#GameApiController#0" expanded="false" />
+                <element signature="docComment;method#asyncFeiJingChange#0;class#GameApiController#0" expanded="false" />
+                <element signature="method#asyncFeiJingChange#0;class#GameApiController#0" expanded="false" />
+                <element signature="docComment;method#asyncFeiJingToDayChange#0;class#GameApiController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -336,43 +397,43 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>asyncScheduleList</find>
-      <find>sync</find>
-      <find>ON</find>
-      <find>yellowCount</find>
-      <find>getDateFromString</find>
-      <find>schedule_result</find>
-      <find>setSchedule</find>
-      <find>ed</find>
-      <find>ScheduleResult</find>
-      <find>getA</find>
-      <find>game_id</find>
-      <find>redC</find>
-      <find>gameScheduleId</find>
-      <find>getLimit</find>
-      <find>my-data-table-query</find>
-      <find>$queryButton</find>
-      <find>asyncFeiJingGameList</find>
-      <find>team_</find>
-      <find>status</find>
-      <find>延迟</find>
-      <find>icon_te</find>
-      <find>1653645</find>
       <find>http://localhost:59845/api/game/asyncFeiJingGameList</find>
       <find>cloudStatus.intValue() == -14 || cloudStatus.intValue() == -11</find>
       <find>&quot;,&quot;</find>
       <find>setScheduleGrade</find>
-      <find>asyncFeiJingChange</find>
       <find>//延迟</find>
       <find>masterCornerKick</find>
       <find>queryTeam</find>
+      <find>getTeams</find>
+      <find>comparing</find>
+      <find>@Json</find>
+      <find>th:each</find>
+      <find>getCurrentYear</find>
+      <find>getCurrentYe</find>
+      <find>DictionaryConfiguration</find>
+      <find>gameTime</find>
+      <find>Time</find>
+      <find>game</find>
+      <find>gameId</find>
+      <find>masterTeamId</find>
+      <find>新增或</find>
+      <find>extractLocalGameTeamValues</find>
+      <find>extractLocalGameValues</find>
+      <find>insertO</find>
+      <find>asyncFeiJingChange</find>
+      <find>getLeague</find>
+      <find>ToDay</find>
+      <find>local</find>
+      <find>insertOrUpdateTeam</find>
+      <find>insertOrUpdate</find>
+      <find>asyncFeiJingGameList</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -389,16 +450,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/application-pub.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/bootstrap/index.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/json/nav_main_service.json" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/AdminUserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/IUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/AdminControllor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/utils/web/CookieUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/utils/XmlUtil.java" />
@@ -432,14 +483,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FToDayMatch.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/schedule/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/handler/GlobalExceptionHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/pc/home/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/controller/pc/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/security/SecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-pub.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/information/edit.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/utils/IdWorker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/repository/GameMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -473,8 +534,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="888" />
-    <option name="y" value="199" />
+    <option name="x" value="729" />
+    <option name="y" value="196" />
     <option name="width" value="1296" />
     <option name="height" value="696" />
   </component>
@@ -493,7 +554,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -550,14 +613,31 @@
               <item name="Admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -572,12 +652,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546043495317" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../XmlToJson/xmltojsonlib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../live/Live/pom.xml" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.49258935" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -689,15 +770,23 @@
       <workItem from="1546619291478" duration="7864000" />
       <workItem from="1546684552500" duration="61061000" />
       <workItem from="1546861519691" duration="5757000" />
+      <workItem from="1546949237216" duration="2113000" />
+      <workItem from="1547063407747" duration="1605000" />
+      <workItem from="1547067786387" duration="14905000" />
+      <workItem from="1547321199554" duration="36000" />
+      <workItem from="1547321593382" duration="616000" />
+      <workItem from="1547347620923" duration="539000" />
+      <workItem from="1547350943413" duration="6029000" />
+      <workItem from="1547384019750" duration="2796000" />
+      <workItem from="1547449193549" duration="16543000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="342569000" />
+    <option name="totallyTimeSpent" value="387751000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -707,27 +796,27 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3589189" sideWeight="0.5063966" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="LuaCheck" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23827292" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16311301" sideWeight="0.4940978" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3545946" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19296375" sideWeight="0.5059022" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27567568" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -775,21 +864,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java</url>
-          <line>70</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java</url>
+          <line>82</line>
           <properties />
-          <option name="timeStamp" value="259" />
+          <option name="timeStamp" value="262" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java</url>
+          <line>204</line>
+          <properties />
+          <option name="timeStamp" value="263" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="283" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="262" />
+      <option name="time" value="284" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>informationMapper.queryInformationById(isrId)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>informationMapper.queryInformationById(isrId);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>list1.stream().filter(item -&gt; item.getLiveTitle().contains(&quot;世纪人造FC&quot;)).collect(Collectors.toList())</expression-string>
         <language-id>JAVA</language-id>
@@ -826,16 +937,6 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>String.join(&quot;,&quot;, idList)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>cornerKick</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="breakpointCondition">
       <expression>
@@ -846,372 +947,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListTeamProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/InsertListUpdateScheduleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/java/1u8/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="453" column="23" lean-forward="false" selection-start-line="453" selection-start-column="23" selection-end-line="453" selection-end-column="23" />
-          <folding>
-            <element signature="e#10720#10721#0" expanded="false" />
-            <element signature="e#10750#10751#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.8.RELEASE/spring-core-5.0.8.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/extendsMapper/ExtendsInsertListScheduleProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/utils/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="299" column="51" lean-forward="true" selection-start-line="299" selection-start-column="51" selection-end-line="299" selection-end-column="51" />
-          <folding>
-            <element signature="e#6203#6204#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FChangeItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/AdvertisingServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FToDayItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FToDay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FToDayMatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="182" column="11" lean-forward="false" selection-start-line="182" selection-start-column="11" selection-end-line="182" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/invite/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1377">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/schedule/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="148" column="24" lean-forward="false" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/schedule/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="58" column="35" lean-forward="false" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#th:block#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/GameServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#1221#1232#0" expanded="false" />
-            <element signature="docComment;method#getLiveLimit#0;class#InformationController#0" expanded="false" />
-            <element signature="e#1673#1708#0" expanded="false" />
-            <element signature="method#getLiveLimit#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#selectgames#0;class#InformationController#0" expanded="false" />
-            <element signature="e#2657#2684#0" expanded="false" />
-            <element signature="method#selectgames#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#setInformationContent#0;class#InformationController#0" expanded="false" />
-            <element signature="e#3071#3109#0" expanded="false" />
-            <element signature="method#setInformationContent#0;class#InformationController#0" expanded="false" />
-            <element signature="e#3457#3490#0" expanded="false" />
-            <element signature="method#deleteInformation#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#insertInformation#0;class#InformationController#0" expanded="false" />
-            <element signature="e#3830#3864#0" expanded="false" />
-            <element signature="method#insertInformation#0;class#InformationController#0" expanded="false" />
-            <element signature="docComment;method#getInformationById#0;class#InformationController#0" expanded="false" />
-            <element signature="method#getInformationById#0;class#InformationController#0" expanded="false" />
-            <element signature="method#edit#0;class#InformationController#0" expanded="false" />
-            <element signature="method#add#0;class#InformationController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ErrorPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/configurationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="110" column="4" lean-forward="false" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#configurationController#0" expanded="false" />
-            <element signature="e#1329#1340#0" expanded="false" />
-            <element signature="docComment;method#index#0;class#configurationController#0" expanded="false" />
-            <element signature="e#1611#1632#0" expanded="false" />
-            <element signature="method#index#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#upadteConfig#0;class#configurationController#0" expanded="false" />
-            <element signature="e#1935#1965#0" expanded="false" />
-            <element signature="method#upadteConfig#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#classification#0;class#configurationController#0" expanded="false" />
-            <element signature="method#classification#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#addCompetition#0;class#configurationController#0" expanded="false" />
-            <element signature="method#addCompetition#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#getAll#0;class#configurationController#0" expanded="false" />
-            <element signature="e#2837#2867#0" expanded="false" />
-            <element signature="method#getAll#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#deleteCategory#0;class#configurationController#0" expanded="false" />
-            <element signature="e#3318#3348#0" expanded="false" />
-            <element signature="method#deleteCategory#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#insertCategory#0;class#configurationController#0" expanded="false" />
-            <element signature="e#3721#3751#0" expanded="false" />
-            <element signature="method#insertCategory#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#updateCategory#0;class#configurationController#0" expanded="false" />
-            <element signature="e#4121#4151#0" expanded="false" />
-            <element signature="method#updateCategory#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#updateSchedule#0;class#configurationController#0" expanded="false" />
-            <element signature="method#updateSchedule#0;class#configurationController#0" expanded="false" />
-            <element signature="docComment;method#contactUs#0;class#configurationController#0" expanded="false" />
-            <element signature="method#contactUs#0;class#configurationController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/JsonResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="58" column="29" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-          <folding>
-            <element signature="e#1211#1212#0" expanded="false" />
-            <element signature="e#1264#1265#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="103" column="31" lean-forward="false" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/WebMvcOperationLogInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/WebAuthenticationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/handler/GlobalExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/ICompetitionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="83" column="12" lean-forward="false" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/TeamServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="48" column="33" lean-forward="true" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-          <folding>
-            <element signature="e#1196#1197#0" expanded="false" />
-            <element signature="e#1253#1254#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/TeamMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-235">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" expanded="false" />
-            <element signature="e#1283#1311#0" expanded="false" />
-            <element signature="method#getLiveLimit#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#edit#0;class#LiveController#0" expanded="false" />
-            <element signature="method#edit#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#delete#0;class#LiveController#0" expanded="false" />
-            <element signature="e#3650#3672#0" expanded="false" />
-            <element signature="method#delete#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
-            <element signature="method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#add#0;class#LiveController#0" expanded="false" />
-            <element signature="method#add#0;class#LiveController#0" expanded="false" />
-            <element signature="docComment;method#setLiveInfo#0;class#LiveController#0" expanded="false" />
-            <element signature="e#5438#5466#0" expanded="false" />
-            <element signature="method#setLiveInfo#0;class#LiveController#0" expanded="false" />
-            <element signature="e#5783#5811#0" expanded="false" />
-            <element signature="method#addLiveInfo#0;class#LiveController#0" expanded="false" />
-            <element signature="e#6098#6120#0" expanded="false" />
-            <element signature="method#bulkDissolution#0;class#LiveController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ChatRoomUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ChatRoomController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="78" column="17" lean-forward="true" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1219,7 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-802">
           <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1227,25 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="110" column="45" lean-forward="true" selection-start-line="110" selection-start-column="45" selection-end-line="110" selection-end-column="45" />
-          <folding>
-            <element signature="docComment;class#CompetitionControllor#0" expanded="false" />
-            <element signature="e#1128#1139#0" expanded="false" />
-            <element signature="docComment;method#index#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="method#index#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="docComment;method#getMemberLimit#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="e#1490#1525#0" expanded="false" />
-            <element signature="method#getMemberLimit#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="docComment;method#addCompetition#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="method#addCompetition#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="docComment;method#addCompetition#1;class#CompetitionControllor#0" expanded="false" />
-            <element signature="e#2407#2436#0" expanded="false" />
-            <element signature="method#addCompetition#1;class#CompetitionControllor#0" expanded="false" />
-            <element signature="docComment;method#deleteCompetition#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="e#2859#2884#0" expanded="false" />
-            <element signature="method#deleteCompetition#0;class#CompetitionControllor#0" expanded="false" />
-            <element signature="e#3472#3500#0" expanded="false" />
-            <element signature="method#syncCloudData#0;class#CompetitionControllor#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1253,68 +972,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-          <folding>
-            <element signature="e#1026#1037#0" expanded="false" />
-            <element signature="docComment;method#fileUpload#0;class#FileController#0" expanded="false" />
-            <element signature="e#1197#1259#0" expanded="false" />
-            <element signature="method#fileUpload#0;class#FileController#0" expanded="false" />
-            <element signature="e#2554#2560#0" expanded="false" />
-            <element signature="e#4140#4205#0" expanded="false" />
-            <element signature="method#cosUpload#0;class#FileController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/IScheduleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="82" column="79" lean-forward="false" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
-          <folding>
-            <element signature="docComment;class#ScheduleApiController#0" expanded="false" />
-            <element signature="e#767#782#0" expanded="false" />
-            <element signature="docComment;method#beingSchedule#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="method#beingSchedule#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="docComment;method#endSchedule#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="method#endSchedule#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="docComment;method#asyncScheduleList#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="method#asyncScheduleList#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="method#asyncFeiJingScheduleList#0;class#ScheduleApiController#0" expanded="false" />
-            <element signature="docComment;method#getSchedules#0;class#ScheduleApiController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="239" column="35" lean-forward="true" selection-start-line="239" selection-start-column="35" selection-end-line="239" selection-end-column="35" />
-          <folding>
-            <element signature="e#8348#8349#0" expanded="false" />
-            <element signature="e#8410#8411#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="197">
+          <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/ScheduleControllor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="225" column="30" lean-forward="true" selection-start-line="225" selection-start-column="30" selection-end-line="225" selection-end-column="30" />
+        <state relative-caret-position="2295">
+          <caret line="211" column="37" lean-forward="false" selection-start-line="211" selection-start-column="37" selection-end-line="211" selection-end-column="37" />
           <folding>
             <element signature="docComment;class#ScheduleControllor#0" expanded="false" />
             <element signature="e#1403#1414#0" expanded="false" />
@@ -1322,7 +993,6 @@
             <element signature="docComment;method#getScheduleLimit#0;class#ScheduleControllor#0" expanded="false" />
             <element signature="e#1934#1966#0" expanded="false" />
             <element signature="docComment;method#queryTeam#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#2623#2648#0" expanded="false" />
             <element signature="docComment;method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
             <element signature="e#3302#3332#0" expanded="false" />
             <element signature="method#deleteSchedule#0;class#ScheduleControllor#0" expanded="false" />
@@ -1340,8 +1010,6 @@
             <element signature="e#5922#5945#0" expanded="false" />
             <element signature="method#getGames#0;class#ScheduleControllor#0" expanded="false" />
             <element signature="docComment;method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
-            <element signature="e#6227#6250#0" expanded="false" />
-            <element signature="method#getTeams#0;class#ScheduleControllor#0" expanded="false" />
             <element signature="docComment;method#openLive#0;class#ScheduleControllor#0" expanded="false" />
             <element signature="e#6852#6875#0" expanded="false" />
             <element signature="e#7259#7283#0" expanded="false" />
@@ -1350,108 +1018,390 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/GameApiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/GameServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="56" column="54" lean-forward="false" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+        <state relative-caret-position="1269">
+          <caret line="62" column="32" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/pc/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/pc/HomeController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/security/SecurityDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/security/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="103" column="32" lean-forward="false" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="625" column="18" lean-forward="false" selection-start-line="625" selection-start-column="18" selection-end-line="625" selection-end-column="18" />
-          <folding>
-            <element signature="docComment;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="e#1416#1424#0" expanded="false" />
-            <element signature="method#CompetitionServiceImpl#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getCompetitionLimitCount#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="docComment;method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="e#3773#3782#0" expanded="false" />
-            <element signature="method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="e#4544#5091#0" expanded="false" />
-            <element signature="e#5231#6157#0" expanded="false" />
-            <element signature="e#6404#10878#0" expanded="false" />
-            <element signature="docComment;method#syncFeijingCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="e#11151#11160#0" expanded="false" />
-            <element signature="e#11269#11277#0" expanded="false" />
-            <element signature="e#28322#28331#0" expanded="false" />
-            <element signature="method#asyncFeiJingGames#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="e#28935#30054#0" expanded="false" />
-            <element signature="e#28989#30034#0" expanded="false" />
-            <element signature="e#30509#30518#0" expanded="false" />
-            <element signature="method#asyncFeiJingTeams#0;class#CompetitionServiceImpl#0" expanded="false" />
-            <element signature="e#31080#32176#0" expanded="false" />
-            <element signature="e#31126#32160#0" expanded="false" />
-            <element signature="e#32717#32833#0" expanded="false" />
-            <element signature="method#extractTeamValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="347" column="43" lean-forward="false" selection-start-line="347" selection-start-column="43" selection-end-line="347" selection-end-column="43" />
-          <folding>
-            <element signature="e#1410#1425#0" expanded="false" />
-            <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
-            <element signature="e#3148#3590#0" expanded="false" />
-            <element signature="e#4071#7009#0" expanded="false" />
-            <element signature="docComment;method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#joinRoom#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#joinRoom#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#getInformation#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#getInformation#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#addCollect#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#addCollect#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#cancelCollect#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#cancelCollect#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#getInformationDetailList#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#getInformationDetailList#0;class#LiveApiController#0" expanded="false" />
-            <element signature="e#11772#13620#0" expanded="false" />
-            <element signature="docComment;method#leaveTeam#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#leaveTeam#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#openLive#0;class#LiveApiController#0" expanded="false" />
-            <element signature="docComment;method#cleanLives#0;class#LiveApiController#0" expanded="false" />
-            <element signature="method#cleanLives#0;class#LiveApiController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="234" column="8" lean-forward="false" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Live.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="67" column="29" lean-forward="false" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+        <state relative-caret-position="-941">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/LiveMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="225" column="30" lean-forward="false" selection-start-line="225" selection-start-column="30" selection-end-line="225" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/config/SpringWebMvcConfigurationSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/config/ThymeleafContextConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-968">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/WebMvcOperationLogInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/WebAuthenticationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/FinanceAuthenticationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/interceptor/DomainAuthenticationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-297">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/ManagementApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/config/DictionaryConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/ScheduleGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="88" column="7" lean-forward="true" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/ScheduleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4455">
+          <caret line="174" column="21" lean-forward="false" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/dbExt/LiveScheduleDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-pub.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="38" column="7" lean-forward="false" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/LiveController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="164" column="42" lean-forward="false" selection-start-line="164" selection-start-column="42" selection-end-line="164" selection-end-column="42" />
+          <folding>
+            <element signature="e#876#887#0" expanded="false" />
+            <element signature="docComment;method#getLiveLimit#0;class#LiveController#0" expanded="false" />
+            <element signature="e#1283#1311#0" expanded="false" />
+            <element signature="method#getLiveLimit#0;class#LiveController#0" expanded="false" />
+            <element signature="docComment;method#edit#0;class#LiveController#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#LiveController#0" expanded="false" />
+            <element signature="e#3650#3672#0" expanded="false" />
+            <element signature="method#delete#0;class#LiveController#0" expanded="false" />
+            <element signature="docComment;method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
+            <element signature="method#getLiveDetailByLiveId#0;class#LiveController#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#LiveController#0" expanded="false" />
+            <element signature="method#add#0;class#LiveController#0" expanded="false" />
+            <element signature="docComment;method#setLiveInfo#0;class#LiveController#0" expanded="false" />
+            <element signature="e#5438#5466#0" expanded="false" />
+            <element signature="e#5783#5811#0" expanded="false" />
+            <element signature="method#addLiveInfo#0;class#LiveController#0" expanded="false" />
+            <element signature="e#6098#6120#0" expanded="false" />
+            <element signature="e#6259#6290#0" expanded="false" />
+            <element signature="method#bulkDissolution#0;class#LiveController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/LiveServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="204" column="44" lean-forward="false" selection-start-line="204" selection-start-column="44" selection-end-line="204" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/information/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5238">
+          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.8.RELEASE/spring-web-5.0.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding>
+            <marker date="1534064974798" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1534064974798" expanded="false" signature="162:753" ph="..." />
+            <marker date="1534064974798" expanded="false" signature="1161:1172" ph=" { " />
+            <marker date="1534064974798" expanded="false" signature="1193:1199" ph=" }" />
+            <marker date="1534064974798" expanded="false" signature="1262:1273" ph=" { " />
+            <marker date="1534064974798" expanded="false" signature="1293:1299" ph=" }" />
+            <marker date="1534064974798" expanded="true" signature="1421:1477" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="1556:1615" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="1725:1784" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="1878:1949" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="2113:2718" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="2878:4227" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="4306:4483" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="4603:5061" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="5126:6283" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="6368:6964" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="7047:7618" ph="{...}" />
+            <marker date="1534064974798" expanded="true" signature="7678:8011" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/controller/InformationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <element signature="e#1221#1232#0" expanded="false" />
+            <element signature="docComment;method#getLiveLimit#0;class#InformationController#0" expanded="false" />
+            <element signature="e#1673#1708#0" expanded="false" />
+            <element signature="docComment;method#selectgames#0;class#InformationController#0" expanded="false" />
+            <element signature="e#2657#2684#0" expanded="false" />
+            <element signature="docComment;method#setInformationContent#0;class#InformationController#0" expanded="false" />
+            <element signature="e#3071#3109#0" expanded="false" />
+            <element signature="method#setInformationContent#0;class#InformationController#0" expanded="false" />
+            <element signature="e#3457#3490#0" expanded="false" />
+            <element signature="method#deleteInformation#0;class#InformationController#0" expanded="false" />
+            <element signature="docComment;method#insertInformation#0;class#InformationController#0" expanded="false" />
+            <element signature="e#3830#3864#0" expanded="false" />
+            <element signature="method#insertInformation#0;class#InformationController#0" expanded="false" />
+            <element signature="docComment;method#getInformationById#0;class#InformationController#0" expanded="false" />
+            <element signature="method#getInformationById#0;class#InformationController#0" expanded="false" />
+            <element signature="method#add#0;class#InformationController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/InformationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="133" column="36" lean-forward="false" selection-start-line="133" selection-start-column="36" selection-end-line="133" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/InformationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="250" column="36" lean-forward="false" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
+          <folding>
+            <element signature="e#8650#8651#0" expanded="false" />
+            <element signature="e#8714#8715#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/HomeApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="145" column="59" lean-forward="false" selection-start-line="145" selection-start-column="59" selection-end-line="145" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ScheduleApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1674">
+          <caret line="82" column="84" lean-forward="false" selection-start-line="82" selection-start-column="84" selection-end-line="82" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/ProfileApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/exception/InfoException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="59" column="11" lean-forward="false" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/utils/IdWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/db/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/TeamMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="80" column="8" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/repository/GameMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/resp/FToDayMatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+          <folding>
+            <element signature="e#178#185#0" expanded="false" />
+            <element signature="docComment;field#ID#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#color#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#leagueID#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#kind#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#league#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#subLeague#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#subLeagueId#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#time#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#time2#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#home#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#away#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#state#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#homeScore#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#awayScore#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#bc1#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#bc2#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#red1#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#red2#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#yellow1#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#yellow2#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#order1#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#order2#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#explain#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#zl#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#tv#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#lineup#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#explain2#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#Corner1#0;class#FToDayMatch#0" expanded="false" />
+            <element signature="docComment;field#Corner2#0;class#FToDayMatch#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/ScheduleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="503" column="80" lean-forward="false" selection-start-line="503" selection-start-column="80" selection-end-line="503" selection-end-column="80" />
+        <state relative-caret-position="181">
+          <caret line="68" column="36" lean-forward="false" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
           <folding>
             <element signature="method#ScheduleServiceImpl#0;class#ScheduleServiceImpl#0" expanded="false" />
             <element signature="docComment;method#getScheduleDetailList#0;class#ScheduleServiceImpl#0" expanded="false" />
@@ -1518,11 +1468,131 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/LiveApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="76" column="69" lean-forward="false" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+          <folding>
+            <element signature="e#1410#1425#0" expanded="false" />
+            <element signature="docComment;method#getLiveGameDetailList#0;class#LiveApiController#0" expanded="false" />
+            <element signature="e#3148#3590#0" expanded="false" />
+            <element signature="e#4071#7009#0" expanded="false" />
+            <element signature="docComment;method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#getLiveInfo#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#joinRoom#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#joinRoom#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#getInformation#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#getInformation#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#addCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#addCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#cancelCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#cancelCollect#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#getInformationDetailList#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#getInformationDetailList#0;class#LiveApiController#0" expanded="false" />
+            <element signature="e#11772#13620#0" expanded="false" />
+            <element signature="docComment;method#leaveTeam#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#leaveTeam#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#openLive#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#openLive#0;class#LiveApiController#0" expanded="false" />
+            <element signature="docComment;method#cleanLives#0;class#LiveApiController#0" expanded="false" />
+            <element signature="method#cleanLives#0;class#LiveApiController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/entity/template/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="110" column="29" lean-forward="false" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/apiController/GameApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="56" column="60" lean-forward="true" selection-start-line="56" selection-start-column="60" selection-end-line="56" selection-end-column="60" />
+          <folding>
+            <element signature="e#843#858#0" expanded="false" />
+            <element signature="docComment;method#getGameList#0;class#GameApiController#0" expanded="false" />
+            <element signature="method#getGameList#0;class#GameApiController#0" expanded="false" />
+            <element signature="method#asyncGameList#0;class#GameApiController#0" expanded="false" />
+            <element signature="docComment;method#asyncFeiJingGames#0;class#GameApiController#0" expanded="false" />
+            <element signature="docComment;method#asyncFeiJingTeams#0;class#GameApiController#0" expanded="false" />
+            <element signature="method#asyncFeiJingTeams#0;class#GameApiController#0" expanded="false" />
+            <element signature="docComment;method#asyncFeiJingChange#0;class#GameApiController#0" expanded="false" />
+            <element signature="method#asyncFeiJingChange#0;class#GameApiController#0" expanded="false" />
+            <element signature="docComment;method#asyncFeiJingToDayChange#0;class#GameApiController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/management/admin/biz/impl/CompetitionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="554" column="51" lean-forward="false" selection-start-line="554" selection-start-column="51" selection-end-line="554" selection-end-column="51" />
+          <folding>
+            <element signature="docComment;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#1370#1378#0" expanded="false" />
+            <element signature="method#CompetitionServiceImpl#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#getGames#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#selectLiveCategory#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#addCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getCompetitionLimitCount#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#getCompetitionLimit#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#deleteCompetition#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#3917#3926#0" expanded="false" />
+            <element signature="method#syncCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#4688#5235#0" expanded="false" />
+            <element signature="e#5375#6301#0" expanded="false" />
+            <element signature="e#6548#11022#0" expanded="false" />
+            <element signature="docComment;method#syncFeijingCloudData#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#11295#11304#0" expanded="false" />
+            <element signature="e#11413#11421#0" expanded="false" />
+            <element signature="e#20301#20406#0" expanded="false" />
+            <element signature="e#21012#21117#0" expanded="false" />
+            <element signature="method#insertOrUpdateLocalSchedule#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#21987#22104#0" expanded="false" />
+            <element signature="e#23024#23141#0" expanded="false" />
+            <element signature="method#doScheduleGC#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#25363#31567#0" expanded="false" />
+            <element signature="e#25421#31543#0" expanded="false" />
+            <element signature="e#31757#31766#0" expanded="false" />
+            <element signature="method#asyncFeiJingGames#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#32370#33489#0" expanded="false" />
+            <element signature="e#32424#33469#0" expanded="false" />
+            <element signature="e#33944#33953#0" expanded="false" />
+            <element signature="method#asyncFeiJingTeams#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#34756#35852#0" expanded="false" />
+            <element signature="e#34802#35836#0" expanded="false" />
+            <element signature="e#36393#36509#0" expanded="false" />
+            <element signature="method#asyncFeiJingChange#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#37574#41781#0" expanded="false" />
+            <element signature="e#41921#42844#0" expanded="false" />
+            <element signature="e#43078#43087#0" expanded="false" />
+            <element signature="class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#extractTeamValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#extractLocalTeamValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#extractLocalGameValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="method#extractScheduleValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#54448#54461#0" expanded="false" />
+            <element signature="method#extractLocalScheduleValues#0;class#SQLUtil#0;class#CompetitionServiceImpl#0" expanded="false" />
+            <element signature="e#57818#57831#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,0 +1,591 @@
+html,body{
+    height: 100%;
+    background-color: #F5F5F5;
+}
+
+
+.padding-top-100{
+    min-height: 100px;
+}
+
+.padding-top-10{
+    min-height: 10px;
+}
+
+.split-10{
+    display: inline-block;
+    min-height: 10px;
+    min-width: 10px;
+}
+
+.header-container{
+    background-color: #fff;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.center-container{
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.center-container .left{
+    width: 240px;
+    background-color: #303030;
+}
+
+.center-container .right{
+    width: 940px;
+}
+
+
+.center-container .left .title{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #444444;
+}
+
+
+.center-container .left .title .content{
+    display: inline;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.icon.basketball {
+    background-position: -22px -168px;
+}
+
+.icon.all, .icon.allof {
+    background-position: -22px -57px;
+}
+
+.icon.allof, .icon.basketball, .icon.football, .icon.integrated {
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.icon {
+    background-image: url(../images/icon.png);
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.inline-block {
+    display: inline-block;
+    *display: inline;
+    letter-spacing: normal;
+}
+
+.c, .inline-block {
+    *zoom: 1;
+    font-size: 12px;
+    word-spacing: normal;
+    vertical-align: top;
+}
+
+.center-container .left .categroy-list .active{
+    background-color: #5626D3;
+    color: #fff !important;
+}
+
+.center-container .left .categroy-list .active .name{
+    color: #fff !important;
+}
+
+.center-container .left .categroy-list li:hover{
+    background-color: #5626D3;
+    color: #fff  !important;
+}
+
+.center-container .left .categroy-list li a{
+    width: 64px;
+    height: 60px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.center-container .left .categroy-list li .icon{
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+}
+
+.center-container .left .categroy-list li .name{
+    position: relative;
+    top: 12px;
+    color: #ccc;
+}
+
+.center-container .left .categroy .sum{
+    float: right;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 5px;
+}
+
+.center-container .left .categroy .sum .person{
+    color: #FF5655;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.center-container .left .all-category, .center-container .left .categroy{
+    cursor: pointer;
+}
+
+.center-container .left .categroy-list li{
+    display: inline-block;
+    width: 64px;
+    height: 60px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #444444;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.icon.program {
+    background-position: -22px -132px;
+}
+.icon.all, .icon.hot, .icon.program {
+    margin-left: 22px;
+    margin-top: -28px;
+    line-height: 1;
+}
+
+.icon.hot {
+    background-position: -22px -94px;
+}
+
+
+.center-container .left .categroy .block-list li{
+    display: inline-block;
+    width: 64px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #444444;
+    cursor: pointer;
+    color: #ccc;
+}
+
+
+.center-container .left .block-list .active{
+    background-color: #5626D3;
+}
+
+.center-container .left .block-list li:hover{
+    background-color: #5626D3;
+    color: #fff;
+}
+
+.icon.integrated {
+    background-position: -22px -250px;
+}
+
+.center-container .right .title{
+    height: 54px;
+    background-color: #fff;
+}
+
+.center-container .right .title li{
+    width: 80px;
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.center-container .right .title li span{
+    width: 42px;
+}
+
+.center-container .right .title .active span{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    color: #5626D3;
+    border-bottom: 2px solid #5626D3;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.center-container .right .select-date{
+    height: 50px;
+    background-color: #fff;
+}
+
+.center-container .right .select-date{
+    height: 50px;
+}
+
+.center-container .right .select-date ul{
+    text-align: center;
+}
+
+.center-container .right .select-date li{
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    color: #444444;
+}
+
+.center-container .right .select-date li span{
+    font-size: 20px;
+    display: inline-block;
+    width: 60px;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 2px solid #D8D8D8;
+}
+
+.center-container .right .select-date li>span:hover{
+    border-bottom: 2px solid #5626D3;
+    color: #000;
+}
+
+.center-container .right .select-date .active span{
+    border-bottom: 2px solid #5626D3;
+}
+
+.schedule-list .title{
+    width: 100%;
+    height: 45px !important;
+    line-height: 45px !important;
+    background-color: #F5F5F5 !important;
+}
+
+.schedule-list .title span{
+    height: 25px !important;
+    line-height: 45px !important;
+    border-left: 2px solid #5626D3;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.schedule-list .schedule{
+    height: 145px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.schedule-list .schedule .game{
+    font-size: 15px;
+    color: #666;
+    height: 44px;
+    line-height: 44px;
+    padding-left: 15px;
+}
+
+.schedule-list .schedule .left-info{
+    float: left;
+    width: 100px;
+}
+
+.schedule-list .schedule .left-info .date{
+    font-size: 25px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+}
+
+.schedule-list .schedule .left-info .status{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.schedule-list .schedule .left-info .status span{
+    display: inline-block;
+    line-height: 20px;
+    width: 60px;
+    height: 20px;
+    border: 1px solid #E2E2E2;
+}
+
+.schedule-list .schedule .left-info .status .off{
+    border: 1px solid #E2E2E2;
+    color: #999999;
+}
+
+.schedule-list .schedule .left-team{
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+    position: relative;
+}
+
+.schedule-list .schedule .left-team .team{
+    height: 45px;
+    width: 160px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.schedule-list .schedule .left-team .team-grade{
+    height: 45px;
+    width: 90px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.schedule-list .schedule .left-team .team img{
+    width: 35px;
+    height: 35px;
+}
+
+.schedule-list .schedule .left-team .team .team-name{
+    font-size: 15px;
+    height: 45px;
+    color: #484848;
+    line-height: 45px;
+    position: relative;
+    left: 5px;
+}
+
+.schedule-list .schedule .left-team .team-grade .grade{
+    display: inline-block;
+    width: 40px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    color: #404040;
+}
+
+.icon.next, .icon.prev, .schedule .anchorboard .anchor-list.anchors-0 .btn, .schedule .anchorboard .anchor-list.anchors-0 .desc, .schedule .anchorboard .anchor-list.anchors-0 .noAnchor, .schedule .anchorboard .anchor-list.anchors-0 .noVideo, .schedule .anchorboard .anchor-list.anchors-1 .btn, .schedule .anchorboard .anchor-list.anchors-1 .desc, .schedule .anchorboard .anchor-list.anchors-1 .noAnchor, .schedule .anchorboard .anchor-list.anchors-1 .noVideo {
+    vertical-align: middle;
+}
+
+.pic.noVideo {
+    background-position: 0 -181px;
+    position: relative;
+    top: 15px;
+}
+
+.pic {
+    width: 56px;
+    height: 56px;
+}
+
+.pic, .timebox .timebox-btn {
+    background-image: url(../images/btn.png);
+    background-repeat: no-repeat;
+}
+
+
+.form-group.has-error .help-block .fa-close, .form-group.has-error .help-block .info, .form-group.has-error .hint .fa-close, .form-group.has-error .hint .info, .form-group.has-loading .help-block .fa-spinner, .form-group.has-loading .help-block .info, .form-group.has-loading .hint .fa-spinner, .form-group.has-loading .hint .info, .form-group.has-success .help-block .fa-check, .form-group.has-success .hint .fa-check, .form-group.lbtn.has-success .help-block .fa-check, .form-group.lbtn.has-success .hint .fa-check, .form-group.sbtn.has-success .help-block .fa-check, .form-group.sbtn.has-success .hint .fa-check, .inline-block {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.inline-block {
+    display: inline-block;
+    *display: inline;
+    letter-spacing: normal;
+}
+
+.c, .inline-block {
+    *zoom: 1;
+    font-size: 12px;
+    word-spacing: normal;
+    vertical-align: top;
+}
+
+.left-video .desc {
+}
+
+.left-video .btn {
+    border: 1px solid #ff5655;
+    width: 98px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: #ff5655;
+    display: inline-block;
+    position: relative;
+    top: 30px;
+}
+
+.left-video .desc {
+    padding-left: 15px;
+    width: 235px;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 84px;
+    height: 90px;
+}
+
+.schedule-list .schedule .left-video{
+    display: inline-block;
+    float: left;
+    line-height: 90px;
+    height: 90px;
+}
+
+.schedule-list .schedule{
+    cursor: pointer;
+}
+
+.schedule-list .schedule:hover{
+    background-color: #F9F9F9;
+}
+
+.schedule-list .schedule .left-info .status .wait {
+    border: 1px solid #378BFD;
+    color: #378BFD;
+}
+
+.schedule-list .schedule .left-info .status .wait:hover{
+    background-color: #378BFD;
+    color: #fff;
+}
+
+
+.schedule-list .schedule .left-info .status .on {
+    border: 1px solid #FF6B55;
+    color: #fff;
+    background-color: #FF6B55;
+}
+
+
+
+.schedule-scroll{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 730px;
+    width: 960px;
+}
+
+.schedule-scroll-container{
+    overflow: hidden;
+    height: 730px;
+}
+
+.icon.football {
+    background-position: -22px -212px;
+}
+
+.inner-show-categroy{
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.inner-show-categroy li{
+    float: left;
+    min-width: 70px;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 13px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+    text-align: center;
+    padding-right: 5px;
+    /* background-color: #5626D3; */
+    border: 1px solid #e0e0e0;
+    color: #3c3c3c;
+    cursor: pointer;
+}
+
+.inner-show-categroy li:hover{
+    opacity: 0.8;
+}
+
+.center-container .left .categroy .block-list .active{
+    background-color: #5626D3;
+    color: #fff;
+}
+
+
+.schedule-list .tips{
+    display: block;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fff;
+    color: #8e8e8e;
+}
+
+.schedule .gameTitle{
+    float: left;
+    display: inline-block;
+    line-height: 44px;
+    height: 44px;
+    font-size: 15px;
+}
+
+.schedule .gameTime{
+    float: right;
+    display: inline-block;
+    line-height: 44px;
+    height: 44px;
+    position: relative;
+    /* left: 12px; */
+    color: #ff4e00;
+    right: 12px;
+    top: -2px;
+}
+
+.schedule .iconfont{
+    position: relative;
+    /* right: 5px; */
+    /* left: 10px; */
+    font-size: 15px;
+    color: #ff4e00;
+    display: inline-block;
+    line-height: 44px;
+    float: right;
+    right: 16px;
+    top: -1px;
+}
+
+.schedule .gameDesc{
+    float: right; display: inline-block; line-height: 44px; height: 44px;
+    position: relative;
+    right: 10px;
+}
+
+.team-grade .red{
+    color: #e23a3a !important;
+    font-size: 14px !important;
+}
+
+.team-grade .yellow{
+    color: #fb952c !important;
+    font-size: 14px !important;
+}
+
+.team-grade .corner{
+    color: #8a3ae2 !important;
+    font-size: 14px !important;
+}

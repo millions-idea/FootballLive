@@ -75,14 +75,14 @@ public interface Constant {
     String AccessKeySecret = "dUTcIBGiCBtuXy89tU3ZJ6KMzDHUQi";
 
     /**
-     * 网易IM通信服务appKey
+     * 网易IM通信服务appKey c58b616a2dbfa83bf7857364f77ae13b
      */
-    String AppKey = "c58b616a2dbfa83bf7857364f77ae13b";//76688b21d1656063933c1199a3e425a1
+    String AppKey = "c58b616a2dbfa83bf7857364f77ae13b";//76688b21d1656063933c1199a3e425a1 debug
 
     /**
-     * 网易IM通信服务appSecret
+     * 网易IM通信服务appSecret  ef72133173f2
      */
-    String AppSecret = "ef72133173f2";//b416985f7f9a
+    String AppSecret = "ef72133173f2";//b416985f7f9a debug
     /**
      * 网易热点用户
      */

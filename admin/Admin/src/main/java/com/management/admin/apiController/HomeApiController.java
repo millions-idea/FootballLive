@@ -136,6 +136,15 @@ public class HomeApiController {
     @GetMapping("getHotInformation")
     public JsonArrayResult<LiveScheduleDetail> getHotInformation(){
         List<LiveScheduleDetail> liveScheduleDetail = informationService.getHotInformations();
+        liveScheduleDetail.forEach(item -> {
+            item.setWinTeamId(item.getForecastTeamId());
+            if(item.getMasterTeamId().equals(item.getForecastTeamId())){
+                item.setWinTeamIcon(item.getMasterTeamIcon());
+            }else{
+                item.setTargetTeamIcon(item.getTargetTeamIcon());
+            }
+            item.setScheduleResult(item.getForecastResult());
+        });
         return new JsonArrayResult<LiveScheduleDetail>(liveScheduleDetail);
     }
 }

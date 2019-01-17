@@ -91,7 +91,7 @@ public class IdWorker {
         return Long.valueOf(numStr.substring(numStr.length() - 6, numStr.length()));
     }
 
-    public synchronized int nextInt32(Integer count) throws Exception {
+    public synchronized int nextInt32(Integer count) {
         long timestamp = this.timeGen();
         if (this.lastTimestamp == timestamp) { // 如果上一个timestamp与新产生的相等，则sequence加一(0-4095循环); 对新的timestamp，sequence从0开始
             this.sequence = this.sequence + 1 & this.sequenceMask;
@@ -104,7 +104,7 @@ public class IdWorker {
 
         if (timestamp < this.lastTimestamp) {
             logger.error(String.format("clock moved backwards.Refusing to generate id for %d milliseconds", (this.lastTimestamp - timestamp)));
-            throw new Exception(String.format("clock moved backwards.Refusing to generate id for %d milliseconds", (this.lastTimestamp - timestamp)));
+            System.err.print(String.format("clock moved backwards.Refusing to generate id for %d milliseconds", (this.lastTimestamp - timestamp)));
         }
 
         this.lastTimestamp = timestamp;
