@@ -509,42 +509,6 @@ $(function(){
         })
         //navigation end
 
-        //search animation begin
-        $(".search input").hover(function(){
-            var $that = $(this);
-            $that.click(function(){
-                $that.animate({width:"110px"});
-                $(".search .icon-search").animate({left: "-30px"});
-            })
-        }, function(){
-            $(this).animate({width:"80px"});
-            $(".search .icon-search").animate({left: "0px"});
-        })
-        //search animation end
-
-        //download pop animation begin
-        $(".navigation .login-or-download .list .download").hover(function(){
-            $(".pop-qrcode").show();
-            $(".pop-qrcode").removeClass("bounceIn animated").addClass("bounceIn animated");
-            $(".pop-qrcode").hover(function(){
-                $(this).show();
-                $(this).removeClass("bounceIn animated");
-            }, function(){
-                $(this).removeClass("bounceIn animated");
-                $(this).hide();
-            })
-        }, function(){
-            $(".pop-qrcode").removeClass("bounceIn animated");
-            $(".pop-qrcode").hide();
-            $(".pop-qrcode").hover(function(){
-                $(this).show();
-                $(this).removeClass("bounceIn animated");
-            }, function(){
-                $(this).removeClass("bounceIn animated");
-                $(".pop-qrcode").hide();
-            })
-        })
-        //download pop animation end
 
         //scroll begin
         $(".today-game-list .next").click(function(){
@@ -575,8 +539,6 @@ $(function(){
                 $(".video-full-player .tips").hide();
                 changeVideo(defaultVideoUrl);
                 player.changeControlBarShow(false);//隐藏控制栏
-            }else{
-                layer.msg("暂无直播");
             }
         });
         setInterval(function(){
@@ -603,6 +565,26 @@ $(function(){
             });
         }, 5000);
         //hot schedule timer end
+
+        //default alert begin
+        /*layer.open({
+            title: false,
+            type: 1,
+            closeBtn: 1, //不显示关闭按钮
+            anim: 2,
+            area:["400px", "517px"],
+            shadeClose: true, //开启遮罩关闭
+            content: $(".default-alert").show(),
+            end: function(){
+                $(".default-alert").css("display", "none");
+                $(".default-alert").remove();
+            },
+            cancel: function(index, layero){
+                layer.close(index);
+                return false;
+            }
+        });*/
+        //default alert end
     })
     //layui config end
 })
@@ -650,3 +632,5 @@ function setHotSchedule(callback){
         console.error("刷新比分失败" + JSON.stringify(e))
     }
 }
+
+

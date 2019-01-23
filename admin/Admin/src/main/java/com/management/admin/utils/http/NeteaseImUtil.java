@@ -62,9 +62,7 @@ public class NeteaseImUtil {
      */
     public static String post(String url, String json){
         String response = HttpUtil.postForm(apiUrl + url, json, NeteaseImUtil.buildHeader(Constant.AppKey, Constant.AppSecret));
-        logger.debug(url, response);
-        System.out.println(url);
-        System.out.println(response);
+        logger.info("NeteaseImUtil_post()_" + url + "_" + response);
         return response;
     }
 

@@ -8,7 +8,6 @@
 package com.management.admin.biz.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.management.admin.biz.IScheduleService;
 import com.management.admin.entity.db.*;
 import com.management.admin.entity.dbExt.LiveScheduleDetail;
@@ -16,15 +15,18 @@ import com.management.admin.entity.dbExt.ScheduleGameTeam;
 import com.management.admin.entity.dbExt.ScheduleLiveDetail;
 import com.management.admin.entity.resp.NAGroup;
 import com.management.admin.entity.resp.NMAsyncSchedule;
-import com.management.admin.entity.resp.NMOdds;
+import com.management.admin.entity.resp.TGroupParam;
+import com.management.admin.entity.resp.TGroupResp;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.exception.InfoException;
 import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.DateUtil;
+import com.management.admin.utils.IdWorker;
 import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.http.NamiUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
+import com.management.admin.utils.http.TencentLiveUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -108,7 +109,6 @@ public class ScheduleServiceImpl implements IScheduleService {
             }
         });
 
-
         list1.sort((g1, g2) -> g1.getGameDate().compareTo(g2.getGameDate()));
 
         if(list1 != null && list1.size() > 0){
@@ -138,14 +138,6 @@ public class ScheduleServiceImpl implements IScheduleService {
         return list1;
     }
 
-    /**
-     * 加载赛程信息列表分页记录数 DF 2018年12月17日14:40:233
-     * @return
-     */
-    @Override
-    public Integer getScheduleLimitCount() {
-        return scheduleMapper.selectLimitCount();
-    }
 
     /**
      * 分页加载赛事信息列表 DF 2018-12-17 14:39:562
@@ -158,6 +150,7 @@ public class ScheduleServiceImpl implements IScheduleService {
         page = ConditionUtil.extractPageIndex(page, limit);
         String where = extractLimitWhere(condition,state,beginTime,endTime);
         List<ScheduleGameTeam> list = scheduleMapper.selectLimit(page, limit, state, beginTime, endTime, where);
+        list.sort((g1, g2) -> g1.getGameDate().compareTo(g2.getGameDate()));
         if(list != null && list.size() > 0){
             List<ScheduleGameTeam> list1 = new ArrayList<>();
             //按直播状态区分， 已开始  、未开始、已结束、比赛时间、距离当前时间最近
@@ -185,7 +178,10 @@ public class ScheduleServiceImpl implements IScheduleService {
     @Transactional
     public boolean deleteSchedule(Integer scheduleId) {
         Live live = liveMapper.selectBySchedule(scheduleId);
-        if(live == null) throw new InfoException("无法找到关联直播间");
+        if(live == null) throw new InfoException("无法找到直播间");
+
+        List<ChatRoom> chatRooms = chatRoomMapper.selectByLive(live.getLiveId());
+        if(chatRooms == null ) throw new InfoException("无法找到关联直播间");
 
         //删除直播间
         boolean result = liveMapper.deleteLive(live.getLiveId()) > 0;
@@ -195,6 +191,7 @@ public class ScheduleServiceImpl implements IScheduleService {
         result = chatRoomUserRelationMapper.deleteLive(live.getLiveId()) > 0;
         if(!result) throw new InfoException("删除房间成员关系失败");
 
+
         result = chatRoomMapper.deleteLive(live.getLiveId()) > 0;
         if(!result) throw new InfoException("删除房间失败");
 
@@ -203,12 +200,9 @@ public class ScheduleServiceImpl implements IScheduleService {
         if(!result) throw new InfoException("删除赛程关系失败");
 
         //同步云信
-        String response = NeteaseImUtil.post("nimserver/team/remove.action",
-                "tid=" + "" + "&owner=" + Constant.HotAccId);
-        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (!model.getCode().equals(200)) {
-            logger.info("删除云端数据失败");
-        }
+        chatRooms.forEach(item ->{
+            removeRemoteRoom(item.getChatRoomId());
+        });
 
         return result;
     }
@@ -244,16 +238,17 @@ public class ScheduleServiceImpl implements IScheduleService {
                     chatRoom.setFrequency(10D);//10s
                     result = chatRoomMapper.insertOrUpdate(chatRoom) > 0;
                     if(!result) throw new InfoException("备份云端数据失败");
-                    ChatRoom nChatRoom = chatRoomMapper.selectByLive(chatRoom.getLiveId());
+                    List<ChatRoom> nChatRoom = chatRoomMapper.selectByLive(chatRoom.getLiveId());
 
                     //建立默认的成员关系
-                    ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
-                    chatRoomUserRelation.setLiveId(live.getLiveId());
-                    chatRoomUserRelation.setRoomId(nChatRoom.getRoomId());
-                    chatRoomUserRelation.setUserId(Constant.HotUserId);
-                    chatRoomUserRelation.setIsBlackList(0);
-                    result = chatRoomUserRelationMapper.insertOrUpdate(chatRoomUserRelation) > 0;
-                    if(!result) throw new InfoException("建立默认成员关系失败");
+                    nChatRoom.forEach(item -> {
+                        ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
+                        chatRoomUserRelation.setLiveId(live.getLiveId());
+                        chatRoomUserRelation.setRoomId(item.getRoomId());
+                        chatRoomUserRelation.setUserId(Constant.HotUserId);
+                        chatRoomUserRelation.setIsBlackList(0);
+                        if(!(chatRoomUserRelationMapper.insertOrUpdate(chatRoomUserRelation) > 0)) throw new InfoException("建立默认成员关系失败");
+                    });
 
                 }
 
@@ -262,9 +257,8 @@ public class ScheduleServiceImpl implements IScheduleService {
                 //解散聊天室
                 Live live = liveMapper.selectBySchedule(schedule.getScheduleId());
                 if(live == null) throw new InfoException("直播间不存在");
-                ChatRoom chatRoom = chatRoomMapper.selectByLive(live.getLiveId());
-                if(chatRoom != null) {
-
+                List<ChatRoom> chatRooms = chatRoomMapper.selectByLive(live.getLiveId());
+                if(chatRooms != null) {
                     //删除房间与成员关系
                     result = chatRoomUserRelationMapper.deleteLive(live.getLiveId()) > 0;
                     if(!result) throw new InfoException("删除房间成员关系失败");
@@ -272,18 +266,34 @@ public class ScheduleServiceImpl implements IScheduleService {
                     result = chatRoomMapper.deleteLive(live.getLiveId()) > 0;
                     if(!result) throw new InfoException("删除房间失败");
 
-                    String response = NeteaseImUtil.post("nimserver/team/remove.action",
-                            "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId);
-                    NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-                    if (!model.getCode().equals(200)) {
-                        logger.info("删除云端数据失败");
-                    }
+                    chatRooms.forEach(item -> {
+                        removeRemoteRoom(item.getChatRoomId());
+                    });
                 }
 
             }
             return true;
         }
         return false;
+    }
+
+    /**
+     * 解散第三方平台的直播间 DF 2019年1月22日14:28:55
+     * @param chatRoomId
+     */
+    private void removeRemoteRoom(String chatRoomId) {
+        String response = NeteaseImUtil.post("nimserver/team/remove.action",
+                "tid=" + chatRoomId + "&owner=" + Constant.HotAccId);
+        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+        if (!model.getCode().equals(200)) {
+            logger.info("删除网易云端数据失败");
+        }
+
+        response = TencentLiveUtil.post("group_open_http_svc/destroy_group", "{\"GroupId\": \"" + chatRoomId + "\"}");
+        TGroupResp tGroupResp = JsonUtil.getModel(response, TGroupResp.class);
+        if(!tGroupResp.getErrorCode().equals(0)){
+            logger.info("删除腾讯云端数据失败");
+        }
     }
 
 
@@ -330,7 +340,6 @@ public class ScheduleServiceImpl implements IScheduleService {
         chatRoom.setFrequency(10D);//10s
         result = chatRoomMapper.insert(chatRoom) > 0;
         if(!result) throw new InfoException("备份云端数据失败");
-
         //建立默认的成员关系
         ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
         chatRoomUserRelation.setLiveId(live.getLiveId());
@@ -370,12 +379,12 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         //按赛事id筛选
         if(gameId != null && gameId > 0){
-            buffer.append(" AND t4.game_id=#{gameId}");
+            buffer.append(" AND t3.game_id=#{gameId}");
         }
 
         //按直播分类id筛选
         if(liveCategoryId != null && liveCategoryId > 0) {
-            buffer.append(" AND t4.category_id=#{categoryId}");
+            buffer.append(" AND t3.category_id=#{categoryId}");
         }
 
         //按日期筛选
@@ -436,13 +445,14 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         //添加直播间
         Live live = new Live();
+        live.setLiveId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
         live.setLiveTitle(masterTeam.getTeamName() + " VS " + targetTeam.getTeamName());
         live.setLiveDate(schedule.getGameDate());
         live.setScheduleId(schedule.getScheduleId());
         live.setSourceUrl("#");
         live.setAddDate(new Date());
         live.setStatus(0);
-        boolean result = liveMapper.insertSelective(live) > 0;
+        boolean result = liveMapper.insertOrUpdate(live) > 0;
 
         //添加聊天室
         //创建云信聊天室(群组)
@@ -506,28 +516,69 @@ public class ScheduleServiceImpl implements IScheduleService {
         if(!result)  throw new InfoException("添加直播间失败");
         Live liveDetail = liveMapper.selectBySchedule(schedule.getScheduleId());
 
-        //添加聊天室
-        //创建云信聊天室(群组)
+        //同步云信伪直播间
+        result = syncNetease(live, liveDetail);
+
+        if(!result) throw new InfoException("同步云信失败");
+
+        //同步腾讯直播间
+        result = syncTencentAVChatRoom(live, liveDetail);
+        if(!result) throw new InfoException("同步腾讯失败");
+
+        return result;
+    }
+
+    private boolean syncTencentAVChatRoom(Live live, Live liveDetail) {
+        boolean result;
+        String json = "{\r\n\"Type\": \"AVChatRoom\", \r\n\"Name\": \"" + liveDetail.getTeamIdList() +  "\"\r\n}";
+        String response = TencentLiveUtil.post("group_open_http_svc/create_group", json);
+        TGroupResp model = JsonUtil.getModel(response, TGroupResp.class);
+        if (!model.getErrorCode().equals(0)) throw new InfoException("同步腾讯云端数据失败");
+
+        //数据本地化备份
+        result = addRoomRelation(liveDetail, model.getGroupId());
+        return result;
+    }
+
+
+    /**
+     * 同步云信房间 DF 2019年1月22日14:19:02
+     * @param live
+     * @param liveDetail
+     * @return
+     */
+    private boolean syncNetease(Live live, Live liveDetail) {
+        boolean result;
         String response = NeteaseImUtil.post("nimserver/team/create.action",
                 "owner=" + Constant.HotAccId + "&tname=" + live.getLiveTitle() + "&members=" + JsonUtil.getJson(new String[]{Constant.HotAccId})
                         + "&msg=live&magree=0&joinmode=0");
         NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
+        if (!model.getCode().equals(200)) throw new InfoException("同步网易云端数据失败");
 
         //数据本地化备份
-        ChatRoom chatRoom = new ChatRoom();
+        result = addRoomRelation(liveDetail, model.getTid());
+        return result;
+    }
+
+    /**
+     * 建立房间与成员关系 DF 2019年1月22日14:17:12
+     * @param liveDetail
+     * @param groupId
+     * @return
+     */
+    private boolean addRoomRelation(Live liveDetail, String groupId) {
+        boolean result;ChatRoom chatRoom = new ChatRoom();
+        chatRoom.setRoomId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
         chatRoom.setLiveId(liveDetail.getLiveId());
-        chatRoom.setChatRoomId(model.getTid());
+        chatRoom.setChatRoomId(groupId);
         chatRoom.setFrequency(10D);//10s
         result = chatRoomMapper.insertOrUpdate(chatRoom) > 0;
         if(!result) throw new InfoException("备份云端数据失败");
-        ChatRoom chatRoomDetail = chatRoomMapper.selectByLive(liveDetail.getLiveId());
-
 
         //建立默认的成员关系
         ChatRoomUserRelation chatRoomUserRelation = new ChatRoomUserRelation();
         chatRoomUserRelation.setLiveId(liveDetail.getLiveId());
-        chatRoomUserRelation.setRoomId(chatRoomDetail.getRoomId());
+        chatRoomUserRelation.setRoomId(chatRoom.getRoomId());
         chatRoomUserRelation.setUserId(Constant.HotUserId);
         chatRoomUserRelation.setIsBlackList(0);
         result = chatRoomUserRelationMapper.insertOrUpdate(chatRoomUserRelation) > 0;
@@ -603,12 +654,11 @@ public class ScheduleServiceImpl implements IScheduleService {
 
         //删除云信数据库
         list.forEach(item -> {
-            ChatRoom chatRoom = chatRoomMapper.selectByLive(item.getLiveId());
-            if(chatRoom != null){
-                String response1 = NeteaseImUtil.post("nimserver/team/remove.action",
-                        "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId);
-                NAGroup model = JsonUtil.getModel(response1, NAGroup.class);
-                //if (!model.getCode().equals(200)) throw new InfoException("删除云信数据库过程中失败" + item.getLiveId());
+            List<ChatRoom> chatRooms = chatRoomMapper.selectByLive(item.getLiveId());
+            if(chatRooms != null){
+                chatRooms.forEach(nItem -> {
+                    removeRemoteRoom(nItem.getChatRoomId());
+                });
             }
         });
 
@@ -623,6 +673,17 @@ public class ScheduleServiceImpl implements IScheduleService {
         });
 
         return true;
+    }
+
+    @Override
+    public Integer getCount() {
+        return scheduleMapper.selectCount(new Schedule());
+    }
+
+    @Override
+    public Integer getLimitCount(String condition, Integer state, String beginTime, String endTime) {
+        String where = extractLimitWhere(condition,state, beginTime, endTime);
+        return scheduleMapper.selectLimitCount(state, beginTime, endTime, where);
     }
 
     /**
@@ -640,10 +701,9 @@ public class ScheduleServiceImpl implements IScheduleService {
             }
             where += " OR " + ConditionUtil.like("game_name", condition, true, "t2");
             where += " OR " + ConditionUtil.like("game_id", condition, true, "t2");
+            where += " OR " + ConditionUtil.like("team_name", condition, true, "t3");
             where += " OR " + ConditionUtil.like("team_id", condition, true, "t3");
             where += " OR " + ConditionUtil.like("schedule_id", condition, true, "t1");
-
-            where += " OR " + ConditionUtil.like("team_name", condition, true, "t3");
             where += " OR " + ConditionUtil.like("live_title", condition, true, "t4")+ ")";
         }
         // 取两个日期之间或查询指定日期
@@ -669,8 +729,6 @@ public class ScheduleServiceImpl implements IScheduleService {
         }
         return where;
     }
-
-
 
     /**
      * 同步赛程列表 DF 2019年1月2日20:43:23

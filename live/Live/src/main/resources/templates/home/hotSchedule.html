@@ -1,6 +1,7 @@
 <th:block xmlns:th="http://www.thymeleaf.org" th:fragment="hotSchedule">
     <li th:data-date="${item.getGameDateString()}"
         th:data-id="${item.getScheduleId()}"
+        th:data-liveid="${item.getLiveId()}"
         th:data-url="${item.getSourceUrl()}"
         th:class='${item.getShortStatus() == null ? "" : (item.getShortStatus().equals("进行中") ? "live" : "") + " " + (item.getShortStatus().equals("直播中") ? "live select active" : "")}'
         th:each="item:${topList}">

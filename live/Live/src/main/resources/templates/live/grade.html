@@ -1,0 +1,18 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="hotSchedule">
+    <span class="item">
+        比分：<span th:text="${live.getScheduleGrade()}"></span>
+    </span>
+    <span class="item red">
+        红牌：<span th:text='${live.getMasterRedChess() + "-" + live.getTargetRedChess()}'></span>
+    </span>
+    <span class="item yellow">
+        黄牌：<span th:text='${live.getMasterYellowChess() + "-" + live.getTargetYellowChess()}'></span>
+    </span>
+    <span class="item purple">
+        角球：<span th:text='${live.getMasterCornerKick() + "-" + live.getTargetCornerKick()}'></span>
+    </span>
+    <span class="item timer">
+        <i class="iconfont icon-timer-"></i>
+        <span th:text='${live.getGameDuration() + "`"}'></span>
+    </span>
+</th:block>

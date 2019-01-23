@@ -1,0 +1,73 @@
+body,html{
+    height: 100%;
+}
+
+.login-container{
+    width: 425px;
+    min-height: 500px;
+    margin:0 auto;
+    overflow: hidden;
+    border: 1px solid red;
+}
+
+
+.layui-tab-brief>.layui-tab-title .layui-this {
+    color: #5626D3;
+}
+
+.layui-tab-brief>.layui-tab-more li.layui-this:after,.layui-tab-brief>.layui-tab-title .layui-this:after {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #5626D3
+}
+
+.layui-input-block {
+    margin-left: 80px;
+    min-height: 36px;
+}
+
+.layui-form-label {
+    float: left;
+    display: block;
+    padding: 9px 15px;
+    width: 40px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: right;
+}
+
+.layui-btn {
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #5626D3;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.reg-qrc-code{
+    width: 100%;
+    text-align: center;
+}
+
+.login-title{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    line-height: 55px;
+    color: #4c4c4c;
+}
+
+.login-footer-title{
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    line-height: 55px;
+    color: #797979;
+}

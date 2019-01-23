@@ -84,12 +84,23 @@ public interface ScheduleMapper extends MyMapper<Schedule>, InsertListUpdateSche
             , @Param("condition") String condition);
 
 
-    @Select("SELECT COUNT(t1.schedule_id) FROM tb_schedules t1 LEFT JOIN tb_teams t2 ON t2.team_id = t1. team_id WHERE t1.is_delete=0  ")
+    @Select("SELECT COUNT(t1.schedule_id) FROM tb_schedules as t1 LEFT JOIN tb_games as t2 on t1.game_id=t2.game_id " +
+            "LEFT JOIN tb_teams t3 ON t3.team_id = t1.win_team_id  " +
+            "LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id and t4.status=0 " +
+            " WHERE t1.is_delete=0 and ${condition} order by  " +
+            "t1.edit_date desc,t4.schedule_id desc ")
     /**
-     * 分页查询记录数 提莫 2018年8月30日11:33:30
+     * 分页查询记录数 韦德 2018年8月30日11:33:30
+     * @param state
+     * @param beginTime
+     * @param endTime
+     * @param where
      * @return
      */
-    Integer selectLimitCount();
+    Integer selectLimitCount(@Param("isEnable") Integer isEnable
+            , @Param("beginTime") String beginTime
+            , @Param("endTime") String endTime
+            , @Param("condition") String condition);
 
 
     @Update("update tb_schedules set is_delete=1 where schedule_id=#{scheduleId}")

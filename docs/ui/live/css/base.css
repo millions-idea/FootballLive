@@ -134,9 +134,10 @@ html,body{
     float: left;
     display: inline-block;
     font-size: 12px;
-    width: 60px;
+    width: 70px;
     height: 60px;
     line-height: 60px;
+    text-align: center;
 }
 
 .navigation .login-or-download .list{
@@ -1000,4 +1001,100 @@ html,body{
     position: absolute;
     top: 0px;
     background: url(../images/qie-ued-icon.png) -200px -365px no-repeat;
+}
+
+
+
+
+.navigation .login-or-download .list .option-user{
+    line-height: 60px;
+}
+
+.navigation .login-or-download .list .option-user a{
+    width: 45px;
+    outline: none;
+    text-decoration: none;
+    color: #4A4A4A;
+    cursor: pointer;
+}
+
+.navigation .login-or-download .list .option-user *:hover{
+    opacity: 0.8;
+}
+
+
+.pop-profile{
+    display: none;
+    width: 230px;
+    height: 190px;
+    background-color: white;
+    border: 1px solid #ECEDEE;
+    position: absolute;
+    left: -72px;
+    top: 60px;
+    font-size: 12px;
+    color: #4A4A4A;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.pop-profile .profile-item{
+    width: 100%;
+    height: auto;
+}
+
+.pop-profile .profile-item .photo{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.pop-profile .logout{
+    display: block;
+    text-align: right;
+}
+.pop-profile .logout a{
+    margin-right: 5px;
+}
+
+.pop-profile .profile-item .nickname{
+    font-size: 18px;
+    height: 25px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.pop-profile .gray-line{
+    width: 210px;
+    min-height: 1px;
+    margin: 0 auto;
+    background-color: #ECEDEE;
+}
+
+.pop-profile .profile-nav ul{
+    display: block;
+    list-style: none;
+    margin-left: 10px;
+    width: 210px !important;
+    height: 60px;
+}
+
+.pop-profile .profile-nav li{
+    display: inline-block;
+    min-height: 50px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.pop-profile .profile-nav li div{
+    margin-top: 20px;
+}
+
+.pop-profile .profile-nav li div i{
+    display: block;
+    text-align: center;
 }

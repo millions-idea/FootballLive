@@ -156,6 +156,8 @@ public class InformationController {
 
         List<Team> teams = teamService.getTeams(teamIds);
         model.addAttribute("teams",teams);
+        model.addAttribute("masterTeam",teams.get(0));
+        model.addAttribute("targetTeam",teams.get(1));
 
         InformationDetail informationDetail = informationService.queryInformationById(isrId);
         model.addAttribute("informationDetail",informationDetail);

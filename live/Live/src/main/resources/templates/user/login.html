@@ -1,0 +1,112 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="login">
+    <!--login begin-->
+    <div class="login-container">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title" style="text-align: center">
+                <li class="layui-this">登录</li>
+                <li class="">用户注册</li>
+            </ul>
+            <div class="layui-tab-content" style="height: 100px;">
+                <div class="layui-tab-item layui-show">
+                    <span class="login-title">
+                        <img style="height: 40px; width: 122px" src="/images/logo.png" alt="">
+                    </span>
+                    <div class="padding-top-10"></div>
+                    <div class="padding-top-10"></div>
+                    <form class="layui-form" action="" lay-filter="example">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">手机号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" lay-verify="required" maxlength="11" oninput="if(value.length>11)value=value.slice(0,11)" autocomplete="off" placeholder="请输入手机号" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="password" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="demo1">立刻登录</button>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <span class="login-footer-title">随时随地、观看直播</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-tab-item">
+                    <span class="login-title">下载卫星体育APP注册更方便哟</span>
+                    <div class="reg-qrc-code">
+                        <img src="http://live.yaboabc.com/images/download.png" alt="">
+                    </div>
+                    <span class="login-footer-title">随时随地、观看直播</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--login end-->
+
+    <script>
+        layui.use(['element', 'form'], function(){
+            var $ = layui.jquery
+                ,element = layui.element//Tab的切换功能，切换事件监听等，需要依赖element模块
+                ,form = layui.form;
+
+            //触发事件
+            var active = {
+                tabAdd: function(){
+                    //新增一个Tab项
+                    element.tabAdd('demo', {
+                        title: '新选项'+ (Math.random()*1000|0) //用于演示
+                        ,content: '内容'+ (Math.random()*1000|0)
+                        ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+                    })
+                }
+                ,tabDelete: function(othis){
+                    //删除指定Tab项
+                    element.tabDelete('demo', '44'); //删除：“商品管理”
+
+
+                    othis.addClass('layui-btn-disabled');
+                }
+                ,tabChange: function(){
+                    //切换到指定Tab项
+                    element.tabChange('demo', '22'); //切换到：用户管理
+                }
+            };
+
+            $('.site-demo-active').on('click', function(){
+                var othis = $(this), type = othis.data('type');
+                active[type] ? active[type].call(this, othis) : '';
+            });
+
+            //Hash地址的定位
+            var layid = location.hash.replace(/^#test=/, '');
+            element.tabChange('test', layid);
+
+            element.on('tab(test)', function(elem){
+                location.hash = 'test='+ $(this).attr('lay-id');
+            });
+
+            //监听提交
+            form.on('submit(demo1)', function(data){
+                $.post("/api/user/login", {
+                    username: data.field.username,
+                    password: data.field.password
+                }, function(data){
+                    if(data.error != 0) {
+                        return layer.msg("登录失败");
+                    }
+                    layer.closeAll();
+                    location.reload();
+                });
+
+                return false;
+            });
+
+
+        });
+    </script>
+</th:block>

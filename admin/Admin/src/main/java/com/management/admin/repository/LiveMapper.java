@@ -228,9 +228,9 @@ public interface LiveMapper extends MyMapper<Live>{
             "ORDER BY t1.live_date ASC LIMIT 2")
     List<LiveHotDetail> selectTwoLives();
 
-    @Insert("INSERT INTO tb_lives (live_title,live_date,schedule_id,status,share_count,collect_count,source_url,ad_id,add_date,team_id_list) " +
-            "VALUES(#{liveTitle}, #{liveDate}, #{scheduleId}, #{status}, 0,0, #{sourceUrl}, 0, #{addDate}, '${teamIdList}') " +
+    @Insert("INSERT INTO tb_lives (live_id, live_title,live_date,schedule_id,status,share_count,collect_count,source_url,ad_id,add_date,team_id_list) " +
+            "VALUES(#{liveId}, #{liveTitle}, #{liveDate}, #{scheduleId}, #{status}, 0,0, #{sourceUrl}, 0, #{addDate}, '${teamIdList}') " +
             "ON DUPLICATE KEY UPDATE " +
-            "live_title = #{liveTitle}, live_date=#{liveDate}, source_url = #{sourceUrl}, edit_date=#{editDate}, team_id_list=#{teamIdList}")
+            "live_title = #{liveTitle}, live_date=#{liveDate}, source_url = #{sourceUrl}, edit_date=#{editDate}, team_id_list=#{teamIdList}, status=#{status}")
     int insertOrUpdate(Live live);
 }

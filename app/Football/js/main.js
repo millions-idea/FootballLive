@@ -5,8 +5,8 @@ window.app = {
 	config: {
 		title: "卫星体育",
 		brand: "卫星体育",
-		apiUrl: "http://appapi.yaboabc.com/",
-//		apiUrl: "http://stack-app.natapp1.cc/",
+//		apiUrl: "http://appapi.yaboabc.com/",
+		apiUrl: "http://stack-app.natapp1.cc/",
 		shareUrl: "http://app.yaboabc.com/",
 		version: "1.7.9"
 	},

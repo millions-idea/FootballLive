@@ -6,23 +6,23 @@ import com.management.admin.entity.dbExt.LiveDetail;
 import com.management.admin.entity.dbExt.LiveHotDetail;
 import com.management.admin.entity.resp.*;
 import com.management.admin.entity.template.Constant;
-import com.management.admin.entity.template.SessionModel;
 import com.management.admin.exception.InfoException;
-import com.management.admin.exception.MsgException;
 import com.management.admin.repository.*;
 import com.management.admin.repository.utils.ConditionUtil;
+import com.management.admin.utils.IdWorker;
 import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
-import lombok.var;
+import com.management.admin.utils.http.TencentLiveUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.script.ReactiveScriptExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class LiveServiceImpl implements ILiveService {
@@ -106,20 +106,20 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     @Transactional
     public Integer deleteLive(Integer liveId) {
-
         // 获取此直播间对应的聊天室
         List<ChatRoom> chatRooms = chatRoomUserRelationMapper.queryChatRoomByLiveId(liveId);
+
+        //删除房间与成员关系
+        boolean result = chatRoomUserRelationMapper.deleteLive(liveId) > 0;
+        if(!result) throw new InfoException("删除房间成员关系失败");
+
+        result = chatRoomMapper.deleteLive(liveId) > 0;
+        if(!result) throw new InfoException("删除房间失败");
 
         // 遍历下的所有聊天室
         chatRooms.forEach(item -> {
             // 同步云信（删除其下所有聊天室）
-            String response = NeteaseImUtil.post("nimserver/team/remove.action", "tid=" + item.getChatRoomId()
-                    + "&owner=" + Constant.HotAccId);
-            NASignIn model = JsonUtil.getModel(response, NASignIn.class);
-            if (!model.getCode().equals(200)) logger.info("同步云端数据失败");
-/*            // 删除数据库聊天室
-            Integer result = chatRoomUserRelationMapper.deleteChatRoomByLiveId(item.getRoomId());
-            if(result<0) throw new InfoException("同步数据库数据失败");*/
+           removeRemoteRoom(item.getChatRoomId());
         });
 
         return liveMapper.deleteLive(liveId);
@@ -140,6 +140,10 @@ public class LiveServiceImpl implements ILiveService {
     @Transactional
     public Boolean insertLive(LiveDetail liveDetail) {
         Live live = new Live();
+        if(liveDetail.getLiveId() == null) {
+            liveDetail.setLiveId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
+        }
+        live.setLiveId(liveDetail.getLiveId());
         live.setAddDate(new Date());
         live.setLiveDate(liveDetail.getLiveDate());
         live.setLiveTitle(liveDetail.getLiveTitle());
@@ -151,7 +155,7 @@ public class LiveServiceImpl implements ILiveService {
         live.setStatus(0);
         live.setShareCount(0);
         live.setCollectCount(0);
-        Integer result = liveMapper.insert(live);
+        Integer result = liveMapper.insertOrUpdate(live);
         if (result > 0) {
             //创建云信聊天室(群组)
 
@@ -407,8 +411,8 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     @Transactional
     public String addGroup(String phone, Integer userId, Integer liveId) {
-        ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
-        if (chatRoom == null) return "直播间不存在";
+        List<ChatRoom> chatRooms = chatRoomMapper.selectByLive(liveId);
+        if (chatRooms == null) return "直播间不存在";
 
         ChatRoomUserRelation chatRoomUserRelation = chatRoomUserRelationMapper.selectRelation(userId, liveId);
 
@@ -417,15 +421,23 @@ public class LiveServiceImpl implements ILiveService {
         chatRoomUserRelationMapper.insertRelation(userId, liveId);
 
         //同步云端数据
-        String response = NeteaseImUtil.post("nimserver/team/add.action", "tid=" + chatRoom.getChatRoomId() + "&owner=" + Constant.HotAccId
-                + "&members=" + JsonUtil.getJson(new String[]{phone}) + "&magree=0" + "&msg=ADD");
-        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (model == null) {
-            return "同步云端数据失败";
-        } else {
-            logger.info(response);
-            return "SUCCESS";
+        Optional<ChatRoom> first = chatRooms.stream().filter(item -> !item.getChatRoomId().contains("@")).findFirst();
+        if(first.isPresent()) {
+            String chatRoomId = first.get().getChatRoomId();
+
+            String response = NeteaseImUtil.post("nimserver/team/add.action", "tid=" + chatRoomId + "&owner=" + Constant.HotAccId
+                    + "&members=" + JsonUtil.getJson(new String[]{phone}) + "&magree=0" + "&msg=ADD");
+            NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+            if (model == null) {
+                return "同步云端数据失败";
+            } else {
+                logger.info(response);
+                return "SUCCESS";
+            }
         }
+
+        logger.info("addGroup_default");
+        return "SUCCESS";
     }
 
     /**
@@ -440,25 +452,17 @@ public class LiveServiceImpl implements ILiveService {
     @Transactional
     public String leaveGroup(Integer userId, String accid, Integer liveId) {
         //解除聊天群组成员关系
-        ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
-        boolean result = chatRoomUserRelationMapper.deleteMember(userId, accid, chatRoom.getLiveId()) > 0;
-
-        //同步删除云端群组关系
-        String response = NeteaseImUtil.post("nimserver/team/kick.action",
-                "tid=" + chatRoom.getChatRoomId()
-                        + "&owner=" + Constant.HotAccId
-                        + "&member=" + accid);
-
-        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-        if (model == null) {
-            return response;
-        }
-
-        if (result) {
-            logger.info(response);
-            return "SUCCESS";
-        }
-
+        List<ChatRoom> chatRooms = chatRoomMapper.selectByLive(liveId);
+        if(chatRooms == null || chatRooms.size() == 0) return null;
+        AtomicInteger count = new AtomicInteger();
+        chatRooms.forEach((ChatRoom item) -> {
+            boolean result = chatRoomUserRelationMapper.deleteMember(userId, accid, item.getLiveId()) > 0;
+            removeRemoteRoom(item.getChatRoomId());
+            if (result) {
+                count.getAndIncrement();
+            }
+        });
+        if(count.get() == chatRooms.size()) return "SUCCESS";
         return null;
     }
 
@@ -489,6 +493,11 @@ public class LiveServiceImpl implements ILiveService {
             chatRoomUserRelationMapper.deleteLive(item.getLiveId());
             chatRoomMapper.deleteLive(item.getLiveId());
             liveMapper.deleteLive(item.getLiveId());
+
+        });
+
+        chatRooms.forEach(item -> {
+            removeRemoteRoom(item.getChatRoomId());
         });
 
         String response = NeteaseImUtil.post("nimserver/team/joinTeams.action",
@@ -498,7 +507,6 @@ public class LiveServiceImpl implements ILiveService {
 
         if (group.getInfos() != null && group.getInfos().size() > 0) {
             group.getInfos().forEach(item -> {
-
                 String response1 = NeteaseImUtil.post("nimserver/team/remove.action",
                         "tid=" + item.getTid() + "&owner=" + item.getOwner());
                 NAGroup model = JsonUtil.getModel(response1, NAGroup.class);
@@ -506,6 +514,28 @@ public class LiveServiceImpl implements ILiveService {
             });
         }
         return 0;
+    }
+
+    /**
+     * 解散第三方平台的直播间 DF 2019年1月22日14:28:55
+     * @param chatRoomId
+     */
+    private void removeRemoteRoom(String chatRoomId) {
+        String response = NeteaseImUtil.post("nimserver/team/remove.action",
+                "tid=" + chatRoomId + "&owner=" + Constant.HotAccId);
+        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
+        if (!model.getCode().equals(200)) {
+            logger.info("删除网易云端数据失败");
+        }
+
+        if(chatRoomId.contains("@")){
+            response = TencentLiveUtil.post("group_open_http_svc/destroy_group", "{\"GroupId\": \"" + chatRoomId + "\"}");
+            TGroupResp tGroupResp = JsonUtil.getModel(response, TGroupResp.class);
+            if(!tGroupResp.getErrorCode().equals(0)){
+                logger.info("删除腾讯云端数据失败");
+            }
+        }
+
     }
 
 

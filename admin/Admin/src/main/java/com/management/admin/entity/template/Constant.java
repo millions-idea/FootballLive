@@ -77,12 +77,12 @@ public interface Constant {
     /**
      * 网易IM通信服务appKey c58b616a2dbfa83bf7857364f77ae13b
      */
-    String AppKey = "c58b616a2dbfa83bf7857364f77ae13b";//76688b21d1656063933c1199a3e425a1 debug
+    String AppKey = "76688b21d1656063933c1199a3e425a1";//76688b21d1656063933c1199a3e425a1 debug
 
     /**
      * 网易IM通信服务appSecret  ef72133173f2
      */
-    String AppSecret = "ef72133173f2";//b416985f7f9a debug
+    String AppSecret = "b416985f7f9a";//b416985f7f9a debug
     /**
      * 网易热点用户
      */
@@ -109,4 +109,11 @@ public interface Constant {
      * 操作云信时记得把appkey换到测试环境上，不要直接操作正式环境的app应用
      */
     Boolean DebugMode = false;
+
+    /**
+     * 腾讯云通信sig(有效期180天, 生成时间2019年1月21日)
+     */
+    String TencentUserSig = "eJxlj01vgkAURff8CsKWpp0PEMfEBVqj2FojGlNXE*K80ak4TnGwYtP-3khNSuLbnpN77-t2XNf1Fq-zx2y9PpTaclsZ8NyO6yHv4R8aowTPLKeFuINwNqoAnkkLRQ1xGIYEoaajBGirpLoZmdgrjRv8KHa8LvkLCBDCEWNB0FTUpoaTwayfjAYrsn1-g10b0c1pWmq56m0ZXZTDiLXMCEfDqEjsvF*dn2PVm7wAyHRMngi0kUg*qH-5TIOvfGqWTFY*HV-8eJnqWZ7H3W6j0qo93D4KrnNYizXoCYqjOuhaIAiHmFB0Pc-5cX4B3o9cKQ__";
+    String TencentAdminAccount = "admin1";
+    String TencentSdkAppId = "1400179944";
 }

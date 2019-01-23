@@ -47,8 +47,13 @@
         <div class="layui-input-block">
             <select id="winTeamId">
                 <option value="">未产生</option>
-                <option th:if="${informationDetail.forecastTeamId}!=${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
-                <option th:if="${informationDetail.forecastTeamId}==${team.teamId}" th:each="team:${teams}" th:value="${team.teamId}" th:text="${team.teamName}" selected></option>
+                <option th:if='${informationDetail.getForecastTeamId()==0}' th:each="team:${teams}" th:value="${team.getTeamId()}" th:text="${team.getTeamName()}"></option>
+
+                <option th:if='${informationDetail.getForecastTeamId()==1}' th:value="${masterTeam.getTeamId()}" th:text="${masterTeam.getTeamName()}" selected></option>
+                <option th:if='${informationDetail.getForecastTeamId()==1}' th:value="${targetTeam.getTeamId()}" th:text="${targetTeam.getTeamName()}"></option>
+
+                <option th:if='${informationDetail.getForecastTeamId()==2}' th:value="${masterTeam.getTeamId()}" th:text="${masterTeam.getTeamName()}"></option>
+                <option th:if='${informationDetail.getForecastTeamId()==2}' th:value="${targetTeam.getTeamId()}" th:text="${targetTeam.getTeamName()}" selected></option>
             </select>
         </div>
     </div>
@@ -214,7 +219,7 @@
 
                 information.forecastGrade = $("#scheduleGrade").val();
                 information.forecastResult = $("#scheduleResult").val();
-                information.forecastTeamId = $("#winTeamId").val();
+                information.forecastTeamId = $("#winTeamId option:selected").index();
                 information.isHot = $("input[name='like[push]']").next().hasClass("layui-form-checked") ? 1 : 0;
 
                 $.ajax({

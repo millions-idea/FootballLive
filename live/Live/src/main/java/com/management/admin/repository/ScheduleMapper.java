@@ -96,4 +96,17 @@ public interface ScheduleMapper extends MyMapper<HotSchedule> {
      * @param where
      */
     LinkedList<HotSchedule> selecList(@Param("where") String where);
+
+    @Select("SELECT *, " +
+            "t3.team_name AS masterTeamName, t4.team_name AS targetTeamName, " +
+            "t3.team_icon AS masterTeamIcon, t4.team_icon AS targetTeamIcon  " +
+            "FROM tb_lives t1 " +
+            "LEFT JOIN tb_schedules t2 ON t1.schedule_id = t2.schedule_id " +
+            "LEFT JOIN tb_teams t3 ON t2.master_team_id = t3.team_id  " +
+            "LEFT JOIN tb_teams t4 ON t2.target_team_id = t4.team_id  " +
+            "LEFT JOIN tb_games t5 ON t2.game_id = t5.game_id " +
+            "LEFT JOIN tb_live_categorys t6 ON t5.category_id = t6.category_id  " +
+            "LEFT JOIN tb_informations t7 ON t7.live_id = t1.live_id  " +
+            "WHERE t1.live_id = #{liveId}")
+    HotSchedule selectLive(@Param("liveId") Integer liveId);
 }

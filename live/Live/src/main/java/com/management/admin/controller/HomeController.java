@@ -9,15 +9,20 @@ package com.management.admin.controller;
 
 import com.management.admin.biz.IGameService;
 import com.management.admin.biz.IScheduleService;
+import com.management.admin.biz.IUserService;
+import com.management.admin.entity.db.User;
 import com.management.admin.entity.resp.HotGame;
 import com.management.admin.entity.resp.HotInformation;
 import com.management.admin.entity.resp.HotSchedule;
+import com.management.admin.entity.template.SessionModel;
+import com.management.admin.utils.web.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,6 +34,9 @@ public class HomeController extends BaseController {
 
     @Autowired
     private IGameService gameService;
+
+    @Autowired
+    private IUserService userService;
 
     @GetMapping(value = {"","/","/index"})
     public String index(final Model model){
@@ -81,8 +89,17 @@ public class HomeController extends BaseController {
      * @return
      */
     @GetMapping("header")
-    public String header(Integer index, final Model model){
+    public String header(Integer index, final Model model, final HttpServletRequest request){
+        SessionModel session = SessionUtil.getSession(request);
+        if(session != null){
+            User user = userService.getProfile(session.getUserId());
+            model.addAttribute("user", user);
+        }else{
+            model.addAttribute("user", null);
+        }
         model.addAttribute("index", index);
-        return "/schedule/index";
+        return "home/header";
     }
+
+
 }

@@ -41,4 +41,11 @@ public interface IScheduleService {
      * @return
      */
     List<HotSchedule> getScheduleList(Integer type, Integer gameId, String date);
+
+    /**
+     * 获取直播间 DF 2019年1月18日19:02:12
+     * @param liveId
+     * @return
+     */
+    HotSchedule getLive(Integer liveId);
 }

@@ -98,4 +98,10 @@ public class Schedule {
 
     private String gameTime;
 
+    private Integer categoryId;
+
+    public Integer getCategoryId() {
+        if(categoryId == null) categoryId = 1;
+        return categoryId;
+    }
 }

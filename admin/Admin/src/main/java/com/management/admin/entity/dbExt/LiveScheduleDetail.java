@@ -24,7 +24,6 @@ public class LiveScheduleDetail {
     private String liveTitle;
     private Date liveDate;
     private String sourceUrl;
-    private Integer categoryId;
 
     /*schedules*/
     private Integer scheduleId;
@@ -36,6 +35,7 @@ public class LiveScheduleDetail {
     private String masterTeamIcon;
     private String targetTeamName;
     private String targetTeamIcon;
+    private Integer categoryId;
 
     /*games*/
     private Integer gameId;

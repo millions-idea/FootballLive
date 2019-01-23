@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static java.util.stream.Collectors.toList;
 
@@ -403,7 +404,6 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                         localStatus = 4;
                     }
 
-                    logger.info(nItem.getA() + "====>" + nItem.getF());
 
                     //创建或更新赛事
                     Game game = new Game();
@@ -421,7 +421,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                     masterTeam.setTeamName(masterTeamName);
                     masterTeam.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
                     masterTeam.setCloudId(Integer.valueOf(masterTeamId));
-                    masterTeam.setGameId(game.getGameId());
+                    masterTeam.setGameId(game.getCloudId());
                     teamList.add(masterTeam);
 
                     Team targetTeam = new Team();
@@ -429,7 +429,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                     targetTeam.setTeamName(targetTeamName);
                     targetTeam.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
                     targetTeam.setCloudId(Integer.valueOf(targetTeamId));
-                    targetTeam.setGameId(game.getGameId());
+                    targetTeam.setGameId(game.getCloudId());
                     teamList.add(targetTeam);
 
                     Schedule schedule = new Schedule();
@@ -443,7 +443,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                     schedule.setGameDuration("90");
                     schedule.setIsDelete(0);
                     schedule.setIsHot(0);
-                    schedule.setGameId(game.getGameId());//传入云id, 动态查询数据 X
+                    schedule.setGameId(game.getCloudId());//传入云id, 动态查询数据 X
                     schedule.setEditDate(new Date());
                     schedule.setMasterRedChess(Integer.valueOf(masterRedChess));
                     if(yellowCount.contains("-")){
@@ -459,6 +459,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                     schedule.setTargetCornerKick(Integer.valueOf(targetCornerKick));
                     schedule.setNamiScheduleId(Integer.valueOf(gameScheduleId));
                     schedule.setScheduleResult("");
+                    schedule.setCategoryId(categoryId);
 
                     //计算开场分钟数
                     if(schedule.getStatus().equals(1)){
@@ -489,218 +490,6 @@ public class CompetitionServiceImpl implements  ICompetitionService {
 
 
         return true;
-    }
-
-    private void insertOrUpdateGame(List<Game> gameList, boolean b) {
-        if (b) {
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("INSERT INTO tb_games(game_id,game_name,game_icon,category_id,is_delete,is_hot,cloud_id,edit_date) ");
-            buffer.append("VALUES");
-            gameList.forEach(game -> {
-                buffer.append("(" + SQLUtil.extractLocalGameValues(game) + "),");
-            });
-            String execSql = buffer.toString();
-            execSql = execSql.substring(0, execSql.length() - 1);
-            execSql += " ON DUPLICATE KEY UPDATE ";
-            execSql += " edit_date=NOW()";
-            gameMapper.insertOrUpdateList(execSql);
-        }
-    }
-
-    private void insertOrUpdateTeam(List<Team> teamList, boolean b) {
-        if (b) {
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("INSERT INTO tb_teams(team_id,team_name,team_icon,game_id,is_delete,edit_date,cloud_id) ");
-            buffer.append("VALUES");
-            teamList.forEach(team -> {
-                buffer.append("(" + SQLUtil.extractLocalTeamValues(team) + "),");
-            });
-            String execSql = buffer.toString();
-            execSql = execSql.substring(0, execSql.length() - 1);
-            execSql += " ON DUPLICATE KEY UPDATE ";
-            execSql += " edit_date=NOW()";
-            teamMapper.insertOrUpdateList(execSql);
-        }
-    }
-
-    private void insertOrUpdateLocalSchedule(List<Schedule> scheduleList) {
-        if(scheduleList.size() > 0){
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("INSERT INTO tb_schedules(game_id,team_id,game_date,game_duration,status,is_delete,schedule_result,schedule_grade,win_team_id,master_team_id,target_team_id,is_hot,cloud_id,edit_date,master_red_chess,master_yellow_chess,master_corner_kick,target_red_chess,target_yellow_chess,target_corner_kick,nami_schedule_id,game_time) ");
-            buffer.append("VALUES");
-            scheduleList.forEach(schedule -> {
-                buffer.append("(" + SQLUtil.extractLocalScheduleValues(schedule) + "),");
-            });
-            String execSql = buffer.toString();
-            execSql = execSql.substring(0, execSql.length() - 1);
-            execSql += " ON DUPLICATE KEY UPDATE ";
-            execSql += " status=VALUES(status),";
-            execSql += " edit_date=NOW()";
-            scheduleMapper.insertOrUpdateList(execSql);
-        }
-    }
-
-
-    private void insertOrUpdateSchedule(List<Schedule> scheduleList) {
-        if(scheduleList.size() > 0){
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("INSERT INTO tb_schedules(game_id,team_id,game_date,game_duration,status,is_delete,schedule_result,schedule_grade,win_team_id,master_team_id,target_team_id,is_hot,cloud_id,edit_date,master_red_chess,master_yellow_chess,master_corner_kick,target_red_chess,target_yellow_chess,target_corner_kick,nami_schedule_id,game_time) ");
-            buffer.append("VALUES");
-            scheduleList.forEach(schedule -> {
-                buffer.append("(" + SQLUtil.extractLocalScheduleValues(schedule) + "),");
-            });
-            String execSql = buffer.toString();
-            execSql = execSql.substring(0, execSql.length() - 1);
-            execSql += " ON DUPLICATE KEY UPDATE ";
-            execSql += " game_date=VALUES(game_date),";
-            execSql += " status=VALUES(status),";
-            execSql += " schedule_result=VALUES(schedule_result),";
-            execSql += " schedule_grade=VALUES(schedule_grade),";
-            execSql += " win_team_id=VALUES(win_team_id),";
-            /*execSql += " master_team_id=VALUES(master_team_id),";
-            execSql += " target_team_id=VALUES(target_team_id),";*/
-            execSql += " master_red_chess=VALUES(master_red_chess),";
-            execSql += " master_yellow_chess=VALUES(master_yellow_chess),";
-            execSql += " master_corner_kick=VALUES(master_corner_kick),";
-            execSql += " target_red_chess=VALUES(target_red_chess),";
-            execSql += " target_yellow_chess=VALUES(target_yellow_chess),";
-            execSql += " target_corner_kick=VALUES(target_corner_kick),";
-            execSql += " game_time=VALUES(game_time),";
-            execSql += " edit_date=NOW()";
-            scheduleMapper.insertOrUpdateList(execSql);
-        }
-    }
-
-    private void doScheduleGC() {
-        try{
-            String response;List<Schedule> onWayScheduleList =  scheduleMapper.selectOnWay();
-            if(onWayScheduleList != null){
-                List<String> idList = onWayScheduleList.stream().map(item -> item.getCloudId() + "").collect(toList());
-                response = HttpUtil.get("http://interface.win007.com/zq/BF_XMLByID.aspx?id=" + String.join(",", idList), null);
-                if(response != null){
-                    response = response.replace("<?xml  version=\"1.0\" encoding=\"utf-8\"?>", "");
-                    String jsonString = XmlUtil.documentToJSONObject(response).toJSONString();
-                    System.out.println(jsonString);
-                    FSchedules fSchedules = JsonUtil.getModel(jsonString, FSchedules.class);
-                    if(fSchedules == null) throw new InfoException("序列化失败");
-                    List<Schedule> scheduleList = new ArrayList<>();
-                    fSchedules.getList().forEach(item -> {
-                        item.getMatch().forEach(nItem -> {
-                            //获取联赛信息
-                            String scheduleInfo = nItem.getC();
-                            String scheduleName = scheduleInfo.split(",")[0];
-                            String gameScheduleId = scheduleInfo.split(",")[3];
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                            Date scheduleDate = null;//比赛时间
-                            try {
-                                nItem.setD(nItem.getD().replace("/", "-"));
-                                scheduleDate = sdf.parse(nItem.getD());
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            //获取主队球队信息
-                            String masterTeamInfo = nItem.getH();
-                            String masterTeamName = masterTeamInfo.split(",")[0];
-                            String masterTeamId = masterTeamInfo.split(",")[3];
-                            String masterTeamGrade = nItem.getJ();
-                            String masterRedChess = nItem.getN();
-
-                            //获取客队球队信息
-                            String targetTeamInfo = nItem.getI();
-                            String targetTeamName = targetTeamInfo.split(",")[0];
-                            String targetTeamId = targetTeamInfo.split(",")[3];
-                            String targetTeamGrade = nItem.getK();
-                            String targetRedChess = nItem.getO();
-
-                            String yellowCount = nItem.getYellow();//0-0
-                            //获取比赛说明2 <explain2>;|2;|;|;;;;</explain2>
-                            String explain2 = nItem.getExplain2();
-                            String masterCornerKick = "0";
-                            String targetCornerKick = "0";
-                            if(explain2 != null && explain2.length() > 0){
-                                String cornerKick = explain2.split("|")[2];
-                                if(!cornerKick.contains(";") || cornerKick.equals(";")){
-                                    masterCornerKick = "0";
-                                    targetCornerKick = "0";
-                                }else{
-                                    masterCornerKick = cornerKick.split(";")[0];
-                                    targetCornerKick = cornerKick.split(";")[1];
-                                }
-                            }
-
-
-                            //【比赛状态】0:未开，1:上半场，2:中场，3:下半场，4:加时，5:点球，-1:完场，-10:取消，-11:待定，-12:腰斩，-13:中断，-14:推迟
-                            Integer cloudStatus = new Integer(nItem.getF());
-                            Integer localStatus = 0;
-
-                            //正在直播
-                            if(cloudStatus.intValue() >= 1 && cloudStatus.intValue() <= 5){
-                                localStatus = 1;
-                            }
-
-                            //已结束
-                            else if(cloudStatus.intValue() == -1 || cloudStatus.intValue() == -10 || cloudStatus.intValue() == -13){
-                                localStatus = 2;
-                            }
-
-                            //延迟
-                            else if(cloudStatus.intValue() == -14 || cloudStatus.intValue() == -11){
-                                localStatus = 3;
-                            }
-                            else if(cloudStatus.intValue() == 0){
-                                localStatus = 0;
-                            }
-                            //待定或者其他
-                            else {
-                                localStatus = 4;
-                            }
-
-                            Schedule schedule = new Schedule();
-                            schedule.setTeamId(null);//传入云id,动态查询本地id
-                            schedule.setMasterTeamId(Integer.valueOf(masterTeamId));//传入云id,动态查询本地id
-                            schedule.setTargetTeamId(Integer.valueOf(targetTeamId));//传入云id,动态查询本地id
-                            schedule.setStatus(localStatus);
-
-                            schedule.setScheduleGrade(masterTeamGrade + "-" + targetTeamGrade);
-                            schedule.setCloudId(Integer.valueOf(nItem.getA()));
-                            schedule.setGameDate(scheduleDate);
-                            schedule.setGameDuration("90");
-                            schedule.setIsDelete(0);
-                            schedule.setIsHot(0);
-                            schedule.setGameId(Integer.valueOf(gameScheduleId));//传入云id, 动态查询数据
-                            schedule.setEditDate(new Date());
-                            schedule.setMasterRedChess(Integer.valueOf(masterRedChess));
-                            if(yellowCount.contains("-")){
-                                schedule.setMasterYellowChess(Integer.valueOf(yellowCount.split("-")[0]));
-                                schedule.setTargetYellowChess(Integer.valueOf(yellowCount.split("-")[1]));
-                            }else{
-                                schedule.setMasterYellowChess(0);
-                                schedule.setTargetYellowChess(0);
-                            }
-
-                            schedule.setMasterCornerKick(Integer.valueOf(masterCornerKick));
-                            schedule.setTargetRedChess(Integer.valueOf(targetRedChess));
-                            schedule.setTargetCornerKick(Integer.valueOf(targetCornerKick));
-                            schedule.setNamiScheduleId(Integer.valueOf(gameScheduleId));
-                            schedule.setScheduleResult("");
-
-                            //计算开场分钟数
-                            if(schedule.getStatus().equals(1)){
-                                long diffMinute = DateUtil.getDiffMinute(scheduleDate);
-                                schedule.setGameTime(diffMinute + "");
-                            }else{
-                                schedule.setGameTime("-1");
-                            }
-
-                            scheduleList.add(schedule);
-                        });
-                    });
-                    insertOrUpdateSchedule(scheduleList);
-                }
-            }
-        }catch (Exception e){
-            System.out.println(e.toString());
-        }
     }
 
     @Override
@@ -943,8 +732,12 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                 List<Team> teamList = new ArrayList<>();
                 List<Game> gameList = new ArrayList<>();
                 List<Schedule> scheduleList = new ArrayList<>();
+                AtomicReference<Integer> itemCount = new AtomicReference<>(0);
+                AtomicReference<Integer> nItemCount = new AtomicReference<>(0);
                 fToDay.getList().forEach(item -> {
+                    itemCount.getAndSet(itemCount.get() + 1);
                     item.getMatch().forEach(nItem -> {
+                        nItemCount.getAndSet(nItemCount.get() + 1);
                         //获取联赛信息
                         String gameScheduleId =nItem.getLeagueID();
                         String gameScheduleName = nItem.getLeague().split(",")[0];
@@ -1002,8 +795,9 @@ public class CompetitionServiceImpl implements  ICompetitionService {
 
 
                         //创建或更新赛事
+                        Integer gameId = IdWorker.getFlowIdWorkerInstance().nextInt32(8);
                         Game game = new Game();
-                        game.setGameId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
+                        game.setGameId(gameId);
                         game.setCloudId(Integer.valueOf(gameScheduleId));
                         game.setGameName(gameScheduleName);
                         game.setGameIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
@@ -1017,7 +811,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                         masterTeam.setTeamName(masterTeamName);
                         masterTeam.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
                         masterTeam.setCloudId(Integer.valueOf(masterTeamId));
-                        masterTeam.setGameId(game.getGameId());
+                        masterTeam.setGameId(game.getCloudId());//通过云id查询gameId
                         teamList.add(masterTeam);
 
                         Team targetTeam = new Team();
@@ -1025,7 +819,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                         targetTeam.setTeamName(targetTeamName);
                         targetTeam.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
                         targetTeam.setCloudId(Integer.valueOf(targetTeamId));
-                        targetTeam.setGameId(game.getGameId());
+                        targetTeam.setGameId(game.getCloudId());//通过云id查询gameId
                         teamList.add(targetTeam);
 
                         Schedule schedule = new Schedule();
@@ -1049,7 +843,7 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                         schedule.setGameDuration("90");
                         schedule.setIsDelete(0);
                         schedule.setIsHot(0);
-                        schedule.setGameId(game.getGameId());
+                        schedule.setGameId(game.getCloudId());//通过云id查询gameId
                         schedule.setEditDate(new Date());
                         schedule.setMasterRedChess(Integer.valueOf(masterRedChess));
                         schedule.setMasterYellowChess(Integer.valueOf(nItem.getYellow1()));
@@ -1060,6 +854,8 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                         schedule.setTargetCornerKick(Integer.valueOf(targetCornerKick));
                         schedule.setNamiScheduleId(Integer.valueOf(gameScheduleId));
                         schedule.setScheduleResult("");
+                        schedule.setCategoryId(categoryId);
+
                         //计算开场分钟数
                         if(schedule.getStatus().equals(1)){
                             long diffMinute = DateUtil.getDiffMinute(scheduleDate);
@@ -1069,6 +865,8 @@ public class CompetitionServiceImpl implements  ICompetitionService {
                         }
 
                         scheduleList.add(schedule);
+
+
                     });
                 });
 
@@ -1086,6 +884,246 @@ public class CompetitionServiceImpl implements  ICompetitionService {
     }
 
 
+    private void insertOrUpdateGame(List<Game> gameList, boolean b) {
+        if (b) {
+
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("INSERT INTO tb_games(game_id,game_name,game_icon,category_id,is_delete,is_hot,cloud_id,edit_date) ");
+            buffer.append("VALUES");
+            gameList.forEach(game -> {
+                buffer.append("(" + SQLUtil.extractLocalGameValues(game) + "),");
+            });
+            String execSql = buffer.toString();
+            execSql = execSql.substring(0, execSql.length() - 1);
+            execSql += " ON DUPLICATE KEY UPDATE ";
+            execSql += " game_id=VALUES(game_id),";
+            //execSql += " game_icon=VALUES(game_icon), ";
+            execSql += " edit_date=NOW()";
+            gameMapper.insertOrUpdateList(execSql);
+        }
+    }
+
+    private void insertOrUpdateTeam(List<Team> teamList, boolean b) {
+        if (b) {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("INSERT INTO tb_teams(team_id,team_name,team_icon,game_id,is_delete,edit_date,cloud_id) ");
+            buffer.append("VALUES");
+            teamList.forEach(team -> {
+                buffer.append("(" + SQLUtil.extractLocalTeamValues(team) + "),");
+            });
+            String execSql = buffer.toString();
+            execSql = execSql.substring(0, execSql.length() - 1);
+            execSql += " ON DUPLICATE KEY UPDATE ";
+            execSql += " game_id=VALUES(game_id),";
+            execSql += " team_id=VALUES(team_id),";
+            //execSql += " team_icon=VALUES(team_icon), ";
+            execSql += " edit_date=NOW()";
+            teamMapper.insertOrUpdateList(execSql);
+        }
+    }
+
+    private void insertOrUpdateSchedule(List<Schedule> scheduleList) {
+        if(scheduleList.size() > 0){
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("INSERT INTO tb_schedules(game_id,team_id,game_date,game_duration,status,is_delete,schedule_result,schedule_grade,win_team_id,master_team_id,target_team_id,is_hot,cloud_id,edit_date,master_red_chess,master_yellow_chess,master_corner_kick,target_red_chess,target_yellow_chess,target_corner_kick,nami_schedule_id,game_time,category_id) ");
+            buffer.append("VALUES");
+            scheduleList.forEach(schedule -> {
+                buffer.append("(" + SQLUtil.extractLocalScheduleValues(schedule) + "),");
+            });
+            String execSql = buffer.toString();
+            execSql = execSql.substring(0, execSql.length() - 1);
+            execSql += " ON DUPLICATE KEY UPDATE ";
+            execSql += " game_date=VALUES(game_date),";
+            execSql += " status=VALUES(status),";
+            execSql += " schedule_result=VALUES(schedule_result),";
+            execSql += " schedule_grade=VALUES(schedule_grade),";
+            execSql += " win_team_id=VALUES(win_team_id),";
+            execSql += " team_id=VALUES(team_id),";
+            execSql += " game_id=VALUES(game_id),";
+            execSql += " master_team_id=VALUES(master_team_id),";
+            execSql += " target_team_id=VALUES(target_team_id),";
+            execSql += " master_red_chess=VALUES(master_red_chess),";
+            execSql += " master_yellow_chess=VALUES(master_yellow_chess),";
+            execSql += " master_corner_kick=VALUES(master_corner_kick),";
+            execSql += " target_red_chess=VALUES(target_red_chess),";
+            execSql += " target_yellow_chess=VALUES(target_yellow_chess),";
+            execSql += " target_corner_kick=VALUES(target_corner_kick),";
+            execSql += " game_time=VALUES(game_time),";
+            execSql += " edit_date=NOW()";
+            scheduleMapper.insertOrUpdateList(execSql);
+        }
+    }
+
+    private void doScheduleGC() {
+        try{
+            String response;List<Schedule> onWayScheduleList =  scheduleMapper.selectOnWay();
+            if(onWayScheduleList != null){
+                List<String> idList = onWayScheduleList.stream().map(item -> item.getCloudId() + "").collect(toList());
+                response = HttpUtil.get("http://interface.win007.com/zq/BF_XMLByID.aspx?id=" + String.join(",", idList), null);
+                if(response != null){
+                    response = response.replace("<?xml  version=\"1.0\" encoding=\"utf-8\"?>", "");
+                    String jsonString = XmlUtil.documentToJSONObject(response).toJSONString();
+                    System.out.println(jsonString);
+                    FSchedules fSchedules = JsonUtil.getModel(jsonString, FSchedules.class);
+                    if(fSchedules == null) throw new InfoException("序列化失败");
+                    List<Game> gameList = new ArrayList<>();
+                    List<Team> teamList = new ArrayList<>();
+                    List<Schedule> scheduleList = new ArrayList<>();
+                    fSchedules.getList().forEach(item -> {
+                        item.getMatch().forEach(nItem -> {
+                            //获取联赛信息
+                            String scheduleInfo = nItem.getC();
+                            String scheduleName = scheduleInfo.split(",")[0];
+                            String gameScheduleId = scheduleInfo.split(",")[3];
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            Date scheduleDate = null;//比赛时间
+                            try {
+                                nItem.setD(nItem.getD().replace("/", "-"));
+                                scheduleDate = sdf.parse(nItem.getD());
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            //获取主队球队信息
+                            String masterTeamInfo = nItem.getH();
+                            String masterTeamName = masterTeamInfo.split(",")[0];
+                            String masterTeamId = masterTeamInfo.split(",")[3];
+                            String masterTeamGrade = nItem.getJ();
+                            String masterRedChess = nItem.getN();
+
+                            //获取客队球队信息
+                            String targetTeamInfo = nItem.getI();
+                            String targetTeamName = targetTeamInfo.split(",")[0];
+                            String targetTeamId = targetTeamInfo.split(",")[3];
+                            String targetTeamGrade = nItem.getK();
+                            String targetRedChess = nItem.getO();
+
+                            String yellowCount = nItem.getYellow();//0-0
+                            //获取比赛说明2 <explain2>;|2;|;|;;;;</explain2>
+                            String explain2 = nItem.getExplain2();
+                            String masterCornerKick = "0";
+                            String targetCornerKick = "0";
+                            if(explain2 != null && explain2.length() > 0){
+                                String cornerKick = explain2.split("|")[2];
+                                if(!cornerKick.contains(";") || cornerKick.equals(";")){
+                                    masterCornerKick = "0";
+                                    targetCornerKick = "0";
+                                }else{
+                                    masterCornerKick = cornerKick.split(";")[0];
+                                    targetCornerKick = cornerKick.split(";")[1];
+                                }
+                            }
+
+
+                            //【比赛状态】0:未开，1:上半场，2:中场，3:下半场，4:加时，5:点球，-1:完场，-10:取消，-11:待定，-12:腰斩，-13:中断，-14:推迟
+                            Integer cloudStatus = new Integer(nItem.getF());
+                            Integer localStatus = 0;
+
+                            //正在直播
+                            if(cloudStatus.intValue() >= 1 && cloudStatus.intValue() <= 5){
+                                localStatus = 1;
+                            }
+
+                            //已结束
+                            else if(cloudStatus.intValue() == -1 || cloudStatus.intValue() == -10 || cloudStatus.intValue() == -13){
+                                localStatus = 2;
+                            }
+
+                            //延迟
+                            else if(cloudStatus.intValue() == -14 || cloudStatus.intValue() == -11){
+                                localStatus = 3;
+                            }
+                            else if(cloudStatus.intValue() == 0){
+                                localStatus = 0;
+                            }
+                            //待定或者其他
+                            else {
+                                localStatus = 4;
+                            }
+
+                            //创建或更新赛事
+                            Game game = new Game();
+                            game.setGameId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
+                            game.setCloudId(Integer.valueOf(gameScheduleId));
+                            game.setGameName(scheduleName);
+                            game.setGameIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+                            game.setCategoryId(1);
+                            game.setIsDelete(0);
+                            gameList.add(game);
+
+                            //创建或更新球队
+                            Team masterTeam = new Team();
+                            masterTeam.setTeamId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
+                            masterTeam.setTeamName(masterTeamName);
+                            masterTeam.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+                            masterTeam.setCloudId(Integer.valueOf(masterTeamId));
+                            masterTeam.setGameId(game.getCloudId());
+                            teamList.add(masterTeam);
+
+                            Team targetTeam = new Team();
+                            targetTeam.setTeamId(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
+                            targetTeam.setTeamName(targetTeamName);
+                            targetTeam.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+                            targetTeam.setCloudId(Integer.valueOf(targetTeamId));
+                            targetTeam.setGameId(game.getCloudId());
+                            teamList.add(targetTeam);
+
+                            Schedule schedule = new Schedule();
+                            schedule.setTeamId(null);//传入云id,动态查询本地id
+                            schedule.setMasterTeamId(masterTeam.getTeamId());//传入云id,动态查询本地id
+                            schedule.setTargetTeamId(targetTeam.getTeamId());//传入云id,动态查询本地id
+                            schedule.setStatus(localStatus);
+
+                            schedule.setScheduleGrade(masterTeamGrade + "-" + targetTeamGrade);
+                            schedule.setCloudId(Integer.valueOf(nItem.getA()));
+                            schedule.setGameDate(scheduleDate);
+                            schedule.setGameDuration("90");
+                            schedule.setIsDelete(0);
+                            schedule.setIsHot(0);
+                            schedule.setGameId(game.getCloudId());//传入云id, 动态查询数据
+                            schedule.setEditDate(new Date());
+                            schedule.setMasterRedChess(Integer.valueOf(masterRedChess));
+                            if(yellowCount.contains("-")){
+                                schedule.setMasterYellowChess(Integer.valueOf(yellowCount.split("-")[0]));
+                                schedule.setTargetYellowChess(Integer.valueOf(yellowCount.split("-")[1]));
+                            }else{
+                                schedule.setMasterYellowChess(0);
+                                schedule.setTargetYellowChess(0);
+                            }
+
+                            schedule.setMasterCornerKick(Integer.valueOf(masterCornerKick));
+                            schedule.setTargetRedChess(Integer.valueOf(targetRedChess));
+                            schedule.setTargetCornerKick(Integer.valueOf(targetCornerKick));
+                            schedule.setNamiScheduleId(Integer.valueOf(gameScheduleId));
+                            schedule.setScheduleResult("");
+                            schedule.setCategoryId(1);
+                            //计算开场分钟数
+                            if(schedule.getStatus().equals(1)){
+                                long diffMinute = DateUtil.getDiffMinute(scheduleDate);
+                                schedule.setGameTime(diffMinute + "");
+                            }else{
+                                schedule.setGameTime("-1");
+                            }
+
+                            scheduleList.add(schedule);
+                        });
+                    });
+
+                    //新增或更新联赛
+                    insertOrUpdateGame(gameList, gameList.size() > 0);
+
+                    //新增或更新球队
+                    insertOrUpdateTeam(teamList, teamList.size() > 0);
+
+                    //新增或更新赛程
+                    insertOrUpdateSchedule(scheduleList);
+
+                }
+            }
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
     public static class SQLUtil{
         public static String extractTeamValues(Team team){
             StringBuffer buffer = new StringBuffer();
@@ -1094,6 +1132,9 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             //team_name
             buffer.append("'" + team.getTeamName() + "',");
             //team_icon
+            if(team.getTeamIcon() == null || team.getTeamIcon().isEmpty()){
+                team.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+            }
             buffer.append("'" +team.getTeamIcon() + "',");
             //game_id
             buffer.append("(SELECT game_id FROM tb_games WHERE cloud_id = " + team.getGameId() + " LIMIT 1),");
@@ -1113,9 +1154,13 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             //team_name
             buffer.append("'" + team.getTeamName() + "',");
             //team_icon
+            if(team.getTeamIcon() == null || team.getTeamIcon().isEmpty()){
+                team.setTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+            }
             buffer.append("'" +team.getTeamIcon() + "',");
             //game_id
-            buffer.append(team.getGameId() + ",");
+            buffer.append("(SELECT game_id FROM tb_games WHERE cloud_id = "+ team.getGameId()  +" LIMIT 1), ");
+            //buffer.append(team.getGameId() + ",");
             //is_delete
             buffer.append("0,");
             //edit_date
@@ -1125,7 +1170,6 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             return buffer.toString();
         }
 
-
         public static String extractLocalGameValues(Game game){
             StringBuffer buffer = new StringBuffer();
             //game_id
@@ -1133,6 +1177,9 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             //game_name
             buffer.append("'" + game.getGameName() + "',");
             //game_icon
+            if(game.getGameIcon() == null || game.getGameIcon().isEmpty()){
+                game.setGameIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+            }
             buffer.append("'" +game.getGameIcon() + "',");
             //category_id
             buffer.append(game.getCategoryId() + ",");
@@ -1224,7 +1271,8 @@ public class CompetitionServiceImpl implements  ICompetitionService {
         public static String extractLocalScheduleValues(Schedule schedule) {
             StringBuffer buffer = new StringBuffer();
             //game_id
-            buffer.append(schedule.getGameId() + ",");
+            buffer.append("(SELECT game_id FROM tb_games WHERE cloud_id = "+ schedule.getGameId()  +" LIMIT 1), ");
+            //buffer.append(schedule.getGameId() + ",");
             //team_id
             buffer.append("'" + schedule.getMasterTeamId() + "," + schedule.getTargetTeamId() + "'" + ",");
             //game_date
@@ -1288,7 +1336,9 @@ public class CompetitionServiceImpl implements  ICompetitionService {
             //nami_schedule_id
             buffer.append("" + schedule.getNamiScheduleId() + ",");
             //game_time
-            buffer.append("'" + schedule.getGameTime() + "'");
+            buffer.append("'" + schedule.getGameTime() + "',");
+            //category_id
+            buffer.append("" + schedule.getCategoryId() + "");
             return buffer.toString();
         }
 

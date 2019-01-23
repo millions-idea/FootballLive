@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +34,20 @@ public class ScheduleController {
     private IGameService gameService;
 
     @GetMapping(value = {"","/","/index"})
-    public String index(final Model model){
+    public String index(@RequestParam(required = false) Integer gameId, final Model model){
         //查询足球、篮球、斯诺克分类赛事，只取前7条数据
         List<HotCategory> hotCategoryList = gameService.getCategoryList("足球", "篮球", "斯诺克");
         //查询全部分类下的全部赛程的近三天数据
         List<HotSchedule> scheduleServiceRecentList = scheduleService.getRecentList();
-        List<HotSchedule> collect = scheduleServiceRecentList.stream().limit(7).collect(Collectors.toList());
+        List<Integer> ids = new ArrayList<>();
+        List<HotSchedule> nCollect = scheduleServiceRecentList.stream().filter(// 过滤去重
+                v -> {
+                    boolean flag = !ids.contains(v.getGameId());
+                    ids.add(v.getGameId());
+                    return flag;
+                }
+        ).collect(Collectors.toList());
+        List<HotSchedule> collect = nCollect.stream().limit(7).collect(Collectors.toList());
         if(collect == null || collect.size() < 7){
             Integer diff = 7 - collect.size();
             for (int i = 0; i < diff; i++) {
@@ -47,6 +56,7 @@ public class ScheduleController {
         }
         model.addAttribute("categorys", hotCategoryList);
         model.addAttribute("schedules", collect);
+        model.addAttribute("gameId", gameId);
         return "schedule/index";
     }
 
@@ -59,7 +69,15 @@ public class ScheduleController {
     @GetMapping("getCategorySchedule")
     public String getCategorySchedule(final Model model, Integer categoryId){
         List<HotSchedule> scheduleServiceRecentList = scheduleService.getRecentList();
-        List<HotSchedule> collect = scheduleServiceRecentList.stream().filter(item -> item.getCategoryId().equals(categoryId)).collect(Collectors.toList());
+        List<Integer> ids = new ArrayList<>();
+        List<HotSchedule> nCollect = scheduleServiceRecentList.stream().filter(// 过滤去重
+                v -> {
+                    boolean flag = !ids.contains(v.getGameId());
+                    ids.add(v.getGameId());
+                    return flag;
+                }
+        ).collect(Collectors.toList());
+        List<HotSchedule> collect = nCollect.stream().filter(item -> item.getCategoryId() != null && item.getCategoryId().equals(categoryId)).collect(Collectors.toList());
         model.addAttribute("list", collect);
         return "schedule/categorySchedule";
     }
@@ -74,7 +92,7 @@ public class ScheduleController {
      * @return
      */
     @GetMapping("getScheduleList")
-    public String getScheduleList(Integer type, Integer gameId, String date, final Model model){
+    public String getScheduleList(Integer type, @RequestParam(required = false)  Integer gameId, String date, final Model model){
         if(type == null) type = 1;
         if(type != null && type.equals(0)) type = null;
         String yesterDay = (Integer.valueOf(DateUtil.getCurrentDay()) - 1) + "";

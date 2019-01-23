@@ -205,12 +205,13 @@ html,body,.container{
 
 .center-container{
     width: 1200px;
-    height: 715px;
+    max-height: 850px !important;
     background-color: #F5F5F5;
     position: relative;
     display: inline-block;
-    overflow: hidden;
     padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .center-container .stage{
@@ -227,6 +228,7 @@ html,body,.container{
     min-width: 435px !important;
     min-height: 100%  !important;
     z-index: 999;
+    max-width: 435px !important;
 }
 
 .stage .top{
@@ -322,7 +324,6 @@ html,body,.container{
 .right-navigation .chat-list-container .chat-list{
     width: 100%;
     padding: 20px;
-    background-color: #40AFFE;
 }
 
 .chat-editor-container{
@@ -346,12 +347,106 @@ html,body,.container{
 .chat-editor-container .editor-box{
     width: 100%;
     height: 65px;
-    background-color: red;
     padding: 10px;
 }
 
 .chat-editor-container .editor-box .editor{
-    width: 417px;
-    height: 65px;
-    background-color: yellow;
+    width: 342px;
+    height: 59px;
+    border: 1px solid #dcdcdc;
+    padding-left: 10px;
+    padding-top: 5px;
+    resize: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    white-space: pre;
+}
+
+.editor-button{
+    display: inline-block;
+    white-space: nowrap;
+    height: 67px;
+    width: 55px;
+    position: relative;
+    top: -29px;
+    left: -5px;
+    border: 0px solid #fff;
+    background-color: #5626D3;
+    color: #fff;
+    cursor: pointer;
+}
+
+.text-cont{
+    min-height: 20px;
+    width: 90%;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.chat-list .phone{
+    color: #5c9bf1;
+    cursor: pointer;
+}
+
+.chat-list .content{
+    color: #535353;
+    margin-left: 5px;
+}
+
+
+.information{
+    background-color: #FFFFFF;
+    width: 100%;
+    min-height: 125px;
+}
+
+.information .top .title{
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+}
+
+.information .top .content{
+    display: block;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    color: #3c3c3c;
+}
+
+
+.chat-list .c-nicon {
+    background-position: 0 -121px;
+    width: 20px;
+    height: 16px;
+}
+
+
+.chat-list .c-nicon, .colours .c-icon, .expression .e-btn, .shie-switch .shie-site-icon {
+    display: inline-block;
+    background: url(../res/common/speak-icon.png?v=9bf9fedb4c) no-repeat;
+    vertical-align: -4px;
+    *vertical-align: -1px;
+}
+
+.official .phone{
+    background-color: #846eff;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    padding-left: 5px;
+    color: #fff;
+    padding-right: 5px;
+}
+
+.official .content{
+    color: #5c43e3;
+}
+
+.official{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
 }

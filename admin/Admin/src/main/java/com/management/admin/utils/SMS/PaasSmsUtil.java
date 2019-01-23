@@ -19,7 +19,7 @@ public class PaasSmsUtil {
     // 请登录zz.253.com 获取创蓝API账号(非登录账号,示例:N1234567)
     public static String account = "N2073464";
     // 请登录zz.253.com 获取创蓝API密码(非登录密码)
-    public static String password = "ZDpjMw3Rckd0b5";
+    public static String password = "666123456";
 
     //短信发送的URL 请登录zz.253.com 获取完整的URL接口信息
     public static String smsSingleRequestServerUrl = "http://smssh1.253.com/msg/send/json";

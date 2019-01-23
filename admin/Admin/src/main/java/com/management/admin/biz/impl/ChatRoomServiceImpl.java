@@ -4,13 +4,16 @@ import com.management.admin.biz.IChatRoomService;
 import com.management.admin.entity.db.ChatRoom;
 import com.management.admin.entity.dbExt.ChatRoomDetail;
 import com.management.admin.entity.dbExt.LiveDetail;
-import com.management.admin.entity.resp.NAGroup;
-import com.management.admin.entity.resp.NAMsg;
+import com.management.admin.entity.resp.*;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.repository.ChatRoomMapper;
 import com.management.admin.repository.utils.ConditionUtil;
+import com.management.admin.utils.IdWorker;
 import com.management.admin.utils.JsonUtil;
 import com.management.admin.utils.http.NeteaseImUtil;
+import com.management.admin.utils.http.TencentLiveUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +22,7 @@ import java.util.UUID;
 
 @Service
 public class ChatRoomServiceImpl implements IChatRoomService {
-
+    private final Logger logger = LoggerFactory.getLogger(ChatRoomServiceImpl.class);
 
     private ChatRoomMapper chatRoomMapper;
 
@@ -129,27 +132,56 @@ public class ChatRoomServiceImpl implements IChatRoomService {
      * @return
      */
     public String sendMsg(String MsgPassword,Integer liveId,String msg){
-        ChatRoom chatRoom = chatRoomMapper.selectByLive(liveId);
+        List<ChatRoom> chatRooms = chatRoomMapper.selectByLive(liveId);
 
-        if(chatRoom == null) return "直播间不存在";
+        if(chatRooms == null) return "直播间不存在";
 
         if(!MsgPassword.equals(Constant.MsgPassword)){
             return "发送密码错误！";
         }
-        String body = "from=" +  Constant.HotAccId + "&ope=1"
-                + "&to=" + chatRoom.getChatRoomId() + "&type=0" + "&body=" + "{\"msg\":\"" + msg + "\"}";
 
-        System.out.println("假人气参数:" + body);
+        chatRooms.forEach(item -> {
+            //云信
+            sendNeteaseMessage(msg, item);
+
+            //腾讯
+            sendTencentMessage(msg, item);
+        });
+
+
+
+        return null;
+    }
+
+    private void sendTencentMessage(String msg, ChatRoom item) {
+        if(!item.getChatRoomId().contains("@")) return ;
+
+        TMessageParam tMessageParam = new TMessageParam();
+        TMessageBody tMessageBody = new TMessageBody();
+        tMessageBody.setMsgType("TIMTextElem");
+
+        TMessageContent tMessageContent = new TMessageContent();
+        tMessageContent.setText(msg);
+        tMessageBody.setMsgContent(tMessageContent);
+
+        tMessageParam.setGroupId(item.getChatRoomId());
+        tMessageParam.setMsgBody(tMessageBody);
+
+        tMessageParam.setRandom(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
+        String response = TencentLiveUtil.post("group_open_http_svc/send_group_msg", JsonUtil.getJsonNotEscape(tMessageParam));
+
+        logger.info("腾讯假人气响应:" + response);
+    }
+
+    private void sendNeteaseMessage(String msg, ChatRoom item) {
+        String body = "from=" +  Constant.HotAccId + "&ope=1"
+                + "&to=" + item.getChatRoomId() + "&type=0" + "&body=" + "{\"msg\":\"" + msg + "\"}";
+
+        logger.info("云信假人气参数:" + body);
 
         String response = NeteaseImUtil.post("nimserver/msg/sendMsg.action", body);
 
-        System.out.println("假人气响应:" + response);
-
-        NAGroup model = JsonUtil.getModel(response, NAGroup.class);
-
-        if (!model.getCode().equals(200)) return response;
-
-        return null;
+        logger.info("云信假人气响应:" + response);
     }
 
     /**

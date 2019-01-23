@@ -112,11 +112,11 @@ public interface InformationMapper extends MyMapper<Information> {
             " FROM tb_informations t1 " +
             "LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
             "LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
-            "LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
+            "LEFT JOIN tb_games t4 ON t4.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t1.forecast_team_id " +
             "LEFT JOIN tb_teams t6 ON t6.team_id = t3.master_team_id " +
             "LEFT JOIN tb_teams t7 ON t7.team_id = t3.target_team_id " +
-            "WHERE t1.is_delete = 0 AND t2.status = 0 AND t3.is_delete = 0 AND t4.is_delete = 0 " +
+            "WHERE t1.is_delete = 0 AND t2.status = 0 AND t3.is_delete = 0 " +
             "AND ${condition}  " +
             "ORDER BY t2.live_date ")
     List<LiveScheduleDetail> selectInformationDetailList(@Param("gameId") Integer gameId, @Param("categoryId") Integer categoryId,
@@ -132,11 +132,11 @@ public interface InformationMapper extends MyMapper<Information> {
             "FROM tb_informations t1 " +
             "LEFT JOIN  tb_lives t2 ON t2.live_id = t1.live_id " +
             "LEFT JOIN tb_schedules t3 ON t3.schedule_id = t2.schedule_id " +
-            "LEFT JOIN tb_games t4 ON t4.game_id = t1.game_id " +
+            "LEFT JOIN tb_games t4 ON t4.game_id = t3.game_id " +
             "LEFT JOIN tb_teams t5 ON t5.team_id = t3.win_team_id " +
             "LEFT JOIN tb_teams t6 ON t6.team_id = t3.master_team_id " +
             "LEFT JOIN tb_teams t7 ON t7.team_id = t3.target_team_id " +
-            "WHERE t1.is_delete = 0 AND t1.is_hot = 1  AND t3.status != 2 " +
+            "WHERE t1.is_delete = 0 AND t1.is_hot = 1 AND t3.status != 2 " +
             "ORDER BY t2.live_date")
     List<LiveScheduleDetail> selectHotInformations();
 }

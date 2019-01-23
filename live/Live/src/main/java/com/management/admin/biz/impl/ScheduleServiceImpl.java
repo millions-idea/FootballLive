@@ -208,12 +208,13 @@ public class ScheduleServiceImpl implements IScheduleService {
         if(tomorrow.length() < 2) tomorrow = "0" + tomorrow;
 
         StringBuffer buffer = new StringBuffer();
+        buffer.append(" 1=1 ");
         //查询全部、热门、直播中
         if(gameId != null && gameId > 0){
-            buffer.append(" t1.game_id=" + gameId);
+            buffer.append(" AND t1.game_id=" + gameId + " ");
         }
         if(date != null && date.length() > 0){
-            buffer.append(" LOCATE( '" + date + "', t1.game_date) > 0 ");
+            buffer.append(" AND LOCATE( '" + date + "', t1.game_date) > 0 ");
         }
 
         if(type != null && type.equals(4)){
@@ -290,6 +291,17 @@ public class ScheduleServiceImpl implements IScheduleService {
         });
 
         return list;
+    }
+
+    /**
+     * 获取直播间 DF 2019年1月18日19:02:12
+     *
+     * @param liveId
+     * @return
+     */
+    @Override
+    public HotSchedule getLive(Integer liveId) {
+        return scheduleMapper.selectLive(liveId);
     }
 
     private void getSortedScheduleList(Integer type, String yesterDay, String toDay, String tomorrow, LinkedList<HotSchedule> hotScheduleList, LinkedList <HotSchedule> list) {
@@ -453,12 +465,15 @@ public class ScheduleServiceImpl implements IScheduleService {
     }
 
     private void defaultSorted(LinkedList<HotSchedule> list, HotSchedule item) {
-        if(item.getStatus().equals(1) && (item.getSourceUrl() == null || item.getSourceUrl().equals("#"))){
-            list.addFirst(item);
-        }else if(item.getStatus().equals(1) && (item.getSourceUrl() != null && !item.getSourceUrl().equals("#")) ){
-            list.addFirst(item);
-        }else{
-            list.add(item);
+        Optional<HotSchedule> first = list.stream().filter(n -> !list.contains(item)).findFirst();
+        if (!first.isPresent()){
+            if(item.getStatus().equals(1) && (item.getSourceUrl() == null || item.getSourceUrl().equals("#"))){
+                list.addFirst(item);
+            }else if(item.getStatus().equals(1) && (item.getSourceUrl() != null && !item.getSourceUrl().equals("#")) ){
+                list.addFirst(item);
+            }else{
+                list.add(item);
+            }
         }
     }
 

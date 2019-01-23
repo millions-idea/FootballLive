@@ -32,15 +32,24 @@ $(function(){
             },function (html) {
                 layer.closeAll();
                 $(".schedule-scroll-container").html(html);
+                bindLiveClickEvent();
             })
         })
         //hot category end
 
         //category begin
-       /* $(".center-container .left .categroy .block-list li").click(function(){
-            $(".center-container .left .categroy .block-list li").removeClass("active");
-            $(this).addClass("active");
-        })*/
+        $(".center-container .left .categroy .block-list li").click(function(){
+            if(!$(this).hasClass("showAllCategory")){
+                var gameId = $(this).data("id");
+                $.get("/schedule/getScheduleList", {
+                    gameId: gameId
+                },function (html) {
+                    layer.closeAll();
+                    $(".schedule-scroll-container").html(html);
+                    bindLiveClickEvent();
+                })
+            }
+        })
         //category end
 
         //select date begin
@@ -57,19 +66,42 @@ $(function(){
             },function (html) {
                 layer.closeAll();
                 $(".schedule-scroll-container").html(html);
+                bindLiveClickEvent();
             })
         })
         //select date end
 
 
         //schedule list begin
-        layer.ready(function(){
-            layer.load(0, {shade: false});
-        });
-        $.get("/schedule/getScheduleList" ,function (html) {
+        if($("#gameId").val() == null || $("#gameId").val().length == 0){
+            layer.ready(function(){
+                layer.load(0, {shade: false});
+            });
+        }
+        $.get("/schedule/getScheduleList" , {
+            gameId: $("#gameId").val()
+        }, function (html) {
             layer.closeAll();
             $(".schedule-scroll-container").html(html);
+            bindLiveClickEvent();
         })
         //schedule list end
+
     })
 })
+
+function bindLiveClickEvent(){
+    $(".schedule-scroll-container .schedule-list .schedule").click(function () {
+        var status = $(this).find(".status").text();
+        var liveId = $(this).data("liveid");
+        if(liveId == null) {
+            layer.msg("直播间暂无直播哦~");
+            return;
+        }
+        if(status.indexOf("直播中") != -1){
+            location.href = "/live?liveId=" + liveId
+        }else{
+            layer.msg("直播间暂无直播哦~");
+        }
+    })
+}

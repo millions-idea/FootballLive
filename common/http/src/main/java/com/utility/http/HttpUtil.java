@@ -22,6 +22,10 @@ public class HttpUtil {
     public static final MediaType FORM
             = MediaType.parse("application/x-www-form-urlencoded");
 
+    public static final MediaType STREAM
+            = MediaType.parse("application/octet-stream; charset=utf-8");
+
+
     private static OkHttpClient client =  new OkHttpClient();
 
     /**

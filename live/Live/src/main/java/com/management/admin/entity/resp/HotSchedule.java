@@ -38,7 +38,7 @@ public class HotSchedule {
     private Integer targetTeamId;
     private Integer masterRedChess;
     private Integer masterYellowChess;
-    private Iterable masterCornerKick;
+    private Integer masterCornerKick;
     private Integer targetRedChess;
     private Integer targetYellowChess;
     private Integer targetCornerKick;
@@ -61,6 +61,7 @@ public class HotSchedule {
 
     /*games*/
     private String gameName;
+    private String gameIcon;
 
 
 
@@ -75,4 +76,11 @@ public class HotSchedule {
     private Boolean isFootball;
 
     private String gameTime;
+
+    /*informations*/
+    private String content;
+    private String forecastResult;
+    private String forecastGrade;
+    private Integer forecastTeamId;
+
 }

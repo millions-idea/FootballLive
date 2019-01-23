@@ -137,11 +137,14 @@ public class HomeApiController {
     public JsonArrayResult<LiveScheduleDetail> getHotInformation(){
         List<LiveScheduleDetail> liveScheduleDetail = informationService.getHotInformations();
         liveScheduleDetail.forEach(item -> {
-            item.setWinTeamId(item.getForecastTeamId());
-            if(item.getMasterTeamId().equals(item.getForecastTeamId())){
+            if(item.getForecastTeamId().equals(1)){
+                item.setWinTeamId(item.getMasterTeamId());
                 item.setWinTeamIcon(item.getMasterTeamIcon());
+            }else if(item.getForecastTeamId().equals(2)){
+                item.setWinTeamId(item.getTargetTeamId());
+                item.setWinTeamIcon(item.getTargetTeamIcon());
             }else{
-                item.setTargetTeamIcon(item.getTargetTeamIcon());
+                item.setWinTeamId(0);
             }
             item.setScheduleResult(item.getForecastResult());
         });

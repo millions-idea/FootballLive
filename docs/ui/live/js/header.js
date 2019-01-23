@@ -35,4 +35,30 @@ $(function(){
         })
     })
     //download pop animation end
+
+
+
+    //user pop animation begin
+    $(".navigation .login-or-download .list .profile").hover(function(){
+        $(".pop-profile").show();
+        $(".pop-profile").removeClass("bounceIn animated").addClass("bounceIn animated");
+        $(".pop-profile").hover(function(){
+            $(this).show();
+            $(this).removeClass("bounceIn animated");
+        }, function(){
+            $(this).removeClass("bounceIn animated");
+            $(this).hide();
+        })
+    }, function(){
+        $(".pop-profilepop-profile").removeClass("bounceIn animated");
+        $(".pop-profile").hide();
+        $(".pop-profile").hover(function(){
+            $(this).show();
+            $(this).removeClass("bounceIn animated");
+        }, function(){
+            $(this).removeClass("bounceIn animated");
+            $(".pop-profile").hide();
+        })
+    })
+    //user pop animation end
 })

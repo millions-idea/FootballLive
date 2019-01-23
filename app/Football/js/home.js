@@ -298,7 +298,7 @@ function initData(){
 			}
 			
 		} 
-
+		console.log(html);
 		$("#hotInformation").html(html);
 		
 		$("#hotInformation .full-headline").unbind("click").bind("click",function(){

@@ -73,7 +73,6 @@
             <div class="hot-cate recommend-game-container">
                 <div class="header">
                     <span class="title">热门专区</span>
-                    <span class="today">今日&nbsp;<span class="stress">1</span>&nbsp;场比赛</span>
                 </div>
                 <div class="content recommend-game-list">
                     <ul>
@@ -255,14 +254,21 @@
                 <div class="padding-top-10"></div>
                 <div class="padding-top-10"></div>
             </div>
+            <div class="padding-top-10"></div>
 
 
+            <div class="information">
+                <div class="top">
+                    <span class="title">情报信息</span>
+                    <p class="content">这里写粘包</p>
+                </div>
+            </div>
         </div>
         <!--center container end-->
 
         <!--right navigation begin-->
         <div class="right-navigation">
-            <div class="chat-list-container">
+            <div class="chat-list-container"  id="chat-list">
                 <ul class="chat-list">
 
                 </ul>
@@ -274,7 +280,8 @@
                     </span>
                 </div>
                 <div class="editor-box">
-                    <div class="editor"></div>
+                    <textarea wrap="hard" cols="10" class="editor" tabindex="1" maxlength="50" placeholder="这里输入聊天内容"></textarea>
+                    <button class="editor-button">发送</button>
                 </div>
             </div>
         </div>

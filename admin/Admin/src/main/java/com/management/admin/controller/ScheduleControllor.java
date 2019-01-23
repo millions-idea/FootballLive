@@ -16,6 +16,7 @@ import com.management.admin.entity.dbExt.TeamDetail;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
 import com.management.admin.exception.InfoException;
+import com.management.admin.utils.StringUtil;
 import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,7 +38,6 @@ import java.util.stream.Stream;
 @Controller
 @RequestMapping("management/schedule")
 public class ScheduleControllor {
-
     @Autowired
     private IScheduleService scheduleService;
     @Autowired
@@ -67,7 +67,14 @@ public class ScheduleControllor {
         Integer count = 0;
         List<ScheduleGameTeam> list = scheduleService.getScheduleLimit(page,limit,condition,state,beginTime,endTime);
         JsonArrayResult jsonArrayResult = new JsonArrayResult(0, list);
-        count = scheduleService .getScheduleLimitCount();
+        if (StringUtil.isBlank(condition)
+                && StringUtil.isBlank(beginTime)
+                && StringUtil.isBlank(endTime)
+                && (state == null || state == 0)) {
+            count = scheduleService.getCount();
+        } else {
+            count = scheduleService.getLimitCount(condition, state, beginTime, endTime);
+        }
         jsonArrayResult.setCount(count);
         return jsonArrayResult;
     }
@@ -214,7 +221,6 @@ public class ScheduleControllor {
         return new JsonArrayResult<>(0, teamList);
     }
 
-
     /**
      * 开通直播间 DF 2019年1月2日04:26:58
      * @return
@@ -233,7 +239,6 @@ public class ScheduleControllor {
     public String live(final Model model) {
         return "schedule/live";
     }
-
 
     @GetMapping("openLives")
     @ResponseBody

@@ -4,4 +4,15 @@
             th:text='${item.getGameName() + "(" + item.getShortGameDate() + ")"}'
             th:id="${item.getGameId()}"></li>
     </ul>
+    <script>
+        $(".inner-show-categroy li").click(function(){
+            var gameId = $(this).attr("id");
+            if(gameId != null){
+                layer.closeAll();
+                location.href  = "/schedule?gameId=" + gameId;
+            }else{
+                layer.msg("暂无比赛");
+            }
+        })
+    </script>
 </th:block>

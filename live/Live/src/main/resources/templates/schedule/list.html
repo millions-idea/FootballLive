@@ -4,7 +4,7 @@
             <div class="title">
                 <span th:text="${item.getGameDateString()}"></span>
             </div>
-            <div class="schedule" th:data-id="${item.getScheduleId()}">
+            <div class="schedule" th:data-id="${item.getScheduleId()}" th:data-liveid="${item.getLiveId()}">
                 <div class="game">
                     <span class="gameTitle" th:text="${item.getGameName()}"></span>
                     <div  th:if="${item.getIsFootball() != null && item.getIsFootball()}" >

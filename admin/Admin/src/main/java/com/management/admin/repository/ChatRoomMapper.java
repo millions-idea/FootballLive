@@ -41,7 +41,7 @@ public interface ChatRoomMapper extends MyMapper<ChatRoom> {
      * @return
      */
     @Select("SELECT * FROM tb_chat_rooms WHERE live_id = #{liveId}")
-    ChatRoom selectByLive(@Param("liveId") Integer liveId);
+    List<ChatRoom> selectByLive(@Param("liveId") Integer liveId);
 
     @Insert("INSERT INTO tb_chat_rooms (live_id, chat_room_id, frequency) VALUES(#{liveId}, #{chatRoomId}, 10) ON DUPLICATE KEY UPDATE " +
             "chat_room_id = #{chatRoomId}, live_id=#{liveId}")

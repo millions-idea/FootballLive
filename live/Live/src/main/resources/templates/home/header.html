@@ -1,6 +1,6 @@
 <th:block xmlns:th="http://www.thymeleaf.org" th:fragment="header(index)">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1002790_tsjcmk5o83q.css">
-    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1002790_pvmwwymdb2r.css">
+    <link rel="stylesheet" href="./css/header.css?v=20190119">
 
     <!--header begin-->
     <div class="header-container">
@@ -15,6 +15,7 @@
                         <li th:class='${index == 1 ? "active" : ""}' data-url="/schedule"><a  href="/schedule">分类</a></li>
                         <li th:class='${index == 2 ? "active" : ""}' data-url="#"><a href="#schedule">赛程</a></li>
                         <li th:class='${index == 3 ? "active" : ""}' data-url="#"><a href="#information">情报</a></li>
+                        <!--<li th:class='${index == 3 ? "active" : ""}' data-url="http://wpa.qq.com/msgrd?v=3&uin=792097695&site=qq&menu=yes"><a href="http://wpa.qq.com/msgrd?v=3&uin=792097695&site=qq&menu=yes">内部球料</a></li>-->
                     </ul>
                 </div>
             </div>
@@ -25,26 +26,66 @@
                 </div>
                 <div class="login-or-download">
                     <ul class="list">
-                        <li>
+                        <!--<li>
                             <div class="option-group download">
-                                <a href="#"><i class="iconfont icon-download"></i>&nbsp;下载</a>
+                                <a href="#"><i class="iconfont icon-download"></i>&nbsp;内部球料</a>
                             </div>
                             <div class="pop-qrcode" style="display: none;">
                                 <div class="expository-box">
-                                    亚洲杯卫星信号同步
-                                    <br /> 免费看全部高清直播
+                                    更多内部球料免费看
+                                    <br /> 黑单老刀全额返现金
                                 </div>
                                 <div class="qr-code-box">
-                                    <img src="/images/download.png" alt="下载APP" />
+                                    <img src="/images/wechat_qrcode.jpg" alt="关注微信公众号" />
                                 </div>
                                 <div class="o-download-app-icon">
                                 </div>
-                                <a href="//www.pgyer.com/wx789" target="_blank" class="o-download-app-btn">下载卫星体育APP</a>
+                                <a href="//www.pgyer.com/wx789" target="_blank" class="o-download-app-btn">关注微信公众号</a>
+                            </div>
+                        </li>-->
+                        <li th:if="${user == null || user.getUserId()==null}" class="open-login-pop">
+                            <div class="option-group ">
+                                <a href="javascript:void(0)"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
                             </div>
                         </li>
-                        <li>
-                            <div class="option-group">
-                                <a href="javascript:void(0)"><i class="iconfont icon-iconuser"></i>&nbsp;登录</a>
+                        <li th:if="${user != null && user.getUserId()!=null}" >
+                            <div class="option-user profile">
+                                <a href="#" th:text="${user.getPhone()}"></a>
+                            </div>
+                            <div class="pop-profile" style="display: none;">
+                                <div class="padding-top-10"></div>
+                                <div class="profile-item logout">
+                                    <a href="/logout">退出</a>
+                                    <img class="photo" th:src="${user.getPhoto()}" alt="">
+                                </div>
+                                <div class="padding-top-10"></div>
+                                <div class="profile-item">
+                                    <span class="nickname" th:text="${user.getPhone()}"></span>
+                                </div>
+                                <div class="padding-top-10"></div>
+                                <div class="gray-line"></div>
+                                <div class="profile-item profile-nav">
+                                    <ul>
+                                        <li data-url="/user/mark">
+                                            <div>
+                                                <i class="iconfont icon-heart"></i>
+                                                <span>我的关注</span>
+                                            </div>
+                                        </li>
+                                        <li data-url="/user/history">
+                                            <div>
+                                                <i class="iconfont icon-history"></i>
+                                                <span>观看历史</span>
+                                            </div>
+                                        </li>
+                                        <li data-url="/user">
+                                            <div>
+                                                <i class="iconfont icon-email"></i>
+                                                <span>我的消息</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </li>
                     </ul>

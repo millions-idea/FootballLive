@@ -171,6 +171,9 @@ function getSchedules(param){
     		html += '	</div> ';
     		html += '</li>';
 		} 
+		
+
+		
 		$(".live ul").html(html);
 		
 		//打开直播间

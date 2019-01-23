@@ -35,12 +35,6 @@ public interface IScheduleService {
     List<ScheduleGameTeam> getScheduleLimit(Integer page, String limit, String condition, Integer state, String beginTime, String endTime);
 
     /**
-     * 加载赛程信息列表分页记录数 DF 2018年12月17日14:40:233
-     * @return
-     */
-    Integer getScheduleLimitCount();
-
-    /**
      * 删除赛程信息 DF 2018年12月17日14:40:233
      * @return
      */
@@ -118,4 +112,8 @@ public interface IScheduleService {
      * @return
      */
     boolean cleanLives();
+
+    Integer getCount();
+
+    Integer getLimitCount(String condition, Integer state, String beginTime, String endTime);
 }
