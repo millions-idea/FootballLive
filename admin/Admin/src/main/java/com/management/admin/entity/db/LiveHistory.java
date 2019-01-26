@@ -34,4 +34,7 @@ public class LiveHistory {
      * 用户id
      */
     private Integer userId;
+
+    private Integer scheduleId;
+
 }

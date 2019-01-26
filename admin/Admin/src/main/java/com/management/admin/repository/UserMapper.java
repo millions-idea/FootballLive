@@ -198,4 +198,13 @@ public interface UserMapper extends MyMapper<User> {
      */
     @Update("UPDATE tb_users SET cloud_token=#{token} WHERE phone=#{phone}")
     int updateCloudToken(@Param("phone") String phone, @Param("token") String token);
+
+    @Select("SELECT * FROM tb_users WHERE user_sig IS NULL")
+    List<User> selectUserSigNullList();
+
+    @Update("${command}")
+    int updateUserSig(@Param("command") String command);
+
+    @Select("SELECT * FROM tb_users")
+    List<User> selectUserSigList();
 }

@@ -156,19 +156,20 @@ public class ChatRoomServiceImpl implements IChatRoomService {
     private void sendTencentMessage(String msg, ChatRoom item) {
         if(!item.getChatRoomId().contains("@")) return ;
 
-        TMessageParam tMessageParam = new TMessageParam();
-        TMessageBody tMessageBody = new TMessageBody();
-        tMessageBody.setMsgType("TIMTextElem");
+        String param = "{\n" +
+                "\"GroupId\": \"" + item.getChatRoomId() + "\",\n" +
+                "\"Random\": "+ IdWorker.getFlowIdWorkerInstance().nextInt32(8) +", \n" +
+                "\"MsgBody\": [  \n" +
+                "    {\n" +
+                "        \"MsgType\": \"TIMTextElem\",\n" +
+                "        \"MsgContent\": {\n" +
+                "            \"Text\": \"" + msg + "\"\n" +
+                "        }\n" +
+                "    }\n" +
+                "]\n" +
+                "}";
 
-        TMessageContent tMessageContent = new TMessageContent();
-        tMessageContent.setText(msg);
-        tMessageBody.setMsgContent(tMessageContent);
-
-        tMessageParam.setGroupId(item.getChatRoomId());
-        tMessageParam.setMsgBody(tMessageBody);
-
-        tMessageParam.setRandom(IdWorker.getFlowIdWorkerInstance().nextInt32(8));
-        String response = TencentLiveUtil.post("group_open_http_svc/send_group_msg", JsonUtil.getJsonNotEscape(tMessageParam));
+        String response = TencentLiveUtil.post("group_open_http_svc/send_group_msg", param);
 
         logger.info("腾讯假人气响应:" + response);
     }

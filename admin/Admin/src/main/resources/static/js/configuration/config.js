@@ -186,4 +186,34 @@ layui.use('upload', function () {
         uploadConfig("androidDownload",android);
     })
 
+
+    $("#saveWebsite").click(function () {
+        var title=$("#website-title").val();
+        var keywords=$("#website-keywords").val();
+        var description=$("#website-description").val();
+        var links=$("#website-links").val();
+        var copyright=$("#website-copyright").val();
+
+        if (title==""||title.length==0){
+            layer.msg("网站标题不能为空");
+            return false;
+        }else if (keywords==""||keywords.length==0){
+            layer.msg("网站关键词不能为空");
+            return false;
+        }else if (description==""||description.length==0){
+            layer.msg("网站描述不能为空");
+            return false;
+        }else if (links==""||links.length==0){
+            layer.msg("友情链接不能为空");
+            return false;
+        }else if (copyright==""||copyright.length==0){
+            layer.msg("底部版权不能为空");
+            return false;
+        }
+        uploadConfig("pc.header.title",title);
+        uploadConfig("pc.header.keywords",keywords);
+        uploadConfig("pc.header.description",description);
+        uploadConfig("pc.footer.html",links);
+        uploadConfig("pc.footer.about",copyright);
+    })
 })

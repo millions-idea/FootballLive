@@ -7,6 +7,7 @@
  */
 package com.management.admin.biz;
 
+import com.management.admin.entity.db.PublishMessage;
 import com.management.admin.entity.resp.HotInformation;
 import com.management.admin.entity.resp.HotSchedule;
 import com.management.admin.entity.resp.ScheduleEntity;
@@ -48,4 +49,10 @@ public interface IScheduleService {
      * @return
      */
     HotSchedule getLive(Integer liveId);
+
+    List<HotSchedule> getMarkScheduleList(Integer userId);
+
+    List<HotSchedule> getHistoryScheduleList(Integer userId);
+
+    List<PublishMessage> getMessageList(Integer userId);
 }

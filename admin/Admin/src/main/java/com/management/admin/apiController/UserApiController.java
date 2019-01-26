@@ -21,6 +21,7 @@ import com.management.admin.utils.RequestUtil;
 import com.management.admin.utils.TokenUtil;
 import com.management.admin.utils.http.CosUtil;
 import com.management.admin.utils.web.SessionUtil;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -192,5 +193,12 @@ public class UserApiController {
     public JsonArrayResult<UserInfo> getUserInfo(String accid){
         List<UserInfo> userInfos = userService.getUserInfo(accid);
         return new JsonArrayResult<UserInfo>(userInfos);
+    }
+
+
+    @GetMapping("syncTencentData")
+    public JsonResult syncTencentData(@RequestParam(required = false) Integer isConstraint){
+        userService.syncTencentData(isConstraint);
+        return JsonResult.successful();
     }
 }

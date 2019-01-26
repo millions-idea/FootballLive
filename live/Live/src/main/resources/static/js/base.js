@@ -497,7 +497,7 @@ $(function(){
         $(".navigation li").click(function(){
             var url = $(this).data("url");
             if(url == null){
-                layer.msg("敬请期待");
+
             }else{
                 if(url != "#"){
                     $(".navigation li").removeClass("active");
@@ -511,23 +511,29 @@ $(function(){
 
 
         //scroll begin
-        $(".today-game-list .next").click(function(){
-            var left = parseInt($(".today-game-list ul").data("left"));
-            left += 120;
-            $(".today-game-list ul").animate({scrollLeft: "+=" + left}, "normal");
-            $(".today-game-list ul").data("left", left);
+        $.get("/getHotGame", function(html){
+            $(".anchors").html(html);
+
+            $('.am-slider').flexslider({
+                slideshow: false,
+                itemWidth: 120,                   // Integer: slide 宽度，多个同时滚动时设置
+                itemMargin: 0,                  // Integer: slide 间距
+                minItems: 9,                    // Integer: 最少显示 slide 数, 与 `itemWidth` 相关
+                maxItems: 0,                    // Integer: 最多显示 slide 数, 与 `itemWidth` 相关
+                move: 9,                        // Integer: 一次滚动移动的 slide 数量，0 - 滚动可见的 slide
+                controlNav: false,               // Boolean: 是否创建控制点
+                directionNav: false,             // Boolean: 是否创建上/下一个按钮（previous/next）
+            });
+
+            $(".today-game-list .next").click(function(){
+                $('.am-slider').flexslider('next');
+            })
+
+            $(".today-game-list .prev").click(function(){
+                $('.am-slider').flexslider('prev');
+            })
         })
 
-        $(".today-game-list .prev").click(function(){
-            var left = parseInt($(".today-game-list ul").data("left"));
-            left -= 120;
-            $(".today-game-list ul").animate({scrollLeft: "-=" + left}, "normal");
-            $(".today-game-list ul").data("left", left);
-        })
-
-        if($(".today-game-list li").length > 0){
-            $(".anchors .text-tips").hide();
-        }
         //scroll end
 
         //hot schedule timer begin
@@ -551,7 +557,7 @@ $(function(){
                         if($("#prevPlayerUrl").val() == null || $("#prevPlayerUrl").val()  != defaultVideoUrl){
                             $(defaultVideo).removeClass("select active");
                             $(defaultVideo).addClass("select active");
-
+                            player.videoClear();
                             $("#prevPlayerUrl").val(defaultVideoUrl);
                             $("#isOver").val("0");
                             layer.msg("请稍后,正在为您加载直播画面……");
@@ -614,6 +620,7 @@ function setHotSchedule(callback){
             $(".recommend-game-list li").unbind("click").bind("click",function () {
                 var sourceUrl = $(this).data("url");
                 if(sourceUrl != null && sourceUrl != undefined && sourceUrl != "#"){
+                    player.videoClear();
                     layer.msg("请稍后,正在为您加载直播画面……");
                     changeVideo(sourceUrl);
                     player.changeControlBarShow(false);//隐藏控制栏

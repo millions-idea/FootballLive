@@ -16,8 +16,11 @@ import com.management.admin.entity.db.LiveCategory;
 import com.management.admin.entity.db.Team;
 import com.management.admin.entity.dbExt.GameCategory;
 import com.management.admin.entity.dbExt.ScheduleGameTeam;
+import com.management.admin.entity.template.Constant;
+import com.management.admin.entity.template.DataDictionary;
 import com.management.admin.entity.template.JsonArrayResult;
 import com.management.admin.entity.template.JsonResult;
+import com.utility.http.HttpUtil;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -68,6 +71,7 @@ public class configurationController {
     public JsonResult upadteConfig(String key,String value){
         val result = dictionaryService.upadteConfig(key, value);
         if(result>0){
+            HttpUtil.get(Constant.WebUrl + "api/config/reload", null);
             return JsonResult.successful();
         }
         return JsonResult.failing();

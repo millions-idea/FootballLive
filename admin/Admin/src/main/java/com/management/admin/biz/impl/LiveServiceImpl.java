@@ -254,11 +254,13 @@ public class LiveServiceImpl implements ILiveService {
     @Override
     @Transactional
     public Boolean addCollect(Integer liveId, Integer userId) {
+        Live live = liveMapper.selectByPrimaryKey(liveId);
         LiveCollect liveCollect = new LiveCollect();
         liveCollect.setLiveId(liveId);
         liveCollect.setUserId(userId);
         liveCollect.setIsCancel(0);
         liveCollect.setAddDate(new Date());
+        liveCollect.setScheduleId(live.getScheduleId());
         //更新我的收藏
         boolean result = liveCollectMapper.insertOrUpdate(liveCollect) > 0;
         if (!result) throw new InfoException("收藏失败");

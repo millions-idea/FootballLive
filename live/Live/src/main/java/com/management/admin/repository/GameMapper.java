@@ -22,7 +22,7 @@ public interface GameMapper extends MyMapper<HotGame> {
      * @param day
      * @return
      */
-    @Select("SELECT * FROM tb_games WHERE is_delete = 0 AND edit_date LIKE '${day}%'")
+    @Select("SELECT * FROM tb_games WHERE is_delete = 0 AND edit_date LIKE '${day}%' LIMIT 120")
     List<HotGame> selectListByDay(@Param("day") String day);
 
 

@@ -56,6 +56,7 @@ public class HomeController extends BaseController {
         model.addAttribute("topList", collect);
         model.addAttribute("toDayList", toDayList);
         model.addAttribute("topInformationList", topHotInformationList);
+
         return "home/index";
     }
 
@@ -64,6 +65,13 @@ public class HomeController extends BaseController {
         List<HotSchedule> collect = getHotSchedule();
         model.addAttribute("topList", collect);
         return "home/hotSchedule";
+    }
+
+    @GetMapping("/getHotGame")
+    public String getHotGame(final Model model){
+        List<HotGame> toDayList = gameService.getToDayList();
+        model.addAttribute("toDayList", toDayList);
+        return "home/hotGame";
     }
 
     /**
@@ -94,8 +102,12 @@ public class HomeController extends BaseController {
         if(session != null){
             User user = userService.getProfile(session.getUserId());
             model.addAttribute("user", user);
+            model.addAttribute("identifier", user.getUserId());
+            model.addAttribute("userSig", user.getUserSig());
         }else{
             model.addAttribute("user", null);
+            model.addAttribute("identifier", null);
+            model.addAttribute("userSig", null);
         }
         model.addAttribute("index", index);
         return "home/header";

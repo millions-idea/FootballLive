@@ -28,10 +28,10 @@ public class ManagementApplication {
 	public static void main(String[] args) throws Exception{
 		SpringApplication.run(ManagementApplication.class, args);
 		System.out.println("启动内置tomcat服务成功!");
-		Map<String, String> fields
+		/*Map<String, String> fields
 				= ImmutableMap.of("phone", "17854141391", "userId", 32 + "");
 		String token = TokenUtil.create(fields);
-		System.out.println(token);
+		System.out.println(token);*/
 	}
 
 	@Bean

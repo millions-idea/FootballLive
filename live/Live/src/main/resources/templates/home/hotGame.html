@@ -1,0 +1,11 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="hotGame">
+    <span class="text-tips">这里空空如也</span>
+    <ul class="am-slides" data-left="0">
+        <li th:data-id="${item.getGameId()}" th:each="item:${toDayList}">
+            <a th:href='${"/schedule?gameId=" + item.getGameId()}'>
+                <img th:src="${item.getGameIcon()}" th:alt="${item.getGameName()}">
+                <span style="color: #615F5F;" th:text="${item.getGameName()}"></span>
+            </a>
+        </li>
+    </ul>
+</th:block>

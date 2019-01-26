@@ -1,0 +1,79 @@
+<th:block xmlns:th="http://www.thymeleaf.org" th:fragment="categorySchedule">
+    <div class="schedule-scroll" th:if="${hotScheduleList != null && hotScheduleList.size() != 0}" >
+        <div class="schedule-list" th:each="item:${hotScheduleList}">
+            <div class="title">
+                <span th:text="${item.getGameDateString()}"></span>
+            </div>
+            <div class="schedule" th:data-id="${item.getScheduleId()}" th:data-liveid="${item.getLiveId()}">
+                <div class="game">
+                    <span class="gameTitle" th:text="${item.getGameName()}"></span>
+                    <div  th:if="${item.getIsFootball() != null && item.getIsFootball()}" >
+                        <span class="gameTime"th:text='${((item.getGameTime() == null || item.getGameTime() == "-1") ? "0" : item.getGameTime()) + "`"}'></span>
+                        <i class="iconfont icon-timer-"></i>
+                    </div>
+                </div>
+                <div class="left-info">
+                    <span class="date" th:text="${item.getShortGameDate()}"></span>
+                    <div class="status">
+                        <span th:class='${item.getShortStyleClassName()}' th:text="${item.getShortStatus()}"></span>
+                    </div>
+                </div>
+                <div class="left-team">
+                    <div class="team">
+                        <img th:src="${item.getMasterTeamIcon()}" th:alt="${item.getMasterTeamName()}">
+                        <span class="team-name" th:text="${item.getMasterTeamName()}"></span>
+                    </div>
+                    <div class="team">
+                        <img th:src="${item.getTargetTeamIcon()}" th:alt="${item.getTargetTeamName()}">
+                        <span class="team-name" th:text="${item.getTargetTeamName()}"></span>
+                    </div>
+                </div>
+                <div class="left-team">
+                    <div class="team-grade">
+                        <span class="grade" th:text='${(item.getScheduleGrade() == null || item.getScheduleGrade().length() == 0)  ? "" : item.getScheduleGrade().split("-")[0]}'></span>
+                    </div>
+                    <div class="team-grade">
+                        <span class="grade" th:text='${(item.getScheduleGrade() == null || item.getScheduleGrade().length() == 0) ? "" : item.getScheduleGrade().split("-")[1]}'></span>
+                    </div>
+                </div>
+                <div class="left-team" th:if="${item.getIsFootball() == null ? false : item.getIsFootball()}">
+                    <div class="team-grade">
+                        <span class="grade red" th:text='${"红牌: " + ((item.getMasterRedChess() == null)  ? "0" : item.getMasterRedChess())}'></span>
+                    </div>
+                    <div class="team-grade">
+                        <span class="grade red" th:text='${"红牌: " + ((item.getTargetRedChess() == null) ? "0" : item.getTargetRedChess())}'></span>
+                    </div>
+                </div>
+                <div class="left-team" th:if="${item.getIsFootball() == null ? false :item.getIsFootball()}">
+                    <div class="team-grade">
+                        <span class="grade yellow" th:text='${"黄牌: " + ((item.getMasterYellowChess() == null)  ? "0" : item.getMasterYellowChess())}'></span>
+                    </div>
+                    <div class="team-grade">
+                        <span class="grade yellow" th:text='${"黄牌: " + ((item.getTargetYellowChess() == null) ? "0" : item.getTargetYellowChess())}'></span>
+                    </div>
+                </div>
+                <div class="left-team" th:if="${item.getIsFootball() == null ? false :item.getIsFootball()}">
+                    <div class="team-grade">
+                        <span class="grade corner" th:text='${"角球: " + ((item.getMasterCornerKick() == null)  ? "0" : item.getMasterCornerKick())}'></span>
+                    </div>
+                    <div class="team-grade">
+                        <span class="grade corner" th:text='${"角球: " + ((item.getTargetCornerKick() == null) ? "0" : item.getTargetCornerKick())}'></span>
+                    </div>
+                </div>
+                <div class="left-video">
+                    <div class="pic noVideo inline-block"></div>
+                    <span class="desc inline-block">卫星高清信号直播</span>
+                    <!--<a class="btn inline-block wantupload" href="/video/upload" target="_blank">直播间</a>-->
+                </div>
+            </div>
+        </div>
+        <div class="padding-top-10"></div>
+    </div>
+
+    <div class="schedule-scroll" th:if="${hotScheduleList == null || hotScheduleList.size() == 0}">
+        <div class="schedule-list" >
+            <span class="tips">这里空空如也</span>
+        </div>
+        <div class="padding-top-10"></div>
+    </div>
+</th:block>

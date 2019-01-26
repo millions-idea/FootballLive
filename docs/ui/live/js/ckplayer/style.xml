@@ -500,7 +500,7 @@
 	</custom>
 	<!--错误提示的配置-->
 	<error>
-		<size>14</size>
+		<size>25</size>
 		<font>Microsoft YaHei,\5FAE\8F6F\96C5\9ED1,微软雅黑</font>
 		<color>0xFFFFFF</color>
 		<alpha>1</alpha>
@@ -510,7 +510,7 @@
 		<align>center</align>
 		<vAlign>middle</vAlign>
 		<offsetX>-60</offsetX>
-		<offsetY>30</offsetY>
+		<offsetY>-5</offsetY>
 	</error>
 	<!--广告部分的配置-->
 	<advertisement>

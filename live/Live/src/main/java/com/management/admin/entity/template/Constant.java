@@ -108,5 +108,5 @@ public interface Constant {
     /**
      * 操作云信时记得把appkey换到测试环境上，不要直接操作正式环境的app应用
      */
-    Boolean DebugMode = true;
+    Boolean DebugMode = false;
 }

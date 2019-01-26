@@ -7,6 +7,7 @@
  */
 package com.management.admin.repository;
 
+import com.management.admin.entity.db.PublishMessage;
 import com.management.admin.entity.resp.HotSchedule;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,7 +27,7 @@ public interface ScheduleMapper extends MyMapper<HotSchedule> {
             "   LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id " +
             "   LEFT JOIN tb_games t5 ON t1.game_id = t5.game_id " +
             "   LEFT JOIN tb_live_categorys t6 ON t5.category_id = t6.category_id " +
-            "   WHERE t1.`status` = 0  AND t1.game_date LIKE '${toDay}%' ORDER BY t1.game_date ASC  LIMIT 100)  " +
+            "   WHERE t1.`status` = 0  AND t1.game_date LIKE '${toDay}%' AND t5.game_name IS NOT NULL ORDER BY t1.game_date ASC  LIMIT 100)  " +
             "UNION " +
             "(SELECT *,  " +
             "   t2.team_name AS masterTeamName, t3.team_name AS targetTeamName,  " +
@@ -37,7 +38,7 @@ public interface ScheduleMapper extends MyMapper<HotSchedule> {
             "   LEFT JOIN tb_lives t4 ON t4.schedule_id = t1.schedule_id " +
             "   LEFT JOIN tb_games t5 ON t1.game_id = t5.game_id " +
             "   LEFT JOIN tb_live_categorys t6 ON t5.category_id = t6.category_id " +
-            "   WHERE t1.`status` = 1 AND t1.game_date LIKE '${toDay}%' ORDER BY t1.game_date ASC LIMIT 100) ")
+            "   WHERE t1.`status` = 1 AND t1.game_date LIKE '${toDay}%' AND t5.game_name IS NOT NULL ORDER BY t1.game_date ASC LIMIT 100) ")
     /**
      * 查询热门赛程列表 DF 2019年1月10日12:05:46
      * @param count 分页数量(倍数)
@@ -95,7 +96,7 @@ public interface ScheduleMapper extends MyMapper<HotSchedule> {
      * 查询热门赛程列表 DF 2019年1月10日12:05:46
      * @param where
      */
-    LinkedList<HotSchedule> selecList(@Param("where") String where);
+    LinkedList<HotSchedule> selectList(@Param("where") String where);
 
     @Select("SELECT *, " +
             "t3.team_name AS masterTeamName, t4.team_name AS targetTeamName, " +
@@ -109,4 +110,9 @@ public interface ScheduleMapper extends MyMapper<HotSchedule> {
             "LEFT JOIN tb_informations t7 ON t7.live_id = t1.live_id  " +
             "WHERE t1.live_id = #{liveId}")
     HotSchedule selectLive(@Param("liveId") Integer liveId);
+
+    @Select("SELECT * FROM `tb_publish_message_relations` t1\n" +
+            "LEFT JOIN tb_publish_messages t2 ON t2.msg_id = t1.msg_id\n" +
+            "WHERE t2.type = 0 AND t1.user_id = #{userId} AND (is_read IS NULL OR is_read = 0) LIMIT 20")
+    List<PublishMessage> selectMessageList(@Param("userId") Integer userId);
 }

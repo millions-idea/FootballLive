@@ -280,4 +280,6 @@ public interface IUserService {
     Integer listBlack(Integer userId,String blackRemark);
 
     List<User> getList();
+
+    void syncTencentData(Integer isConstraint);
 }

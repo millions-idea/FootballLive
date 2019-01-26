@@ -24,6 +24,7 @@ public class LiveCollect {
     private Integer collectId;
     private Integer userId;
     private Integer liveId;
+    private Integer scheduleId;
     private Integer isCancel;
     private Date addDate;
     private Date editDate;

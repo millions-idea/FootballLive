@@ -474,10 +474,39 @@ $(function(){
         $(".editor-button").click(function(){
             var that = $(this);
             var msg = $(".editor-box textarea").val();
-            if(msg == null || msg.length == 0) return;
+            if(msg == null || msg.length == 0) {
+                $.get("/user/loginPop", function (html) {
+                    layer.open({
+                        title: false,
+                        type: 1,
+                        closeBtn: 1, //不显示关闭按钮
+                        anim: 2,
+                        area: ["400px", "auto"],
+                        shadeClose: true, //开启遮罩关闭
+                        content: html
+                    });
+                });
+                return;
+            };
             $(that).attr("disabled", true);
             $(that).css("background-color", "#b7b7b7");
-            setRecvMessageHtml("游客",msg);
+            if($("#nickname").val() == null || $("#nickname").val() == undefined) {
+                $.get("/user/loginPop", function (html) {
+                    layer.open({
+                        title: false,
+                        type: 1,
+                        closeBtn: 1, //不显示关闭按钮
+                        anim: 2,
+                        area: ["400px", "auto"],
+                        shadeClose: true, //开启遮罩关闭
+                        content: html
+                    });
+                });
+                return;
+            };
+            onSendMsg(function(){
+                setRecvMessageHtml($("#nickname").val(),msg);
+            });
             $(".editor-box textarea").val("");
             disabledTimer = setTimeout(function(){
                 $(that).css("background-color", "#5626D3");
@@ -637,3 +666,4 @@ function setLiveGrade() {
         }
     });
 }
+

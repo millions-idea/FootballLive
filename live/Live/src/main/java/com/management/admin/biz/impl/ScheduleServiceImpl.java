@@ -8,9 +8,13 @@
 package com.management.admin.biz.impl;
 
 import com.management.admin.biz.IScheduleService;
+import com.management.admin.entity.db.LiveCollect;
+import com.management.admin.entity.db.PublishMessage;
 import com.management.admin.entity.resp.HotInformation;
 import com.management.admin.entity.resp.HotSchedule;
 import com.management.admin.repository.InformationMapper;
+import com.management.admin.repository.LiveCollectMapper;
+import com.management.admin.repository.LiveHistoryMapper;
 import com.management.admin.repository.ScheduleMapper;
 import com.management.admin.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +29,15 @@ import static java.util.stream.Collectors.toList;
 public class ScheduleServiceImpl implements IScheduleService {
     private final ScheduleMapper scheduleMapper;
     private final InformationMapper informationMapper;
+    private final LiveCollectMapper liveCollectMapper;
+    private final LiveHistoryMapper liveHistoryMapper;
 
     @Autowired
-    public ScheduleServiceImpl(ScheduleMapper scheduleMapper, InformationMapper informationMapper) {
+    public ScheduleServiceImpl(ScheduleMapper scheduleMapper, InformationMapper informationMapper, LiveCollectMapper liveCollectMapper, LiveHistoryMapper liveHistoryMapper) {
         this.scheduleMapper = scheduleMapper;
         this.informationMapper = informationMapper;
+        this.liveCollectMapper = liveCollectMapper;
+        this.liveHistoryMapper = liveHistoryMapper;
     }
 
     /**
@@ -236,7 +244,7 @@ public class ScheduleServiceImpl implements IScheduleService {
             if(buffer.toString().isEmpty()){
                 buffer.append(" 1=1 ");
             }
-            hotScheduleList = scheduleMapper.selecList(buffer.toString());
+            hotScheduleList = scheduleMapper.selectList(buffer.toString());
 
             hotScheduleList.stream().filter(item -> !list.contains(item)).forEach(item -> {
                 list.add(item);
@@ -302,6 +310,80 @@ public class ScheduleServiceImpl implements IScheduleService {
     @Override
     public HotSchedule getLive(Integer liveId) {
         return scheduleMapper.selectLive(liveId);
+    }
+
+    @Override
+    public List<HotSchedule> getMarkScheduleList(Integer userId) {
+        List<LiveCollect> liveCollects = liveCollectMapper.selectByUserId(userId);
+        List<HotSchedule> list = extractScheduleList(liveCollects);
+        if (list == null) return null;
+        return list;
+    }
+
+    @Override
+    public List<HotSchedule> getHistoryScheduleList(Integer userId) {
+        List<LiveCollect> liveCollects = liveHistoryMapper.selectByUserId(userId);
+        List<HotSchedule> list = extractScheduleList(liveCollects);
+        if (list == null) return null;
+        return list;
+    }
+
+    @Override
+    public List<PublishMessage> getMessageList(Integer userId) {
+        return scheduleMapper.selectMessageList(userId);
+    }
+
+    private List<HotSchedule> extractScheduleList(List<LiveCollect> liveCollects) {
+        List<String> collect = liveCollects.stream().map(item -> item.getScheduleId() + "").collect(toList());
+        String join = String.join(",", collect);
+        if(join == null || join.length() == 0) return null;
+        List<HotSchedule> list = scheduleMapper.selectList(" t1.schedule_id IN('" + join + "') ");
+        list.forEach(item -> {
+            if(item.getCategoryName() != null && item.getCategoryName().contains("足球")){
+                item.setIsFootball(true);
+            }
+            item.setGameDateString(DateUtil.getFormatDateTime(item.getGameDate()));
+            if(item.getMasterTeamIcon() == null) item.setMasterTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+            if(item.getTargetTeamIcon() == null) item.setTargetTeamIcon("http://yabolive.oss-cn-beijing.aliyuncs.com/upload/d39b453b-bc68-472a-8d8f-0da79e880dbf.png");
+            switch (item.getStatus().intValue()){
+                case 0:
+                    item.setShortStatus("未开始");
+                    item.setShortButtonName("等待开始");
+                    item.setShortStyleClassName("wait");
+                    break;
+                case 1:
+                    item.setShortStatus("进行中");
+                    item.setShortButtonName("进行中");
+                    item.setShortStyleClassName("wait");
+                    if(item.getSourceUrl()!= null && !item.getSourceUrl().equals("#")){
+                        item.setShortStatus("直播中");
+                        item.setShortButtonName("观看直播");
+                        item.setShortStyleClassName("on");
+                    }
+                    break;
+                case 2:
+                    item.setShortStatus("已结束");
+                    item.setShortButtonName("已结束");
+                    item.setShortStyleClassName("off");
+                    break;
+                case 3:
+                    item.setShortStatus("推迟");
+                    item.setShortButtonName("推迟");
+                    item.setShortStyleClassName("off");
+                    break;
+                case 4:
+                    item.setShortStatus("完场");
+                    item.setShortButtonName("完场");
+                    item.setShortStyleClassName("off");
+                    break;
+                default:
+                    item.setShortStatus("其他");
+                    item.setShortButtonName("其他");
+                    break;
+            }
+            item.setShortGameDate(DateUtil.getFormatDateMinute(item.getGameDate()));
+        });
+        return list;
     }
 
     private void getSortedScheduleList(Integer type, String yesterDay, String toDay, String tomorrow, LinkedList<HotSchedule> hotScheduleList, LinkedList <HotSchedule> list) {

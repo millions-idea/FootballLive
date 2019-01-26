@@ -9,7 +9,7 @@ package com.utility.tls;
 
 public class Test {
     public static void main(String[] args) throws Exception {
-        String userSig = TlsUtil.getUserSig("1400179944","admin1");
+        String userSig = TlsUtil.getUserSig("1400178398","admin1");
         System.out.println(userSig);
     }
 }

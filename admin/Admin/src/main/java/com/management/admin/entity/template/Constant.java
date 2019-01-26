@@ -77,12 +77,12 @@ public interface Constant {
     /**
      * 网易IM通信服务appKey c58b616a2dbfa83bf7857364f77ae13b
      */
-    String AppKey = "76688b21d1656063933c1199a3e425a1";//76688b21d1656063933c1199a3e425a1 debug
+    String AppKey = "c58b616a2dbfa83bf7857364f77ae13b";//76688b21d1656063933c1199a3e425a1 debug
 
     /**
      * 网易IM通信服务appSecret  ef72133173f2
      */
-    String AppSecret = "b416985f7f9a";//b416985f7f9a debug
+    String AppSecret = "ef72133173f2";//b416985f7f9a debug
     /**
      * 网易热点用户
      */
@@ -108,12 +108,15 @@ public interface Constant {
     /**
      * 操作云信时记得把appkey换到测试环境上，不要直接操作正式环境的app应用
      */
-    Boolean DebugMode = false;
+    Boolean DebugMode = true;
 
     /**
      * 腾讯云通信sig(有效期180天, 生成时间2019年1月21日)
      */
-    String TencentUserSig = "eJxlj01vgkAURff8CsKWpp0PEMfEBVqj2FojGlNXE*K80ak4TnGwYtP-3khNSuLbnpN77-t2XNf1Fq-zx2y9PpTaclsZ8NyO6yHv4R8aowTPLKeFuINwNqoAnkkLRQ1xGIYEoaajBGirpLoZmdgrjRv8KHa8LvkLCBDCEWNB0FTUpoaTwayfjAYrsn1-g10b0c1pWmq56m0ZXZTDiLXMCEfDqEjsvF*dn2PVm7wAyHRMngi0kUg*qH-5TIOvfGqWTFY*HV-8eJnqWZ7H3W6j0qo93D4KrnNYizXoCYqjOuhaIAiHmFB0Pc-5cX4B3o9cKQ__";
+    String TencentUserSig = "eJxlj1FPgzAUhd-5FU2fjWsLHZ3JHhYcMHQK2XSJL6Rbu6VhlAp14Iz-fRGXSOJ9-b6cc*6XAwCA68fVLd-tqg9tc-tpJAR3ACJ48weNUSLnNndr8Q-Kzqha5nxvZd1DTCklCA0dJaS2aq*uBhel0njAG1HkfclvgIcQ9pk7YUNFHXq4nGdB3KnRsUg2LGw3CclsFKWRLbts5oc4PSdVzIvQkjf2sJ0Hi*z*aFaaLVKqX9r0uTyt40CMDw1uRee7-nb0Gi1p6Z-t*-hpNp0OKq0q5fUjj7kEeXQ46CTrRlW6FwjCFBMX-Rx0vp0LTLJc5g__   ";
     String TencentAdminAccount = "admin1";
-    String TencentSdkAppId = "1400179944";
+    String TencentSdkAppId = "1400178398";
+
+
+    String WebUrl = "http://live.yaboabc.com/";
 }

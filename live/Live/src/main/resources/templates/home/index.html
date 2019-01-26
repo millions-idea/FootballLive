@@ -4,9 +4,9 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" th:content="${keywords}" />
     <meta name="description" th:content="${description}" />
     <title th:text="${title}"></title>
@@ -63,18 +63,10 @@
                 <div class="tips">今日赛事</div>
                 <div class="main-anchors">
                     <!--btn disable-->
-                    <div class="prev"><span data-action="prev" class="btn"></span></div>
                     <div class="next"><span data-action="next" class="btn"></span></div>
-                    <div class="anchors">
-                        <span class="text-tips">这里空空如也</span>
-                        <ul data-left="0">
-                            <li th:data-id="${item.getGameId()}" th:each="item:${toDayList}">
-                                <a href="javascript:void(0)">
-                                    <img th:src="${item.getGameIcon()}" th:alt="${item.getGameName()}">
-                                    <span th:text="${item.getGameName()}"></span>
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="prev"><span data-action="prev" class="btn"></span></div>
+                    <div class="am-slider am-slider-default anchors">
+
                     </div>
                 </div>
             </div>
@@ -130,14 +122,16 @@
     </div>
     <!--alert end-->
 
-    <th:block th:replace="home/footer :: footer" />
-
-    <div sytle="display:none">
+    <div style="display: none !important;">
         <script type="text/javascript"src="http://s96.cnzz.com/z_stat.php?id=1275895131&web_id=1275895131"></script>
     </div>
+
+    <th:block th:replace="home/footer :: footer" />
+
 </div>
 <script type="text/javascript" th:src="@{/js/jquery-1.10.0.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/ckplayer/ckplayer.js}" charset="UTF-8"></script>
+<script type="text/javascript" th:src="@{/js/amaze/assets/js/amazeui.js}" charset="UTF-8"></script>
 <script type="text/javascript" th:src="@{/layui/layui.js}"></script>
 <script type="text/javascript" th:src="@{/js/header.js}"></script>
 <script type="text/javascript" th:src="@{/js/base.js?v=20190121}"></script>

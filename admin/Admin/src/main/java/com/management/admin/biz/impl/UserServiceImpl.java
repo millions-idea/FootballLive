@@ -15,6 +15,7 @@ import com.management.admin.entity.dbExt.LiveCollectDetail;
 import com.management.admin.entity.dbExt.RelationAdminUsers;
 import com.management.admin.entity.enums.UserRoleEnum;
 import com.management.admin.entity.resp.NASignIn;
+import com.management.admin.entity.resp.TGroupResp;
 import com.management.admin.entity.resp.UserInfo;
 import com.management.admin.entity.template.Constant;
 import com.management.admin.entity.template.SessionModel;
@@ -24,9 +25,11 @@ import com.management.admin.repository.UserMapper;
 import com.management.admin.repository.utils.ConditionUtil;
 import com.management.admin.utils.*;
 import com.management.admin.utils.http.NeteaseImUtil;
+import com.management.admin.utils.http.TencentLiveUtil;
 import com.management.admin.utils.web.SessionUtil;
 import javax.servlet.http.HttpServletRequest;
 
+import com.utility.tls.TlsUtil;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +41,7 @@ import sun.security.util.Password;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 用户业务接口实现类 DF 2018年11月29日00:49:10
@@ -72,6 +76,49 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> getList() {
         return userMapper.selectAll();
+    }
+
+    @Override
+    @Transactional
+    public void syncTencentData(Integer isConstraint) {
+        List<User> users = new ArrayList<>();
+        if(isConstraint == null || isConstraint <= 0){
+            users = userMapper.selectUserSigNullList();
+        }else{
+            users = userMapper.selectUserSigList();
+        }
+        StringBuffer buffer = new StringBuffer();
+        List<String> accounts = users.stream().map(item -> item.getUserId() + "").collect(Collectors.toList());
+
+        String param = "{\n" +
+                "\"Accounts\":" + JsonUtil.getJsonNotEscape(accounts) + "\n" +
+                "}";
+        String response = TencentLiveUtil.post("im_open_login_svc/multiaccount_import", param);
+        System.out.println(response);
+
+        users.forEach(item ->{
+            try {
+                item.setUserSig(TlsUtil.getUserSig(Constant.TencentSdkAppId, item.getUserId() + ""));
+            } catch (Exception e) {
+                logger.info(item.getPhone() + "生成sig失败");
+            }
+            buffer.append("UPDATE tb_users SET user_sig='"+ item.getUserSig() +"' WHERE phone='" + item.getPhone() + "';");
+
+            String nJson = "{\n" +
+                    "    \"From_Account\":\"" + item.getUserId() + "\",\n" +
+                    "    \"ProfileItem\":\n" +
+                    "    [\n" +
+                    "        {\n" +
+                    "            \"Tag\":\"Tag_Profile_IM_Nick\",\n" +
+                    "            \"Value\":\"" + PhoneUtil.getEncrypt(item.getPhone()) + "\"\n" +
+                    "        }\n" +
+                    "    ]\n" +
+                    "}";
+            String nResponse = TencentLiveUtil.post("profile/portrait_set", nJson);
+            System.err.println(nResponse);
+        });
+
+        userMapper.updateUserSig(buffer.toString());
     }
 
     /**
@@ -116,8 +163,23 @@ public class UserServiceImpl implements IUserService {
                 model = JsonUtil.getModel(response, NASignIn.class);
                 if(!model.getCode().equals(200)) throw new InfoException("同步云端数据失败");
             }else{
-                throw new InfoException("同步云端数据失败");
+                throw new InfoException("同步网易云端数据失败");
             }
+        }
+
+        // 同步腾讯云数据
+        String param = "{\n" +
+                "   \"Identifier\":\"" + user.getUserId() + "\",\n" +
+                "   \"Nick\":\"" + PhoneUtil.getEncrypt(user.getPhone()) + "\",\n" +
+                "   \"FaceUrl\":\"" +  user.getPhoto()  + "\"\n" +
+                "}";
+        response = TencentLiveUtil.post("im_open_login_svc/account_import", param);
+        TGroupResp tGroupResp = JsonUtil.getModel(response, TGroupResp.class);
+        if(!tGroupResp.getErrorCode().equals(0)) throw new InfoException("同步腾讯云端数据失败");
+        try {
+            user.setUserSig(TlsUtil.getUserSig(Constant.TencentSdkAppId, user.getUserId() + ""));
+        } catch (Exception e) {
+            throw new InfoException("生成sig失败");
         }
 
         Example example = new Example(User.class);
@@ -128,6 +190,7 @@ public class UserServiceImpl implements IUserService {
 
         userInfo.setCloudAccid(model.getInfo().getAccId());
         userInfo.setCloudToken(model.getInfo().getToken());
+        userInfo.setUserSig(user.getUserSig());
 
         result =  userMapper.updateByPrimaryKey(userInfo) > 0;
         if(!result) throw new InfoException("补全云端信息失败");

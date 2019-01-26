@@ -169,7 +169,30 @@
             </div>
         </fieldset>
     </div>
+    <!--PC网站设置-->
+    <div style="height: 140px" class="app form-line">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>PC网站设置</legend>
+            <div style="padding: 20px" class="layui-upload">
+                <label class="layui-form-label">网站标题</label>
+                <input type="text" style="width: 20%" id="website-title" lay-verify="title" th:each="banner:${banner}" th:if="${banner.getKey()}=='pc.header.title'" th:value="${banner.getValue()}" autocomplete="off"  class="layui-input">
 
+                <label class="layui-form-label">网站关键词</label>
+                <input type="text" style="width: 20%" id="website-keywords" lay-verify="title" th:each="banner:${banner}" th:if="${banner.getKey()}=='pc.header.keywords'" th:value="${banner.getValue()}" autocomplete="off"  class="layui-input">
+
+                <label class="layui-form-label">网站描述</label>
+                <input type="text" style="width: 20%" id="website-description" lay-verify="title" th:each="banner:${banner}" th:if="${banner.getKey()}=='pc.header.description'" th:value="${banner.getValue()}" autocomplete="off"  class="layui-input">
+
+                <label class="layui-form-label">友情链接</label>
+                <input type="text" style="width: 20%" id="website-links" lay-verify="title" th:each="banner:${banner}" th:if="${banner.getKey()}=='pc.footer.html'" th:value="${banner.getValue()}" autocomplete="off"  class="layui-input">
+
+                <label class="layui-form-label">底部版权</label>
+                <input type="text" style="width: 20%" id="website-copyright" lay-verify="title" th:each="banner:${banner}" th:if="${banner.getKey()}=='pc.footer.about'" th:value="${banner.getValue()}" autocomplete="off"  class="layui-input">
+                <div style="height: 10px"></div>
+                <button type="button" class="layui-btn" id="saveWebsite">保存配置</button>
+            </div>
+        </fieldset>
+    </div>
 
 </th:block>
 <th:block layout:fragment="free_footer">
@@ -187,10 +210,10 @@
                     if (data.code==200){
                         layui.use('layer', function(){
                             var layer = layui.layer;
-                            layer.msg('上传成功', {icon: 6,time: 2000});
+                            layer.msg('操作成功', {icon: 6,time: 2000});
                         });
                     }else {
-                        layer.msg('上传失败', {icon: 5,time: 2000});
+                        layer.msg('操作失败', {icon: 5,time: 2000});
                     }
 
                 }

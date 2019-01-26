@@ -1,7 +1,6 @@
 <th:block xmlns:th="http://www.thymeleaf.org" th:fragment="header(index)">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1002790_pvmwwymdb2r.css">
     <link rel="stylesheet" href="./css/header.css?v=20190119">
-
     <!--header begin-->
     <div class="header-container">
         <div class="navigation">
@@ -20,10 +19,10 @@
                 </div>
             </div>
             <div class="right">
-                <div class="search">
+               <!-- <div class="search">
                     <i class="iconfont icon-search"></i>
                     <input type="text" name="search"  autocomplete="off" placeholder="搜索"/>
-                </div>
+                </div>-->
                 <div class="login-or-download">
                     <ul class="list">
                         <!--<li>
@@ -60,9 +59,13 @@
                                 </div>
                                 <div class="padding-top-10"></div>
                                 <div class="profile-item">
+                                    <input type="hidden" id="nickname" th:value='${(user != null && user.getUserId()!=null) ? user.getPhone() : ""}'>
+
+
                                     <span class="nickname" th:text="${user.getPhone()}"></span>
                                 </div>
                                 <div class="padding-top-10"></div>
+
                                 <div class="gray-line"></div>
                                 <div class="profile-item profile-nav">
                                     <ul>
@@ -78,7 +81,7 @@
                                                 <span>观看历史</span>
                                             </div>
                                         </li>
-                                        <li data-url="/user">
+                                        <li data-url="/user/message">
                                             <div>
                                                 <i class="iconfont icon-email"></i>
                                                 <span>我的消息</span>

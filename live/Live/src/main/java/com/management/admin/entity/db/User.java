@@ -86,4 +86,6 @@ public class User {
      */
     private String blackRemark;
 
+    private String userSig;
+
 }

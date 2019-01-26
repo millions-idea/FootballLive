@@ -83,7 +83,7 @@ $(function () {
         console.log(obj,name);
     }
     function errorHandler() {
-        //console.log('出错')
+        console.log('出错')
         changeText('.playerstate', '状态：视频加载错误，停止执行其它动作，等待其它操作');
     }
 
